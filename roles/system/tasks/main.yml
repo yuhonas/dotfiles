@@ -15,24 +15,30 @@
     #- alfred
     - dropbox
     - evernote
-    - gitx
+    - google-chrome
     - handbrake
-    - iterm2 # need configuration
+    - moom
     - libreoffice
-    - sequel-pro
     - spotify
-    - sublime-text3 # need configuration
     - vlc
 
-- name: developer
+- name: developer packages
   homebrew: name={{ item }} state=present
   with_items:
-    - dash
     - git
     - imagemagick
     - mysql
     - redis
     - sqlite
+
+- name: developer applications
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+    - dash
+    - gitx
+    - iterm2 # need configuration
+    - sequel-pro
+    - sublime-text3 # need configuration
 
 - name: work
   homebrew_cask: name={{ item }} state=present
