@@ -4,7 +4,7 @@
 
 set -e
 
-# SRC_DIRECTORY="$HOME/src"
+SRC_DIRECTORY="$HOME/src"
 ANSIBLE_DIRECTORY="$SRC_DIRECTORY/ansible"
 ANSIBLE_REPO="git@github.com:yuhonas/mac-dev-playbook.git"
 
@@ -36,11 +36,11 @@ if [[ ! -x /usr/local/bin/ansible ]]; then
 fi
 
 # Make the code directory
-# mkdir -p $SRC_DIRECTORY
+mkdir -p $SRC_DIRECTORY
 
 # Clone down ansible
 if [[ ! -d $ANSIBLE_DIRECTORY ]]; then
-    git clone $ANSIBLE_REPO $ANSIBLE_DIRECTORY
+  git clone $ANSIBLE_REPO $ANSIBLE_DIRECTORY
 fi
 
 # # Provision the box
