@@ -1,0 +1,70 @@
+---
+
+# Alternative versions for Casks
+# https://github.com/caskroom/homebrew-versions
+- name: tap caskroom/versions
+  homebrew_tap: tap=caskroom/versions state=present
+
+# brew upgrade caskroom/cask/brew-cask
+# https://github.com/caskroom/homebrew-cask/issues/7716
+
+- name: applications
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+    - 1password
+    #- alfred
+    - dropbox
+    - evernote
+    - gitx
+    - handbrake
+    - iterm2 # need configuration
+    - libreoffice
+    - sequel-pro
+    - spotify
+    - sublime-text3 # need configuration
+    - vlc
+
+- name: developer
+  homebrew: name={{ item }} state=present
+  with_items:
+    - dash
+    - git
+    - imagemagick
+    - mysql
+    - redis
+    - sqlite
+
+- name: work
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+    - slack
+
+- name: quicklook plugins
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+    - betterzipql
+    - qlcolorcode
+    - qlmarkdown
+    - qlstephen
+    - quicklook-json
+    - slack
+
+- name: system packages
+  homebrew: name={{ item }} state=present
+  with_items:
+    - autojump
+    - dos2unix
+    - fdupes
+    - figlet
+    - gnupg
+    - htop-osx
+    - md5deep
+    - nmap
+    - ncdu
+    - readline
+    - rename
+    - tree
+    - unrar
+    - wget
+    - zsh
+
