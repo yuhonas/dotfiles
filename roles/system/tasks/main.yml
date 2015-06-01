@@ -65,8 +65,9 @@
     - gnupg
     - htop-osx
     - md5deep
-    - nmap
     - ncdu
+    - ngrok
+    - nmap
     - readline
     - rename
     - tree

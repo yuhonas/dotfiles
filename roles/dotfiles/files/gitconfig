@@ -1,0 +1,25 @@
+[user]
+	name = Clint Plummer
+	email = clint@yuhonas.com
+[alias]
+	co = checkout
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	excludesfile = ~/.gitignore
+	autocrlf = input
+	quotepath = false
+	editor = vim
+	pager = less -F -X
+[apply]
+	whitespace = nowarn
+[format]
+	pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
+[push]
+	default = simple
+[filter "media"]
+	clean = git media clean %f
+	smudge = git media smudge %f
+	required = true

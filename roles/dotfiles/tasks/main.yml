@@ -1,0 +1,6 @@
+---
+
+- name: symlinking dotfiles
+  file: src="{{ item }}" dest="{{ lookup('env','HOME') }}/.{{ item | basename }}" state=link
+  with_fileglob:
+    - ./*

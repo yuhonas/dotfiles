@@ -1,19 +1,6 @@
 ---
-# the host in which the playbook will be run
 - hosts: localhost
-  # in this example, we using a localhost, so this is needed
   connection: local
-
-  # # the target user Ansible will impersonate when provisioning
-  # user: johndoe
-
-  # # this makes all tasks run with sudo by default
-  # sudo: true
-
-  # additional variables
-  # vars:
-  #   user: johndoe
-
-  # roles are a way to group tasks; they will run in the sequence determined here
   roles:
     - system
+    - dotfiles
