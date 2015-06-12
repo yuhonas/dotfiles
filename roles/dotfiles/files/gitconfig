@@ -18,7 +18,7 @@
 [format]
 	pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
 [push]
-	default = simple
+	default = current
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
