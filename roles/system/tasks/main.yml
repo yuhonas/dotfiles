@@ -71,6 +71,7 @@
     - nmap
     - readline
     - rename
+    - the_silver_searcher
     - tree
     - unrar
     - wget
