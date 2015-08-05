@@ -4,7 +4,7 @@ A playbook to install/configure the large majority of software I use for general
 
 # Installation
 
-bash <(curl -s https://raw.githubusercontent.com/yuhonas/mac-dev-playbook/master/bootstrap.sh)
+`bash <(curl -s https://raw.githubusercontent.com/yuhonas/mac-dev-playbook/master/bootstrap.sh)`
 
 ## Included Applications (Installed via Homebrew Cask)
 
