@@ -45,6 +45,3 @@ fi
 
 # # Provision the box
 ansible-playbook --ask-sudo-pass -i $ANSIBLE_DIRECTORY/inventory $ANSIBLE_DIRECTORY/playbook.yml
-
-# # Link the casks.
-# ~/.bin/link-casks
