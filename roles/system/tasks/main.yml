@@ -1,18 +1,14 @@
 ---
 
-# Alternative versions for Casks
-# https://github.com/caskroom/homebrew-versions
-- name: tap caskroom/versions
-  homebrew_tap: tap=caskroom/versions state=present
-
-# brew upgrade caskroom/cask/brew-cask
-# https://github.com/caskroom/homebrew-cask/issues/7716
+- name: update homebrew
+  homebrew: update_homebrew=yes
 
 - name: applications
   homebrew_cask: name={{ item }} state=present
   with_items:
     - 1password
     #- alfred
+    - dash
     - dropbox
     - evernote
     - google-chrome
@@ -26,8 +22,10 @@
   homebrew: name={{ item }} state=present
   with_items:
     - git
+    - hub
     - imagemagick
     - mysql
+    - node
     - redis
     - sqlite
 
@@ -44,6 +42,7 @@
   homebrew_cask: name={{ item }} state=present
   with_items:
     - slack
+    - lastpass
 
 - name: quicklook plugins
   homebrew_cask: name={{ item }} state=present
@@ -58,8 +57,9 @@
 - name: system packages
   homebrew: name={{ item }} state=present
   with_items:
-    - autojump
+    - ctags
     - dos2unix
+    - fasd
     - fdupes
     - figlet
     - gnupg
@@ -71,6 +71,8 @@
     - nmap
     - readline
     - rename
+    - rbenv
+    - ruby-build
     - the_silver_searcher
     - tree
     - unrar
