@@ -3,10 +3,12 @@
 	email = clint@yuhonas.com
 [alias]
 	co = checkout
+	tree = log --oneline --decorate --graph
 [color]
 	diff = auto
 	status = auto
 	branch = auto
+	ui = true
 [core]
 	excludesfile = ~/.gitignore
 	autocrlf = input
