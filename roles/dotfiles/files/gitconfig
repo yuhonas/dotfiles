@@ -4,6 +4,7 @@
 [alias]
 	co = checkout
 	tree = log --oneline --decorate --graph
+	up = pull --rebase --autostash
 [color]
 	diff = auto
 	status = auto
