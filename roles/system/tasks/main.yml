@@ -1,5 +1,8 @@
 ---
 
+- name: add home bin dir for custom scripts
+  file: path={{ ansible_env.HOME }}/bin state=directory
+
 - name: update homebrew
   homebrew: update_homebrew=yes
 
@@ -37,6 +40,7 @@
     - iterm2 # need configuration
     - sequel-pro
     - sublime-text3 # need configuration
+    - vagrant-manager
 
 - name: work
   homebrew_cask: name={{ item }} state=present
@@ -57,6 +61,7 @@
 - name: system packages
   homebrew: name={{ item }} state=present
   with_items:
+    - aria2
     - ctags
     - dos2unix
     - fasd
@@ -65,6 +70,7 @@
     - gnupg
     - hr
     - htop-osx
+    - jq
     - md5deep
     - ncdu
     - ngrok
