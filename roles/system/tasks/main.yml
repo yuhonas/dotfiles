@@ -80,6 +80,7 @@
     - rbenv
     - ruby-build
     - the_silver_searcher
+    - tig
     - tree
     - unrar
     - wget
