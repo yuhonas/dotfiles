@@ -69,12 +69,15 @@
     - figlet
     - gnupg
     - hr
+    - httpie
     - htop-osx
     - jq
     - md5deep
+    - moreutils
     - ncdu
     - ngrok
     - nmap
+    - pandoc
     - readline
     - rename
     - rbenv
@@ -85,4 +88,9 @@
     - unrar
     - wget
     - zsh
+
+- name: python packages
+  pip: name={{ item }} state=present
+  with_items:
+    - csvkit
 
