@@ -17,6 +17,7 @@
     - google-chrome
     - handbrake
     - moom
+    - phoenix
     - libreoffice
     - spotify
     - vlc
@@ -38,6 +39,7 @@
     - dash
     - gitx
     - iterm2 # need configuration
+    - macdown
     - sequel-pro
     - sublime-text3 # need configuration
     - vagrant-manager
