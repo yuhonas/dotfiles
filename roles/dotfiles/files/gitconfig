@@ -1,6 +1,6 @@
 [user]
-	name = Clint Plummer
-	email = clint@yuhonas.com
+	name =
+	email =
 [alias]
 	co = checkout
 	tree = log --oneline --decorate --graph
@@ -19,10 +19,18 @@
 [apply]
 	whitespace = nowarn
 [format]
-	pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
+	#pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
 [push]
 	default = current
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
 	required = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = ~/.stCommitMsg

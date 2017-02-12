@@ -9,27 +9,41 @@
 - name: applications
   homebrew_cask: name={{ item }} state=present
   with_items:
-    - 1password
     #- alfred
+    - 1password
     - dash
     - dropbox
     - evernote
+    - flux
     - google-chrome
     - handbrake
+    - libreoffice
     - moom
     - phoenix
-    - libreoffice
+    - skype
     - spotify
+    - torbrowser
     - vlc
+    - uninstallpkg
 
 - name: developer packages
   homebrew: name={{ item }} state=present
   with_items:
+    - awscli
+    - cowsay
+    - fortune
     - git
+    - git-extras
+    - gitsh
+    - graphviz
+    - heroku-toolbelt
     - hub
     - imagemagick
+    - leiningen
+    - maven
     - mysql
     - node
+    - pgcli
     - redis
     - sqlite
 
@@ -37,11 +51,13 @@
   homebrew_cask: name={{ item }} state=present
   with_items:
     - dash
-    - gitx
-    - iterm2 # need configuration
+    - gitkraken
+    #- iterm2 # need configuration
     - macdown
+    - postico
     - sequel-pro
-    - sublime-text3 # need configuration
+    - sourcetree
+    - sublime-text # need configuration
     - vagrant-manager
 
 - name: work
@@ -63,6 +79,7 @@
 - name: system packages
   homebrew: name={{ item }} state=present
   with_items:
+    #- moreutils
     - aria2
     - ctags
     - dos2unix
@@ -71,22 +88,24 @@
     - figlet
     - gnupg
     - hr
-    - httpie
     - htop-osx
+    - httpie
     - jq
     - md5deep
-    - moreutils
     - ncdu
     - ngrok
     - nmap
     - pandoc
+    - progress
+    - pv
+    - rbenv
     - readline
     - rename
-    - rbenv
     - ruby-build
     - the_silver_searcher
     - tig
     - tree
+    - tmux
     - unrar
     - wget
     - zsh
