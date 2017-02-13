@@ -1,6 +1,26 @@
 ---
+- name: downloading prezto repo
+  git: repo=https://github.com/sorin-ionescu/prezto.git dest={{ ansible_env.HOME }}/.zprezto recursive=yes
+
+- name: symlinking prezto configuration
+  file: src="{{ ansible_env.HOME }}/.zprezto/runcoms/{{ item }}" dest="{{ ansible_env.HOME }}/.{{ item | basename }}" state=link
+  with_items:
+  - zlogin
+  - zlogout
+  - zpreztorc
+  - zprofile
+  - zshenv
+  - zshrc
+
+- name: setting prezto as the default shell
+  command: chsh -s /bin/zsh
+  when: ansible_env.SHELL.find('zsh') == -1
 
 - name: symlinking dotfiles
   file: src="{{ item }}" dest="{{ lookup('env','HOME') }}/.{{ item | basename }}" state=link
   with_fileglob:
     - ./*
+
+- name: install pure shell prompt
+  npm: name=pure-prompt global=yes
+
