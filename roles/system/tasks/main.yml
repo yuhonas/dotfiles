@@ -52,12 +52,12 @@
   with_items:
     - dash
     - gitkraken
-    #- iterm2 # need configuration
+    - iterm2
     - macdown
     - postico
     - sequel-pro
     - sourcetree
-    - sublime-text # need configuration
+    - sublime-text
     - vagrant-manager
 
 - name: work
@@ -115,3 +115,16 @@
   with_items:
     - csvkit
 
+- name: symlink alfred configuration
+  file:
+    src: "{{ role_path }}/files/alfred/prefs.plist"
+    dest: "{{ ansible_env.HOME }}/Library/Application Support/Alfred 3/Alfred.alfredpreferences/preferences/features/websearch/prefs.plist"
+    state: link
+    force: yes
+
+- name: symlink sublime configuration
+  file:
+    src: "{{ role_path }}/files/sublime/Preferences.sublime-settings"
+    dest: "{{ ansible_env.HOME }}/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+    state: link
+    force: yes
