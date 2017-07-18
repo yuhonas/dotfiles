@@ -9,7 +9,7 @@
 - name: applications
   homebrew_cask: name={{ item }} state=present
   with_items:
-    #- alfred
+    - alfred
     - 1password
     - dash
     - dropbox
@@ -23,8 +23,9 @@
     - skype
     - spotify
     - torbrowser
-    - vlc
+    #- vlc
     - uninstallpkg
+    - visual-studio-code
 
 - name: developer packages
   homebrew: name={{ item }} state=present
@@ -34,13 +35,13 @@
     - fortune
     - git
     - git-extras
-    - gitsh
+    #- gitsh
     - graphviz
     - heroku-toolbelt
     - hub
     - imagemagick
     - leiningen
-    - maven
+    #- maven
     - mysql
     - node
     - pgcli
@@ -93,11 +94,12 @@
     - jq
     - md5deep
     - ncdu
-    - ngrok
+    #- ngrok
     - nmap
     - pandoc
     - progress
     - pv
+    - qt
     - rbenv
     - readline
     - rename
@@ -110,10 +112,19 @@
     - wget
     - zsh
 
+# see https://superuser.com/questions/256232/how-can-i-get-qmake-on-mac-os-x
+- name: link qt
+  homebrew: name=qt state=linked
+
 - name: python packages
   pip: name={{ item }} state=present
   with_items:
     - csvkit
+
+- name: create alfred configuration directory
+  file:
+    path: "{{ ansible_env.HOME }}/Library/Application Support/Alfred 3/Alfred.alfredpreferences/preferences/features/websearch"
+    state: directory
 
 - name: symlink alfred configuration
   file:

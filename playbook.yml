@@ -4,3 +4,4 @@
   roles:
     - system
     - dotfiles
+    - osx-defaults
