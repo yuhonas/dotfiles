@@ -34,19 +34,15 @@
     - fortune
     - git
     - git-extras
-    #- gitsh
     - graphviz
     - heroku-toolbelt
     - hub
     - imagemagick
-    - leiningen
-    #- maven
     - mysql
     - node
     - pgcli
     - redis
     - sqlite
-    - visual-studio-code
 
 - name: developer applications
   homebrew_cask: name={{ item }} state=present
@@ -54,13 +50,14 @@
     - dash
     - gitkraken
     - iterm2
-    - liceap
+    - licecap
     - macdown
     - postico
     - sequel-pro
     - sourcetree
     - sublime-text
     - vagrant-manager
+    - visual-studio-code
 
 - name: work
   homebrew_cask: name={{ item }} state=present
@@ -134,7 +131,23 @@
     state: link
     force: yes
 
+# See https://stackoverflow.com/questions/19529999/add-package-control-in-sublime-text-3-through-the-command-line
+- name: install sublime package control
+  tags: editor
+  get_url:
+    url: https://packagecontrol.io/Package%20Control.sublime-package
+    dest: "{{ ansible_env.HOME }}/Library/Application Support/Sublime Text 3/Installed Packages/Package Control.sublime-package"
+
+- name: symlink package control settings
+  tags: editor
+  file:
+    src: "{{ role_path }}/files/sublime/Package Control.sublime-settings"
+    dest: "{{ ansible_env.HOME }}/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings"
+    state: link
+    force: yes
+
 - name: symlink sublime configuration
+  tags: editor
   file:
     src: "{{ role_path }}/files/sublime/Preferences.sublime-settings"
     dest: "{{ ansible_env.HOME }}/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"

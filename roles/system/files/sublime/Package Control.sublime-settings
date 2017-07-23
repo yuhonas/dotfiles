@@ -1,0 +1,17 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Better CoffeeScript",
+		"BracketHighlighter",
+		"GitGutter",
+		"Markdown Extended",
+		"Package Control",
+		"Theme - Dark Eight",
+		"Theme - Soda SolarizedDark",
+		"Theme - Spacegray"
+	]
+}
