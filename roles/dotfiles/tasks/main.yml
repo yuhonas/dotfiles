@@ -7,10 +7,23 @@
   with_items:
   - zlogin
   - zlogout
-  - zpreztorc
   - zprofile
   - zshenv
-  - zshrc
+
+- name: copy default zshrc
+  copy:
+    src: "{{ ansible_env.HOME }}/.zprezto/runcoms/zshrc"
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+
+- name: customize zshrc
+  blockinfile:
+    block: "{{ lookup('file', './prezto/zshrc') }}"
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+
+- name: copy customised zprestorc
+  copy:
+    src: "./prezto/zprestorc"
+    dest: "{{ ansible_env.HOME }}/.zpreztorc"
 
 - name: setting prezto as the default shell
   command: chsh -s /bin/zsh
@@ -20,7 +33,3 @@
   file: src="{{ item }}" dest="{{ lookup('env','HOME') }}/.{{ item | basename }}" state=link
   with_fileglob:
     - ./*
-
-- name: install pure shell prompt
-  npm: name=pure-prompt global=yes
-
