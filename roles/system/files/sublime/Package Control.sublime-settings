@@ -7,9 +7,11 @@
 	[
 		"Better CoffeeScript",
 		"BracketHighlighter",
+		"Git",
 		"GitGutter",
 		"Markdown Extended",
 		"Package Control",
+		"Ruby Slim",
 		"Theme - Dark Eight",
 		"Theme - Soda SolarizedDark",
 		"Theme - Spacegray"
