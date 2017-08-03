@@ -12,7 +12,7 @@
 		"log",
 		"coverage"
 	],
-	"font_size": 14.0,
+	"font_size": 15.0,
 	"git_gutter_live_mode": false,
 	"hot_exit": false,
 	"ignored_packages":
