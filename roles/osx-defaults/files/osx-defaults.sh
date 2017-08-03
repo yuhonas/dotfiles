@@ -4,9 +4,17 @@
 # ----------------
 # https://github.com/donnemartin/dev-setup/blob/master/osx.sh
 # https://github.com/herrbischoff/awesome-osx-command-line/blob/master/README.md
+# https://github.com/arrelid/preferences/blob/master/defaults.sh
 
-# All controls
+# Enable full keyboard access for all controls
+# (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# Set keyboard repeat rate to "damn fast".
+defaults write NSGlobalDomain KeyRepeat -int 2
+
+# Disable the warning when changing a file extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Show Full Path in Finder Title
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
@@ -14,6 +22,15 @@ defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 # Set current Folder as Default Search Scope
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
+# New Finder windows points to home
+defaults write com.apple.finder NewWindowTarget -string "PfHm"
+
+# Use list view in all Finder windows by default
+# Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+# Keep folders on top when sorting by name
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -49,5 +66,20 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # defaults write com.apple.dock wvous-bl-modifier -int 0
 
 # Always show scrollbars
-defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
+defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+
+# Use a dark menu bar / dock
+defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+
+# Disable sounds effects for user interface changes
+defaults write NSGlobalDomain com.apple.sound.uiaudio.enabled -int 0
+
+# Set alert volume to 0
+defaults write NSGlobalDomain com.apple.sound.beep.volume -float 0.0
+
+# Disable natural scrolling
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+# Don't want Photos.app to open up as soon as you plug something in?
+defaults write com.apple.ImageCapture disableHotPlug -bool YES
