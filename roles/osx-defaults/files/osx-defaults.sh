@@ -83,3 +83,7 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 # Don't want Photos.app to open up as soon as you plug something in?
 defaults write com.apple.ImageCapture disableHotPlug -bool YES
+
+defaults delete org.videolan.vlc.LSSharedFileList RecentDocuments
+defaults write org.videolan.vlc NSRecentDocumentsLimit 0
+defaults write org.videolan.vlc.LSSharedFileList RecentDocuments -dict-add MaxAmount 0
