@@ -1,6 +1,6 @@
 [user]
-	name =
-	email =
+	name = Clint Plummer
+	email = clint@yuhonas.com
 [alias]
 	co = checkout
 	tree = log --oneline --decorate --graph
@@ -11,7 +11,7 @@
 	branch = auto
 	ui = true
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/clinto/.gitignore
 	autocrlf = input
 	quotepath = false
 	editor = vim
