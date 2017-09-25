@@ -9,10 +9,12 @@
 		"BracketHighlighter",
 		"Git",
 		"GitGutter",
+		"JSON Reindent",
 		"JSONLint",
 		"Markdown Extended",
 		"Package Control",
 		"Ruby Slim",
+		"Terraform",
 		"Theme - Dark Eight",
 		"Theme - Soda SolarizedDark",
 		"Theme - Spacegray"

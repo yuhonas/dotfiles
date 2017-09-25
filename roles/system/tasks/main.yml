@@ -90,6 +90,7 @@
     - htop-osx
     - httpie
     - jq
+    - lnav
     - md5deep
     - ncdu
     #- ngrok
