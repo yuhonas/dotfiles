@@ -93,7 +93,6 @@
     - lnav
     - md5deep
     - ncdu
-    #- ngrok
     - nmap
     - pandoc
     - progress
@@ -106,6 +105,7 @@
     - the_silver_searcher
     - tig
     - tree
+    - tldr
     - tmux
     - unrar
     - wget
