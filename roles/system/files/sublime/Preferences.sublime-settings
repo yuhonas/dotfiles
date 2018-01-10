@@ -10,7 +10,8 @@
 		".sass-cache",
 		"tmp",
 		"log",
-		"coverage"
+		"coverage",
+		"bower_components"
 	],
 	"font_size": 15.0,
 	"git_gutter_live_mode": false,

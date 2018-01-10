@@ -72,6 +72,9 @@ defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 # Use a dark menu bar / dock
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
+# Autohide the dock - http://www.idownloadblog.com/2015/02/14/auto-hide-dock-no-delay-mac/
+defaults write com.apple.dock autohide -bool true
+
 # Disable sounds effects for user interface changes
 defaults write NSGlobalDomain com.apple.sound.uiaudio.enabled -int 0
 

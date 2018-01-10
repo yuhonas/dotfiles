@@ -15,6 +15,7 @@ alias zz='fasd_cd -d -i' # cd with interactive selection
 # git aliases
 
 alias gst='git status'
+alias gj='git jira'
 
 # use sublime as the default editor
 

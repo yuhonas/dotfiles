@@ -5,6 +5,7 @@
 	co = checkout
 	tree = log --oneline --decorate --graph
 	up = pull --rebase --autostash
+	cleanup = "!git branch --merged master | grep -v '^*\\|master' | xargs -n 1 git branch -D"
 [color]
 	diff = auto
 	status = auto
@@ -14,8 +15,6 @@
 	excludesfile = /Users/clinto/.gitignore
 	autocrlf = input
 	quotepath = false
-	editor = vim
-	pager = less -F -X
 [apply]
 	whitespace = nowarn
 [format]
@@ -28,7 +27,7 @@
 	required = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
