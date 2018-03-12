@@ -45,4 +45,4 @@ if [[ ! -d $ANSIBLE_DIRECTORY ]]; then
 fi
 
 # # Provision the box
-ansible-playbook --ask-sudo-pass -i $ANSIBLE_DIRECTORY/inventory $ANSIBLE_DIRECTORY/playbook.yml
+ansible-playbook --become-method=sudo -i $ANSIBLE_DIRECTORY/inventory $ANSIBLE_DIRECTORY/playbook.yml
