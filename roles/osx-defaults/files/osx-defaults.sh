@@ -6,6 +6,11 @@
 # https://github.com/herrbischoff/awesome-osx-command-line/blob/master/README.md
 # https://github.com/arrelid/preferences/blob/master/defaults.sh
 
+
+# Enable repeating keys
+# https://www.howtogeek.com/267463/how-to-enable-key-repeating-in-macos/
+defaults write -g ApplePressAndHoldEnabled -bool false
+
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3

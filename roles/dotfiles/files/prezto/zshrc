@@ -26,7 +26,7 @@ export VISUAL='subl -w'
 
 autoload -Uz promptinit
 promptinit
-prompt cloud
+prompt pure
 
 # heroku aliases
 
@@ -36,6 +36,21 @@ alias hc="heroku run console"
 alias hr="heroku run"
 alias hp="heroku ps"
 alias hnr="heroku addons:open newrelic"
+
+# ls aliases
+
+eval $(gdircolors ~/.dircolors/dircolors.256dark)
+
+alias ls='\gls --color=auto' # use coretuils gnu ls which supports 256 colors
+alias ll='ls -al'
+
+# lesspipe
+
+export LESSOPEN="|/usr/local/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
+
+# get the weather
+
+alias weather="curl wttr.in/Melbourne"
 
 # iTerm 2 Integration see https://www.iterm2.com/documentation-shell-integration.html
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

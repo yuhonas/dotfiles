@@ -29,8 +29,10 @@
   homebrew: name={{ item }} state=present
   with_items:
     - awscli
+    - cookiecutter
     - cowsay
     - dash
+    - elixir
     - fortune
     - git
     - git-extras
@@ -80,6 +82,7 @@
   with_items:
     #- moreutils
     - aria2
+    - coreutils
     - ctags
     - dos2unix
     - fasd
@@ -90,11 +93,13 @@
     - htop-osx
     - httpie
     - jq
+    - lesspipe
     - lnav
     - md5deep
     - ncdu
     - nmap
     - pandoc
+    - poppler # for lesspipe
     - progress
     - pv
     - qt
@@ -119,6 +124,7 @@
   pip: name={{ item }} state=present
   with_items:
     - csvkit
+    - haxor-news
 
 - name: create alfred configuration directory
   file:

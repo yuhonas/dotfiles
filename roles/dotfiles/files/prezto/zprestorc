@@ -38,6 +38,8 @@ zstyle ':prezto:load' pmodule \
   'tmux' \
   'osx' \
   'fasd' \
+  'syntax-highlighting' \
+  'history-substring-search' \
   'autosuggestions'
 
 #

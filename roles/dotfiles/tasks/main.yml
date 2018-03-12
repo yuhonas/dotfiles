@@ -2,6 +2,9 @@
 - name: downloading prezto repo
   git: repo=https://github.com/sorin-ionescu/prezto.git dest={{ ansible_env.HOME }}/.zprezto recursive=yes
 
+- name: downloading dircolors theme
+  git: repo=https://github.com/gibbling/dircolors.git dest={{ ansible_env.HOME }}/.dircolors recursive=yes
+
 - name: symlinking prezto configuration
   file: src="{{ ansible_env.HOME }}/.zprezto/runcoms/{{ item }}" dest="{{ ansible_env.HOME }}/.{{ item | basename }}" state=link
   with_items:
