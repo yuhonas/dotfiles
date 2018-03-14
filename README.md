@@ -6,9 +6,9 @@ My dotfiles, enjoy
 
 ![Screenshot](https://user-images.githubusercontent.com/4928/37396335-b605aaf2-27cc-11e8-9531-e0d24106c585.png)
 
-## And what did you use?
+## What's in the box
 
-prezto (zsh) wth pure prompt and configured with the following prezto modules
+prezto (zsh) wth pure prompt configured with the following prezto modules
 
 * autosuggestions
 * completion
