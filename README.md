@@ -1,5 +1,7 @@
 # Yuhonas dotfiles 
 
+My dotfiles, enjoy
+
 ## Sure but what does it look like?
 
 ![Screenshot](https://user-images.githubusercontent.com/4928/37396335-b605aaf2-27cc-11e8-9531-e0d24106c585.png)
@@ -26,7 +28,7 @@ prezto (zsh) wth pure prompt and configured with the following prezto modules
 * tmux
 * utility
 
-With a sprinkling of 256 color's using dircolors & gnu's `ls` from [coreutils](https://www.gnu.org/software/coreutils/coreutils.html)
+With a sprinkling of 256 color's using dircolors & gnu's `ls` from [coreutils](https://www.gnu.org/software/coreutils/coreutils.html) all rendered using [hyper](https://hyper.is/)
 
 ## A sane set of Mac defaults 
 
