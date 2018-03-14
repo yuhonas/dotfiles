@@ -30,8 +30,6 @@ prezto (zsh) wth pure prompt configured with the following prezto modules
 
 With a sprinkling of 256 color's using dircolors & gnu's `ls` from [coreutils](https://www.gnu.org/software/coreutils/coreutils.html) all rendered using [hyper](https://hyper.is/)
 
-## Features
-
 ### A sane set of Mac defaults 
 
 * Autohide the dock
@@ -112,7 +110,7 @@ With a sprinkling of 256 color's using dircolors & gnu's `ls` from [coreutils](h
 * wget
 * zsh
 
-## A better Mac quicklook 
+### A better Mac quicklook 
 
 The following quicklook plugins
 
