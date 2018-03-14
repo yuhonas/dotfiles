@@ -30,7 +30,9 @@ prezto (zsh) wth pure prompt and configured with the following prezto modules
 
 With a sprinkling of 256 color's using dircolors & gnu's `ls` from [coreutils](https://www.gnu.org/software/coreutils/coreutils.html) all rendered using [hyper](https://hyper.is/)
 
-## A sane set of Mac defaults 
+## Features
+
+### A sane set of Mac defaults 
 
 * Autohide the dock
 * Avoid creating .DS_Store files on network volumes
@@ -55,7 +57,7 @@ With a sprinkling of 256 color's using dircolors & gnu's `ls` from [coreutils](h
 * Use a dark menu bar / dock
 * Use list view in all Finder windows by default
 
-## Bootstrapped with your favourite applications
+### Bootstrapped with your favourite applications
 
 * alfred
 * 1password
@@ -72,7 +74,7 @@ With a sprinkling of 256 color's using dircolors & gnu's `ls` from [coreutils](h
 * torbrowser
 * uninstallpkg
 
-## A handy set of system packages
+### A handy set of system packages
 
 * aria2
 * coreutils
@@ -120,6 +122,17 @@ The following quicklook plugins
 * qlstephen
 * quicklook-json
 
-## How do I get it?
+## Installation
 
-`bash <(curl -s https://raw.githubusercontent.com/yuhonas/mac-dev-playbook/master/bootstrap.sh)`
+### Prerequisites
+
+1. Xcode Command Line Tools
+1. Homebrew
+1. Git
+1. Ansible
+
+Use the bootstrap script to install any depedencies and run the playbook
+
+```
+$ bash <(curl -s https://raw.githubusercontent.com/yuhonas/mac-dev-playbook/master/bootstrap.sh)
+````
