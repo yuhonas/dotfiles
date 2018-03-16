@@ -1,9 +1,5 @@
 # Yuhonas dotfiles 
 
-My dotfiles, enjoy
-
-## Sure but what does it look like?
-
 ![Screenshot](https://user-images.githubusercontent.com/4928/37396335-b605aaf2-27cc-11e8-9531-e0d24106c585.png)
 
 ## What's in the box
