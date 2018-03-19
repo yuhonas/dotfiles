@@ -1,6 +1,6 @@
 # Yuhonas dotfiles 
 
-![Screenshot](https://user-images.githubusercontent.com/4928/37396335-b605aaf2-27cc-11e8-9531-e0d24106c585.png)
+![Screenshot](https://user-images.githubusercontent.com/4928/37574751-3f798cb0-2b77-11e8-8cf7-73b0a959e374.png)
 
 ## What's in the box
 
