@@ -12,6 +12,7 @@
     - alfred
     - 1password
     - dropbox
+    - drop-to-gif
     - evernote
     - flux
     - google-chrome
@@ -32,6 +33,7 @@
     - cookiecutter
     - cowsay
     - dash
+    - drop-to-gif
     - elixir
     - fortune
     - git
@@ -88,6 +90,7 @@
     - fasd
     - fdupes
     - figlet
+    - fpp
     - gnupg
     - hr
     - htop-osx

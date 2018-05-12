@@ -9,6 +9,7 @@
 		"BracketHighlighter",
 		"Cucumber",
 		"DashDoc",
+		"Elixir",
 		"Git",
 		"GitGutter",
 		"Increment Selection",
@@ -23,6 +24,8 @@
 		"Terraform",
 		"Theme - Dark Eight",
 		"Theme - Soda SolarizedDark",
-		"Theme - Spacegray"
+		"Theme - Spacegray",
+		"Twig",
+		"Vuejs Complete Package"
 	]
 }
