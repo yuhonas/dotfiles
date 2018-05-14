@@ -61,10 +61,9 @@ With a sprinkling of 256 color's using dircolors & gnu's `ls` from [coreutils](h
 * google-chrome
 * handbrake
 * libreoffice
-* moom
-* phoenix
 * skype
 * spotify
+* spectacle
 * torbrowser
 * uninstallpkg
 

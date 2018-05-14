@@ -86,6 +86,10 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.dock wvous-tr-corner -int 5
 defaults write com.apple.dock wvous-tr-modifier -int 0
 
+# Bottom right screen corner → Put display to sleep
+defaults write com.apple.dock wvous-br-corner -int 10
+defaults write com.apple.dock wvous-br-modifier -int 0
+
 # Always show scrollbars
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
@@ -127,3 +131,13 @@ defaults write com.apple.ActivityMonitor ShowCategory -int 0
 
 # Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# Disable guest account logins
+# https://gist.github.com/justinpawela/8a924f36f86bac2b563bf6832eefff25
+
+# dscl . -delete /Users/Guest
+# security delete-generic-password -a Guest -s com.apple.loginwindow.guest-account -D "application password" /Library/Keychains/System.keychain
+
+# defaults write com.apple.loginwindow GuestEnabled -bool FALSE
+# defaults write SystemConfiguration/com.apple.smb.server AllowGuestAccess -bool false
+# defaults write com.apple.AppleFileServer guestAccess -bool false

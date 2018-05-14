@@ -1,10 +1,12 @@
 - name: setup osx defaults
-  shell: "{{ role_path }}/files/osx-defaults.sh"
+  command: "{{ role_path }}/files/osx-defaults.sh"
   changed_when: false
 
 # https://www.jamf.com/jamf-nation/discussions/10576/menu-bar-customization
 
 - name: add volume status to menu
-  shell: open "/System/Library/CoreServices/Menu Extras/Volume.menu"
+  command: open "/System/Library/CoreServices/Menu Extras/Volume.menu"
 
-  
+- name: display turns off after 45 minutes on a/c power
+  command: pmset -c displaysleep 45
+  become: yes
