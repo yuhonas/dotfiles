@@ -1,3 +1,10 @@
 - name: setup osx defaults
   shell: "{{ role_path }}/files/osx-defaults.sh"
   changed_when: false
+
+# https://www.jamf.com/jamf-nation/discussions/10576/menu-bar-customization
+
+- name: add volume status to menu
+  shell: open "/System/Library/CoreServices/Menu Extras/Volume.menu"
+
+  

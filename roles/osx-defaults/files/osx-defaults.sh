@@ -5,7 +5,11 @@
 # https://github.com/donnemartin/dev-setup/blob/master/osx.sh
 # https://github.com/herrbischoff/awesome-osx-command-line/blob/master/README.md
 # https://github.com/arrelid/preferences/blob/master/defaults.sh
+# https://github.com/kevinSuttle/macOS-Defaults
 
+
+# Disable the sound effects on boot
+sudo nvram SystemAudioVolume=" "
 
 # Enable repeating keys
 # https://www.howtogeek.com/267463/how-to-enable-key-repeating-in-macos/
@@ -20,6 +24,12 @@ defaults write NSGlobalDomain KeyRepeat -int 2
 
 # Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# Finder: show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# Finder: show path bar
+defaults write com.apple.finder ShowPathbar -bool true
 
 # Show Full Path in Finder Title
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
@@ -41,11 +51,17 @@ defaults write com.apple.finder _FXSortFoldersFirst -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
+# Save to disk (not to iCloud) by default
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
 
 # Change screenshot location
 defaults write com.apple.screencapture location ~/Downloads
+
+# Finder: show hidden files by default
+#defaults write com.apple.finder AppleShowAllFiles -bool true
 
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -66,9 +82,9 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # 11: Launchpad
 # 12: Notification Center
 
-# Bottom left screen corner → Start screen saver
-# defaults write com.apple.dock wvous-bl-corner -int 5
-# defaults write com.apple.dock wvous-bl-modifier -int 0
+# Top right screen corner → Start screen saver
+defaults write com.apple.dock wvous-tr-corner -int 5
+defaults write com.apple.dock wvous-tr-modifier -int 0
 
 # Always show scrollbars
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
@@ -78,7 +94,7 @@ defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
 # Autohide the dock - http://www.idownloadblog.com/2015/02/14/auto-hide-dock-no-delay-mac/
-defaults write com.apple.dock autohide -bool true
+# defaults write com.apple.dock autohide -bool true
 
 # Disable sounds effects for user interface changes
 defaults write NSGlobalDomain com.apple.sound.uiaudio.enabled -int 0
@@ -95,3 +111,19 @@ defaults write com.apple.ImageCapture disableHotPlug -bool YES
 defaults delete org.videolan.vlc.LSSharedFileList RecentDocuments
 defaults write org.videolan.vlc NSRecentDocumentsLimit 0
 defaults write org.videolan.vlc.LSSharedFileList RecentDocuments -dict-add MaxAmount 0
+
+# Show battery percentage remaining in menu bar
+defaults write com.apple.menuextra.battery ShowPercent YES
+
+# Disable Notification Center and remove the menu bar icon
+# launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
+
+# Enable the debug menu in Disk Utility
+defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
+defaults write com.apple.DiskUtility advanced-image-options -bool true
+
+# Show all processes in Activity Monitor
+defaults write com.apple.ActivityMonitor ShowCategory -int 0
+
+# Disable the warning when changing a file extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false

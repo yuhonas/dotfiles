@@ -1,0 +1,14 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "workbench.colorTheme": "Monokai Dimmed",
+    "window.zoomLevel": 0,
+    "editor.fontSize": 14,
+    "editor.minimap.enabled": false,
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "sublimeTextKeymap.promptV3Features": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.snippetSuggestions": "top",
+    "editor.formatOnPaste": true,
+    "files.trimTrailingWhitespace": true
+  }

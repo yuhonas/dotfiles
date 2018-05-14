@@ -5,34 +5,14 @@
 - name: downloading dircolors theme
   git: repo=https://github.com/gibbling/dircolors.git dest={{ ansible_env.HOME }}/.dircolors recursive=yes
 
-- name: symlinking prezto configuration
-  file: src="{{ ansible_env.HOME }}/.zprezto/runcoms/{{ item }}" dest="{{ ansible_env.HOME }}/.{{ item | basename }}" state=link
-  with_items:
-  - zlogin
-  - zlogout
-  - zprofile
-  - zshenv
-
-- name: copy default zshrc
-  copy:
-    src: "{{ ansible_env.HOME }}/.zprezto/runcoms/zshrc"
-    dest: "{{ ansible_env.HOME }}/.zshrc"
-
-- name: customize zshrc
-  blockinfile:
-    block: "{{ lookup('file', './prezto/zshrc') }}"
-    dest: "{{ ansible_env.HOME }}/.zshrc"
-
-- name: copy customised zprestorc
-  copy:
-    src: "./prezto/zprestorc"
-    dest: "{{ ansible_env.HOME }}/.zpreztorc"
-
-- name: setting prezto as the default shell
-  command: chsh -s /bin/zsh
-  when: ansible_env.SHELL.find('zsh') == -1
+- name: restore configuration via mackup
+  command: mackup restore --force
 
 - name: symlinking dotfiles
   file: src="{{ item }}" dest="{{ lookup('env','HOME') }}/.{{ item | basename }}" state=link
   with_fileglob:
     - ./*
+
+- name: setting prezto as the default shell
+  command: chsh -s /bin/zsh
+  when: ansible_env.SHELL.find('zsh') == -1

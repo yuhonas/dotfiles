@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SKDataSourceDate</key>
+	<date>2017-08-02T13:38:41Z</date>
+	<key>SKStocks</key>
+	<array>
+		<dict>
+			<key>company</key>
+			<string>Amazon.com Inc.</string>
+			<key>currencyCode</key>
+			<string>USD</string>
+			<key>name</key>
+			<string>AMZN</string>
+			<key>sourceDate</key>
+			<date>2017-08-02T13:38:41Z</date>
+			<key>ticker</key>
+			<string>AMZN</string>
+			<key>value</key>
+			<string>996.19</string>
+		</dict>
+		<dict>
+			<key>company</key>
+			<string>Apple Inc.</string>
+			<key>currencyCode</key>
+			<string>USD</string>
+			<key>name</key>
+			<string>AAPL</string>
+			<key>sourceDate</key>
+			<date>2017-08-02T13:38:41Z</date>
+			<key>ticker</key>
+			<string>AAPL</string>
+			<key>value</key>
+			<string>150.05</string>
+		</dict>
+		<dict>
+			<key>company</key>
+			<string>Google Inc.</string>
+			<key>currencyCode</key>
+			<string>USD</string>
+			<key>name</key>
+			<string>GOOG</string>
+			<key>sourceDate</key>
+			<date>2017-08-02T13:38:41Z</date>
+			<key>ticker</key>
+			<string>GOOG</string>
+			<key>value</key>
+			<string>930.83</string>
+		</dict>
+		<dict>
+			<key>company</key>
+			<string>NASDAQ Composite</string>
+			<key>name</key>
+			<string>IXIC</string>
+			<key>sourceDate</key>
+			<date>2017-08-02T13:38:41Z</date>
+			<key>ticker</key>
+			<string>^IXIC</string>
+			<key>value</key>
+			<string>6391.301</string>
+		</dict>
+	</array>
+	<key>SKVersionInfo</key>
+	<dict>
+		<key>CreatorBuild</key>
+		<string>5783</string>
+		<key>CreatorID</key>
+		<string>com.acqualia.soulver</string>
+		<key>CreatorVersion</key>
+		<string>2.6.3</string>
+	</dict>
+</dict>
+</plist>

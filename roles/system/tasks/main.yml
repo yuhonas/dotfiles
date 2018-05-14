@@ -14,16 +14,19 @@
     - dropbox
     - drop-to-gif
     - evernote
+    - firefox
     - flux
     - google-chrome
     - handbrake
+    - keybase
     - libreoffice
-    - moom
     - phoenix
     - skype
+    - slack
+    - spectacle
     - spotify
     - torbrowser
-    #- vlc
+    - vlc
     - uninstallpkg
 
 - name: developer packages
@@ -33,7 +36,6 @@
     - cookiecutter
     - cowsay
     - dash
-    - drop-to-gif
     - elixir
     - fortune
     - git
@@ -54,7 +56,6 @@
     - dash
     - gitkraken
     - iterm2
-    - licecap
     - macdown
     - postico
     - sequel-pro
@@ -62,12 +63,6 @@
     - sublime-text
     - vagrant-manager
     - visual-studio-code
-
-- name: work
-  homebrew_cask: name={{ item }} state=present
-  with_items:
-    - slack
-    - lastpass
 
 - name: quicklook plugins
   homebrew_cask: name={{ item }} state=present
@@ -98,6 +93,7 @@
     - jq
     - lesspipe
     - lnav
+    - mackup
     - md5deep
     - ncdu
     - nmap
@@ -141,25 +137,12 @@
     state: link
     force: yes
 
+- name: create sublime text 3 configuration directory
+  file: path="{{ ansible_env.HOME }}/Library/Application Support/Sublime Text 3/Installed Packages" state=directory
+
 # See https://stackoverflow.com/questions/19529999/add-package-control-in-sublime-text-3-through-the-command-line
 - name: install sublime package control
   tags: editor
   get_url:
     url: https://packagecontrol.io/Package%20Control.sublime-package
     dest: "{{ ansible_env.HOME }}/Library/Application Support/Sublime Text 3/Installed Packages/Package Control.sublime-package"
-
-- name: symlink sublime package control settings
-  tags: editor
-  file:
-    src: "{{ role_path }}/files/sublime/Package Control.sublime-settings"
-    dest: "{{ ansible_env.HOME }}/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings"
-    state: link
-    force: yes
-
-- name: symlink sublime user settings
-  tags: editor
-  file:
-    src: "{{ role_path }}/files/sublime/Preferences.sublime-settings"
-    dest: "{{ ansible_env.HOME }}/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
-    state: link
-    force: yes

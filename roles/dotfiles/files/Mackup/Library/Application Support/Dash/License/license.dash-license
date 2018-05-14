@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Product</key>
+	<string>Dash</string>
+	<key>Name</key>
+	<string>Clint Plummer</string>
+	<key>Email</key>
+	<string>cplummer@locomote.com</string>
+	<key>Licenses</key>
+	<string>1</string>
+	<key>Timestamp</key>
+	<string>1495083564</string>
+	<key>Version</key>
+	<string>4</string>
+	<key>TransactionID</key>
+	<string>KAP170518-3795-90281</string>
+	<key>Signature</key>
+	<data>ncrkl7DJ/AAbehOM8Kwdg5u0kOULV1wu9+Egf2kMm3Rv/dyS7qkLrE+uix6vp9N6sng4p1f9uYn+
+wOHLiAJTn6iYlu1tfOqH+OHmhtS5jB26gF6CYcb0dhQZHbV6Z9tG/4KUJqgPHoJJfOdi2gf4QVxc
+7Bo0YNorNRzkxFl7sn0=
+</data>
+</dict>
+</plist>

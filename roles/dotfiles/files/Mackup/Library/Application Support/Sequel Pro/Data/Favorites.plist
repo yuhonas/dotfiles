@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Favorites Root</key>
+	<dict>
+		<key>Children</key>
+		<array>
+			<dict>
+				<key>colorIndex</key>
+				<integer>-1</integer>
+				<key>database</key>
+				<string></string>
+				<key>host</key>
+				<string></string>
+				<key>id</key>
+				<integer>-5152430123796332433</integer>
+				<key>name</key>
+				<string>localhost</string>
+				<key>port</key>
+				<string></string>
+				<key>socket</key>
+				<string></string>
+				<key>sshHost</key>
+				<string></string>
+				<key>sshKeyLocation</key>
+				<string></string>
+				<key>sshKeyLocationEnabled</key>
+				<integer>0</integer>
+				<key>sshPort</key>
+				<string></string>
+				<key>sshUser</key>
+				<string></string>
+				<key>sslCACertFileLocation</key>
+				<string></string>
+				<key>sslCACertFileLocationEnabled</key>
+				<integer>0</integer>
+				<key>sslCertificateFileLocation</key>
+				<string></string>
+				<key>sslCertificateFileLocationEnabled</key>
+				<integer>0</integer>
+				<key>sslKeyFileLocation</key>
+				<string></string>
+				<key>sslKeyFileLocationEnabled</key>
+				<integer>0</integer>
+				<key>type</key>
+				<integer>1</integer>
+				<key>useSSL</key>
+				<integer>0</integer>
+				<key>user</key>
+				<string>root</string>
+			</dict>
+		</array>
+		<key>IsExpanded</key>
+		<true/>
+		<key>Name</key>
+		<string>FAVORITES</string>
+	</dict>
+</dict>
+</plist>

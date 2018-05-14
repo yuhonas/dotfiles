@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SVMathkeys</key>
+	<array>
+		<dict>
+			<key>characters</key>
+			<string>`</string>
+			<key>charactersIgnoringModifiers</key>
+			<string>`</string>
+			<key>enabled</key>
+			<true/>
+			<key>keycode</key>
+			<integer>50</integer>
+			<key>modifierFlags</key>
+			<integer>256</integer>
+			<key>string</key>
+			<string>+</string>
+		</dict>
+		<dict>
+			<key>characters</key>
+			<string>*</string>
+			<key>charactersIgnoringModifiers</key>
+			<string>*</string>
+			<key>enabled</key>
+			<true/>
+			<key>keycode</key>
+			<integer>28</integer>
+			<key>modifierFlags</key>
+			<integer>131330</integer>
+			<key>string</key>
+			<string>×</string>
+		</dict>
+		<dict>
+			<key>characters</key>
+			<string>ß</string>
+			<key>charactersIgnoringModifiers</key>
+			<string>s</string>
+			<key>enabled</key>
+			<true/>
+			<key>keycode</key>
+			<integer>1</integer>
+			<key>modifierFlags</key>
+			<integer>524576</integer>
+			<key>string</key>
+			<string>sin(</string>
+		</dict>
+	</array>
+	<key>SVVersionInfo</key>
+	<dict>
+		<key>CreatorBuild</key>
+		<string>5783</string>
+		<key>CreatorID</key>
+		<string>com.acqualia.soulver</string>
+		<key>CreatorVersion</key>
+		<string>2.6.3</string>
+	</dict>
+</dict>
+</plist>
