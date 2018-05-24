@@ -81,6 +81,7 @@
     - coreutils
     - ctags
     - dos2unix
+    - exa
     - fasd
     - fdupes
     - figlet
@@ -115,6 +116,9 @@
     - wget
     - zsh
 
+- name: install useful fzf key bindings and fuzzy completion
+  shell: $(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc
+
 # see https://superuser.com/questions/256232/how-can-i-get-qmake-on-mac-os-x
 - name: link qt
   homebrew: name=qt state=linked
@@ -124,6 +128,11 @@
   with_items:
     - csvkit
     - haxor-news
+
+- name: ruby packages
+  gem: name={{ item }} state=present
+  with_items:
+    - git-pulls
 
 - name: create alfred configuration directory
   file:
