@@ -32,6 +32,18 @@ export FZF_DEFAULT_OPTS='--height 40% --reverse'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# git branch via fzf
+# TODO: this should be an zsh completion
+
+unalias gb
+
+gb() {
+  local branches branch
+  branches=$(git branch -vv) &&
+  branch=$(echo "$branches" | fzf +m ) &&
+  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+
 # git aliases
 
 alias gst='git status'
