@@ -76,8 +76,8 @@ alias be="bundle exec"
 
 eval $(gdircolors ~/.dircolors/dircolors.256dark)
 
-alias ls='\gls --color=auto' # use coretuils gnu ls which supports 256 colors
-alias ll='ls -al'
+alias ls='exa' # use exa instead of ls
+alias ll='exa -al'
 
 # lesspipe
 
