@@ -26,6 +26,12 @@ alias sf='fasd -sif'     # interactive file selection
 alias z='fasd_cd -d'     # cd, same functionality as j in autojump
 alias zz='fasd_cd -d -i' # cd with interactive selection
 
+# load fzf completion and key bindings
+
+export FZF_DEFAULT_OPTS='--height 40% --reverse'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # git aliases
 
 alias gst='git status'
