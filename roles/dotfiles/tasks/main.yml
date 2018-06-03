@@ -5,13 +5,13 @@
 - name: downloading dircolors theme
   git: repo=https://github.com/gibbling/dircolors.git dest={{ ansible_env.HOME }}/.dircolors recursive=yes
 
-- name: restore configuration via mackup
-  command: mackup restore --force
-
 - name: symlinking dotfiles
   file: src="{{ item }}" dest="{{ lookup('env','HOME') }}/.{{ item | basename }}" state=link
   with_fileglob:
     - ./*
+
+- name: restore configuration via mackup
+  command: mackup restore --force
 
 - name: setting prezto as the default shell
   command: chsh -s /bin/zsh
