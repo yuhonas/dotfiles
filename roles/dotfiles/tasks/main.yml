@@ -13,6 +13,34 @@
 - name: restore configuration via mackup
   command: mackup restore --force
 
-- name: setting prezto as the default shell
-  command: chsh -s /bin/zsh
-  when: ansible_env.SHELL.find('zsh') == -1
+- name: check for oh my fish installation
+  command: omf
+  register: oh_my_fish
+  ignore_errors: yes
+
+- name: download oh my fish installation
+  get_url:
+    url: https://get.oh-my.fish
+    dest: /tmp/omf.fish
+  when: oh_my_fish.failed
+
+- name: install oh my fish
+  command: fish /tmp/omf.fish --noninteractive --yes
+  when: oh_my_fish.failed
+
+- name: check if bobthefish theme installed
+  command: omf theme bobthefish
+  register: bob_the_fish
+  ignore_errors: yes
+
+- name: install bobthefish theme
+  command: omf install bobthefish
+  when: bob_the_fish.failed
+
+- name: set fish theme to bobthefish
+  command: omf theme bobthefish
+  when: bob_the_fish.failed
+
+- name: setting fish as the default shell
+  command: chsh -s $(which fish)
+  when: ansible_env.SHELL.find('fish') == -1
