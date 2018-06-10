@@ -3,5 +3,5 @@
   connection: local
   roles:
     - system
-    - dotfiles
+    - { role: dotfiles, tags: [dotfiles] }
     - osx-defaults

@@ -14,7 +14,9 @@
   command: mackup restore --force
 
 - name: check for oh my fish installation
-  command: omf
+  shell: omf
+  args:
+    executable: /usr/local/bin/fish
   register: oh_my_fish
   ignore_errors: yes
 
@@ -29,18 +31,33 @@
   when: oh_my_fish.failed
 
 - name: check if bobthefish theme installed
-  command: omf theme bobthefish
+  shell: omf theme bobthefish
+  args:
+    executable: /usr/local/bin/fish
   register: bob_the_fish
   ignore_errors: yes
 
 - name: install bobthefish theme
-  command: omf install bobthefish
+  shell: omf install bobthefish
+  args:
+    executable: /usr/local/bin/fish
   when: bob_the_fish.failed
 
+- homebrew_tap:
+    name: homebrew/homebrew-cask-fonts
+
+- name: installing fonts for use in shell / other places
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+    - font-inconsolata-for-powerline
+    - font-hack-nerd-font
+
 - name: set fish theme to bobthefish
-  command: omf theme bobthefish
+  shell: omf theme bobthefish
+  args:
+    executable: /usr/local/bin/fish
   when: bob_the_fish.failed
 
 - name: setting fish as the default shell
-  command: chsh -s $(which fish)
+  command: chsh -s /usr/local/bin/fish
   when: ansible_env.SHELL.find('fish') == -1

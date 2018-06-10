@@ -127,7 +127,7 @@
   with_items:
     - csvkit
     - haxor-news
-
+    
 - name: ruby packages
   gem: name={{ item }} state=present
   with_items:
