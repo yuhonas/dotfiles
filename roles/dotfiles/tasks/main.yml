@@ -10,6 +10,15 @@
   with_fileglob:
     - ./*
 
+- name: creates mutt configuration directory
+  file: state=directory recurse=yes path={{ item }}
+  with_items:
+    - "{{ ansible_env.HOME }}/.mutt/cache/headers"
+    - "{{ ansible_env.HOME }}/.mutt/cache/bodies"
+
+- name: downloading mutt solarized theme
+  git: repo=https://github.com/altercation/mutt-colors-solarized.git dest={{ ansible_env.HOME }}/.mutt/theme recursive=yes
+
 - name: restore configuration via mackup
   command: mackup restore --force
 
@@ -43,7 +52,8 @@
     executable: /usr/local/bin/fish
   when: bob_the_fish.failed
 
-- homebrew_tap:
+- name: tapping homebrew cask fonts
+  homebrew_tap:
     name: homebrew/homebrew-cask-fonts
 
 - name: installing fonts for use in shell / other places

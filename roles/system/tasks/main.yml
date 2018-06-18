@@ -44,10 +44,12 @@
     - hub
     - imagemagick
     - mysql
+    - neomutt
     - node
     - pgcli
     - redis
     - sqlite
+    - w3m
 
 - name: developer applications
   homebrew_cask: name={{ item }} state=present
@@ -79,6 +81,7 @@
     - aria2
     - coreutils
     - ctags
+    - colordiff
     - dos2unix
     - exa
     - fasd
@@ -127,7 +130,7 @@
   with_items:
     - csvkit
     - haxor-news
-    
+
 - name: ruby packages
   gem: name={{ item }} state=present
   with_items:
