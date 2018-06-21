@@ -39,6 +39,11 @@
   command: fish /tmp/omf.fish --noninteractive --yes
   when: oh_my_fish.failed
 
+- name: install fisherman
+  get_url:
+    url: https://git.io/fisher
+    dest: "{{ ansible_env.HOME }}/.config/fish/functions/fisher.fish"
+
 - name: check if bobthefish theme installed
   shell: omf theme bobthefish
   args:
@@ -61,7 +66,8 @@
   with_items:
     - font-inconsolata-for-powerline
     - font-hack-nerd-font
-
+    - font-source-code-pro
+    
 - name: set fish theme to bobthefish
   shell: omf theme bobthefish
   args:

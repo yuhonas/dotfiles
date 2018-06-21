@@ -36,6 +36,7 @@
     - cowsay
     - dash
     - elixir
+    - emacs
     - fortune
     - git
     - git-extras
@@ -117,6 +118,11 @@
     - unrar
     - wget
     - zsh
+
+- name: install spacemacs
+  git:
+    repo: https://github.com/syl20bnr/spacemacs
+    dest: "{{ ansible_env.HOME }}/.emacs.d"
 
 - name: install useful fzf key bindings and fuzzy completion
   shell: $(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc
