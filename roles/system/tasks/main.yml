@@ -41,7 +41,7 @@
     - git
     - git-extras
     - graphviz
-    - heroku-toolbelt
+    - heroku/brew/heroku
     - hub
     - imagemagick
     - mysql
@@ -109,9 +109,11 @@
     - rbenv
     - readline
     - rename
+    - ripgrep
     - ruby-build
     - the_silver_searcher
     - tig
+    - trash
     - tree
     - tldr
     - tmux
