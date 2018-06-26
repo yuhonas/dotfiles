@@ -143,6 +143,7 @@
   gem: name={{ item }} state=present
   with_items:
     - git-pulls
+    - seeing_is_believing
 
 - name: create alfred configuration directory
   file:

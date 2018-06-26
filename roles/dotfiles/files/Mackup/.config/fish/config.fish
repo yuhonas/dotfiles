@@ -3,17 +3,23 @@ alias ls=exa
 
 
 # git aliases
-alias g=git
+alias g="git"
+alias ga="git add"
 alias gco="git checkout"
 alias gb="git branch"
 alias gst="git status"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gc="git commit --verbose"
+alias gp="git push"
+alias todo="emacsclient ~/Dropbox/TODO.org"
 
 # diff
-alias diffu="colordiff --unified"
 alias diff="colordiff"
+alias diffu="colordiff --unified"
+
+# rm moves to recycled bin by default
+alias rm="trash"
 
 # use sublime as the default editor
 
@@ -30,4 +36,4 @@ alias weather="curl wttr.in/Melbourne"
 
 # use rbevnv shims over local system ruby
 
-export PATH="$HOME/.rbenv/shims:$PATH"
+export PATH="$HOME/.rbenv/shims:$HOME/bin:$PATH"
