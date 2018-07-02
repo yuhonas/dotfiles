@@ -100,6 +100,7 @@
     - mackup
     - md5deep
     - ncdu
+    - neofetch
     - nmap
     - pandoc
     - poppler # for lesspipe
@@ -144,6 +145,12 @@
   with_items:
     - git-pulls
     - seeing_is_believing
+    - bropages
+
+- name: node packages
+  gem: name={{ item }} state=present
+  with_items:
+    - tldr
 
 - name: create alfred configuration directory
   file:

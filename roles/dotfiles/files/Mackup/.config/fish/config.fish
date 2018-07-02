@@ -12,7 +12,10 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias gc="git commit --verbose"
 alias gp="git push"
-alias todo="emacsclient ~/Dropbox/TODO.org"
+alias todo="emacsclient ~/Dropbox/ORG/TODO.org"
+alias rorc="bundle exec rails c"
+alias rors="bundle exec rails s"
+alias be="bundle exec"
 
 # diff
 alias diff="colordiff"
