@@ -1,30 +1,10 @@
 # Yuhonas dotfiles 
 
-![Screenshot](https://user-images.githubusercontent.com/4928/37574751-3f798cb0-2b77-11e8-8cf7-73b0a959e374.png)
+![Screenshot](https://user-images.githubusercontent.com/4928/42144028-23783e6c-7dfc-11e8-8edd-6b69552c32b8.png)
 
 ## What's in the box
 
-prezto (zsh) wth pure prompt configured with the following prezto modules
-
-* autosuggestions
-* completion
-* directory
-* editor
-* environment
-* fasd
-* git
-* history
-* history-substring-search
-* osx
-* prompt
-* rails
-* spectrum
-* syntax-highlighting
-* terminal
-* tmux
-* utility
-
-With a sprinkling of 256 color's using dircolors & gnu's `ls` from [coreutils](https://www.gnu.org/software/coreutils/coreutils.html) all rendered using [hyper](https://hyper.is/)
+[fish shell](https://fishshell.com/) wth [bobthefish](https://github.com/oh-my-fish/theme-bobthefish) with a sprinkling of 256 color's using [exa](https://github.com/ogham/exa) all rendered using [hyper](https://hyper.is/)
 
 ### A sane set of Mac defaults 
 
