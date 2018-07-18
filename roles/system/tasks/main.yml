@@ -94,6 +94,7 @@
     - hr
     - htop-osx
     - httpie
+    - ispell
     - jq
     - lesspipe
     - lnav
@@ -103,6 +104,7 @@
     - neofetch
     - nmap
     - pandoc
+    - p7zip
     - poppler # for lesspipe
     - progress
     - pv
@@ -112,6 +114,7 @@
     - rename
     - ripgrep
     - ruby-build
+    - sox
     - the_silver_searcher
     - tig
     - trash

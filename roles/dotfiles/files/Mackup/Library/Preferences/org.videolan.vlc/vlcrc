@@ -1,5 +1,5 @@
 ﻿###
-###  vlc 2.2.6
+###  vlc 3.0.2
 ###
 
 ###
@@ -11,7 +11,7 @@
 # Resampling quality (integer)
 #speex-resampler-quality=4
 
-[stream_out_smem] # Stream output to memory buffer
+[smem] # Stream output to memory buffer
 
 # Time Synchronized output (boolean)
 #sout-smem-time-sync=1
@@ -26,17 +26,6 @@
 
 # Channels count (integer)
 #amem-channels=2
-
-[quartztext] # CoreText font renderer
-
-# Font (string)
-#quartztext-font=Helvetica-Neue
-
-# Relative font size (integer)
-#quartztext-rel-fontsize=16
-
-# Text default color (integer)
-#quartztext-color=16777215
 
 [swscale] # Video scaling filter
 
@@ -65,6 +54,20 @@
 
 # Interval between disappearance and appearance (integer)
 #subsdelay-min-stop-start=1000
+
+[syslog] # System logger (syslog)
+
+# System log (syslog) (boolean)
+#syslog=0
+
+# Debug messages (boolean)
+#syslog-debug=0
+
+# Identity (string)
+#syslog-ident=vlc
+
+# Facility (string)
+#syslog-facility=user
 
 [scaletempo] # Audio tempo scaler synched with rate
 
@@ -120,8 +123,28 @@
 # Maximum bitrate (integer)
 #mms-maxbitrate=0
 
-# HTTP proxy (string)
-#mmsh-proxy=
+[stream_out_chromecast] # Chromecast stream output
+
+# ? (string)
+#sout-chromecast-ip=
+
+# ? (integer)
+#sout-chromecast-port=8009
+
+# ? (boolean)
+#sout-chromecast-video=1
+
+# HTTP port (integer)
+#sout-chromecast-http-port=8010
+
+# Performance warning (integer)
+#sout-chromecast-show-perf-warning=1
+
+# Enable Audio passthrough (boolean)
+#sout-chromecast-audio-passthrough=0
+
+# Conversion quality (integer)
+#sout-chromecast-conversion-quality=1
 
 [shm] # Shared memory framebuffer
 
@@ -145,6 +168,9 @@ macosx-interfacestyle=1
 # Use the native fullscreen mode (boolean)
 #macosx-nativefullscreenmode=0
 
+# Display VLC status menu icon (boolean)
+#macosx-statusicon=1
+
 # Allow automatic icon changes (boolean)
 #macosx-icon-change=1
 
@@ -156,9 +182,6 @@ macosx-interfacestyle=1
 
 # Show Audio Effects Button (boolean)
 #macosx-show-effects-button=0
-
-# Show Sidebar (boolean)
-#macosx-show-sidebar=1
 
 # Maximum Volume displayed (integer)
 #macosx-max-volume=125
@@ -183,6 +206,9 @@ macosx-interfacestyle=1
 
 # Lock Aspect Ratio (boolean)
 macosx-lock-aspect-ratio=0
+
+# Dim keyboard backlight during fullscreen playback (boolean)
+#macosx-dim-keyboard=0
 
 # Control external music players (integer)
 #macosx-control-itunes=1
@@ -224,7 +250,12 @@ macosx-continue-playback=1
 # Filebrowser starting point (string)
 #browse-dir=
 
-[stream_out_mosaic_bridge] # Mosaic bridge stream output
+[mp4] # MP4 stream demuxer
+
+# M4A audio only (boolean)
+#mp4-m4a-audioonly=0
+
+[mosaic_bridge] # Mosaic bridge stream output
 
 # ID (string)
 #sout-mosaic-bridge-id=Id
@@ -275,13 +306,18 @@ macosx-continue-playback=1
 # Chroma used (string)
 #yuv-chroma=
 
-# YUV4MPEG2 header (default disabled) (boolean)
+# Add a YUV4MPEG2 header (boolean)
 #yuv-yuv4mpeg2=0
 
 [vdummy] # Dummy video output
 
 # Dummy image chroma format (string)
 #dummy-chroma=
+
+[ttml] # TTML subtitles decoder
+
+# Subtitle justification (integer)
+#ttml-align=0
 
 [live555] # RTP/RTSP/SDP demuxer (using Live555)
 
@@ -306,14 +342,44 @@ macosx-continue-playback=1
 # WMServer RTSP dialect (boolean)
 #rtsp-wmserver=0
 
-# RTSP user name (string)
+# Username (string)
 #rtsp-user=
 
-# RTSP password (string)
+# Password (string)
 #rtsp-pwd=
 
 # RTSP frame buffer size (integer)
-#rtsp-frame-buffer-size=100000
+#rtsp-frame-buffer-size=250000
+
+[h26x] # H264 video demuxer
+
+# Frames per Second (float)
+#h264-fps=0.000000
+
+# Frames per Second (float)
+#hevc-fps=0.000000
+
+[spatialaudio] # Ambisonics renderer and binauralizer
+
+# Headphones mode (binaural) (boolean)
+#spatialaudio-headphones=0
+
+# HRTF file for the binauralization (string)
+#hrtf-file=
+
+[file] # File logger
+
+# Log to file (boolean)
+#file-logging=0
+
+# Log filename (string)
+#logfile=
+
+# Log format (string)
+#logmode=text
+
+# Verbosity (integer)
+#log-verbose=-1
 
 [audiobargraph_v] # Audio Bar Graph Video sub source
 
@@ -329,8 +395,11 @@ macosx-continue-playback=1
 # Bargraph position (integer)
 #audiobargraph_v-position=-1
 
-# Bar width in pixel (default : 10) (integer)
+# Bar width in pixel (integer)
 #audiobargraph_v-barWidth=10
+
+# Bar Height in pixel (integer)
+#audiobargraph_v-barHeight=400
 
 [remap] # Audio channel remapper
 
@@ -371,6 +440,9 @@ macosx-continue-playback=1
 
 [ts] # MPEG Transport Stream demuxer
 
+# Digital TV Standard (string)
+#ts-standard=auto
+
 # Extra PMT (string)
 #ts-extra-pmt=
 
@@ -395,6 +467,9 @@ macosx-continue-playback=1
 # Seek based on percent not time (boolean)
 #ts-seek-percent=0
 
+# Check packets continuity counter (boolean)
+#ts-cc-check=1
+
 [telx] # Teletext subtitles decoder
 
 # Override page (integer)
@@ -409,50 +484,12 @@ macosx-continue-playback=1
 [libbluray] # Blu-ray Disc support (libbluray)
 
 # Blu-ray menus (boolean)
-#bluray-menu=0
+#bluray-menu=1
 
 # Region code (string)
 #bluray-region=B
 
-[imem] # Memory input
-
-# ID (integer)
-#imem-id=-1
-
-# Group (integer)
-#imem-group=0
-
-# Category (integer)
-#imem-cat=0
-
-# Codec (string)
-#imem-codec=
-
-# Language (string)
-#imem-language=
-
-# Sample rate (integer)
-#imem-samplerate=0
-
-# Channels count (integer)
-#imem-channels=0
-
-# Width (integer)
-#imem-width=0
-
-# Height (integer)
-#imem-height=0
-
-# Display aspect ratio (string)
-#imem-dar=
-
-# Frame rate (string)
-#imem-fps=
-
-# Size (integer)
-#imem-size=0
-
-[mux_avi] # AVI muxer
+[avi] # AVI muxer
 
 # Artist (string)
 #sout-avi-artist=
@@ -476,7 +513,7 @@ macosx-continue-playback=1
 #sout-avi-subject=
 
 # Encoder (string)
-#sout-avi-encoder=VLC Media Player - 2.2.6 Umbrella
+#sout-avi-encoder=VLC Media Player - 3.0.2 Vetinari
 
 # Keywords (string)
 #sout-avi-keywords=
@@ -601,10 +638,10 @@ macosx-continue-playback=1
 # Output destination (string)
 #sout-standard-dst=
 
-# address to bind to (helper setting for dst) (string)
+# Address to bind to (helper setting for dst) (string)
 #sout-standard-bind=
 
-# filename for stream (helper setting for dst) (string)
+# Filename for stream (helper setting for dst) (string)
 #sout-standard-path=
 
 # SAP announcing (boolean)
@@ -622,8 +659,22 @@ macosx-continue-playback=1
 # Session email (string)
 #sout-standard-email=
 
-# Session phone number (string)
-#sout-standard-phone=
+[adaptive] # Unified adaptive streaming for DASH/HLS
+
+# Adaptive Logic (string)
+#adaptive-logic=
+
+# Maximum device width (integer)
+#adaptive-maxwidth=0
+
+# Maximum device height (integer)
+#adaptive-maxheight=0
+
+# Fixed Bandwidth in KiB/s (integer)
+#adaptive-bw=250
+
+# Use regular HTTP modules (boolean)
+#adaptive-use-access=0
 
 [erase] # Erase video filter
 
@@ -641,12 +692,20 @@ macosx-continue-playback=1
 # Trust MPEG timestamps (boolean)
 #ps-trust-timestamps=1
 
+[aribsub] # ARIB subtitles decoder
+
+# Ignore ruby (furigana) (boolean)
+#aribsub-ignore-ruby=0
+
+# Use Core Text renderer (boolean)
+#aribsub-use-coretext=0
+
 [kate] # Kate overlay decoder
 
 # Formatted Subtitles (boolean)
 #kate-formatted=1
 
-[stream_out_bridge] # Bridge stream output
+[bridge] # Bridge stream output
 
 # ID (integer)
 #sout-bridge-out-id=0
@@ -674,30 +733,19 @@ macosx-continue-playback=1
 
 [filesystem] # File input
 
-# Subdirectory behavior (string)
-#recursive=expand
-
-# Ignored extensions (string)
-#ignore-filetypes=m3u,db,nfo,ini,jpg,jpeg,ljpg,gif,png,pgm,pgmyuv,pbm,pam,tga,bmp,pnm,xpm,xcf,pcx,tif,tiff,lbm,sfv,txt,sub,idx,srt,cue,ssa
-
-# Directory sort order (string)
-#directory-sort=collate
+# List special files (boolean)
+#list-special-files=0
 
 [netsync] # Network synchronization
 
 # Network master clock (boolean)
 #netsync-master=0
 
-# Master server ip address (string)
+# Master server IP address (string)
 #netsync-master-ip=
 
 # UDP timeout (in ms) (integer)
 #netsync-timeout=500
-
-[hevc] # HEVC/H.265 video demuxer
-
-# Frames per Second (float)
-#hevc-force-fps=0.000000
 
 [jpeg] # JPEG image decoder
 
@@ -709,28 +757,15 @@ macosx-continue-playback=1
 # Frames per Second (float)
 #es-fps=25.000000
 
+[audiotoolbox_midi] # AudioToolbox MIDI synthesizer
+
+# SoundFont file (string)
+#aumidi-soundfont=
+
 [http] # HTTP input
-
-# HTTP proxy (string)
-#http-proxy=
-
-# HTTP proxy password (string)
-#http-proxy-pwd=
-
-# HTTP referer value (string)
-#http-referrer=
-
-# User Agent (string)
-#http-user-agent=
 
 # Auto re-connect (boolean)
 #http-reconnect=0
-
-# Continuous stream (boolean)
-#http-continuous=0
-
-# Forward Cookies (boolean)
-#http-forward-cookies=1
 
 [param_eq] # Parametric Equalizer
 
@@ -774,6 +809,9 @@ macosx-continue-playback=1
 #param-eq-q3=3.000000
 
 [cdda] # Audio CD input
+
+# Audio CD device (string)
+#cd-audio=/dev/cdrom
 
 # CDDB Server (string)
 #cddb-server=freedb.videolan.org
@@ -1016,13 +1054,13 @@ macosx-continue-playback=1
 # Default tune setting used (string)
 #sout-x264-tune=
 
-# x264 advanced options. (string)
+# x264 advanced options (string)
 #sout-x264-options=
 
 [compressor] # Dynamic range compressor
 
 # RMS/peak (float)
-#compressor-rms-peak=0.000000
+#compressor-rms-peak=0.200000
 
 # Attack time (float)
 #compressor-attack=25.000000
@@ -1034,20 +1072,25 @@ macosx-continue-playback=1
 #compressor-threshold=-11.000000
 
 # Ratio (float)
-#compressor-ratio=8.000000
+#compressor-ratio=4.000000
 
 # Knee radius (float)
-#compressor-knee=2.500000
+#compressor-knee=5.000000
 
 # Makeup gain (float)
 #compressor-makeup-gain=7.000000
 
-[packetizer_mpegvideo] # MPEG-I/II video packetizer
+[mpegvideo] # MPEG-I/II video packetizer
 
 # Sync on Intra Frame (boolean)
 #packetizer-mpegvideo-sync-iframe=0
 
 [svcdsub] # Philips OGT (SVCD subtitle) decoder
+
+[ci_filters] # Mac OS X hardware video filters
+
+# Use a specific Core Image Filter (string)
+#ci-filter=CIComicEffect
 
 [oldrc] # Remote control interface
 
@@ -1128,7 +1171,7 @@ macosx-continue-playback=1
 # Append to existing file (boolean)
 #demuxdump-append=0
 
-[mux_asf] # ASF muxer
+[asf] # ASF muxer
 
 # Title (string)
 #sout-asf-title=
@@ -1175,8 +1218,8 @@ macosx-continue-playback=1
 # Image brightness (0-2) (float)
 #brightness=1.000000
 
-# Image hue (0-360) (integer)
-#hue=0
+# Image hue (-180..180) (float)
+#hue=0.000000
 
 # Image saturation (0-3) (float)
 #saturation=1.000000
@@ -1187,6 +1230,22 @@ macosx-continue-playback=1
 # Brightness threshold (boolean)
 #brightness-threshold=0
 
+[prefetch] # Stream prefetch filter
+
+# Buffer size (integer)
+#prefetch-buffer-size=16384
+
+# Read size (integer)
+#prefetch-read-size=16384
+
+# Seek threshold (integer)
+#prefetch-seek-threshold=16384
+
+[vpx] # WebM video decoder
+
+# Quality mode (integer)
+#sout-vpx-quality-mode=1000000
+
 [dvdread] # DVDRead Input (no menu support)
 
 # DVD angle (integer)
@@ -1196,6 +1255,23 @@ macosx-continue-playback=1
 
 # Disable DVD subtitle transparency (boolean)
 #dvdsub-transparency=0
+
+[access_output_srt] # SRT stream output
+
+# SRT chunk size (bytes) (integer)
+#chunk-size=1316
+
+# Return poll wait after timeout milliseconds (-1 = infinite) (integer)
+#poll-timeout=100
+
+# SRT latency (ms) (integer)
+#latency=125
+
+# Password for stream encryption (string)
+#passphrase=
+
+# Crypto key length in bytes (integer)
+#key-length=16
 
 [rss] # RSS and Atom feed display
 
@@ -1218,7 +1294,7 @@ macosx-continue-playback=1
 #rss-color=16777215
 
 # Font size, pixels (integer)
-#rss-size=-1
+#rss-size=0
 
 # Speed of feeds (integer)
 #rss-speed=100000
@@ -1234,14 +1310,6 @@ macosx-continue-playback=1
 
 # Title display mode (integer)
 #rss-title=-1
-
-[a52tofloat32] # ATSC A/52 (AC-3) audio decoder
-
-# A/52 dynamic range compression (boolean)
-#a52-dynrng=1
-
-# Enable internal upmixing (boolean)
-#a52-upmix=0
 
 [rawaud] # Raw audio demuxer
 
@@ -1311,9 +1379,6 @@ macosx-continue-playback=1
 # Session email (string)
 #sout-rtp-email=
 
-# Session phone number (string)
-#sout-rtp-phone=
-
 # Transport protocol (string)
 #sout-rtp-proto=udp
 
@@ -1353,6 +1418,8 @@ macosx-continue-playback=1
 # Password (string)
 #sout-rtsp-pwd=
 
+[console] # Console logger
+
 [postproc] # Video post processing filter
 
 # Post processing quality (integer)
@@ -1363,25 +1430,30 @@ macosx-continue-playback=1
 
 [ftp] # FTP input
 
-# FTP user name (string)
-#ftp-user=anonymous
+# Username (string)
+#ftp-user=
 
-# FTP password (string)
-#ftp-pwd=anonymous@example.com
+# Password (string)
+#ftp-pwd=
 
 # FTP account (string)
 #ftp-account=anonymous
 
-[dash] # Dynamic Adaptive Streaming over HTTP
+[cc] # Closed Captions decoder
 
-# Preferred Width (integer)
-#dash-prefwidth=480
+# Opacity (boolean)
+#cc-opaque=1
 
-# Preferred Height (integer)
-#dash-prefheight=360
+[keychain] # Keystore for iOS, Mac OS X and tvOS
 
-# Buffer Size (Seconds) (integer)
-#dash-buffersize=30
+# Synchronize stored items (integer)
+#keychain-synchronize=1
+
+# Accessibility type for all future passwords saved to the Keychain (integer)
+#keychain-accessibility-type=0
+
+# Keychain access group (string)
+#keychain-access-group=
 
 [remoteosd] # Remote-OSD over VNC
 
@@ -1422,7 +1494,7 @@ macosx-continue-playback=1
 # Teletext page (integer)
 #vbi-page=100
 
-# Teletext transparency (boolean)
+# Opacity (boolean)
 #vbi-opaque=0
 
 # Teletext alignment (integer)
@@ -1430,6 +1502,9 @@ macosx-continue-playback=1
 
 # Teletext text subtitles (boolean)
 #vbi-text=0
+
+# Presentation Level (integer)
+#vbi-level=3
 
 [access_output_shout] # IceCAST output
 
@@ -1468,7 +1543,7 @@ macosx-continue-playback=1
 # Gain multiplier (float)
 #gain-value=1.000000
 
-[access_output_http] # HTTP stream output
+[http] # HTTP stream output
 
 # Username (string)
 #sout-http-user=
@@ -1492,7 +1567,7 @@ macosx-continue-playback=1
 # Frames per Second (float)
 #mjpeg-fps=0.000000
 
-[headphone_channel_mixer] # Headphone virtual spatialization effect
+[headphone] # Headphone virtual spatialization effect
 
 # Characteristic dimension (integer)
 #headphone-dim=10
@@ -1531,12 +1606,20 @@ macosx-continue-playback=1
 # Dummy Elements (boolean)
 #mkv-use-dummy=0
 
+# Preload clusters (boolean)
+#mkv-preload-clusters=0
+
 [motion] # motion control interface
+
+[dca] # DTS Coherent Acoustics audio decoder
+
+# DTS dynamic range compression (boolean)
+#dts-dynrng=1
 
 [udp] # UDP input
 
-# Receive buffer (integer)
-#udp-buffer=4194304
+# UDP Source timeout (sec) (integer)
+#udp-timeout=-1
 
 [transform] # Video transformation filter
 
@@ -1587,7 +1670,7 @@ macosx-continue-playback=1
 # Scrobbler URL (string)
 #scrobbler-url=post.audioscrobbler.com
 
-[stream_out_es] # Elementary stream output
+[es] # Elementary stream output
 
 # Output access method (string)
 #sout-es-access=
@@ -1618,21 +1701,6 @@ macosx-continue-playback=1
 
 [logger] # File logging
 
-# Log filename (string)
-#logfile=
-
-# Log format (string)
-#logmode=text
-
-# Syslog ident (string)
-#syslog-ident=vlc
-
-# Syslog facility (string)
-#syslog-facility=user
-
-# Verbosity (integer)
-#log-verbose=-1
-
 [antiflicker] # antiflicker video filter
 
 # Window size (integer)
@@ -1641,7 +1709,12 @@ macosx-continue-playback=1
 # Softening value (integer)
 #antiflicker-softening-size=10
 
-[stream_out_delay] # Delay a stream
+[nfs] # NFS input
+
+# Set NFS uid/guid automatically (boolean)
+#nfs-auto-guid=1
+
+[delay] # Delay a stream
 
 # Elementary Stream ID (integer)
 #sout-delay-id=0
@@ -1687,9 +1760,12 @@ macosx-continue-playback=1
 auhal-volume=155
 
 # Last audio device (string)
-auhal-audio-device=46
+auhal-audio-device=0
 
-[vod_rtsp] # Legacy RTSP VoD server
+# ? (string)
+#auhal-warned-devices=
+
+[rtsp] # Legacy RTSP VoD server
 
 # MUX for RAW RTSP transport (string)
 #rtsp-raw-mux=ts
@@ -1700,7 +1776,45 @@ auhal-audio-device=46
 # Sets the timeout option in the RTSP session string (integer)
 #rtsp-session-timeout=5
 
-[stream_out_display] # Display stream output
+[imem] # Memory input
+
+# ID (integer)
+#imem-id=-1
+
+# Group (integer)
+#imem-group=0
+
+# Category (integer)
+#imem-cat=0
+
+# Codec (string)
+#imem-codec=
+
+# Language (string)
+#imem-language=
+
+# Sample rate (integer)
+#imem-samplerate=0
+
+# Channels count (integer)
+#imem-channels=0
+
+# Width (integer)
+#imem-width=0
+
+# Height (integer)
+#imem-height=0
+
+# Display aspect ratio (string)
+#imem-dar=
+
+# Frame rate (string)
+#imem-fps=
+
+# Size (integer)
+#imem-size=0
+
+[display] # Display stream output
 
 # Enable audio (boolean)
 #sout-display-audio=1
@@ -1744,11 +1858,14 @@ auhal-audio-device=46
 
 [sftp] # SFTP input
 
-# Read size (integer)
-#sftp-readsize=8192
-
 # SFTP port (integer)
 #sftp-port=22
+
+# Username (string)
+#sftp-user=
+
+# Password (string)
+#sftp-pwd=
 
 [wall] # Wall video filter
 
@@ -1785,6 +1902,11 @@ auhal-audio-device=46
 
 # Encoding Y coordinate (integer)
 #sout-dvbsub-y=-1
+
+[subsusf] # USF subtitles decoder
+
+# Formatted Subtitles (boolean)
+#subsdec-formatted=1
 
 [stream_out_chromaprint] # Chromaprint stream output
 
@@ -1837,6 +1959,11 @@ auhal-audio-device=46
 
 # Video output modules (string)
 #clone-vout-list=
+
+[file] # Secrets are stored on a file without any encryption
+
+# ? (string)
+#keystore-file=
 
 [sharpen] # Sharpen video filter
 
@@ -1947,6 +2074,19 @@ auhal-audio-device=46
 # Edge visible (boolean)
 #ball-edge-visible=1
 
+[access] # HTTPS input
+
+# Cookies forwarding (boolean)
+#http-forward-cookies=1
+
+# User agent (string)
+#http-user-agent=
+
+[fps] # FPS conversion video filter
+
+# Frame rate (string)
+#fps-fps=
+
 [access_output_livehttp] # HTTP Live streaming output
 
 # Segment length (integer)
@@ -1988,7 +2128,7 @@ auhal-audio-device=46
 # File where vlc reads key-uri and keyfile-location (string)
 #sout-livehttp-key-loadfile=
 
-[stream_out_setid] # Change the id of an elementary stream
+[setid] # Change the id of an elementary stream
 
 # Elementary Stream ID (integer)
 #sout-setid-id=0
@@ -2035,7 +2175,7 @@ auhal-audio-device=46
 # Time between two alarm messages in ms (integer)
 #audiobargraph_a-repetition_time=2000
 
-[mux_mp4] # MP4/MOV muxer
+[mp4] # MP4/MOV muxer
 
 # Create "Fast Start" files (boolean)
 #sout-mp4-faststart=1
@@ -2070,16 +2210,16 @@ auhal-audio-device=46
 [stereo_widen] # Simple stereo widening effect
 
 # Delay time (float)
-#delay=20.000000
+#stereowiden-delay=20.000000
 
 # Feedback gain (float)
-#feedback=0.300000
+#stereowiden-feedback=0.300000
 
 # Crossfeed (float)
-#crossfeed=0.300000
+#stereowiden-crossfeed=0.300000
 
 # Dry mix (float)
-#dry-mix=0.800000
+#stereowiden-dry-mix=0.800000
 
 [alphamask] # Alpha mask video filter
 
@@ -2108,14 +2248,6 @@ auhal-audio-device=46
 # SAP Strict mode (boolean)
 #sap-strict=0
 
-[qtcapture] # Quicktime Capture
-
-# Video Capture width (integer)
-#qtcapture-width=640
-
-# Video Capture height (integer)
-#qtcapture-height=480
-
 [anaglyph] # Convert 3D picture to anaglyph image video filter
 
 # Color scheme (string)
@@ -2137,16 +2269,6 @@ auhal-audio-device=46
 
 # Damp (float)
 #spatializer-damp=0.500000
-
-[dtstofloat32] # DTS Coherent Acoustics audio decoder
-
-# DTS dynamic range compression (boolean)
-#dts-dynrng=1
-
-[h264] # H264 video demuxer
-
-# Frames per Second (float)
-#h264-fps=25.000000
 
 [mirror] # Mirror video filter
 
@@ -2198,26 +2320,23 @@ auhal-audio-device=46
 # Dry Mix (float)
 #dry-mix=0.400000
 
-[stream_out_raop] # Remote Audio Output Protocol stream output
+[samplerate] # Secret Rabbit Code (libsamplerate) resampler
+
+# Sample rate converter type (integer)
+#src-converter-type=2
+
+[satip] # SAT>IP Receiver Plugin
+
+# Receive buffer (integer)
+#satip-buffer=4194304
+
+# Request multicast stream (boolean)
+#satip-multicast=0
 
 # Host (string)
-#sout-raop-host=
+#satip-host=
 
-# Password (string)
-#sout-raop-password=
-
-# Password file (string)
-#sout-raop-password-file=
-
-# Volume (integer)
-#sout-raop-volume=100
-
-[eyetv] # EyeTV input
-
-# Channel number (integer)
-#eyetv-channel=0
-
-[stream_out_stats] # Writes statistic info about stream
+[stats] # Writes statistic info about stream
 
 # Output file (string)
 #sout-stats-output=
@@ -2333,14 +2452,25 @@ auhal-audio-device=46
 # Overlays (string)
 #sout-transcode-sfilter=
 
-# OSD menu (boolean)
-#sout-transcode-osd=0
-
 # Number of threads (integer)
 #sout-transcode-threads=0
 
+# Picture pool size (integer)
+#sout-transcode-pool-size=10
+
 # High priority (boolean)
 #sout-transcode-high-priority=0
+
+[gnutls] # GNU TLS transport layer security
+
+# Use system trust database (boolean)
+#gnutls-system-trust=1
+
+# Trust directory (string)
+#gnutls-dir-trust=
+
+# TLS cipher priorities (string)
+#gnutls-priorities=NORMAL
 
 [gestures] # Mouse gestures control interface
 
@@ -2361,13 +2491,18 @@ auhal-audio-device=46
 # UTF-8 subtitle autodetection (boolean)
 #subsdec-autodetect-utf8=1
 
-# Formatted Subtitles (boolean)
-#subsdec-formatted=1
-
 [posterize] # Posterize video filter
 
 # Posterize level (integer)
 #posterize-level=6
+
+[upnp] # Universal Plug'n'Play
+
+# SAT>IP channel list (string)
+#satip-channelist=ASTRA_19_2E
+
+# Custom SAT>IP channel list URL (string)
+#satip-channellist-url=
 
 [scene] # Scene video filter
 
@@ -2392,6 +2527,11 @@ auhal-audio-device=46
 # Recording ratio (integer)
 #scene-ratio=50
 
+[a52] # ATSC A/52 (AC-3) audio decoder
+
+# A/52 dynamic range compression (boolean)
+#a52-dynrng=1
+
 [vdr] # VDR recordings
 
 # Chapter offset in ms (integer)
@@ -2400,7 +2540,7 @@ auhal-audio-device=46
 # Frame rate (float)
 #vdr-fps=25.000000
 
-[stream_out_record] # Record stream output
+[record] # Record stream output
 
 # Destination prefix (string)
 #sout-record-dst-prefix=
@@ -2409,6 +2549,11 @@ auhal-audio-device=46
 
 # Album art filename (string)
 #album-art-filename=
+
+[dcp] # Digital Cinema Package module
+
+# KDM file (string)
+#kdm=
 
 [vc1] # VC1 video demuxer
 
@@ -2440,6 +2585,9 @@ auhal-audio-device=46
 # Direct rendering (boolean)
 #avcodec-dr=1
 
+# Show corrupted frames (boolean)
+#avcodec-corrupted=1
+
 # Error resilience (integer)
 #avcodec-error-resilience=1
 
@@ -2454,9 +2602,6 @@ auhal-audio-device=46
 
 # Skip idct (default=0) (integer)
 #avcodec-skip-idct=0
-
-# Visualize motion vectors (integer)
-#avcodec-vismv=0
 
 # Allow speed tricks (boolean)
 #avcodec-fast=0
@@ -2580,17 +2725,20 @@ auhal-audio-device=46
 
 [mux_ts] # TS muxer (libdvbpsi)
 
+# Digital TV Standard (string)
+#sout-ts-standard=dvb
+
 # Video PID (integer)
-#sout-ts-pid-video=0
+#sout-ts-pid-video=100
 
 # Audio PID (integer)
-#sout-ts-pid-audio=0
+#sout-ts-pid-audio=200
 
 # SPU PID (integer)
-#sout-ts-pid-spu=0
+#sout-ts-pid-spu=300
 
 # PMT PID (integer)
-#sout-ts-pid-pmt=0
+#sout-ts-pid-pmt=32
 
 # TS ID (integer)
 #sout-ts-tsid=0
@@ -2649,7 +2797,50 @@ auhal-audio-device=46
 # Packet size in bytes to encrypt (integer)
 #sout-ts-csa-pkt=188
 
-[access_output_file] # File stream output
+[flaschen] # Flaschen-Taschen video output
+
+# Flaschen-Taschen display address (string)
+#flaschen-display=
+
+# Width (integer)
+#flaschen-width=25
+
+# Height (integer)
+#flaschen-height=20
+
+[macosx] # Mac OS X OpenGL video output
+
+# Open GL/GLES hardware converter (string)
+#glconv=
+
+# Rendering intent for color conversion (integer)
+#rendering-intent=1
+
+# Display primaries (integer)
+#target-prim=0
+
+# Display gamma / transfer function (integer)
+#target-trc=0
+
+# Tone-mapping algorithm (integer)
+#tone-mapping=3
+
+# Tone-mapping parameter (float)
+#tone-mapping-param=0.000000
+
+# Tone-mapping desaturation coefficient (float)
+#tone-mapping-desat=0.500000
+
+# Highlight clipped pixels (boolean)
+#tone-mapping-warn=0
+
+# Dithering algorithm (integer)
+#dither-algo=-1
+
+# Dither depth override (0 = framebuffer depth) (integer)
+#dither-depth=0
+
+[file] # File stream output
 
 # Overwrite existing file (boolean)
 #sout-file-overwrite=1
@@ -2689,6 +2880,39 @@ auhal-audio-device=46
 # Pixels to padd to right (integer)
 #croppadd-paddright=0
 
+[videotoolbox] # VideoToolbox video decoder
+
+# Use Hardware decoders only (boolean)
+#videotoolbox-hw-decoder-only=1
+
+# Force the VT decoder CVPX chroma (string)
+#videotoolbox-cvpx-chroma=
+
+[access_srt] # SRT input
+
+# SRT chunk size (bytes) (integer)
+#chunk-size=1316
+
+# Return poll wait after timeout milliseconds (-1 = infinite) (integer)
+#poll-timeout=-1
+
+# SRT latency (ms) (integer)
+#latency=125
+
+[scaletempo_pitch] # Pitch Shifter
+
+# Stride Length (integer)
+#scaletempo-stride=30
+
+# Overlap Length (float)
+#scaletempo-overlap=0.200000
+
+# Search Length (integer)
+#scaletempo-search=14
+
+# Pitch Shift (float)
+#pitch-shift=0.000000
+
 [normvol] # Volume normalizer
 
 # Number of audio buffers (integer)
@@ -2697,7 +2921,7 @@ auhal-audio-device=46
 # Maximal volume level (float)
 #norm-max-level=2.000000
 
-[mux_ps] # PS muxer
+[ps] # PS muxer
 
 # DTS delay (ms) (integer)
 #sout-ps-dts-delay=200
@@ -2721,6 +2945,11 @@ auhal-audio-device=46
 
 # Global gain (float)
 #equalizer-preamp=12.000000
+
+[concat] # Concatenated inputs
+
+# Inputs list (string)
+#concat-list=
 
 [mosaic] # Mosaic video sub source
 
@@ -2772,35 +3001,21 @@ auhal-audio-device=46
 # Delay (integer)
 #mosaic-delay=0
 
-[stream_out_langfromtelx] # Dynamic language setting from teletext
-
-# Elementary Stream ID (integer)
-#sout-langfromtelx-id=0
-
-# Magazine (integer)
-#sout-langfromtelx-magazine=7
-
-# Page (integer)
-#sout-langfromtelx-page=153
-
-# Row (integer)
-#sout-langfromtelx-row=1
-
 [screen] # Screen Input
 
 # Frame rate (float)
 #screen-fps=5.000000
 
-# Subscreen top left corner (integer)
+# Region top row (integer)
 #screen-top=0
 
-# Subscreen top left corner (integer)
+# Region left column (integer)
 #screen-left=0
 
-# Subscreen width (integer)
+# Capture region width (integer)
 #screen-width=0
 
-# Subscreen height (integer)
+# Capture region height (integer)
 #screen-height=0
 
 # Follow the mouse (boolean)
@@ -2818,7 +3033,7 @@ auhal-audio-device=46
 [freetype] # Freetype2 font renderer
 
 # Font (string)
-#freetype-font=Arial Unicode MS
+#freetype-font=Helvetica Neue
 
 # Monospace Font (string)
 #freetype-monofont=Monaco
@@ -2868,6 +3083,9 @@ auhal-audio-device=46
 # Use YUVP renderer (boolean)
 #freetype-yuvp=0
 
+# Text direction (integer)
+#freetype-text-direction=0
+
 [marq] # Marquee display
 
 # Text (string)
@@ -2892,7 +3110,7 @@ auhal-audio-device=46
 #marq-color=16777215
 
 # Font size, pixels (integer)
-#marq-size=-1
+#marq-size=0
 
 # Timeout (integer)
 #marq-timeout=0
@@ -2942,7 +3160,7 @@ auhal-audio-device=46
 # Remember the audio volume (boolean)
 #volume-save=1
 
-# Use S/PDIF when available (boolean)
+# Force S/PDIF support (boolean)
 #spdif=0
 
 # Force detection of Dolby Surround (integer)
@@ -2953,9 +3171,6 @@ auhal-audio-device=46
 
 # Audio desynchronization compensation (integer)
 #audio-desync=0
-
-# Audio resampler (string)
-#audio-resampler=
 
 # Replay gain mode (string)
 #audio-replay-gain-mode=none
@@ -2975,11 +3190,17 @@ auhal-audio-device=46
 # Audio output module (string)
 #aout=
 
+# Media role (string)
+#role=video
+
 # Audio filters (string)
 #audio-filter=
 
 # Audio visualizations (string)
 #audio-visual=none
+
+# Audio resampler (string)
+#audio-resampler=
 
 # Enable video (boolean)
 #video=1
@@ -3014,7 +3235,7 @@ auhal-audio-device=46
 # Always on top (boolean)
 #video-on-top=0
 
-# Enable wallpaper mode  (boolean)
+# Enable wallpaper mode (boolean)
 #video-wallpaper=0
 
 # Disable screensaver (boolean)
@@ -3077,9 +3298,6 @@ auhal-audio-device=46
 # Video Auto Scaling (boolean)
 #autoscale=1
 
-# Video scaling factor (float)
-#scale=1.000000
-
 # Monitor pixel aspect ratio (string)
 #monitor-par=
 
@@ -3102,10 +3320,10 @@ auhal-audio-device=46
 #zoom=1.000000
 
 # Deinterlace (integer)
-#deinterlace=0
+#deinterlace=-1
 
 # Deinterlace mode (string)
-#deinterlace-mode=blend
+#deinterlace-mode=auto
 
 # Video output module (string)
 #vout=
@@ -3173,6 +3391,9 @@ auhal-audio-device=46
 # Subtitle track ID (integer)
 #sub-track-id=-1
 
+# Preferred Closed Captions decoder (integer)
+#captions=608
+
 # Preferred video resolution (integer)
 #preferred-resolution=-1
 
@@ -3209,9 +3430,6 @@ auhal-audio-device=46
 # VCD device (string)
 #vcd=/dev/cdrom
 
-# Audio CD device (string)
-#cd-audio=/dev/cdrom
-
 # MTU of the network interface (integer)
 #mtu=1400
 
@@ -3238,12 +3456,6 @@ auhal-audio-device=46
 
 # HTTP/TLS server private key (string)
 #http-key=
-
-# HTTP/TLS Certificate Authority (string)
-#http-ca=
-
-# HTTP/TLS Certificate Revocation List (string)
-#http-crl=
 
 # SOCKS server (string)
 #socks=
@@ -3302,7 +3514,7 @@ auhal-audio-device=46
 # Network synchronisation (boolean)
 #network-synchronisation=0
 
-# Record directory or filename (string)
+# Record directory (string)
 #input-record-path=
 
 # Prefer native stream recording (boolean)
@@ -3316,6 +3528,9 @@ auhal-audio-device=46
 
 # Change title according to current media (string)
 #input-title-format=$Z
+
+# Disable all lua plugins (boolean)
+#lua=1
 
 # Preferred decoders list (string)
 #codec=
@@ -3331,6 +3546,9 @@ auhal-audio-device=46
 
 # Stream filter module (string)
 #stream-filter=
+
+# Demux filter module (string)
+#demux-filter=
 
 # Default stream output chain (string)
 #sout=
@@ -3386,8 +3604,11 @@ auhal-audio-device=46
 # Use a plugins cache (boolean)
 #plugins-cache=1
 
-# Adjust VLC priority (integer)
-#rt-offset=0
+# Scan for new plugins (boolean)
+#plugins-scan=1
+
+# Preferred keystore list (string)
+#keystore=
 
 # Play files randomly forever (boolean)
 random=1
@@ -3407,6 +3628,9 @@ loop=1
 # Play and pause (boolean)
 #play-and-pause=0
 
+# Start paused (boolean)
+#start-paused=0
+
 # Auto start (boolean)
 #playlist-autostart=1
 
@@ -3422,11 +3646,23 @@ loop=1
 # Default stream (string)
 #open=
 
-# Automatically preparse files (boolean)
+# Automatically preparse items (boolean)
 #auto-preparse=1
+
+# Preparsing timeout (integer)
+#preparse-timeout=5000
 
 # Allow metadata network access (boolean)
 #metadata-network-access=0
+
+# Subdirectory behavior (string)
+#recursive=collapse
+
+# Ignored extensions (string)
+#ignore-filetypes=m3u,db,nfo,ini,jpg,jpeg,ljpg,gif,png,pgm,pgmyuv,pbm,pam,tga,bmp,pnm,xpm,xcf,pcx,tif,tiff,lbm,sfv,txt,sub,idx,srt,cue,ssa
+
+# Show hidden files (boolean)
+#show-hiddenfiles=0
 
 # Services discovery modules (string)
 #services-discovery=
@@ -3436,12 +3672,6 @@ loop=1
 
 # Write process id to file (string)
 #pidfile=
-
-# Log to file (boolean)
-#file-logging=0
-
-# Log to syslog (boolean)
-#syslog=0
 
 # Show advanced options (boolean)
 #advanced=0
@@ -3461,8 +3691,11 @@ loop=1
 # Control interfaces (string)
 control=(null)
 
-# MouseWheel up-down axis Control (integer)
-#hotkeys-mousewheel-mode=0
+# Mouse wheel vertical axis control (integer)
+#hotkeys-y-wheel-mode=0
+
+# Mouse wheel horizontal axis control (integer)
+#hotkeys-x-wheel-mode=2
 
 # Fullscreen (string)
 #global-key-toggle-fullscreen=
@@ -3758,6 +3991,12 @@ control=(null)
 # Cycle through audio devices (string)
 #key-audiodevice-cycle=Shift+a
 
+# Cycle subtitle track in reverse order (string)
+#global-key-subtitle-revtrack=
+
+# Cycle subtitle track in reverse order (string)
+#key-subtitle-revtrack=Alt+s
+
 # Cycle subtitle track (string)
 #global-key-subtitle-track=
 
@@ -3932,6 +4171,30 @@ control=(null)
 # Normal/Loop/Repeat (string)
 #key-loop=Shift+l
 
+# Shrink the viewpoint field of view (360°) (string)
+#global-key-viewpoint-fov-in=
+
+# Shrink the viewpoint field of view (360°) (string)
+#key-viewpoint-fov-in=Page Up
+
+# Expand the viewpoint field of view (360°) (string)
+#global-key-viewpoint-fov-out=
+
+# Expand the viewpoint field of view (360°) (string)
+#key-viewpoint-fov-out=Page Down
+
+# Roll the viewpoint clockwise (360°) (string)
+#global-key-viewpoint-roll-clock=
+
+# Roll the viewpoint clockwise (360°) (string)
+#key-viewpoint-roll-clock=
+
+# Roll the viewpoint anti-clockwise (360°) (string)
+#global-key-viewpoint-roll-anticlock=
+
+# Roll the viewpoint anti-clockwise (360°) (string)
+#key-viewpoint-roll-anticlock=
+
 # 1:4 Quarter (string)
 #global-key-zoom-quarter=
 
@@ -4093,6 +4356,24 @@ control=(null)
 
 # Clear the playlist (string)
 #key-clear-playlist=
+
+# Reset subtitles text scale (string)
+#global-key-subtitle-text-scale-normal=
+
+# Reset subtitles text scale (string)
+#key-subtitle-text-scale-normal=Command+0
+
+# Scale down subtitles text (string)
+#global-key-subtitle-text-scale-up=
+
+# Scale down subtitles text (string)
+#key-subtitle-text-scale-up=Command+Mouse Wheel Up
+
+# Scale up subtitles text (string)
+#global-key-subtitle-text-scale-down=
+
+# Scale up subtitles text (string)
+#key-subtitle-text-scale-down=Command+Mouse Wheel Down
 
 # Playlist bookmark 1 (string)
 #bookmark1=
