@@ -12,8 +12,6 @@ fi
 
 # Customize to your needs...
 # BEGIN ANSIBLE MANAGED BLOCK
-# custom path for rbenv see - https://github.com/rbenv/rbenv
-export PATH="$HOME/bin/:$HOME/.rbenv/shims:$PATH"
 
 # fasd aliases see - https://github.com/clvv/fasd
 

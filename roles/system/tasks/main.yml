@@ -80,6 +80,7 @@
   with_items:
     #- moreutils
     - aria2
+    - asdf
     - coreutils
     - ctags
     - colordiff
@@ -109,7 +110,6 @@
     - progress
     - pv
     - qt
-    - rbenv
     - readline
     - rename
     - ripgrep
@@ -153,6 +153,7 @@
 - name: node packages
   gem: name={{ item }} state=present
   with_items:
+    - surge
     - tldr
 
 - name: create alfred configuration directory

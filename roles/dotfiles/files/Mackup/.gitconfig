@@ -12,7 +12,7 @@
 	branch = auto
 	ui = true
 [core]
-	excludesfile = /Users/clinto/.gitignore
+	excludesfile = ~/.gitignore_global
 	autocrlf = input
 	quotepath = false
 [apply]
@@ -31,5 +31,3 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-[git "jira"]
-	host = locomote.atlassian.net

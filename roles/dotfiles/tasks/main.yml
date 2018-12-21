@@ -44,18 +44,18 @@
     url: https://git.io/fisher
     dest: "{{ ansible_env.HOME }}/.config/fish/functions/fisher.fish"
 
-- name: check if bobthefish theme installed
-  shell: omf theme bobthefish
+- name: check if default theme installed
+  shell: omf theme default
   args:
     executable: /usr/local/bin/fish
-  register: bob_the_fish
+  register: omf_theme
   ignore_errors: yes
 
-- name: install bobthefish theme
-  shell: omf install bobthefish
+- name: install omf theme
+  shell: omf install default
   args:
     executable: /usr/local/bin/fish
-  when: bob_the_fish.failed
+  when: omf_theme.failed
 
 - name: tapping homebrew cask fonts
   homebrew_tap:
@@ -68,11 +68,11 @@
     - font-hack-nerd-font
     - font-source-code-pro
     
-- name: set fish theme to bobthefish
-  shell: omf theme bobthefish
+- name: set fish theme 
+  shell: omf theme default
   args:
     executable: /usr/local/bin/fish
-  when: bob_the_fish.failed
+  when: omf_theme.failed
 
 - name: setting fish as the default shell
   command: chsh -s /usr/local/bin/fish

@@ -50,6 +50,7 @@
 ### A handy set of system packages
 
 * aria2
+* asdf
 * coreutils
 * ctags
 * dos2unix
@@ -72,7 +73,6 @@
 * progress
 * pv
 * qt
-* rbenv
 * readline
 * rename
 * ruby-build

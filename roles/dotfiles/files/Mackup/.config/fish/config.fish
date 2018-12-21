@@ -37,6 +37,5 @@ export LESSOPEN="|/usr/local/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
 
 alias weather="curl wttr.in/Melbourne"
 
-# use rbevnv shims over local system ruby
-
-export PATH="$HOME/.rbenv/shims:$HOME/bin:$PATH"
+# use asdf for version management
+source /usr/local/opt/asdf/asdf.fish
