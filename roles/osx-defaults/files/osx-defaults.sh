@@ -141,3 +141,6 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # defaults write com.apple.loginwindow GuestEnabled -bool FALSE
 # defaults write SystemConfiguration/com.apple.smb.server AllowGuestAccess -bool false
 # defaults write com.apple.AppleFileServer guestAccess -bool false
+
+# Enable secondary (right button mouse click)
+defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode TwoButton

@@ -1,5 +1,8 @@
 ---
 
+- name: ensure we have an .ssh dir with the correct perms
+  file: path={{ ansible_env.HOME }}/.ssh state=directory mode=700
+
 - name: add home bin dir for custom scripts
   file: path={{ ansible_env.HOME }}/bin state=directory
 
@@ -16,12 +19,12 @@
     - evernote
     - firefox
     - flux
-    - google-chrome
+    #- google-chrome
     - handbrake
     - keybase
     - libreoffice
     - skype
-    - slack
+#    - slack
     - spectacle
     - spotify
     - torbrowser
@@ -73,7 +76,7 @@
     - qlmarkdown
     - qlstephen
     - quicklook-json
-    - slack
+#    - slack
 
 - name: system packages
   homebrew: name={{ item }} state=present
@@ -89,6 +92,7 @@
     - fasd
     - fdupes
     - figlet
+    - fish
     - fpp
     - fzf
     - gnupg

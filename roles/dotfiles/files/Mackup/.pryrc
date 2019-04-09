@@ -48,7 +48,7 @@ Pry.config.editor = proc { |file, line| "open subl://open?url=file://#{file}&lin
  # "#{prompt} (#{obj})> "
 #end
 
-if defined?(Rails)
+if defined?(Rails) && Pry.config.prompt.is_a?(Array)
   old_prompt = Pry.config.prompt
   env        = Pry.config.color ? Pry::Helpers::Text.red(Rails.env) : Rails.env
 

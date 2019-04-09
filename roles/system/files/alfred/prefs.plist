@@ -41,9 +41,9 @@
 			<key>keyword</key>
 			<string>ji</string>
 			<key>text</key>
-			<string>Jira Search</string>
+			<string>JIRA Search</string>
 			<key>url</key>
-			<string>https://locomote.atlassian.net/secure/QuickSearch.jspa?searchString={query}</string>
+			<string>https://goatapp.atlassian.net/secure/QuickSearch.jspa?searchString={query}</string>
 			<key>utf8</key>
 			<true/>
 		</dict>

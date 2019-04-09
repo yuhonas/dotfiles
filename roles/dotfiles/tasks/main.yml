@@ -74,6 +74,19 @@
     executable: /usr/local/bin/fish
   when: omf_theme.failed
 
+- name: check for oh my fish installation
+  shell: which fish
+  register: fish_path
+  
+- lineinfile:
+    path: /etc/shells
+    regexp: "{{ fish_path.stdout | regex_escape }}"
+    insertafter: EOF
+    state: present
+    line: "{{ fish_path.stdout }}"
+  become: true
+
 - name: setting fish as the default shell
   command: chsh -s /usr/local/bin/fish
   when: ansible_env.SHELL.find('fish') == -1
+  become: true
