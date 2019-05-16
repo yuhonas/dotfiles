@@ -21,6 +21,7 @@
     - flux
     #- google-chrome
     - handbrake
+    - insomnia
     - keybase
     - libreoffice
     - skype
@@ -51,7 +52,9 @@
     - neomutt
     - node
     - pgcli
+    - pyenv
     - redis
+    - ruby-build
     - sqlite
     - w3m
 
@@ -117,7 +120,6 @@
     - readline
     - rename
     - ripgrep
-    - ruby-build
     - sox
     - the_silver_searcher
     - tig

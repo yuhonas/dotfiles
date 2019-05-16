@@ -12,7 +12,7 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias gc="git commit --verbose"
 alias gp="git push"
-alias todo="emacsclient ~/Dropbox/ORG/TODO.org"
+alias e="emacsclient ~/Dropbox/ORG/TODO.org"
 alias rorc="bundle exec rails c"
 alias rors="bundle exec rails s"
 alias be="bundle exec"
@@ -39,3 +39,7 @@ alias weather="curl wttr.in/Melbourne"
 
 # use asdf for version management
 source /usr/local/opt/asdf/asdf.fish
+
+# ensure history is enabled in iex
+# See https://github.com/elixir-lang/elixir/issues/2945
+export ERL_AFLAGS="-kernel shell_history enabled"
