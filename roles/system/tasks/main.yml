@@ -14,6 +14,7 @@
   with_items:
     - alfred
     - 1password
+    - bitbar
     - dropbox
     - drop-to-gif
     - evernote
