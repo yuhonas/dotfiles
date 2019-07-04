@@ -1,0 +1,66 @@
+- name: update homebrew
+  homebrew: update_homebrew=yes
+
+- name: applications
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+    - alfred
+    - 1password
+    - bitbar
+    - dropbox
+    - drop-to-gif
+    - evernote
+    - firefox
+    - flux
+    #- google-chrome
+    - handbrake
+    - insomnia
+    - keybase
+    - libreoffice
+    - skype
+#    - slack
+    - spectacle
+    - spotify
+    - torbrowser
+    - vlc
+    - uninstallpkg
+
+
+- name: developer applications
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+    - dash
+    - gitkraken
+    - iterm2
+    - postico
+    - sequel-pro
+    - sourcetree
+    - sublime-text
+    - vagrant-manager
+    - visual-studio-code
+
+- name: quicklook plugins
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+    - betterzipql
+    - qlcolorcode
+    - qlmarkdown
+    - qlstephen
+    - quicklook-json
+
+
+# see https://superuser.com/questions/256232/how-can-i-get-qmake-on-mac-os-x
+- name: link qt
+  homebrew: name=qt state=linked
+
+- name: create alfred configuration directory
+  file:
+    path: "{{ ansible_env.HOME }}/Library/Application Support/Alfred 3/Alfred.alfredpreferences/preferences/features/websearch"
+    state: directory
+
+- name: symlink alfred configuration
+  file:
+    src: "{{ role_path }}/files/alfred/prefs.plist"
+    dest: "{{ ansible_env.HOME }}/Library/Application Support/Alfred 3/Alfred.alfredpreferences/preferences/features/websearch/prefs.plist"
+    state: link
+    force: yes

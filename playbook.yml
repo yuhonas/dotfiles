@@ -1,7 +1,20 @@
 ---
-- hosts: localhost
+- hosts: all
+  tasks:
+    - name: classify hosts depending on their os distribution
+      group_by:
+        key: os_{{ ansible_facts['system'] }}
+
+- hosts: all
   connection: local
   roles:
     - system
     - { role: dotfiles, tags: [dotfiles] }
+
+- hosts: os_Darwin
+  connection: local
+  roles:
+    - osx-apps
     - osx-defaults
+
+

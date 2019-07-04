@@ -9,20 +9,25 @@ ANSIBLE_DIRECTORY="$SRC_DIRECTORY/ansible"
 ANSIBLE_REPO="https://github.com/yuhonas/dotfiles.git"
 export ANSIBLE_NOCOWS=1
 
-# Download and install Command Line Tools
-if [[ ! -x /usr/bin/gcc ]]; then
-    echo "Info   | Install   | xcode"
-    xcode-select --install
-fi
-
-# Download and install Homebrew
-if [[ ! -x /usr/local/bin/brew ]]; then
-    echo "Info   | Install   | homebrew"
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-fi
 
 # Modify the PATH
 export PATH=/usr/local/bin:$PATH
+
+if [ "$(uname)" == "Darwin" ]; then
+    # Download and install Command Line Tools
+    if [[ ! -x /usr/bin/gcc ]]; then
+        echo "Info   | Install   | xcode"
+        xcode-select --install
+    fi
+    
+    # Download and install Homebrew
+    if [[ ! -x /usr/local/bin/brew ]]; then
+        echo "Info   | Install   | homebrew"
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+else
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+fi
 
 # Download and install git
 if [[ ! -x /usr/local/bin/git ]]; then

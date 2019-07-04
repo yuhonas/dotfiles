@@ -1,154 +1,118 @@
 ---
-
 - name: ensure we have an .ssh dir with the correct perms
   file: path={{ ansible_env.HOME }}/.ssh state=directory mode=700
 
 - name: add home bin dir for custom scripts
   file: path={{ ansible_env.HOME }}/bin state=directory
 
-- name: update homebrew
-  homebrew: update_homebrew=yes
-
-- name: applications
-  homebrew_cask: name={{ item }} state=present
-  with_items:
-    - alfred
-    - 1password
-    - bitbar
-    - dropbox
-    - drop-to-gif
-    - evernote
-    - firefox
-    - flux
-    #- google-chrome
-    - handbrake
-    - insomnia
-    - keybase
-    - libreoffice
-    - skype
-#    - slack
-    - spectacle
-    - spotify
-    - torbrowser
-    - vlc
-    - uninstallpkg
-
-- name: developer packages
-  homebrew: name={{ item }} state=present
-  with_items:
-    - awscli
-    - cookiecutter
-    - cowsay
-    - dash
-    - elixir
-    - emacs
-    - fortune
-    - git
-    - git-extras
-    - graphviz
-    - heroku/brew/heroku
-    - hub
-    - imagemagick
-    - mysql
-    - neomutt
-    - node
-    - pgcli
-    - pyenv
-    - redis
-    - ruby-build
-    - sqlite
-    - w3m
-
-- name: developer applications
-  homebrew_cask: name={{ item }} state=present
-  with_items:
-    - dash
-    - gitkraken
-    - iterm2
-    - postico
-    - sequel-pro
-    - sourcetree
-    - sublime-text
-    - vagrant-manager
-    - visual-studio-code
-
-- name: quicklook plugins
-  homebrew_cask: name={{ item }} state=present
-  with_items:
-    - betterzipql
-    - qlcolorcode
-    - qlmarkdown
-    - qlstephen
-    - quicklook-json
-#    - slack
-
-- name: system packages
-  homebrew: name={{ item }} state=present
-  with_items:
-    #- moreutils
-    - aria2
-    - asdf
-    - coreutils
-    - ctags
-    - colordiff
-    - dos2unix
-    - exa
-    - fasd
-    - fdupes
-    - figlet
-    - fish
-    - fpp
-    - fzf
-    - gnupg
-    - hr
-    - htop-osx
-    - httpie
-    - ispell
-    - jq
-    - lesspipe
-    - lnav
-    - mackup
-    - md5deep
-    - ncdu
-    - neofetch
-    - nmap
-    - pandoc
-    - p7zip
-    - poppler # for lesspipe
-    - progress
-    - pv
-    - qt
-    - readline
-    - rename
-    - ripgrep
-    - sox
-    - the_silver_searcher
-    - tig
-    - trash
-    - tree
-    - tldr
-    - tmux
-    - unrar
-    - wget
-    - zsh
-
 - name: install spacemacs
   git:
     repo: https://github.com/syl20bnr/spacemacs
     dest: "{{ ansible_env.HOME }}/.emacs.d"
 
-- name: install useful fzf key bindings and fuzzy completion
-  shell: $(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc
+# - name: install useful fzf key bindings and fuzzy completion
+#   shell: $(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc
 
-# see https://superuser.com/questions/256232/how-can-i-get-qmake-on-mac-os-x
-- name: link qt
-  homebrew: name=qt state=linked
+- name: developer packages
+  homebrew:
+    state: present
+    name:
+      - awscli
+      - cookiecutter
+      - cowsay
+      - dash
+      - elixir
+      - emacs
+      - fortune
+      - git
+      - git-extras
+      - graphviz
+      - heroku/brew/heroku
+      - hub
+      - imagemagick
+      - mysql
+      - neomutt
+      - node
+      - pgcli
+      - pyenv
+      - redis
+      - ruby-build
+      - sqlite
+      - w3m
+
+- name: system packages
+  homebrew: 
+    state: present
+    name:
+      #- moreutils
+      - aria2
+      - asdf
+      - coreutils
+      - ctags
+      - colordiff
+      - dos2unix
+      - exa
+      - fasd
+      - fdupes
+      - figlet
+      - fish
+      - fpp
+      - fzf
+      - gnupg
+      - hr
+      - htop-osx
+      - httpie
+      - ispell
+      - jq
+      - lesspipe
+      - lnav
+      - md5deep
+      - ncdu
+      - neofetch
+      - nmap
+      - pandoc
+      - p7zip
+      - poppler # for lesspipe
+      - progress
+      - pv
+      - qt
+      - readline
+      - rename
+      - ripgrep
+      - sox
+      - the_silver_searcher
+      - tig
+      - trash
+      - tree
+      - tldr
+      - tmux
+      - unrar
+      - wget
+      - zsh
+
+- name: set global asdf versions
+  blockinfile:
+    path: "{{ ansible_env.HOME }}/.tool-versions"
+    create: yes
+    block: |
+      ruby 2.6.3
+      golang 1.12.5
+
+- name: update asdf plugin versions
+  command: asdf plugin-update --all
+
+- name: install asdf versions
+  command: asdf install
+
+- name: asdf reshim
+  command: asdf reshim
 
 - name: python packages
   pip: name={{ item }} state=present
   with_items:
     - csvkit
     - haxor-news
+    - mackup
 
 - name: ruby packages
   gem: name={{ item }} state=present
@@ -162,25 +126,3 @@
   with_items:
     - surge
     - tldr
-
-- name: create alfred configuration directory
-  file:
-    path: "{{ ansible_env.HOME }}/Library/Application Support/Alfred 3/Alfred.alfredpreferences/preferences/features/websearch"
-    state: directory
-
-- name: symlink alfred configuration
-  file:
-    src: "{{ role_path }}/files/alfred/prefs.plist"
-    dest: "{{ ansible_env.HOME }}/Library/Application Support/Alfred 3/Alfred.alfredpreferences/preferences/features/websearch/prefs.plist"
-    state: link
-    force: yes
-
-- name: create sublime text 3 configuration directory
-  file: path="{{ ansible_env.HOME }}/Library/Application Support/Sublime Text 3/Installed Packages" state=directory
-
-# See https://stackoverflow.com/questions/19529999/add-package-control-in-sublime-text-3-through-the-command-line
-- name: install sublime package control
-  tags: editor
-  get_url:
-    url: https://packagecontrol.io/Package%20Control.sublime-package
-    dest: "{{ ansible_env.HOME }}/Library/Application Support/Sublime Text 3/Installed Packages/Package Control.sublime-package"
