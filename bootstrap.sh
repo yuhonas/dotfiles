@@ -10,9 +10,6 @@ ANSIBLE_REPO="https://github.com/yuhonas/dotfiles.git"
 export ANSIBLE_NOCOWS=1
 
 
-# Modify the PATH
-export PATH=/usr/local/bin:$PATH
-
 if [ "$(uname)" == "Darwin" ]; then
     # Download and install Command Line Tools
     if [[ ! -x /usr/bin/gcc ]]; then
@@ -20,13 +17,19 @@ if [ "$(uname)" == "Darwin" ]; then
         xcode-select --install
     fi
     
-    # Download and install Homebrew
+    # Download and install homebrew
     if [[ ! -x /usr/local/bin/brew ]]; then
         echo "Info   | Install   | homebrew"
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
 else
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+    # Download and install linuxbrew
+    if [[ ! -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+        echo "Info   | Install   | linuxbrew"
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+        echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >>$HOME/.profile
+        source $HOME/.profile
+    fi
 fi
 
 # Download and install git
