@@ -29,17 +29,18 @@ else
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
         echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >>$HOME/.profile
         source $HOME/.profile
+        brew update --force
     fi
 fi
 
 # Download and install git
-if [[ ! -x /usr/local/bin/git ]]; then
+if ! type git > /dev/null 2>&1; then
     echo "Info   | Install   | git"
     brew install git
 fi
 
 # Download and install Ansible
-if [[ ! -x /usr/local/bin/ansible ]]; then
+if ! type ansible > /dev/null 2>&1; then
     echo "Info   | Install   | ansible"
     brew install ansible
 fi
@@ -52,5 +53,5 @@ if [[ ! -d $ANSIBLE_DIRECTORY ]]; then
   git clone $ANSIBLE_REPO $ANSIBLE_DIRECTORY
 fi
 
-# # Provision the box
+# Provision the box
 ansible-playbook --ask-become-pass --become-method=sudo -i $ANSIBLE_DIRECTORY/inventory $ANSIBLE_DIRECTORY/playbook.yml
