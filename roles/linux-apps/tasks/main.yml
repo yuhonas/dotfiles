@@ -1,0 +1,28 @@
+# https://github.com/unix121/i3wm-themer
+- name: everything to rice linux
+  package: name={{ item }} state=present
+  become: yes
+  with_items:
+    - adobe-source-code-pro-fonts
+    - dmenu
+    - feh # wallpaper management
+    - nitrogen # wallpaper management
+    - nerd-fonts-complete
+    - neomutt
+    - polybar
+    - ranger
+    - rofi
+    - xorg-xrdb # https://wiki.archlinux.org/index.php/X_resources
+      
+# https://linuxhint.com/install-dropbox-arch-linux/
+- name: check if dropbox is installed
+  stat:
+    path: /usr/bin/dropbox
+  register: stat_result
+
+- name: install dropbox
+  include_tasks:
+    file: dropbox.yml
+  when: stat_result.stat.exists == False
+
+                

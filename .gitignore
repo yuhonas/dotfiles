@@ -1,2 +1,3 @@
 playbook.retry
 .DS_Store
+*.swp

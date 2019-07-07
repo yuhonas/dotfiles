@@ -16,5 +16,8 @@
   roles:
     - osx-apps
     - osx-defaults
-
-
+      
+- hosts: os_Linux
+  connection: local
+  roles:
+    - linux-apps

@@ -1,0 +1,14 @@
+- name: create temporary install directory for oh-my-zsh
+  tempfile:
+    state: directory
+    prefix: oh-my-zsh
+  register: tempdir
+
+- name: get oh-my-zsh install script
+  get_url:
+    url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+    dest: "{{ tempdir.path }}/install.sh"
+
+- name: execute oh my zsh setup script
+  script: "{{ tempdir.path }}/install.sh"
+

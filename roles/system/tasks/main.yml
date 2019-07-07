@@ -10,6 +10,14 @@
     repo: https://github.com/syl20bnr/spacemacs
     dest: "{{ ansible_env.HOME }}/.emacs.d"
 
+- name: install vim
+  homebrew: name=vim state=present
+
+- name: install vundle for vim plugin management
+  git:
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: "{{ ansible_env.HOME }}/.vim/bundle/Vundle.vim"
+    
 # - name: install useful fzf key bindings and fuzzy completion
 #   shell: $(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc
 
@@ -23,11 +31,8 @@
       - git
       - git-extras
       - graphviz
-      - heroku/brew/heroku
       - hub
       - imagemagick
-      - mysql
-      - neomutt
       - pgcli
       - redis
       - ruby-build
@@ -39,12 +44,11 @@
     state: present
     name:
       #- moreutils
-      - aria2
+      - aria2 
       - asdf
       - coreutils
       - ctags
       - colordiff
-      - dmenu
       - dos2unix
       - exa
       - fasd
@@ -56,13 +60,13 @@
       - fzf
       - gnupg
       - hr
-      - htop-osx
       - httpie
       - ispell
       - jq
       - lesspipe
       - lnav
       - md5deep
+      - mmv
       - ncdu
       - neofetch
       - nmap
@@ -73,12 +77,10 @@
       - pv
       - qt
       - readline
-      - rename
       - ripgrep
       - sox
       - the_silver_searcher
       - tig
-      - trash
       - tree
       - tldr
       - tmux
@@ -86,12 +88,26 @@
       - wget
       - zsh
 
+- name: find where asdf was installed
+  command: "brew --prefix asdf"
+  register: asdf_location
+
+- debug: msg="{{asdf_location.stdout}}"
+
+- name: ensure asdf is in the $PATH
+  blockinfile:
+    path: "{{ ansible_env.HOME }}/.bashrc"
+    block: |
+      export ASDF_DIR={{ asdf_location.stdout }}
+      export PATH=~/.asdf/shims:$PATH
+
 - name: add asdf plugins
   command: "asdf plugin-add {{ item }}" 
   with_items:
-    - ruby
     - golang
+    - ruby
     - nodejs
+    - python
   ignore_errors: yes
 
 - name: set global asdf versions
@@ -99,35 +115,53 @@
     path: "{{ ansible_env.HOME }}/.tool-versions"
     create: yes
     block: |
-      ruby 2.6.3
       golang 1.12.5
       nodejs 10.16.0
+      python 3.6.8
+      ruby 2.6.3
 
 - name: update asdf plugin versions
   command: asdf plugin-update --all
 
+# https://github.com/asdf-vm/asdf-nodejs/issues/82
+- name: update the release keys
+  script: "{{ ansible_env.HOME }}/.asdf/plugins/nodejs/bin/import-release-team-keyring"
+
 - name: install asdf versions
   command: asdf install
-
-- name: asdf reshim
-  command: asdf reshim
+  args:
+    chdir: "{{ ansible_env.HOME }}"
 
 - name: python packages
-  pip: name={{ item }} state=present
-  with_items:
-    - csvkit
-    - haxor-news
-    - mackup
+  pip: 
+    name:
+      - csvkit
+      - haxor-news
+      - mackup
+    state: present
+    executable: ~/.asdf/shims/pip3.6
 
 - name: ruby packages
-  gem: name={{ item }} state=present
+  gem: 
+    name: "{{ item }}" 
+    state: present
+    executable: ~/.asdf/shims/gem
   with_items:
     - git-pulls
     - seeing_is_believing
     - bropages
+    - tldr
 
 - name: node packages
-  gem: name={{ item }} state=present
+  npm: 
+    name: "{{ item }}"
+    state: present
+    global: yes
+    executable: ~/.asdf/shims/npm
   with_items:
+    - heroku
     - surge
-    - tldr
+
+- name: asdf reshim
+  command: asdf reshim
+

@@ -1,0 +1,20 @@
+- name: create temporary build directory for dropbox
+  tempfile:
+    state: directory
+    prefix: dropbox
+  register: dropbox_build
+
+- name: checking out dropbox from aur
+  git:
+    repo: https://aur.archlinux.org/dropbox.git
+    dest: "{{ dropbox_build.path }}"
+
+- name: ensure we have dropbox's public key in the gpg keyring
+  command: gpg --import <(curl --silent https://linux.dropbox.com/fedora/rpm-public-key.asc)
+  args:
+    chdir: "{{ dropbox_build.path }}"
+
+- name: building a pacman package
+  command: makepkg --syncdeps --noconfirm
+  args:
+    chdir: "{{ dropbox_build.path }}"

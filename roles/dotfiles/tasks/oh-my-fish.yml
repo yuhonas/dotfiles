@@ -1,0 +1,50 @@
+- name: download oh my fish installation
+  get_url:
+    url: https://get.oh-my.fish
+    dest: /tmp/omf.fish
+  when: oh_my_fish.failed
+
+- name: install oh my fish
+  command: fish /tmp/omf.fish --noninteractive --yes
+  when: oh_my_fish.failed
+
+- name: install fisherman
+  get_url:
+    url: https://git.io/fisher
+    dest: "{{ ansible_env.HOME }}/.config/fish/functions/fisher.fish"
+
+- name: check if default theme installed
+  shell: omf theme default
+  args:
+    executable: /usr/local/bin/fish
+  register: omf_theme
+  ignore_errors: yes
+
+- name: install omf theme
+  shell: omf install default
+  args:
+    executable: /usr/local/bin/fish
+  when: omf_theme.failed
+
+- name: set fish theme 
+  shell: omf theme default
+  args:
+    executable: /usr/local/bin/fish
+  when: omf_theme.failed
+
+- name: check for oh my fish installation
+  shell: which fish
+  register: fish_path
+  
+- lineinfile:
+    path: /etc/shells
+    regexp: "{{ fish_path.stdout | regex_escape }}"
+    insertafter: EOF
+    state: present
+    line: "{{ fish_path.stdout }}"
+  become: true
+
+- name: setting fish as the default shell
+  command: chsh -s /usr/local/bin/fish
+  when: ansible_env.SHELL.find('fish') == -1
+  become: true

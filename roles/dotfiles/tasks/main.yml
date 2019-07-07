@@ -1,15 +1,25 @@
 ---
-- name: downloading prezto repo
-  git: repo=https://github.com/sorin-ionescu/prezto.git dest={{ ansible_env.HOME }}/.zprezto recursive=yes
+- name: check if oh-my-zsh is installed
+  stat:
+    path: "{{ ansible_env.HOME }}/.oh-my-zsh"
+  register: zsh_stat_result
 
-- name: downloading dircolors theme
-  git: repo=https://github.com/gibbling/dircolors.git dest={{ ansible_env.HOME }}/.dircolors recursive=yes
-
+- name: install oh-my-zsh
+  include_tasks:
+    file: oh-my-zsh.yml
+  when: zsh_stat_result.stat.exists == False
+  
 - name: symlinking dotfiles
   file: src="{{ item }}" dest="{{ lookup('env','HOME') }}/.{{ item | basename }}" state=link
   with_fileglob:
-    - ./*
+    - "./*"
 
+- name: restore dotfile config via mackup
+  command: mackup restore --force
+
+- name: downloading dircolors theme
+  git: repo=https://github.com/gibbling/dircolors.git dest={{ ansible_env.HOME }}/.dircolors recursive=yes
+   
 - name: creates mutt configuration directory
   file: state=directory recurse=yes path={{ item }}
   with_items:
@@ -19,74 +29,20 @@
 - name: downloading mutt solarized theme
   git: repo=https://github.com/altercation/mutt-colors-solarized.git dest={{ ansible_env.HOME }}/.mutt/theme recursive=yes
 
-- name: restore configuration via mackup
-  command: mackup restore --force
-
-- name: check for oh my fish installation
-  shell: omf
-  args:
-    executable: /usr/local/bin/fish
-  register: oh_my_fish
-  ignore_errors: yes
-
-- name: download oh my fish installation
-  get_url:
-    url: https://get.oh-my.fish
-    dest: /tmp/omf.fish
-  when: oh_my_fish.failed
-
-- name: install oh my fish
-  command: fish /tmp/omf.fish --noninteractive --yes
-  when: oh_my_fish.failed
-
-- name: install fisherman
-  get_url:
-    url: https://git.io/fisher
-    dest: "{{ ansible_env.HOME }}/.config/fish/functions/fisher.fish"
-
-- name: check if default theme installed
-  shell: omf theme default
-  args:
-    executable: /usr/local/bin/fish
-  register: omf_theme
-  ignore_errors: yes
-
-- name: install omf theme
-  shell: omf install default
-  args:
-    executable: /usr/local/bin/fish
-  when: omf_theme.failed
-
-- name: tapping homebrew cask fonts
-  homebrew_tap:
-    name: homebrew/homebrew-cask-fonts
-
-- name: installing fonts for use in shell / other places
-  homebrew_cask: name={{ item }} state=present
-  with_items:
-    - font-inconsolata-for-powerline
-    - font-hack-nerd-font
-    - font-source-code-pro
-    
-- name: set fish theme 
-  shell: omf theme default
-  args:
-    executable: /usr/local/bin/fish
-  when: omf_theme.failed
-
-- name: check for oh my fish installation
-  shell: which fish
-  register: fish_path
-  
-- lineinfile:
-    path: /etc/shells
-    regexp: "{{ fish_path.stdout | regex_escape }}"
-    insertafter: EOF
-    state: present
-    line: "{{ fish_path.stdout }}"
-  become: true
-
-- name: setting fish as the default shell
-  command: chsh -s /usr/local/bin/fish
-  when: ansible_env.SHELL.find('fish') == -1
-  become: true
+#- name: check for oh my fish installation
+#  shell: omf
+#  args:
+#    executable: /usr/local/bin/fish
+#  register: oh_my_fish
+#  ignore_errors: yes
+#
+#- name: tapping homebrew cask fonts
+#  homebrew_tap:
+#    name: homebrew/homebrew-cask-fonts
+#
+#- name: installing fonts for use in shell / other places
+#  homebrew_cask: name={{ item }} state=present
+#  with_items:
+#    - font-inconsolata-for-powerline
+#    - font-hack-nerd-font
+#    - font-source-code-pro
