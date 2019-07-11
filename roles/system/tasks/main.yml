@@ -101,6 +101,10 @@
       export ASDF_DIR={{ asdf_location.stdout }}
       export PATH=~/.asdf/shims:$PATH
 
+# https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/asdf/asdf.plugin.zsh
+- name: symlink the asdf startup script for oh-my-zsh
+  file: src="{{ asdf_location.stdout }}/asdf.sh" dest="{{ lookup('env','HOME') }}/.asdf/asdf.sh" state=link
+
 - name: add asdf plugins
   command: "asdf plugin-add {{ item }}" 
   with_items:

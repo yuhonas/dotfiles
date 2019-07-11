@@ -62,6 +62,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'slashmili/alchemist.vim'
 Plugin 'elixir-editors/vim-elixir'
+Plugin 'flazz/vim-colorschemes'
+
 
 " All of your Plugins eust be added before the following line
 call vundle#end()            " required
@@ -79,7 +81,8 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 "
-colorscheme dracula     " awesome colorscheme
+colorscheme dracula
+
 syntax enable           " enable syntax processing
 set number              " show line numbers
 set showcmd             " show command in bottom bar
@@ -110,3 +113,9 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+
+" machine specific vim customizations
+if !empty(glob("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
+
