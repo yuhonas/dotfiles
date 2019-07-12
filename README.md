@@ -109,3 +109,9 @@ Use the bootstrap script to install any depedencies and run the playbook
 ```
 $ bash <(curl -s https://raw.githubusercontent.com/yuhonas/mac-dev-playbook/master/bootstrap.sh)
 ````
+
+
+### TODO
+
+- [ ] Use antigen for zsh plugins
+- [ ] Use fzf with preview

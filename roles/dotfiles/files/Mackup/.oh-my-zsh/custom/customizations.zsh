@@ -1,9 +1,10 @@
 # https://minsw.github.io/fzf-color-picker/
-export FZF_DEFAULT_OPTS='--height 40% --reverse
+export FZF_DEFAULT_OPTS="--reverse
 --color=fg:#d0d0d0,hl:#5f87af 
 --color=fg+:#d0d0d0,hl+:#5fd7ff 
 --color=info:#afaf87,prompt:#00d6a4,pointer:#af5fff 
---color=marker:#87ff00,spinner:#af5fff,header:#87afaf'
+--color=marker:#87ff00,spinner:#af5fff,header:#87afaf
+--preview='less -10 {+} 2>/dev/null'"
 
 # git aliases
 
