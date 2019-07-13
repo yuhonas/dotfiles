@@ -63,13 +63,38 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(asdf colored-man-pages fasd fzf git)
+ANTIGEN_PATH=$HOME/antigen
+source $ANTIGEN_PATH/antigen.zsh
 
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle asdf
+antigen bundle colored-man-pages
+antigen bundle fasd
+antigen bundle fzf
+antigen bundle git
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Reminders about aliases I've set up.
+#antigen bundle djui/alias-tips
+
+# ZSH plugin that reminds you to use existing aliases for commands you just typed.
+antigen bundle MichaelAquilina/zsh-you-should-use
+
+# Load the theme.
+antigen theme $ZSH_THEME
+
+# Tell Antigen that you're done.
+antigen apply
+
+# source oh-my-zsh so we can load our customizations
+# FIXME: There must be a better way to do this
 source $ZSH/oh-my-zsh.sh
 
 # User configuration

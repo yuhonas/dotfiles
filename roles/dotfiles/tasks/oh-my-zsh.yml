@@ -11,4 +11,3 @@
 
 - name: execute oh my zsh setup script
   script: "{{ tempdir.path }}/install.sh"
-
