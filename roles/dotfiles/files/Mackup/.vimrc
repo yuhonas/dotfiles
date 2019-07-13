@@ -101,6 +101,9 @@ inoremap fd <esc>       " escape is something  little far away
 set textwidth=80
 set colorcolumn=+1
 
+" NERDTree Configuration
+let g:NERDTreeChDirMode=1
+
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 " The Silver Searcher
 if executable('ag')
