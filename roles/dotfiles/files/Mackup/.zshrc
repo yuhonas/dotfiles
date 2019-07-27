@@ -81,6 +81,9 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
+# My customizations
+antigen bundle $HOME/.oh-my-zsh/custom
+
 # Reminders about aliases I've set up.
 #antigen bundle djui/alias-tips
 
@@ -92,10 +95,6 @@ antigen theme $ZSH_THEME
 
 # Tell Antigen that you're done.
 antigen apply
-
-# source oh-my-zsh so we can load our customizations
-# FIXME: There must be a better way to do this
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
