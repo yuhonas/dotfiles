@@ -4,7 +4,7 @@
 
 ## What's in the box
 
-[fish shell](https://fishshell.com/) wth [bobthefish](https://github.com/oh-my-fish/theme-bobthefish) with a sprinkling of 256 color's using [exa](https://github.com/ogham/exa) all rendered using [hyper](https://hyper.is/)
+[oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) with [antigen](https://github.com/zsh-users/antigen) for plugin management with a sprinkling of 256 color's using [exa](https://github.com/ogham/exa) all rendered using [hyper](https://hyper.is/)
 
 ### A sane set of Mac defaults 
 
@@ -109,9 +109,3 @@ Use the bootstrap script to install any depedencies and run the playbook
 ```
 $ bash <(curl -s https://raw.githubusercontent.com/yuhonas/mac-dev-playbook/master/bootstrap.sh)
 ````
-
-
-### TODO
-
-- [ ] Use antigen for zsh plugins
-- [ ] Use fzf with preview
