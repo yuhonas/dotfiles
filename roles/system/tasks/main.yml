@@ -45,7 +45,8 @@
     name:
       #- moreutils
       - aria2 
-      - asdf
+      - asdf # version manager
+      - bat # an improved cat
       - coreutils
       - ctags
       - colordiff

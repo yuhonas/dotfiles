@@ -39,8 +39,6 @@ alias be="bundle exec"
 
 eval $(gdircolors ~/.dircolors/dircolors.256dark)
 
-alias ls='exa' # use exa instead of ls
-alias ll='exa -al'
 bindkey -s "^[l" "exa -al^J" # shortcut to listing a directory
 
 
@@ -48,6 +46,9 @@ bindkey -s "^[l" "exa -al^J" # shortcut to listing a directory
 
 export LESSOPEN="|/usr/local/bin/lesspipe.sh %s"
 LESS_ADVANCED_PREPROCESSOR=1
+
+# cd-gitroot alias
+alias cdu='cd-gitroot'
 
 # get the weather
 

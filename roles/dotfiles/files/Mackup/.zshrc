@@ -79,7 +79,10 @@ antigen bundle git
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zdharma/fast-syntax-highlighting
+antigen bundle mollifier/cd-gitroot
+antigen bundle wfxr/forgit
+antigen bundle DarrinTisdale/zsh-aliases-exa
 
 # My customizations
 antigen bundle $HOME/.oh-my-zsh/custom
