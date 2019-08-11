@@ -6,13 +6,6 @@ export FZF_DEFAULT_OPTS="--reverse
 --color=marker:#87ff00,spinner:#af5fff,header:#87afaf
 --preview='less -10 {+} 2>/dev/null'"
 
-# git aliases
-
-#alias gst='git status'
-#alias gj='git jira'
-#alias gd='git diff'
-#alias gdc='git diff --cached'
-
 # use vim as the default editor
 
 export VISUAL=vim
@@ -35,12 +28,10 @@ alias hp="heroku ps"
 alias hnr="heroku addons:open newrelic"
 alias be="bundle exec"
 
-# ls aliases
-
 eval $(gdircolors ~/.dircolors/dircolors.256dark)
 
 bindkey -s "^[l" "exa -al^J" # shortcut to listing a directory
-
+bindkey -s "^[r" "ranger^J" # shortcut to file explorer
 
 # lesspipe
 
@@ -53,3 +44,12 @@ alias cdu='cd-gitroot'
 # get the weather
 
 alias weather="curl wttr.in/Melbourne"
+
+# Setup frequent dirs in the CDPATH so we can cd to them from anywhere
+# https://thoughtbot.com/blog/cding-to-frequently-used-directories-in-zsh
+setopt auto_cd
+cdpath=($HOME/Sites $HOME/src)
+
+# Setup a suffix alias to allow fast editing using just the filename
+# https://opensource.com/article/18/9/tips-productivity-zsh
+alias -s {rb,go,py,js,txt,md,yaml,yml}=$EDITOR
