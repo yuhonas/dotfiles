@@ -14,7 +14,7 @@ set autoread
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = ","
+let mapleader = "\<Space>"
 
 " fast saving
 nmap <leader>w :w!<cr>
@@ -36,17 +36,21 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 " My Custom plugins
-Plugin 'dracula/vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
-Plugin 'fatih/vim-go'
-Plugin 'scrooloose/nerdtree'
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'tpope/vim-surround'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+" themes
+Plugin 'dracula/vim'
+Plugin 'flazz/vim-colorschemes'
+" golang support
+Plugin 'fatih/vim-go'
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
+" elixir support
 Plugin 'slashmili/alchemist.vim'
 Plugin 'elixir-editors/vim-elixir'
-Plugin 'flazz/vim-colorschemes'
 " All of your Plugins eust be added before the following line
 call vundle#end()            " required
 

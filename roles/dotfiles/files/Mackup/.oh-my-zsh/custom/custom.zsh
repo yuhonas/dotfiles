@@ -1,3 +1,5 @@
+# fzf default options
+# https://github.com/junegunn/fzf
 # https://minsw.github.io/fzf-color-picker/
 export FZF_DEFAULT_OPTS="--reverse
 --color=fg:#d0d0d0,hl:#5f87af 
@@ -11,12 +13,6 @@ export FZF_DEFAULT_OPTS="--reverse
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export TERM=xterm-256color
-
-# set our prompt
-
-#autoload -Uz promptinit
-#promptinit
-#prompt pure
 
 # heroku aliases
 
@@ -39,6 +35,7 @@ export LESSOPEN="|/usr/local/bin/lesspipe.sh %s"
 LESS_ADVANCED_PREPROCESSOR=1
 
 # cd-gitroot alias
+# https://github.com/mollifier/cd-gitroot
 alias cdu='cd-gitroot'
 
 # get the weather
