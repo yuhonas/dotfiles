@@ -35,22 +35,31 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-" My Custom plugins
+"
+" general plugins
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-surround'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
+Plugin 'wsdjeg/FlyGrep.vim'
+
 " themes
 Plugin 'dracula/vim'
 Plugin 'flazz/vim-colorschemes'
+
 " golang support
 Plugin 'fatih/vim-go'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
+
 " elixir support
-Plugin 'slashmili/alchemist.vim'
-Plugin 'elixir-editors/vim-elixir'
+" Plugin 'slashmili/alchemist.vim'
+" Plugin 'elixir-editors/vim-elixir'
+
+" ruby/rails support
+Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
 " All of your Plugins eust be added before the following line
 call vundle#end()            " required
 

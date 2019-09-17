@@ -50,3 +50,7 @@ cdpath=($HOME/Sites $HOME/src)
 # Setup a suffix alias to allow fast editing using just the filename
 # https://opensource.com/article/18/9/tips-productivity-zsh
 alias -s {rb,go,py,js,txt,md,yaml,yml}=$EDITOR
+
+# use the plain style for bat
+# https://github.com/sharkdp/bat
+export BAT_STYLE=plain
