@@ -54,3 +54,15 @@ alias -s {rb,go,py,js,txt,md,yaml,yml}=$EDITOR
 # use the plain style for bat
 # https://github.com/sharkdp/bat
 export BAT_STYLE=plain
+
+# fbr - checkout git branch (including remote branches)
+# https://github.com/junegunn/fzf/wiki/examples
+fbr() {
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" |
+           fzf-tmux --height 70% --delimiter $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+alias gco="fbr"
