@@ -144,3 +144,8 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Enable secondary (right button mouse click)
 defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode TwoButton
+
+# Disable smart quotes/dashes
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
