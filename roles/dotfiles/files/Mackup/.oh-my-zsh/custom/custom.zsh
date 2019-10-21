@@ -24,7 +24,7 @@ alias be="bundle exec"
 
 # color setup for ls
 # http://man7.org/linux/man-pages/man1/dircolors.1.html        
-eval $(gdircolors ~/.dircolors/dircolors.256dark)
+# eval $(gdircolors ~/.dircolors/dircolors.256dark)
 
 # custom keybindings for fast directory exploration
 bindkey -s "^[l" "exa -al^J" # alt-l shortcut to listing a directory

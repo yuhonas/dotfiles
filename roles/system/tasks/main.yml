@@ -30,8 +30,8 @@
       - emacs
       - git
       - git-extras
+      - git-town
       - graphviz
-      - hub
       - imagemagick
       - pgcli
       - redis
