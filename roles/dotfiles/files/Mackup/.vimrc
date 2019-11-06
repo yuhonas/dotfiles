@@ -44,6 +44,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'wsdjeg/FlyGrep.vim'
+Plugin 'ruanyl/vim-gh-line'
 
 " themes
 Plugin 'dracula/vim'
@@ -231,6 +232,8 @@ inoremap fd <esc>       " escape is something  little far away
 
 " NERDTree Configuration
 let g:NERDTreeChDirMode=1
+
+let g:ctrlp_working_path_mode = 'ra'
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 " The Silver Searcher

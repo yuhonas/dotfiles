@@ -26,14 +26,24 @@ alias be="bundle exec"
 # http://man7.org/linux/man-pages/man1/dircolors.1.html        
 # eval $(gdircolors ~/.dircolors/dircolors.256dark)
 
+# truncate the existing command to the first word and wrap it in a tldr call
+_tldr() {
+  local first_word
+  first_word=("${(@s/ /)BUFFER}")
+  BUFFER="tldr $first_word[1]"
+  zle accept-line
+}
+zle -N _tldr
+
 # custom keybindings for fast directory exploration
 bindkey -s "^[l" "exa -al^J" # alt-l shortcut to listing a directory
 bindkey -s "^[r" "ranger^J"  # alt-r shortcut to file explorer
+bindkey "^[H" _tldr
 
 # less input pre-processing through lesspipe
 # https://manpages.debian.org/jessie/less/lesspipe.1.en.html
 export LESSOPEN="|/usr/local/bin/lesspipe.sh %s"
-LESS_ADVANCED_PREPROCESSOR=1
+export LESS_ADVANCED_PREPROCESSOR=1
 
 # cd-gitroot alias
 # https://github.com/mollifier/cd-gitroot

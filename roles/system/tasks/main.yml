@@ -53,6 +53,7 @@
       - dos2unix
       - exa
       - fasd
+      - fd
       - fdupes
       - figlet
       - fish
