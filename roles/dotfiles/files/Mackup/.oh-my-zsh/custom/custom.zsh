@@ -36,8 +36,9 @@ _tldr() {
 zle -N _tldr
 
 # custom keybindings for fast directory exploration
-bindkey -s "^[l" "exa -al^J" # alt-l shortcut to listing a directory
+bindkey -s "^[l" "ls -al^J"  # alt-l shortcut to listing a directory
 bindkey -s "^[r" "ranger^J"  # alt-r shortcut to file explorer
+# custom keybinding for tldr help on the current command
 bindkey "^[H" _tldr
 
 # less input pre-processing through lesspipe

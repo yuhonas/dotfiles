@@ -27,42 +27,40 @@ command W w !sudo tee % > /dev/null
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-"
+call plug#begin('~/.vim/plugged')
 " general plugins
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'tpope/vim-surround'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-fugitive'
-Plugin 'wsdjeg/FlyGrep.vim'
-Plugin 'ruanyl/vim-gh-line'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'wsdjeg/FlyGrep.vim'
+Plug 'ruanyl/vim-gh-line'
 
 " themes
-Plugin 'dracula/vim'
-Plugin 'flazz/vim-colorschemes'
+Plug 'dracula/vim'
+Plug 'flazz/vim-colorschemes'
 
 " golang support
-Plugin 'fatih/vim-go'
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
+Plug 'fatih/vim-go'
 
 " elixir support
-" Plugin 'slashmili/alchemist.vim'
-" Plugin 'elixir-editors/vim-elixir'
+" Plug 'slashmili/alchemist.vim'
+" Plug 'elixir-editors/vim-elixir'
 
 " ruby/rails support
-Plugin 'tpope/vim-rails'
-Plugin 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
 " All of your Plugins eust be added before the following line
-call vundle#end()            " required
+call plug#end()
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
