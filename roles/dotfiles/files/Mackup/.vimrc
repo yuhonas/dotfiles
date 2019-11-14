@@ -35,7 +35,8 @@ endif
 
 call plug#begin('~/.vim/plugged')
 " general plugins
-Plug 'ctrlpvim/ctrlp.vim'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
@@ -167,7 +168,10 @@ set colorcolumn=+1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <leader>b :CtrlPBuffer<cr>
+nmap <leader>b :Buffers<cr>
+nmap <leader>p :Files<cr>
+nmap <leader>r :History<cr>
+nmap <leader>s :Ag<cr>
 nmap <leader><Tab> :bnext<cr>
 nmap <leader><S-Tab> :bprevious<cr>
 
@@ -230,21 +234,6 @@ inoremap fd <esc>       " escape is something  little far away
 
 " NERDTree Configuration
 let g:NERDTreeChDirMode=1
-
-let g:ctrlp_working_path_mode = 'ra'
-
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-" The Silver Searcher
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
 
 " machine specific vim customizations
 if !empty(glob("~/.vimrc.local"))
