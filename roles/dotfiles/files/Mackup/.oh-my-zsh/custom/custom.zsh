@@ -35,7 +35,8 @@ alias be="bundle exec"
 # truncate the existing command to the first word and wrap it in a tldr call
 _tldr() {
   local first_word
-  first_word=("${(@s/ /)BUFFER}")
+  first_word=("${(@s/ /)BUFFER}") # split words based on \s
+
   BUFFER="tldr $first_word[1]"
   zle accept-line
 }
@@ -72,13 +73,21 @@ alias -s {rb,go,py,js,txt,md,yaml,yml}=$EDITOR
 # https://github.com/sharkdp/bat
 export BAT_STYLE=plain
 
-# fbr - checkout git branch (including remote branches)
-# https://github.com/junegunn/fzf/wiki/examples
+# fbr - checkout branch specified or provide a list of all git branches
+# including remotes for selection 
+# 
+# based on https://github.com/junegunn/fzf/wiki/examples
 fbr() {
   local branches branch
-  branches=$(git branch --all | grep -v HEAD) &&
-  branch=$(echo "$branches" |
-           fzf-tmux --height 70% --delimiter $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+   
+  if [ -z "$1" ]; then
+    branches=$(git branch --all | grep -v HEAD) &&
+    branch=$(echo "$branches" |
+             fzf-tmux --height 70% --delimiter $(( 2 + $(wc -l <<< "$branches") )) +m) 
+  else
+    branch=$1
+  fi
+
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
