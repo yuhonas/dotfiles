@@ -6,7 +6,7 @@ set history=500
 
 " Enable filetype plugins
 filetype indent on           " load filetype-specific indent files
-filetype off                 
+filetype on                 
 filetype plugin indent on   
 
 " Set to auto read when a file is changed from the outside
@@ -49,17 +49,20 @@ Plug 'ruanyl/vim-gh-line'
 Plug 'dracula/vim'
 Plug 'flazz/vim-colorschemes'
 
+" intellisense engine for vim
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " golang support
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " elixir support
 " Plug 'slashmili/alchemist.vim'
 " Plug 'elixir-editors/vim-elixir'
 
 " ruby/rails support
-Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
-" All of your Plugins eust be added before the following line
+Plug 'tpope/vim-rails'
+" All of your Plugins must be added before the following line
 call plug#end()
 
 
@@ -234,9 +237,10 @@ inoremap fd <esc>       " escape is something  little far away
 
 " NERDTree Configuration
 let g:NERDTreeChDirMode=1
+map ] :NERDTreeFind<CR> “ pressing this inside any open file in vim will jump to the nerdtree and highlight where that file is -> very useful when you have multiple files open at once
 
 " machine specific vim customizations
-if !empty(glob("~/.vimrc.local"))
+if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
 endif
 
