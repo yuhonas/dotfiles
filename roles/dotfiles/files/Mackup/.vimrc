@@ -6,8 +6,8 @@ set history=500
 
 " Enable filetype plugins
 filetype indent on           " load filetype-specific indent files
-filetype on                 
-filetype plugin indent on   
+filetype on
+filetype plugin indent on
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -20,7 +20,7 @@ let mapleader = "\<Space>"
 nmap <leader>w :w!<cr>
 nmap <leader>q :q!<cr>
 
-" :W sudo saves the file 
+" :W sudo saves the file
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
 
@@ -37,20 +37,24 @@ call plug#begin('~/.vim/plugged')
 " general plugins
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
-Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-fugitive'
-Plug 'wsdjeg/FlyGrep.vim'
-Plug 'ruanyl/vim-gh-line'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-commentary'
 
-" themes
+" themes / ui
+Plug 'vim-airline/vim-airline'
 Plug 'dracula/vim'
 Plug 'flazz/vim-colorschemes'
 
 " intellisense engine for vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" git
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'ruanyl/vim-gh-line'
 
 " golang support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -72,7 +76,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""A
 
 " Turn on the Wild menu
-set wildmenu            
+set wildmenu
 
 " Always show current position
 set ruler
@@ -81,7 +85,7 @@ set ruler
 "set cmdheight=2
 
 " A buffer becomes hidden when it is abandoned
-set hidden                    
+set hidden
 
 "set shell=bash                " as we're using fish shell, let's set bash explicitally or some plugins may not work
 set nocompatible              " be iMproved, required
@@ -95,22 +99,22 @@ set whichwrap+=<,>,h,l
 set ignorecase
 
 " When searching try to be smart about cases
-set smartcase                 
+set smartcase
 
 " Highlight search results
 set hlsearch
 
 " Makes search act like search in modern browsers
-set incsearch 
+set incsearch
 
 " Don't redraw while executing macros (good performance config)
-set lazyredraw 
+set lazyredraw
 
 " For regular expressions turn magic on
 set magic
 
 " Show matching brackets when text indicator is over them
-set showmatch 
+set showmatch
 
 " How many tenths of a second to blink when matching brackets
 set mat=2
@@ -152,16 +156,16 @@ set noswapfile
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tabs are spaces
-set expandtab     
+set expandtab
 
 " Be smart when using tabs ;)
 set smarttab
 
-" number of visual spaces per TAB 
+" number of visual spaces per TAB
 set tabstop=2
 
 " number of spaces in tab when editing
-set softtabstop=2	
+set softtabstop=2
 
 " Make it obvious where 80 characters is
 set textwidth=80
@@ -173,7 +177,7 @@ set colorcolumn=+1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <leader>b :Buffers<cr>
 nmap <leader>p :Files<cr>
-nmap <leader>r :History<cr>
+nmap <leader>r :History:<cr>
 nmap <leader>s :Ag<cr>
 nmap <leader><Tab> :bnext<cr>
 nmap <leader><S-Tab> :bprevious<cr>
@@ -197,8 +201,8 @@ map <leader>h :bprevious<cr>
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
-map <leader>t<leader> :tabnext 
+map <leader>tm :tabmove
+map <leader>t<leader> :tabnext
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
@@ -212,7 +216,7 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
- 
+
 
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -230,12 +234,12 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 set number              " show line numbers
 set showcmd             " show command in bottom bar
 set cursorline 		" highlight current line
-inoremap fd <esc>       " escape is something  little far away 
+inoremap fd <esc>       " escape is something  little far away
 
 
 " NERDTree Configuration
 let g:NERDTreeChDirMode=1
-map ] :NERDTreeFind<CR> “ pressing this inside any open file in vim will jump to the nerdtree and highlight where that file is -> very useful when you have multiple files open at once
+nmap <leader>nf :NERDTreeFind<CR> “ pressing this inside any open file in vim will jump to the nerdtree and highlight where that file is -> very useful when you have multiple files open at once
 
 " FZF Configuration
 " Customize fzf colors to match your color scheme
@@ -254,6 +258,33 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
+" editorconfig configuration
+" ensure that this plugin works well with Tim Pope's fugitive, use the following patterns array:
+let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
+
+" coc configuration
+" https://github.com/neoclide/coc.nvim
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " machine specific vim customizations
 if filereadable(expand('~/.vimrc.local'))
