@@ -13,11 +13,6 @@
 - name: install vim
   homebrew: name=vim state=present
 
-- name: install vundle for vim plugin management
-  git:
-    repo: https://github.com/VundleVim/Vundle.vim.git
-    dest: "{{ ansible_env.HOME }}/.vim/bundle/Vundle.vim"
-    
 # - name: install useful fzf key bindings and fuzzy completion
 #   shell: $(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc
 
@@ -40,11 +35,11 @@
       - w3m
 
 - name: system packages
-  homebrew: 
+  homebrew:
     state: present
     name:
       #- moreutils
-      - aria2 
+      - aria2
       - asdf # version manager
       - bat # an improved cat
       - coreutils
@@ -59,7 +54,7 @@
       - fish
       - fortune
       - fpp
-      - fuck
+      - thefuck
       - fzf
       - gnupg
       - hr
@@ -105,11 +100,11 @@
       export PATH=~/.asdf/shims:$PATH
 
 # https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/asdf/asdf.plugin.zsh
-- name: symlink the asdf startup script for oh-my-zsh
-  file: src="{{ asdf_location.stdout }}/asdf.sh" dest="{{ lookup('env','HOME') }}/.asdf/asdf.sh" state=link
+#- name: symlink the asdf startup script for oh-my-zsh
+#  file: src="{{ asdf_location.stdout }}/asdf.sh" dest="{{ lookup('env','HOME') }}/.asdf/asdf.sh" state=link
 
 - name: add asdf plugins
-  command: "asdf plugin-add {{ item }}" 
+  command: "asdf plugin-add {{ item }}"
   with_items:
     - golang
     - ruby
@@ -140,7 +135,7 @@
     chdir: "{{ ansible_env.HOME }}"
 
 - name: python packages
-  pip: 
+  pip:
     name:
       - csvkit
       - haxor-news
@@ -149,8 +144,8 @@
     executable: ~/.asdf/shims/pip3.6
 
 - name: ruby packages
-  gem: 
-    name: "{{ item }}" 
+  gem:
+    name: "{{ item }}"
     state: present
     executable: ~/.asdf/shims/gem
   with_items:
@@ -160,7 +155,7 @@
     - tldr
 
 - name: node packages
-  npm: 
+  npm:
     name: "{{ item }}"
     state: present
     global: yes
