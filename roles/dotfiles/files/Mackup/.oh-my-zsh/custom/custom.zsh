@@ -2,17 +2,17 @@
 # https://github.com/junegunn/fzf
 # https://minsw.github.io/fzf-color-picker/
 export FZF_DEFAULT_OPTS="--reverse
---color=fg:#d0d0d0,hl:#5f87af 
---color=fg+:#d0d0d0,hl+:#5fd7ff 
---color=info:#afaf87,prompt:#00d6a4,pointer:#af5fff 
---color=marker:#87ff00,spinner:#af5fff,header:#87afaf
---preview='less -10 {+} 2>/dev/null'"
+--color=fg:#d0d0d0,hl:#5f87af
+--color=fg+:#d0d0d0,hl+:#5fd7ff
+--color=info:#afaf87,prompt:#00d6a4,pointer:#af5fff
+--color=marker:#87ff00,spinner:#af5fff,header:#87afaf"
 
 # Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden'
 
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--preview='less -10 {+} 2>/dev/null'"
 
 # use vim as the default editor
 export VISUAL=vim
@@ -20,16 +20,16 @@ export EDITOR="$VISUAL"
 export TERM=xterm-256color
 
 # heroku aliases
-alias h="heroku"
-alias hl="heroku logs -t"
-alias hc="heroku run console"
-alias hr="heroku run"
-alias hp="heroku ps"
-alias hnr="heroku addons:open newrelic"
+#alias h="heroku"
+#alias hl="heroku logs -t"
+#alias hc="heroku run console"
+#alias hr="heroku run"
+#alias hp="heroku ps"
+#alias hnr="heroku addons:open newrelic"
 alias be="bundle exec"
 
 # color setup for ls
-# http://man7.org/linux/man-pages/man1/dircolors.1.html        
+# http://man7.org/linux/man-pages/man1/dircolors.1.html
 # eval $(gdircolors ~/.dircolors/dircolors.256dark)
 
 # truncate the existing command to the first word and wrap it in a tldr call
@@ -74,16 +74,16 @@ alias -s {rb,go,py,js,txt,md,yaml,yml}=$EDITOR
 export BAT_STYLE=plain
 
 # fbr - checkout branch specified or provide a list of all git branches
-# including remotes for selection 
-# 
+# including remotes for selection
+#
 # based on https://github.com/junegunn/fzf/wiki/examples
 fbr() {
   local branches branch
-   
+
   if [ -z "$1" ]; then
     branches=$(git branch --all | grep -v HEAD) &&
     branch=$(echo "$branches" |
-             fzf-tmux --height 70% --delimiter $(( 2 + $(wc -l <<< "$branches") )) +m) 
+             fzf-tmux --height 70% --delimiter $(( 2 + $(wc -l <<< "$branches") )) +m)
   else
     branch=$1
   fi

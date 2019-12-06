@@ -16,8 +16,7 @@ set autoread
 " like <leader>w saves the current file
 let mapleader = "\<Space>"
 
-" fast saving
-nmap <leader>w :w!<cr>
+" fast quitting
 nmap <leader>q :q!<cr>
 
 " :W sudo saves the file
@@ -170,15 +169,23 @@ set softtabstop=2
 " Make it obvious where 80 characters is
 set textwidth=80
 
+set shiftwidth=2
+
+" copy indent from current line into next
+set autoindent
+
 set colorcolumn=+1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <leader>b :Buffers<cr>
-nmap <leader>p :Files<cr>
-nmap <leader>r :History:<cr>
-nmap <leader>s :Ag<cr>
+nmap <leader>fo :GFiles<cr>
+nmap <leader>Fo :Files<cr>
+nmap <leader>fw :w!<cr>
+nmap <leader>fr :History<cr>
+nmap <leader>fs :Ag<cr>
+nmap <leader>ft :NERDTreeToggle<cr>
 nmap <leader><Tab> :bnext<cr>
 nmap <leader><S-Tab> :bprevious<cr>
 
@@ -189,7 +196,7 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Close the current buffer
-map <leader>bd :Bclose<cr>:tabclose<cr>gT
+map <leader>bd :bd<cr>:tabclose<cr>gT
 
 " Close all the buffers
 map <leader>ba :bufdo bd<cr>
@@ -239,7 +246,7 @@ inoremap fd <esc>       " escape is something  little far away
 
 " NERDTree Configuration
 let g:NERDTreeChDirMode=1
-nmap <leader>nf :NERDTreeFind<CR> “ pressing this inside any open file in vim will jump to the nerdtree and highlight where that file is -> very useful when you have multiple files open at once
+nmap <leader>ftf :NERDTreeFind<CR> “ pressing this inside any open file in vim will jump to the nerdtree and highlight where that file is -> very useful when you have multiple files open at once
 
 " FZF Configuration
 " Customize fzf colors to match your color scheme
@@ -277,14 +284,42 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+"nmap <silent> gs <Plug>(coc-references)
+map <leader>gs :CocList outline<cr>
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
 
 " machine specific vim customizations
 if filereadable(expand('~/.vimrc.local'))
