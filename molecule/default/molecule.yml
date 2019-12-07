@@ -1,0 +1,37 @@
+---
+dependency:
+  name: galaxy
+#  name: shell
+#  command: bash -c ./bootstrap.sh
+driver:
+  name: docker
+lint:
+  name: yamllint
+platforms:
+  - name: instance
+    image: ubuntu:latest
+    env:
+      PATH: /home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
+      ANSIBLE_USER: linuxbrew
+      SUDO_GROUP: admin
+      DEPLOY_GROUP: deployer
+      SHELL: /bin/bash
+provisioner:
+  name: ansible
+  env:
+    PATH: /home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
+  lint:
+    name: ansible-lint
+  inventory:
+    host_vars:
+      instance:
+        ansible_user: linuxbrew
+  options:
+    tags: minimal
+  playbooks:
+    prepare: ../../prepare.yml
+    converge: ../../playbook.yml
+verifier:
+  name: testinfra
+  lint:
+    name: flake8

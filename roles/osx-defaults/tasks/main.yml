@@ -1,3 +1,4 @@
+---
 - name: setup osx defaults
   command: "{{ role_path }}/files/osx-defaults.sh"
   changed_when: false

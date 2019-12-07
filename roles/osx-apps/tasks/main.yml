@@ -1,3 +1,4 @@
+---
 - name: update homebrew
   homebrew: update_homebrew=yes
 
@@ -12,14 +13,12 @@
     - evernote
     - firefox
     - flux
-    #- google-chrome
     - handbrake
     - insomnia
     - keybase
     - libreoffice
     - rectangle
     - skype
-#    - slack
     - spotify
     - torbrowser
     - uninstallpkg
@@ -63,4 +62,4 @@
     src: "{{ role_path }}/files/alfred/prefs.plist"
     dest: "{{ ansible_env.HOME }}/Library/Application Support/Alfred 3/Alfred.alfredpreferences/preferences/features/websearch/prefs.plist"
     state: link
-    force: yes
+    force: true

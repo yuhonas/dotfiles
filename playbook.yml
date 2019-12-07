@@ -8,8 +8,8 @@
 - hosts: all
   connection: local
   roles:
-    - system
-    - { role: dotfiles, tags: [dotfiles] }
+    - {role: dotfiles, tags: [minimal]}
+    - developer
 
 - hosts: os_Darwin
   connection: local

@@ -1,9 +1,11 @@
-#- name: check for oh my fish installation
-#  shell: omf
-#  args:
-#    executable: /usr/local/bin/fish
-#  register: oh_my_fish
-#  ignore_errors: yes
+---
+- name: check for oh my fish installation
+  shell: omf
+  args:
+    executable: /usr/local/bin/fish
+  register: oh_my_fish
+  ignore_errors: true
+  changed_when: false
 
 - name: download oh my fish installation
   get_url:
@@ -25,7 +27,7 @@
   args:
     executable: /usr/local/bin/fish
   register: omf_theme
-  ignore_errors: yes
+  ignore_errors: true
 
 - name: install omf theme
   shell: omf install default
@@ -42,8 +44,10 @@
 - name: check for oh my fish installation
   shell: which fish
   register: fish_path
+  changed_when: false
 
-- lineinfile:
+- name: ensure fish is allowed as a shell
+  lineinfile:
     path: /etc/shells
     regexp: "{{ fish_path.stdout | regex_escape }}"
     insertafter: EOF
