@@ -9,7 +9,7 @@
     file: oh-my-zsh.yml
   when: zsh_stat_result.stat.exists == False
 
-- name: install antigen  
+- name: install antigen
   git: repo=https://github.com/zsh-users/antigen.git dest={{ ansible_env.HOME }}/antigen recursive=yes
 
 - name: symlinking dotfiles
@@ -22,7 +22,7 @@
 
 - name: downloading dircolors theme
   git: repo=https://github.com/gibbling/dircolors.git dest={{ ansible_env.HOME }}/.dircolors recursive=yes
-   
+
 - name: creates mutt configuration directory
   file: state=directory recurse=yes path={{ item }}
   with_items:
@@ -47,5 +47,6 @@
 #  homebrew_cask: name={{ item }} state=present
 #  with_items:
 #    - font-inconsolata-for-powerline
+#    - font-powerline-symbols
 #    - font-hack-nerd-font
 #    - font-source-code-pro

@@ -2,4 +2,4 @@
 BUNDLE_GEM__TEST: "rspec"
 BUNDLE_GEM__MIT: "false"
 BUNDLE_GEM__COC: "true"
-BUNDLE_BUILD__MYSQL2: "--with-mysql-config=/usr/local/opt/mysql/bin/mysql_config"
+BUNDLE_BUILD__MYSQL2: "--with-opt-dir=/usr/local/opt/openssl"
