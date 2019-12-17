@@ -42,13 +42,15 @@ Plug 'scrooloose/nerdtree'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
+Plug 'easymotion/vim-easymotion'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 " themes / ui
 Plug 'vim-airline/vim-airline'
 "Plug 'dracula/vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'sainnhe/edge'
+Plug 'sainnhe/neon'
 
 " intellisense engine for vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -139,8 +141,8 @@ set termguicolors
 
 try
    "colorscheme dracula
-   colorscheme edge
    set background=dark
+   colorscheme neon
 catch
 endtry
 
@@ -330,6 +332,23 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
 xmap <leader>f  <Plug>(coc-format-selected)
+
+" Easymotion config
+" https://github.com/easymotion/vim-easymotion
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 " machine specific vim customizations
 if filereadable(expand('~/.vimrc.local'))
