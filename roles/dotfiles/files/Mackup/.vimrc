@@ -180,11 +180,11 @@ set colorcolumn=+1
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <leader>b :Buffers<cr>
-nmap <leader>fo :GFiles<cr>
-nmap <leader>Fo :Files<cr>
-nmap <leader>fw :w!<cr>
+nmap <leader>fl :GFiles<cr>
+nmap <leader>Fl :Files<cr>
+nmap <leader>fs :w!<cr>
 nmap <leader>fr :History<cr>
-nmap <leader>fs :Ag<cr>
+nmap <leader>/ :Ag<cr>
 nmap <leader>ft :NERDTreeToggle<cr>
 nmap <leader><Tab> :bnext<cr>
 nmap <leader><S-Tab> :bprevious<cr>

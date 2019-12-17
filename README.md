@@ -1,4 +1,4 @@
-# Yuhonas dotfiles 
+# Yuhonas dotfiles
 
 ![Screenshot](https://user-images.githubusercontent.com/4928/62229572-c8ec0500-b374-11e9-89a5-d449b9031775.png)
 
@@ -6,7 +6,7 @@
 
 [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) with [antigen](https://github.com/zsh-users/antigen) for plugin management with a sprinkling of 256 color's using [exa](https://github.com/ogham/exa) all rendered using [hyper](https://hyper.is/)
 
-### A sane set of Mac defaults 
+### A sane set of Mac defaults
 
 * Autohide the dock
 * Avoid creating .DS_Store files on network volumes
@@ -41,9 +41,9 @@
 * google-chrome
 * handbrake
 * libreoffice
+* rectangle
 * skype
 * spotify
-* spectacle
 * torbrowser
 * uninstallpkg
 
@@ -85,7 +85,7 @@
 * wget
 * zsh
 
-### A better Mac quicklook 
+### A better Mac quicklook
 
 The following quicklook plugins
 

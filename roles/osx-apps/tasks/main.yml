@@ -4,11 +4,11 @@
 - name: applications
   homebrew_cask: name={{ item }} state=present
   with_items:
-    - alfred
     - 1password
+    - alfred
     - bitbar
-    - dropbox
     - drop-to-gif
+    - dropbox
     - evernote
     - firefox
     - flux
@@ -17,13 +17,13 @@
     - insomnia
     - keybase
     - libreoffice
+    - rectangle
     - skype
 #    - slack
-    - spectacle
     - spotify
     - torbrowser
-    - vlc
     - uninstallpkg
+    - vlc
 
 
 - name: developer applications
