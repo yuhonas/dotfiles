@@ -51,7 +51,8 @@ Plug 'flazz/vim-colorschemes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " git
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
+Plug 'jreybert/vimagit'
 Plug 'airblade/vim-gitgutter'
 Plug 'ruanyl/vim-gh-line'
 
@@ -128,6 +129,9 @@ set tm=500
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" https://alex.dzyoba.com/blog/vim-revamp/
+set termguicolors
+
 syntax enable           " enable syntax processing
 
 try
