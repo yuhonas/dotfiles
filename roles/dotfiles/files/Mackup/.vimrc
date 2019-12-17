@@ -45,9 +45,10 @@ Plug 'tpope/vim-commentary'
 
 " themes / ui
 Plug 'vim-airline/vim-airline'
-Plug 'dracula/vim'
+"Plug 'dracula/vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'sainnhe/edge'
 
 " intellisense engine for vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -137,7 +138,9 @@ set termguicolors
 "syntax enable           " enable syntax processing
 
 try
-   colorscheme dracula
+   "colorscheme dracula
+   colorscheme edge
+   set background=dark
 catch
 endtry
 
