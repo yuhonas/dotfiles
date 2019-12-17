@@ -10,7 +10,7 @@ filetype on
 filetype plugin indent on
 
 " Set to auto read when a file is changed from the outside
-set autoread
+" set autoread
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
@@ -34,6 +34,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 " general plugins
+Plug 'tpope/vim-sensible'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
@@ -46,6 +47,7 @@ Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
 Plug 'dracula/vim'
 Plug 'flazz/vim-colorschemes'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 " intellisense engine for vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -76,10 +78,10 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""A
 
 " Turn on the Wild menu
-set wildmenu
+" set wildmenu
 
 " Always show current position
-set ruler
+"set ruler
 
 " Height of the command bar
 "set cmdheight=2
@@ -92,7 +94,7 @@ set nocompatible              " be iMproved, required
 
 " Configure backspace so it acts as it should act
 "set backspace=2               " Backspace deletes like most programs in insert mode
-set backspace=eol,start,indent
+"set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
 " Ignore case when searching
@@ -105,7 +107,7 @@ set smartcase
 set hlsearch
 
 " Makes search act like search in modern browsers
-set incsearch
+" set incsearch
 
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
@@ -132,7 +134,7 @@ set tm=500
 " https://alex.dzyoba.com/blog/vim-revamp/
 set termguicolors
 
-syntax enable           " enable syntax processing
+"syntax enable           " enable syntax processing
 
 try
    colorscheme dracula
@@ -162,7 +164,7 @@ set noswapfile
 set expandtab
 
 " Be smart when using tabs ;)
-set smarttab
+"set smarttab
 
 " number of visual spaces per TAB
 set tabstop=2
@@ -176,7 +178,7 @@ set textwidth=80
 set shiftwidth=2
 
 " copy indent from current line into next
-set autoindent
+"set autoindent
 
 set colorcolumn=+1
 
@@ -188,6 +190,7 @@ nmap <leader>fl :GFiles<cr>
 nmap <leader>Fl :Files<cr>
 nmap <leader>fs :w!<cr>
 nmap <leader>fr :History<cr>
+nmap <leader>t :Tags<cr>
 nmap <leader>/ :Ag<cr>
 nmap <leader>ft :NERDTreeToggle<cr>
 nmap <leader><Tab> :bnext<cr>

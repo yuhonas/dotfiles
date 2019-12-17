@@ -75,6 +75,7 @@ antigen bundle colored-man-pages
 antigen bundle fasd
 antigen bundle fzf
 antigen bundle git
+antigen bundle bundler
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-autosuggestions
