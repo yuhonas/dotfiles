@@ -11,3 +11,20 @@
 
 - name: execute oh my zsh setup script
   script: "{{ tempdir.path }}/install.sh"
+
+- name: check for zsh binary path
+  shell: which zsh
+  register: zsh_path
+
+- lineinfile:
+    path: /etc/shells
+    regexp: "{{ zsh_path.stdout | regex_escape }}"
+    insertafter: EOF
+    state: present
+    line: "{{ zsh_path.stdout }}"
+  become: true
+
+- name: setting zsh as the default shell
+  command: "chsh -s {{ zsh_path.stdout }} {{ ansible_env.USER }}"
+  when: ansible_env.SHELL.find('zsh') == -1
+  become: true

@@ -20,8 +20,8 @@
 - name: restore dotfile config via mackup
   command: mackup restore --force
 
-- name: downloading dircolors theme
-  git: repo=https://github.com/gibbling/dircolors.git dest={{ ansible_env.HOME }}/.dircolors recursive=yes
+  #- name: downloading dircolors theme
+  #  git: repo=https://github.com/gibbling/dircolors.git dest={{ ansible_env.HOME }}/.dircolors recursive=yes
 
 - name: creates mutt configuration directory
   file: state=directory recurse=yes path={{ item }}
@@ -32,12 +32,6 @@
 - name: downloading mutt solarized theme
   git: repo=https://github.com/altercation/mutt-colors-solarized.git dest={{ ansible_env.HOME }}/.mutt/theme recursive=yes
 
-#- name: check for oh my fish installation
-#  shell: omf
-#  args:
-#    executable: /usr/local/bin/fish
-#  register: oh_my_fish
-#  ignore_errors: yes
 #
 #- name: tapping homebrew cask fonts
 #  homebrew_tap:
