@@ -19,15 +19,6 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 export TERM=xterm-256color
 
-# heroku aliases
-#alias h="heroku"
-#alias hl="heroku logs -t"
-#alias hc="heroku run console"
-#alias hr="heroku run"
-#alias hp="heroku ps"
-#alias hnr="heroku addons:open newrelic"
-alias be="bundle exec"
-
 # color setup for ls
 # http://man7.org/linux/man-pages/man1/dircolors.1.html
 # eval $(gdircolors ~/.dircolors/dircolors.256dark)
@@ -77,18 +68,20 @@ export BAT_STYLE=plain
 # including remotes for selection
 #
 # based on https://github.com/junegunn/fzf/wiki/examples
-fbr() {
-  local branches branch
-
-  if [ -z "$1" ]; then
-    branches=$(git branch --all | grep -v HEAD) &&
-    branch=$(echo "$branches" |
-             fzf-tmux --height 70% --delimiter $(( 2 + $(wc -l <<< "$branches") )) +m)
-  else
-    branch=$1
-  fi
-
-  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+_fzf_complete_gco() {
+    ARGS="$@"
+    local branches
+    branches=$(git --no-pager branch --all | sed -E 's/remotes\/origin\///')
+    echo $ARGS
+    if [[ $ARGS == 'gco'* ]]; then
+        _fzf_complete "--reverse --multi" "$@" < <(
+            echo $branches
+        )
+    else
+        eval "zle ${fzf_default_completion:-expand-or-complete}"
+    fi
 }
 
-alias gco="fbr"
+_fzf_complete_git_post() {
+    awk '{print $1}'
+}
