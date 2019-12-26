@@ -16,7 +16,7 @@ if [ "$(uname)" == "Darwin" ]; then
         echo "Info   | Install   | xcode"
         xcode-select --install
     fi
-    
+
     # Download and install homebrew
     if [[ ! -x /usr/local/bin/brew ]]; then
         echo "Info   | Install   | homebrew"
@@ -25,8 +25,14 @@ if [ "$(uname)" == "Darwin" ]; then
 else
     # Download and install linuxbrew
     if [[ ! -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+
+        # assuming we're using ubuntu
+        sudo apt-get install -y build-essential ca-certificates curl file git libssl-dev locales ruby zlib1g-dev
+        # set locale
+        sudo localedef -i en_US -f UTF-8 en_US.UTF-8
+
         echo "Info   | Install   | linuxbrew"
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+        yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
         echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >>$HOME/.profile
         source $HOME/.profile
         brew update --force
@@ -53,5 +59,8 @@ if [[ ! -d $ANSIBLE_DIRECTORY ]]; then
   git clone $ANSIBLE_REPO $ANSIBLE_DIRECTORY
 fi
 
-# Provision the box
-ansible-playbook --ask-become-pass --become-method=sudo -i $ANSIBLE_DIRECTORY/inventory $ANSIBLE_DIRECTORY/playbook.yml
+if [[ -z "$NO_PROVISION" ]]; then
+    # Provision the box
+    ansible-playbook --ask-become-pass --become-method=sudo -i $ANSIBLE_DIRECTORY/inventory $ANSIBLE_DIRECTORY/playbook.yml
+fi
+

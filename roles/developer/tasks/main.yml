@@ -1,93 +1,50 @@
 ---
-- name: ensure we have an .ssh dir with the correct perms
-  file: path={{ ansible_env.HOME }}/.ssh state=directory mode=700
-
-- name: add home bin dir for custom scripts
-  file: path={{ ansible_env.HOME }}/bin state=directory
-
-- name: install spacemacs
-  git:
-    repo: https://github.com/syl20bnr/spacemacs
-    dest: "{{ ansible_env.HOME }}/.emacs.d"
-
-- name: install vim
-  homebrew: name=vim state=present
-
-# - name: install useful fzf key bindings and fuzzy completion
-#   shell: $(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc
-
 - name: developer packages
   homebrew:
     state: present
     name:
+      - aria2
       - awscli
       - cookiecutter
-      - emacs
-      - git
-      - git-extras
-      - git-town
-      - graphviz
-      - imagemagick
-      - pgcli
-      - redis
-      - ruby-build
-      - sqlite
-      - w3m
-
-- name: system packages
-  homebrew:
-    state: present
-    name:
-      #- moreutils
-      - aria2
-      - asdf # version manager
-      - bat # an improved cat
       - coreutils
-      - ctags
-      - colordiff
       - dos2unix
-      - exa
-      - fasd
-      - fd
+      - emacs
       - fdupes
       - figlet
       - fortune
-      - thefuck
-      - fzf
+      - git-extras
+      - git-town
       - gnupg
+      - graphviz
       - hr
       - httpie
-      - ispell
       - jq
       - lazygit
-      - lesspipe
       - lnav
       - md5deep
       - mmv
-      - ncdu
       - neofetch
       - nmap
-      - pandoc
       - p7zip
-      - poppler # for lesspipe
+      - pandoc
+      - pgcli
+      - poppler  # for lesspipe
       - pv
       - qt
       - readline
-      - ripgrep
-      - sox
-      - the_silver_searcher
-      - tree
-      - tldr
-      - tmux
-      - unrar
-      - wget
-      - zsh
+      - redis
+      - ruby-build
+      - sox  # sound processing lib
+      - sqlite
+      - thefuck
+      - w3m
 
 - name: find where asdf was installed
   command: "brew --prefix asdf"
   register: asdf_location
+  changed_when: false
 
-- debug: msg="{{asdf_location.stdout}}"
+- debug: msg="{{ asdf_location.stdout }}"
 
 - name: ensure asdf is in the $PATH
   blockinfile:
@@ -96,10 +53,6 @@
       export ASDF_DIR={{ asdf_location.stdout }}
       export PATH=~/.asdf/shims:$PATH
 
-# https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/asdf/asdf.plugin.zsh
-#- name: symlink the asdf startup script for oh-my-zsh
-#  file: src="{{ asdf_location.stdout }}/asdf.sh" dest="{{ lookup('env','HOME') }}/.asdf/asdf.sh" state=link
-
 - name: add asdf plugins
   command: "asdf plugin-add {{ item }}"
   with_items:
@@ -107,12 +60,12 @@
     - ruby
     - nodejs
     - python
-  ignore_errors: yes
+  ignore_errors: true
 
 - name: set global asdf versions
   blockinfile:
     path: "{{ ansible_env.HOME }}/.tool-versions"
-    create: yes
+    create: true
     block: |
       golang 1.12.5
       nodejs 10.16.0
@@ -124,7 +77,7 @@
 
 # https://github.com/asdf-vm/asdf-nodejs/issues/82
 - name: update the release keys
-  script: "{{ ansible_env.HOME }}/.asdf/plugins/nodejs/bin/import-release-team-keyring"
+  command: "{{ ansible_env.HOME }}/.asdf/plugins/nodejs/bin/import-release-team-keyring"
 
 - name: install asdf versions
   command: asdf install
@@ -136,7 +89,6 @@
     name:
       - csvkit
       - haxor-news
-      - mackup
     state: present
     executable: ~/.asdf/shims/pip3.6
 
@@ -149,18 +101,21 @@
     - git-pulls
     - seeing_is_believing
     - bropages
-    - tldr
 
 - name: node packages
   npm:
     name: "{{ item }}"
     state: present
-    global: yes
+    global: true
     executable: ~/.asdf/shims/npm
   with_items:
-    - heroku
     - surge
 
 - name: asdf reshim
   command: asdf reshim
 
+- name: install spacemacs
+  git:
+    repo: https://github.com/syl20bnr/spacemacs
+    dest: "{{ ansible_env.HOME }}/.emacs.d"
+    version: master

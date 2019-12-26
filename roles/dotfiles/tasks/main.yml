@@ -1,4 +1,37 @@
 ---
+- name: ensure we have an .ssh dir with the correct perms
+  file: path={{ ansible_env.HOME }}/.ssh state=directory mode=700
+
+- name: add home bin dir for custom scripts
+  file: path={{ ansible_env.HOME }}/bin state=directory
+
+- name: base packages
+  homebrew:
+    state: present
+    name:
+      - asdf  # version manager
+      - bat  # an improved cat
+      - colordiff  # colorized diff wrapper
+      - ctags  # index generation for source and header files
+      - exa  # an ls replacement
+      - fasd  # jump navigation
+      - fd  # find replacement
+      - fzf  # fuzzy finder
+      - git
+      - ispell
+      - lesspipe
+      - mackup  # symlink farm
+      - ncdu  # ncurses disk usage
+      - ripgrep  # like grep but better
+      - the_silver_searcher  # like ack but faster
+      - tldr  # community driven man pages
+      - tmux
+      - tree
+      - unrar
+      - wget
+      - vim
+      - zsh
+
 - name: check if oh-my-zsh is installed
   stat:
     path: "{{ ansible_env.HOME }}/.oh-my-zsh"
@@ -7,21 +40,26 @@
 - name: install oh-my-zsh
   include_tasks:
     file: oh-my-zsh.yml
-  when: zsh_stat_result.stat.exists == False
+  when: not zsh_stat_result.stat.exists
 
 - name: install antigen
-  git: repo=https://github.com/zsh-users/antigen.git dest={{ ansible_env.HOME }}/antigen recursive=yes
+  git:
+    repo: https://github.com/zsh-users/antigen.git
+    dest: "{{ ansible_env.HOME }}/antigen"
+    recursive: yes
+    version: master
 
 - name: symlinking dotfiles
-  file: src="{{ item }}" dest="{{ lookup('env','HOME') }}/.{{ item | basename }}" state=link
-  with_fileglob:
-    - "./*"
+  file: src="{{ ansible_env.HOME }}/src/ansible/roles/dotfiles/files/mackup.cfg" dest="{{ ansible_env.HOME }}/.mackup.cfg" state=link
+
+- name: check if there are dotfiles to symlink
+  command: mackup restore --dry-run
+  changed_when: false
+  register: mackup_result
 
 - name: restore dotfile config via mackup
   command: mackup restore --force
-
-  #- name: downloading dircolors theme
-  #  git: repo=https://github.com/gibbling/dircolors.git dest={{ ansible_env.HOME }}/.dircolors recursive=yes
+  when: mackup_result.stdout | length > 0
 
 - name: creates mutt configuration directory
   file: state=directory recurse=yes path={{ item }}
@@ -30,17 +68,20 @@
     - "{{ ansible_env.HOME }}/.mutt/cache/bodies"
 
 - name: downloading mutt solarized theme
-  git: repo=https://github.com/altercation/mutt-colors-solarized.git dest={{ ansible_env.HOME }}/.mutt/theme recursive=yes
+  git:
+    repo: https://github.com/altercation/mutt-colors-solarized.git
+    dest: "{{ ansible_env.HOME }}/.mutt/theme"
+    recursive: yes
+    version: master
 
+#  - name: tapping homebrew cask fonts
+#    homebrew_tap:
+#      name: homebrew/homebrew-cask-fonts
 #
-#- name: tapping homebrew cask fonts
-#  homebrew_tap:
-#    name: homebrew/homebrew-cask-fonts
-#
-#- name: installing fonts for use in shell / other places
-#  homebrew_cask: name={{ item }} state=present
-#  with_items:
-#    - font-inconsolata-for-powerline
-#    - font-powerline-symbols
-#    - font-hack-nerd-font
-#    - font-source-code-pro
+#  - name: installing fonts for use in shell / other places
+#    homebrew_cask: name={{ item }} state=present
+#    with_items:
+#      - font-inconsolata-for-powerline
+#      - font-powerline-symbols
+#      - font-hack-nerd-font
+#      - font-source-code-pro

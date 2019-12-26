@@ -1,3 +1,4 @@
+---
 - name: create temporary build directory for dropbox
   tempfile:
     state: directory
@@ -8,6 +9,7 @@
   git:
     repo: https://aur.archlinux.org/dropbox.git
     dest: "{{ dropbox_build.path }}"
+    version: master
 
 - name: ensure we have dropbox's public key in the gpg keyring
   command: gpg --import <(curl --silent https://linux.dropbox.com/fedora/rpm-public-key.asc)

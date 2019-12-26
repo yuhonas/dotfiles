@@ -1,3 +1,4 @@
+---
 - name: create temporary install directory for oh-my-zsh
   tempfile:
     state: directory
@@ -10,13 +11,15 @@
     dest: "{{ tempdir.path }}/install.sh"
 
 - name: execute oh my zsh setup script
-  script: "{{ tempdir.path }}/install.sh"
+  command: "sh {{ tempdir.path }}/install.sh"
 
 - name: check for zsh binary path
   shell: which zsh
   register: zsh_path
+  changed_when: false
 
-- lineinfile:
+- name: ensure zsh is an allowable shell
+  lineinfile:
     path: /etc/shells
     regexp: "{{ zsh_path.stdout | regex_escape }}"
     insertafter: EOF
@@ -25,6 +28,6 @@
   become: true
 
 - name: setting zsh as the default shell
-  command: "chsh -s {{ zsh_path.stdout }} {{ ansible_env.USER }}"
+  command: "chsh -s {{ zsh_path.stdout }} {{ ansible_env.ANSIBLE_USER }}"
   when: ansible_env.SHELL.find('zsh') == -1
   become: true
