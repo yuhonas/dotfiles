@@ -1,9 +1,0 @@
-# Fix ububtu issues
-
-curl # bootstrap
-git # linuxbrew
-zlib1g-dev  libssl-dev # pytohn
-
-ssh_config http issue
-
-gnome-tweaks
