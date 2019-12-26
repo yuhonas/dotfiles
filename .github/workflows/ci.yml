@@ -9,8 +9,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '3.x'
     - name: Install molecule
-      run: pip install molecule
+      run: |
+        python -m pip install --upgrade pip
+        pip install molecule
     - name: Test using molecule
       run: molecule test
 
