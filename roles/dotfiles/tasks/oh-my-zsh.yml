@@ -28,6 +28,6 @@
   become: true
 
 - name: setting zsh as the default shell
-  command: "chsh -s {{ zsh_path.stdout }} {{ ansible_env.ANSIBLE_USER }}"
+  shell: "chsh -s {{ zsh_path.stdout }} {{ ansible_ssh_user  }}"
   when: ansible_env.SHELL.find('zsh') == -1
   become: true
