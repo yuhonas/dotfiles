@@ -72,7 +72,7 @@ _fzf_complete_gco() {
     ARGS="$@"
     local branches
     branches=$(git --no-pager branch --all | sed -E 's/remotes\/origin\///')
-    echo $ARGS
+
     if [[ $ARGS == 'gco'* ]]; then
         _fzf_complete "--reverse --multi" "$@" < <(
             echo $branches

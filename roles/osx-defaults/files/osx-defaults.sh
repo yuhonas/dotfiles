@@ -8,65 +8,65 @@
 # https://github.com/kevinSuttle/macOS-Defaults
 
 
-# Disable the sound effects on boot
+## Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
-# Enable repeating keys
+## Enable repeating keys
 # https://www.howtogeek.com/267463/how-to-enable-key-repeating-in-macos/
 defaults write -g ApplePressAndHoldEnabled -bool false
 
-# Enable full keyboard access for all controls
+## Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-# Set keyboard repeat rate to "damn fast".
+## Set keyboard repeat rate to "damn fast".
 defaults write NSGlobalDomain KeyRepeat -int 2
 
-# Disable the warning when changing a file extension
+## Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-# Finder: show status bar
+## Finder: show status bar
 defaults write com.apple.finder ShowStatusBar -bool true
 
-# Finder: show path bar
+## Finder: show path bar
 defaults write com.apple.finder ShowPathbar -bool true
 
-# Show Full Path in Finder Title
+## Show Full Path in Finder Title
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
-# Set current Folder as Default Search Scope
+## Set current Folder as Default Search Scope
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
-# New Finder windows points to home
+## New Finder windows points to home
 defaults write com.apple.finder NewWindowTarget -string "PfHm"
 
-# Use list view in all Finder windows by default
+## Use list view in all Finder windows by default
 # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
-# Keep folders on top when sorting by name
+## Keep folders on top when sorting by name
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
-# Expand save panel by default
+## Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
-# Save to disk (not to iCloud) by default
+## Save to disk (not to iCloud) by default
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
-# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+## Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
 
-# Change screenshot location
+## Change screenshot location
 defaults write com.apple.screencapture location ~/Downloads
 
-# Finder: show hidden files by default
+## Finder: show hidden files by default
 defaults write com.apple.finder AppleShowAllFiles -bool true
 
-# Finder: show all filename extensions
+## Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
-# Avoid creating .DS_Store files on network volumes
+## Avoid creating .DS_Store files on network volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
 # Hot corners
@@ -82,54 +82,54 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # 11: Launchpad
 # 12: Notification Center
 
-# Top right screen corner → Start screen saver
+## Top right screen corner → Start screen saver
 defaults write com.apple.dock wvous-tr-corner -int 5
 defaults write com.apple.dock wvous-tr-modifier -int 0
 
-# Bottom right screen corner → Put display to sleep
+## Bottom right screen corner → Put display to sleep
 defaults write com.apple.dock wvous-br-corner -int 10
 defaults write com.apple.dock wvous-br-modifier -int 0
 
-# Always show scrollbars
+## Always show scrollbars
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 
-# Use a dark menu bar / dock
+## Use a dark menu bar / dock
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
 # Autohide the dock - http://www.idownloadblog.com/2015/02/14/auto-hide-dock-no-delay-mac/
 # defaults write com.apple.dock autohide -bool true
 
-# Disable sounds effects for user interface changes
+## Disable sounds effects for user interface changes
 defaults write NSGlobalDomain com.apple.sound.uiaudio.enabled -int 0
 
-# Set alert volume to 0
+## Set alert volume to 0
 defaults write NSGlobalDomain com.apple.sound.beep.volume -float 0.0
 
-# Disable natural scrolling
+## Disable natural scrolling
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
-# Don't want Photos.app to open up as soon as you plug something in?
+## Don't want Photos.app to open up as soon as you plug something in?
 defaults write com.apple.ImageCapture disableHotPlug -bool YES
 
 defaults delete org.videolan.vlc.LSSharedFileList RecentDocuments
 defaults write org.videolan.vlc NSRecentDocumentsLimit 0
 defaults write org.videolan.vlc.LSSharedFileList RecentDocuments -dict-add MaxAmount 0
 
-# Show battery percentage remaining in menu bar
+## Show battery percentage remaining in menu bar
 defaults write com.apple.menuextra.battery ShowPercent YES
 
 # Disable Notification Center and remove the menu bar icon
 # launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
 
-# Enable the debug menu in Disk Utility
+## Enable the debug menu in Disk Utility
 defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 defaults write com.apple.DiskUtility advanced-image-options -bool true
 
-# Show all processes in Activity Monitor
+## Show all processes in Activity Monitor
 defaults write com.apple.ActivityMonitor ShowCategory -int 0
 
-# Disable the warning when changing a file extension
+## Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Disable guest account logins
@@ -142,10 +142,10 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # defaults write SystemConfiguration/com.apple.smb.server AllowGuestAccess -bool false
 # defaults write com.apple.AppleFileServer guestAccess -bool false
 
-# Enable secondary (right button mouse click)
+## Enable secondary (right button mouse click)
 defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode TwoButton
 
-# Disable smart quotes/dashes
+## Disable smart quotes/dashes
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 

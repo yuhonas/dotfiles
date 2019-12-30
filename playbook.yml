@@ -3,7 +3,8 @@
   tasks:
     - name: classify hosts depending on their os distribution
       group_by:
-        key: os_{{ ansible_facts['system'] }}
+        key: os_{{ ansible_facts['os_family'] }}
+  tags: minimal
 
 - hosts: all
   connection: local
@@ -17,7 +18,7 @@
     - osx-apps
     - osx-defaults
 
-- hosts: os_Linux
+- hosts: os_Debian
   connection: local
   roles:
     - linux-apps
