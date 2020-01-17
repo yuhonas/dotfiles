@@ -81,7 +81,7 @@ call plug#end()
 " set wildmenu
 
 " Always show current position
-"set ruler
+set ruler
 
 " Height of the command bar
 "set cmdheight=2
@@ -194,6 +194,7 @@ nmap <leader>fs :w!<cr>
 nmap <leader>fr :History<cr>
 nmap <leader>t :Tags<cr>
 nmap <leader>/ :Ag<cr>
+nmap <leader>? :Lines<cr>
 nmap <leader>ft :NERDTreeToggle<cr>
 nmap <leader><Tab> :bnext<cr>
 nmap <leader><S-Tab> :bprevious<cr>
@@ -210,6 +211,7 @@ map <leader>bd :bd<cr>:tabclose<cr>gT
 " Close all the buffers
 map <leader>ba :bufdo bd<cr>
 
+" Buffer navigation
 map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
 
