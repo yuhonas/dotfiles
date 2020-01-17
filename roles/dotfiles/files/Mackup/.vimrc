@@ -43,14 +43,11 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'easymotion/vim-easymotion'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 " themes / ui
 Plug 'vim-airline/vim-airline'
-"Plug 'dracula/vim'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'sainnhe/neon'
 
 " intellisense engine for vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
