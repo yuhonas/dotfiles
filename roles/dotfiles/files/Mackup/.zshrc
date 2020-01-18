@@ -77,6 +77,7 @@ antigen bundle fzf
 antigen bundle git
 antigen bundle bundler
 antigen bundle last-working-dir
+antigen bundle tmux
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-autosuggestions
