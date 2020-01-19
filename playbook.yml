@@ -21,4 +21,4 @@
 - hosts: os_Debian
   connection: local
   roles:
-    - linux-apps
+    - {role: linux-apps, tags: []}

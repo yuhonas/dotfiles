@@ -61,6 +61,18 @@
   command: mackup restore --force
   when: mackup_result.stdout | length > 0
 
+- name: install tmux plugin manager
+  git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
+    recursive: yes
+    version: master
+
+- name: install tmux plugins
+  command: "{{ ansible_env.HOME }}/.tmux/plugins/tpm/bin/install_plugins all"
+  register: tmux_plugin_result
+  changed_when: "'Installing' in tmux_plugin_result.stdout"
+
 - name: creates mutt configuration directory
   file: state=directory recurse=yes path={{ item }}
   with_items:

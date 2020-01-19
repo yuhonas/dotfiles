@@ -1,4 +1,6 @@
 ---
+# https://www.ubuntupit.com/best-things-to-do-after-installing-ubuntu/
+
 # gtk theme's directory
 # For themes see https://www.gnome-look.org/browse/cat/135/ord/rating/
 - name: add a themes directory for gtk theming
@@ -11,7 +13,6 @@
     state: present
   become: true
 
-# https://github.com/unix121/i3wm-themer
 - name: linux applications
   package: name={{ item }} state=present
   become: true
@@ -23,6 +24,19 @@
     - nitrogen  # wallpaper management
     - ranger # visual file manager
     - regolith-desktop
+
+- name: add tlp repo
+  apt_repository:
+    repo: ppa:linrunner/tlp
+    state: present
+  become: true
+
+- name: install tlp for power management
+  package: name={{ item }} state=present
+  become: true
+  with_items:
+    - tlp
+    - tlp-rdw
 
 - name: install dropbox
   apt:
