@@ -13,6 +13,11 @@
     state: present
   become: true
 
+# gsettings reset org.gnome.desktop.interface icon-theme
+#- name: set theme
+#  command: gsettings reset org.gnome.desktop.interface gtk-theme
+#  changed_when: false
+
 - name: linux applications
   package: name={{ item }} state=present
   become: true
