@@ -38,7 +38,7 @@ Plug 'tpope/vim-sensible'
 Plug 'junegunn/fzf', { 'dir': '~/.vim/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdtree'
+"Plug 'scrooloose/nerdtree'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
@@ -81,7 +81,7 @@ call plug#end()
 " set wildmenu
 
 " Always show current position
-set ruler
+" set ruler
 
 " Height of the command bar
 "set cmdheight=2
@@ -195,7 +195,8 @@ nmap <leader>fr :History<cr>
 nmap <leader>t :Tags<cr>
 nmap <leader>/ :Ag<cr>
 nmap <leader>? :Lines<cr>
-nmap <leader>ft :NERDTreeToggle<cr>
+" nmap <leader>ft :NERDTreeToggle<cr>
+nmap <leader>ft :Vexplore<cr>
 nmap <leader><Tab> :bnext<cr>
 nmap <leader><S-Tab> :bprevious<cr>
 
@@ -256,8 +257,8 @@ inoremap fd <esc>       " escape is something  little far away
 
 
 " NERDTree Configuration
-let g:NERDTreeChDirMode=1
-nmap <leader>ftf :NERDTreeFind<CR> “ pressing this inside any open file in vim will jump to the nerdtree and highlight where that file is -> very useful when you have multiple files open at once
+" let g:NERDTreeChDirMode=1
+" nmap <leader>ftf :NERDTreeFind<CR> “ pressing this inside any open file in vim will jump to the nerdtree and highlight where that file is -> very useful when you have multiple files open at once
 
 " FZF Configuration
 " Customize fzf colors to match your color scheme

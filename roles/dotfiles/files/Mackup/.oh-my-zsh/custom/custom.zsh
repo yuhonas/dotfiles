@@ -64,6 +64,11 @@ alias -s {rb,go,py,js,txt,md,yaml,yml}=$EDITOR
 # https://github.com/sharkdp/bat
 export BAT_STYLE=plain
 
+# Enable zmv for batch file renaming
+# https://blog.thecodewhisperer.com/permalink/renaming-magically-with-zmv
+autoload zmv
+alias mmv='noglob zmv -W'
+
 # fbr - checkout branch specified or provide a list of all git branches
 # including remotes for selection
 #
