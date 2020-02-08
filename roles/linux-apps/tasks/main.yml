@@ -3,8 +3,8 @@
 
 # gtk theme's directory
 # For themes see https://www.gnome-look.org/browse/cat/135/ord/rating/
-- name: add a themes directory for gtk theming
-  file: path={{ ansible_env.HOME }}/.themes state=directory
+# - name: add a themes directory for gtk theming
+#   file: path={{ ansible_env.HOME }}/.themes state=directory
 
 # https://regolith-linux.org/
 - name: add regolith repo
@@ -22,13 +22,13 @@
   package: name={{ item }} state=present
   become: true
   with_items:
-    - arc-theme # https://github.com/horst3180/arc-theme
-    - gnome-tweaks
-    - gnome-shell-extensions
     - feh  # wallpaper management
     - nitrogen  # wallpaper management
     - ranger # visual file manager
     - regolith-desktop
+    # - arc-theme # https://github.com/horst3180/arc-theme
+    # - gnome-tweaks
+    # - gnome-shell-extensions
 
 - name: add tlp repo
   apt_repository:
@@ -47,6 +47,26 @@
   apt:
     deb: https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2019.02.14_amd64.deb
   become: true
+
+# https://github.com/xflux-gui/fluxgui
+- name: add flux repo
+  apt_repository:
+    repo: ppa:nathan-renniewaldock/flux
+    state: present
+  become: true
+
+- name: install flux for nightshift
+  package: name={{ item }} state=present
+  become: true
+  with_items:
+    - fluxgui
+
+- name: touchpad gestures
+  package: name={{ item }} state=present
+  become: true
+  with_items:
+    - xdotool
+    - libinput-tools
 
 # - name: other applications
 #   package: name={{ item }} state=present
