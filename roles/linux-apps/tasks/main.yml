@@ -1,22 +1,12 @@
 ---
 # https://www.ubuntupit.com/best-things-to-do-after-installing-ubuntu/
 
-# gtk theme's directory
-# For themes see https://www.gnome-look.org/browse/cat/135/ord/rating/
-# - name: add a themes directory for gtk theming
-#   file: path={{ ansible_env.HOME }}/.themes state=directory
-
 # https://regolith-linux.org/
 - name: add regolith repo
   apt_repository:
     repo: ppa:kgilmer/regolith-stable
     state: present
   become: true
-
-# gsettings reset org.gnome.desktop.interface icon-theme
-#- name: set theme
-#  command: gsettings reset org.gnome.desktop.interface gtk-theme
-#  changed_when: false
 
 - name: linux applications
   package: name={{ item }} state=present
@@ -26,6 +16,7 @@
     - nitrogen  # wallpaper management
     - ranger # visual file manager
     - regolith-desktop
+    - xclip # for commandline clipboard management
     # - arc-theme # https://github.com/horst3180/arc-theme
     # - gnome-tweaks
     # - gnome-shell-extensions
@@ -61,12 +52,54 @@
   with_items:
     - fluxgui
 
-- name: touchpad gestures
+- name: ensure user has access to touch inputs
+  user:
+    name: "{{ ansible_env.USER }}"
+    groups: input
+    append: yes
+  become: true
+
+- name: ensure we have an .config dir
+  file: path={{ ansible_env.HOME }}/.config
+
+- name: install libinput for touchpad gestures
   package: name={{ item }} state=present
   become: true
   with_items:
     - xdotool
     - libinput-tools
+
+- name: get libinput status
+  command: libinput-gestures-setup status
+  register: libinput_status
+  changed_when: false
+
+- name: set libinput to autostart
+  command: libinput-gestures-setup autostart
+  when: '"is not set to autostart" in libinput_status.stdout'
+
+- name: set libinput to start
+  command: libinput-gestures-setup start
+  when: '"is not running" in libinput_status.stdout'
+
+- name: disable quiet splash during bootup
+  replace:
+    path: /etc/default/grub
+    regexp: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"'
+    replace: 'GRUB_CMDLINE_LINUX_DEFAULT=""'
+  become: true
+  register: grub_config
+
+- name: update grub config
+  command: update-grub
+  become: true
+  when: grub_config is changed
+
+# - name: install apps
+#   command: "snap install {{ item }}"
+#   with_items:
+#     - spotify
+#   become: true
 
 # - name: other applications
 #   package: name={{ item }} state=present

@@ -69,6 +69,11 @@ export BAT_STYLE=plain
 autoload zmv
 alias mmv='noglob zmv -W'
 
+# cross platform open command if we can't find an existing one
+if ! type "open" > /dev/null; then
+  alias open=open_command
+fi
+
 # fbr - checkout branch specified or provide a list of all git branches
 # including remotes for selection
 #
