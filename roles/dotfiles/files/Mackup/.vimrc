@@ -45,8 +45,36 @@ Plug 'tpope/vim-commentary'
 Plug 'easymotion/vim-easymotion'
 
 " themes / ui
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+
+" custom status line
+" https://shapeshed.com/vim-statuslines/
+set laststatus=2
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
+
+set statusline=
+set statusline+=%#PmenuSel#
+set statusline+=%{StatuslineGit()}
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m\
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=\
+"
 Plug 'flazz/vim-colorschemes'
 
 " intellisense engine for vim
@@ -62,8 +90,8 @@ Plug 'ruanyl/vim-gh-line'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " elixir support
-" Plug 'slashmili/alchemist.vim'
-" Plug 'elixir-editors/vim-elixir'
+Plug 'slashmili/alchemist.vim'
+Plug 'elixir-editors/vim-elixir'
 
 " ruby/rails support
 Plug 'vim-ruby/vim-ruby'
