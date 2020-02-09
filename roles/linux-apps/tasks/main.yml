@@ -1,6 +1,5 @@
 ---
 # https://www.ubuntupit.com/best-things-to-do-after-installing-ubuntu/
-
 # https://regolith-linux.org/
 - name: add regolith repo
   apt_repository:
@@ -94,6 +93,18 @@
   command: update-grub
   become: true
   when: grub_config is changed
+
+# https://forums.linuxmint.com/viewtopic.php?t=91453
+- name: fix issue with thinkpad x1 carbon volume
+  blockinfile:
+    path: "/usr/share/pulseaudio/alsa-mixer/paths/analog-output.conf.common"
+    block: |
+      [Element Master]
+      switch = mute
+      volume = ignore
+    marker: "; {mark} ANSIBLE MANAGED BLOCK"
+    insertbefore: "Element PCM"
+  become: true
 
 # - name: install apps
 #   command: "snap install {{ item }}"
