@@ -5,6 +5,9 @@
 - name: add home bin dir for custom scripts
   file: path={{ ansible_env.HOME }}/bin state=directory
 
+- name: add sites dir for various projects
+  file: path={{ ansible_env.HOME }}/Sites state=directory
+
 - name: base packages
   homebrew:
     state: present

@@ -45,8 +45,8 @@ Plug 'tpope/vim-commentary'
 Plug 'easymotion/vim-easymotion'
 
 " themes / ui
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 
 " custom status line
 " https://shapeshed.com/vim-statuslines/
@@ -60,12 +60,12 @@ function! StatuslineGit()
   return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
 endfunction
 
-set statusline=
-set statusline+=%#PmenuSel#
+set statusline=%#PmenuSel#
 set statusline+=%{StatuslineGit()}
-set statusline+=%#LineNr#
+" set statusline+=%#LineNr#
+set statusline+=%#Title#
 set statusline+=\ %f
-set statusline+=%m\
+" set statusline+=%m\
 set statusline+=%=
 set statusline+=%#CursorColumn#
 set statusline+=\ %y
@@ -73,8 +73,8 @@ set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
-set statusline+=\
-"
+" set statusline+=\
+
 Plug 'flazz/vim-colorschemes'
 
 " intellisense engine for vim
@@ -282,7 +282,6 @@ set number              " show line numbers
 set showcmd             " show command in bottom bar
 set cursorline 		" highlight current line
 inoremap fd <esc>       " escape is something  little far away
-
 
 " NERDTree Configuration
 " let g:NERDTreeChDirMode=1
