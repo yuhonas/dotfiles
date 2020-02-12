@@ -95,3 +95,13 @@ _fzf_complete_gco() {
 _fzf_complete_git_post() {
     awk '{print $1}'
 }
+
+# read from stdin, write to a temp file, open the temp file in a browser, then delete it
+# see https://gist.github.com/rchrd2/dc0ecbaeffaf75d253c3711985602d09
+stdin2www() {  
+  tmpfile=$(mktemp).html
+  cat > $tmpfile
+  open $tmpfile
+  #rm $tmpfile 
+}
+
