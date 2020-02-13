@@ -16,6 +16,7 @@
     - ranger # visual file manager
     - regolith-desktop
     - xclip # for commandline clipboard management
+    - xsel # for commandline clipboard management
     # - arc-theme # https://github.com/horst3180/arc-theme
     # - gnome-tweaks
     # - gnome-shell-extensions
