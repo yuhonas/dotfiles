@@ -77,8 +77,6 @@
   register: libinput_installed
   ignore_errors: true
 
-# install lib-input-gestures
-
 - name: create temporary installation directory
   tempfile:
     state: directory

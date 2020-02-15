@@ -15,7 +15,6 @@
 [x] docker
 [ ] parcellite
 [x] hide tab bar for screenshot
-[ ] documentation using sphinx
 
 
 ## keybindings
@@ -29,4 +28,3 @@ ALT-CMD-I Window tile up
 ALT-CMD-K Window tile down
 ALT-CMD-J Window tile left
 ALT-CMD-L Window tile right
-

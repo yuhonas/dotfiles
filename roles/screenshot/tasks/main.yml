@@ -1,9 +1,9 @@
 ---
-- name: add alacritty repo
-  apt_repository:
-    repo: ppa:mmstick76/alacritty
-    state: present
-  become: true
+# - name: add alacritty repo
+#   apt_repository:
+#     repo: ppa:mmstick76/alacritty
+#     state: present
+#   become: true
 
 - name: install packages needed to take a screenshot
   package:
@@ -42,11 +42,16 @@
   register: screenshot_file
   changed_when: false
 
+# - name: take a screenshot
+#   shell: import -window root -trim {{ screenshot_file.path }}
+#   environment:
+#     DISPLAY: :{{ display_server }}
+#   changed_when: false
+
 - name: take a screenshot
-  shell: import -window root -trim {{ screenshot_file.path }}
+  shell: import -window root {{ screenshot_file.path }}
   environment:
     DISPLAY: :{{ display_server }}
-  changed_when: false
 
 - name: copy screenshot to local machine
   fetch:
