@@ -1,0 +1,32 @@
+---
+- name: install packages needed to take a screenshat
+  apt:
+    name:
+      - imagemagick
+      - konsole
+      - neofetch
+      - xvfb
+    state: present
+  become: true
+
+- name: check for existing xvfb server
+  command: xdpyinfo -display :99
+  register: xserver_running
+  ignore_errors: true
+
+- name: start xserver
+  command: xvfb :99 -screen 0 1024x768x24 &
+  when: xserver is failed
+
+- name: start konsole
+  command: konsole --noclose -e neofetch &
+  environment:
+    DISPLAY: :99
+  when: xserver is failed
+
+- name: take a screenshot
+  command: import -window root screenshot.png
+  environment:
+    DISPLAY: :99
+  when: xserver is failed
+
