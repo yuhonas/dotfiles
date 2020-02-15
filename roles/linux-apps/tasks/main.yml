@@ -1,11 +1,5 @@
 ---
 # https://www.ubuntupit.com/best-things-to-do-after-installing-ubuntu/
-
-# gtk theme's directory
-# For themes see https://www.gnome-look.org/browse/cat/135/ord/rating/
-- name: add a themes directory for gtk theming
-  file: path={{ ansible_env.HOME }}/.themes state=directory
-
 # https://regolith-linux.org/
 - name: add regolith repo
   apt_repository:
@@ -13,22 +7,20 @@
     state: present
   become: true
 
-# gsettings reset org.gnome.desktop.interface icon-theme
-#- name: set theme
-#  command: gsettings reset org.gnome.desktop.interface gtk-theme
-#  changed_when: false
-
 - name: linux applications
   package: name={{ item }} state=present
   become: true
   with_items:
-    - arc-theme # https://github.com/horst3180/arc-theme
-    - gnome-tweaks
-    - gnome-shell-extensions
     - feh  # wallpaper management
+    - keychain # key manager for OpenSSH
     - nitrogen  # wallpaper management
     - ranger # visual file manager
     - regolith-desktop
+    - xclip # for commandline clipboard management
+    - xsel # for commandline clipboard management
+    # - arc-theme # https://github.com/horst3180/arc-theme
+    # - gnome-tweaks
+    # - gnome-shell-extensions
 
 - name: add tlp repo
   apt_repository:
@@ -46,6 +38,101 @@
 - name: install dropbox
   apt:
     deb: https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2019.02.14_amd64.deb
+  become: true
+
+# https://github.com/xflux-gui/fluxgui
+- name: add flux repo
+  apt_repository:
+    repo: ppa:nathan-renniewaldock/flux
+    state: present
+  become: true
+
+- name: install flux for nightshift
+  package: name={{ item }} state=present
+  become: true
+  with_items:
+    - fluxgui
+
+- name: ensure user has access to touch inputs
+  user:
+    name: "{{ ansible_env.USER }}"
+    groups: input
+    append: yes
+  become: true
+
+- name: ensure we have an .config dir
+  file: path={{ ansible_env.HOME }}/.config
+
+- name: install libinput for touchpad gestures
+  package: name={{ item }} state=present
+  become: true
+  with_items:
+    - xdotool
+    - libinput-tools
+
+- name: get libinput status
+  command: libinput-gestures-setup status
+  register: libinput_status
+  changed_when: false
+
+- name: set libinput to autostart
+  command: libinput-gestures-setup autostart
+  when: '"is not set to autostart" in libinput_status.stdout'
+
+- name: set libinput to start
+  command: libinput-gestures-setup start
+  when: '"is not running" in libinput_status.stdout'
+
+- name: disable quiet splash during bootup
+  replace:
+    path: /etc/default/grub
+    regexp: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"'
+    replace: 'GRUB_CMDLINE_LINUX_DEFAULT=""'
+  become: true
+  register: grub_config
+
+- name: update grub config
+  command: update-grub
+  become: true
+  when: grub_config is changed
+
+# https://forums.linuxmint.com/viewtopic.php?t=91453
+- name: fix issue with thinkpad x1 carbon volume
+  blockinfile:
+    path: "/usr/share/pulseaudio/alsa-mixer/paths/analog-output.conf.common"
+    block: |
+      [Element Master]
+      switch = mute
+      volume = ignore
+    marker: "; {mark} ANSIBLE MANAGED BLOCK"
+    insertbefore: "Element PCM"
+  become: true
+
+# https://www.addictivetips.com/ubuntu-linux-tips/fix-media-keys-not-working-on-linux/
+- name: install playerctl for full media key support
+  package: name=playerctl state=present
+  become: true
+
+- name: add a docker group
+  group:
+    name: docker
+    state: present
+    system: true
+  become: true
+
+#  https://github.com/docker/docker-snap/issues/1
+- name: ensure user has access to docker
+  user:
+    name: "{{ ansible_env.USER }}"
+    groups: docker
+    append: yes
+  become: true
+
+- name: install apps
+  command: "snap install {{ item }}"
+  with_items:
+    - docker
+    - spotify
   become: true
 
 # - name: other applications

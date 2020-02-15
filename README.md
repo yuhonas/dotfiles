@@ -1,6 +1,6 @@
 # Yuhonas dotfiles ![](https://github.com/yuhonas/dotfiles/workflows/ci/badge.svg)
 
-![Screenshot](https://user-images.githubusercontent.com/4928/62229572-c8ec0500-b374-11e9-89a5-d449b9031775.png)
+![Screenshot](./screenshot.png)
 
 ## What's in the box
 

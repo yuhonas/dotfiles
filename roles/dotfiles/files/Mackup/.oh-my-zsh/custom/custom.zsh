@@ -69,6 +69,11 @@ export BAT_STYLE=plain
 autoload zmv
 alias mmv='noglob zmv -W'
 
+# cross platform open command if we can't find an existing one
+if ! type "open" > /dev/null; then
+  alias open=open_command
+fi
+
 # fbr - checkout branch specified or provide a list of all git branches
 # including remotes for selection
 #
@@ -90,3 +95,13 @@ _fzf_complete_gco() {
 _fzf_complete_git_post() {
     awk '{print $1}'
 }
+
+# read from stdin, write to a temp file, open the temp file in a browser, then delete it
+# see https://gist.github.com/rchrd2/dc0ecbaeffaf75d253c3711985602d09
+stdin2www() {  
+  tmpfile=$(mktemp).html
+  cat > $tmpfile
+  open $tmpfile
+  #rm $tmpfile 
+}
+

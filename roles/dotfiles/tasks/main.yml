@@ -5,6 +5,9 @@
 - name: add home bin dir for custom scripts
   file: path={{ ansible_env.HOME }}/bin state=directory
 
+- name: add sites dir for various projects
+  file: path={{ ansible_env.HOME }}/Sites state=directory
+
 - name: base packages
   homebrew:
     state: present
@@ -41,6 +44,18 @@
   include_tasks:
     file: oh-my-zsh.yml
   when: not zsh_stat_result.stat.exists
+
+- name: get brew env variables
+  command: brew shellenv
+  changed_when: false
+  register: brew_shellenv
+
+- name: ensure brew env vars exist in zshenv
+  blockinfile:
+    path: "{{ ansible_env.HOME }}/.zshenv"
+    block: "{{ brew_shellenv.stdout }}"
+    insertbefore: BOF
+    create: yes
 
 - name: install antigen
   git:
