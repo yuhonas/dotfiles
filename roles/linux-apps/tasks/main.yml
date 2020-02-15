@@ -12,6 +12,7 @@
   become: true
   with_items:
     - feh  # wallpaper management
+    - keychain # key manager for OpenSSH
     - nitrogen  # wallpaper management
     - ranger # visual file manager
     - regolith-desktop
@@ -111,12 +112,28 @@
 - name: install playerctl for full media key support
   package: name=playerctl state=present
   become: true
-  #
-# - name: install apps
-#   command: "snap install {{ item }}"
-#   with_items:
-#     - spotify
-#   become: true
+
+- name: add a docker group
+  group:
+    name: docker
+    state: present
+    system: true
+  become: true
+
+#  https://github.com/docker/docker-snap/issues/1
+- name: ensure user has access to docker
+  user:
+    name: "{{ ansible_env.USER }}"
+    groups: docker
+    append: yes
+  become: true
+
+- name: install apps
+  command: "snap install {{ item }}"
+  with_items:
+    - docker
+    - spotify
+  become: true
 
 # - name: other applications
 #   package: name={{ item }} state=present

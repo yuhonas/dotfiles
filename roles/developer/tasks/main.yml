@@ -12,6 +12,7 @@
       - fdupes
       - figlet
       - fortune
+      - github/gh/gh # https://github.com/cli/cli
       - git-extras
       - git-town
       - gnupg

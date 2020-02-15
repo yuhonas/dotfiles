@@ -1,6 +1,6 @@
 ---
 - name: install packages needed to take a screenshat
-  apt:
+  package:
     name:
       - imagemagick
       - konsole
@@ -10,23 +10,36 @@
   become: true
 
 - name: check for existing xvfb server
-  command: xdpyinfo -display :99
+  command: xdpyinfo -display :{{ display_server }}
   register: xserver_running
   ignore_errors: true
 
-- name: start xserver
-  command: xvfb :99 -screen 0 1024x768x24 &
-  when: xserver is failed
+- name: start xvfb server
+  shell: "Xvfb :{{ display_server }} -screen 0 640x480x24 &"
+  when: xserver_running is failed
 
 - name: start konsole
-  command: konsole --noclose -e neofetch &
+  shell: konsole --noclose --fullscreen -e neofetch &
   environment:
-    DISPLAY: :99
-  when: xserver is failed
+    DISPLAY: :{{ display_server }}
+
+- name: get a temporary filename for the screenshot
+  tempfile:
+    state: file
+    suffix: ".png"
+  register: screenshot_file
 
 - name: take a screenshot
-  command: import -window root screenshot.png
+  shell: import -window root {{ screenshot_file.path }}
   environment:
-    DISPLAY: :99
-  when: xserver is failed
+    DISPLAY: :{{ display_server }}
 
+- name: copy screenshot to local machine
+  fetch:
+    src: "{{ screenshot_file.path }}"
+    dest: screenshot.png
+    flat: yes
+    validate_checksum: no
+
+- name: terminate xvfb server
+  command: pkill Xvfb
