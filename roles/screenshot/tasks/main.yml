@@ -1,11 +1,18 @@
 ---
-- name: install packages needed to take a screenshat
+- name: add alacritty repo
+  apt_repository:
+    repo: ppa:mmstick76/alacritty
+    state: present
+  become: true
+
+- name: install packages needed to take a screenshot
   package:
     name:
+      - alacritty
       - imagemagick
-      - konsole
       - neofetch
       - xvfb
+      - x11-utils
     state: present
   become: true
 
@@ -15,11 +22,11 @@
   ignore_errors: true
 
 - name: start xvfb server
-  shell: "Xvfb :{{ display_server }} -screen 0 640x480x24 &"
+  shell: "Xvfb :{{ display_server }} -screen 0 800x600x24 &"
   when: xserver_running is failed
 
-- name: start konsole
-  shell: konsole --noclose --fullscreen -e neofetch &
+- name: start terminal
+  shell: alacritty --hold --position 0 0 -e neofetch &
   environment:
     DISPLAY: :{{ display_server }}
 
@@ -30,7 +37,7 @@
   register: screenshot_file
 
 - name: take a screenshot
-  shell: import -window root {{ screenshot_file.path }}
+  shell: import -window root -trim {{ screenshot_file.path }}
   environment:
     DISPLAY: :{{ display_server }}
 

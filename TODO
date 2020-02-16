@@ -15,6 +15,7 @@
 [x] docker
 [ ] parcellite
 [ ] hide tab bar for screenshot
+[ ] documentation using sphinx
 
 
 ## keybindings
@@ -24,5 +25,8 @@ CMD-V - Paste
 CMD-T - New Tab
 CMD-W - Close Tab/Window
 ALT-CMD-F Full Screen
-ALT-CMD-L Window split left
-ALT-CMD-R Window split right
+ALT-CMD-I Window tile up
+ALT-CMD-K Window tile down
+ALT-CMD-J Window tile left
+ALT-CMD-L Window tile right
+
