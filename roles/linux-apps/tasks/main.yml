@@ -89,6 +89,7 @@
   git:
     repo: 'https://github.com/bulletmark/libinput-gestures.git'
     dest: "{{ temp_build_directory.path }}"
+    version: master
   when: libinput_installed is failed
 
 - name: installing lib-input-gestures
@@ -165,7 +166,11 @@
   become: true
 
 - name: check for an intel graphics card
-  shell: "lspci | grep VGA"
+  shell: |
+    set -o pipefail
+    lspci | grep VGA
+  args:
+    executable: /bin/bash
   register: vga_card
 
 - name: copying x11 config for intel graphics card
