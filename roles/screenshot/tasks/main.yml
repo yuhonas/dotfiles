@@ -8,11 +8,12 @@
 - name: install packages needed to take a screenshot
   package:
     name:
-      - alacritty
+      # - alacritty
+      - konsole
       - imagemagick
       - neofetch
       - xvfb
-      - x11-utils
+      # - x11-utils
     state: present
   become: true
 
@@ -26,9 +27,10 @@
   shell: "Xvfb :{{ display_server }} -screen 0 800x600x24 &"
   when: xserver_running is failed
   changed_when: false
+  # shell: alacritty --hold --position 0 0 -e neofetch &
 
 - name: start terminal
-  shell: alacritty --hold --position 0 0 -e neofetch &
+  shell: konsole --hide-menubar --hide-tabbar --noclose --fullscreen -e neofetch &
   environment:
     DISPLAY: :{{ display_server }}
   changed_when: false

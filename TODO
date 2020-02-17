@@ -14,7 +14,7 @@
 [x] github commandline
 [x] docker
 [ ] parcellite
-[ ] hide tab bar for screenshot
+[x] hide tab bar for screenshot
 [ ] documentation using sphinx
 
 
