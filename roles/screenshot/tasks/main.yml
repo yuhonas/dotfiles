@@ -15,7 +15,13 @@
       - xvfb
       # - x11-utils
     state: present
+    update_cache: yes
   become: true
+
+- name: copy over a custom neofetch config for the screenshot
+  copy:
+    src: config.conf
+    dest: "{{ ansible_env.HOME }}/.config/neofetch/"
 
 - name: check for existing xvfb server
   command: xdpyinfo -display :{{ display_server }}
@@ -24,7 +30,7 @@
   changed_when: false
 
 - name: start xvfb server
-  shell: "Xvfb :{{ display_server }} -screen 0 800x600x24 &"
+  shell: "Xvfb :{{ display_server }} -screen 0 640x480x24 &"
   when: xserver_running is failed
   changed_when: false
   # shell: alacritty --hold --position 0 0 -e neofetch &
@@ -49,7 +55,7 @@
 #   changed_when: false
 
 - name: take a screenshot
-  shell: import -window root {{ screenshot_file.path }}
+  shell: import -trim -window root {{ screenshot_file.path }}
   environment:
     DISPLAY: :{{ display_server }}
 

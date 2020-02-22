@@ -25,6 +25,8 @@ else
     # Download and install linuxbrew
     if [[ ! -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
 
+        # ensure apt is up to date
+        sudo apt-get update
         # assuming we're using ubuntu
         sudo apt-get install -y build-essential ca-certificates curl file git libssl-dev locales ruby zlib1g-dev python-apt
         # set locale
