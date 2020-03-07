@@ -9,11 +9,11 @@ lint:
   name: yamllint
 platforms:
   - name: instance
-    image: ubuntu:latest
+    image: manjarolinux/base:latest
     env:
       PATH: /home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
       ANSIBLE_USER: linuxbrew
-      SUDO_GROUP: admin
+      SUDO_GROUP: wheel
       DEPLOY_GROUP: deployer
       SHELL: /bin/bash
 provisioner:

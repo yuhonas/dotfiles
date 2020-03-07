@@ -18,7 +18,8 @@
     - osx-apps
     - osx-defaults
 
-- hosts: os_Debian
+# - hosts: os_Debian
+- hosts: os_Archlinux
   connection: local
   roles:
     - {role: linux-apps, tags: []}

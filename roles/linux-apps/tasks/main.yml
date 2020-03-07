@@ -1,11 +1,11 @@
 ---
 # https://www.ubuntupit.com/best-things-to-do-after-installing-ubuntu/
 # https://regolith-linux.org/
-- name: add regolith repo
-  apt_repository:
-    repo: ppa:kgilmer/regolith-stable
-    state: present
-  become: true
+# - name: add regolith repo
+#   apt_repository:
+#     repo: ppa:kgilmer/regolith-stable
+#     state: present
+#   become: true
 
 - name: linux applications
   package: name={{ item }} state=present
@@ -15,18 +15,19 @@
     - keychain # key manager for OpenSSH
     - nitrogen  # wallpaper management
     - ranger # visual file manager
-    - regolith-desktop
+    - rclone # for dropbox and other file sharing services
+    # - regolith-desktop
     - xclip # for commandline clipboard management
     - xsel # for commandline clipboard management
     # - arc-theme # https://github.com/horst3180/arc-theme
     # - gnome-tweaks
     # - gnome-shell-extensions
 
-- name: add tlp repo
-  apt_repository:
-    repo: ppa:linrunner/tlp
-    state: present
-  become: true
+# - name: add tlp repo
+#   apt_repository:
+#     repo: ppa:linrunner/tlp
+#     state: present
+#   become: true
 
 - name: install tlp for power management
   package: name={{ item }} state=present
@@ -35,27 +36,27 @@
     - tlp
     - tlp-rdw
 
-- name: install dropbox
-  apt:
-    deb: https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2019.02.14_amd64.deb
-  become: true
+# - name: install dropbox
+#   apt:
+#     deb: https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2019.02.14_amd64.deb
+#   become: true
 
 # https://github.com/xflux-gui/fluxgui
-- name: add flux repo
-  apt_repository:
-    repo: ppa:nathan-renniewaldock/flux
-    state: present
-  become: true
+# - name: add flux repo
+#   apt_repository:
+#     repo: ppa:nathan-renniewaldock/flux
+#     state: present
+#   become: true
 
-- name: install flux for nightshift
-  package: name={{ item }} state=present
-  become: true
-  with_items:
-    - fluxgui
+# - name: install flux for nightshift
+#   package: name={{ item }} state=present
+#   become: true
+#   with_items:
+#     - fluxgui
 
 - name: ensure user has access to touch inputs
   user:
-    name: "{{ ansible_env.USER }}"
+    name: "{{ ansible_ssh_user }}"
     groups: input
     append: yes
   become: true
@@ -68,7 +69,8 @@
   become: true
   with_items:
     - xdotool
-    - libinput-tools
+    - libinput-gestures
+    # - libinput-tools
 
 - name: get libinput status
   command: libinput-gestures-setup status
@@ -83,18 +85,18 @@
   command: libinput-gestures-setup start
   when: '"is not running" in libinput_status.stdout'
 
-- name: disable quiet splash during bootup
-  replace:
-    path: /etc/default/grub
-    regexp: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"'
-    replace: 'GRUB_CMDLINE_LINUX_DEFAULT=""'
-  become: true
-  register: grub_config
+# - name: disable quiet splash during bootup
+#   replace:
+#     path: /etc/default/grub
+#     regexp: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"'
+#     replace: 'GRUB_CMDLINE_LINUX_DEFAULT=""'
+#   become: true
+#   register: grub_config
 
-- name: update grub config
-  command: update-grub
-  become: true
-  when: grub_config is changed
+# - name: update grub config
+#   command: update-grub
+#   become: true
+#   when: grub_config is changed
 
 # https://forums.linuxmint.com/viewtopic.php?t=91453
 - name: fix issue with thinkpad x1 carbon volume
@@ -123,7 +125,7 @@
 #  https://github.com/docker/docker-snap/issues/1
 - name: ensure user has access to docker
   user:
-    name: "{{ ansible_env.USER }}"
+    name: "{{ ansible_ssh_user }}"
     groups: docker
     append: yes
   become: true
