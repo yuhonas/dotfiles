@@ -16,6 +16,7 @@
 [ ] parcellite
 [x] hide tab bar for screenshot
 [ ] fix sudo path
+[ ] sound quality
 
 
 ## keybindings
@@ -29,3 +30,5 @@ ALT-CMD-I Window tile up
 ALT-CMD-K Window tile down
 ALT-CMD-J Window tile left
 ALT-CMD-L Window tile right
+
+https://www.reddit.com/r/kde/comments/55udc1/how_do_i_stop_the_meta_key_from_opening_the/
