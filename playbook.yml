@@ -22,4 +22,3 @@
   connection: local
   roles:
     - {role: linux-apps, tags: []}
-    - {role: screenshot, tags: [minimal]}
