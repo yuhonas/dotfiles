@@ -12,7 +12,7 @@
       - konsole
       - imagemagick
       - neofetch
-      - xvfb
+      - xorg-server-xvfb
       # - x11-utils
     state: present
     update_cache: yes

@@ -124,12 +124,12 @@
     append: yes
   become: true
 
-- name: install apps
-  command: "snap install {{ item }}"
-  with_items:
-    - docker
-    - spotify
-  become: true
+# - name: install apps
+#   command: "snap install {{ item }}"
+#   with_items:
+#     - docker
+#     - spotify
+#   become: true
 
 - name: check for an intel graphics card
   shell: |
