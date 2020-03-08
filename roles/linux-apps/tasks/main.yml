@@ -1,5 +1,4 @@
 ---
-
 - name: linux applications
   package: name={{ item }} state=present
   become: true
