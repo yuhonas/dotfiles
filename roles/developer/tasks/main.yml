@@ -19,6 +19,7 @@
       - graphviz
       - hr
       - httpie
+      - inotify-tools
       - jq
       - lazygit
       - lnav

@@ -3,7 +3,7 @@
   hosts: all
   tasks:
     - name: copy bootstrap script for execution
-      command: docker cp {{playbook_dir}}/bootstrap.sh {{ ansible_fqdn }}:/tmp
+      command: docker cp {{ playbook_dir }}/bootstrap.sh {{ ansible_fqdn }}:/tmp
       delegate_to: 127.0.0.1
 
     - name: bootstrap the machine

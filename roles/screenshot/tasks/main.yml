@@ -1,36 +1,61 @@
 ---
-- name: install packages needed to take a screenshat
+# - name: add alacritty repo
+#   apt_repository:
+#     repo: ppa:mmstick76/alacritty
+#     state: present
+#   become: true
+
+- name: install packages needed to take a screenshot
   package:
     name:
-      - imagemagick
+      # - alacritty
       - konsole
+      - imagemagick
       - neofetch
       - xvfb
+      # - x11-utils
     state: present
+    update_cache: yes
   become: true
+
+- name: copy over a custom neofetch config for the screenshot
+  copy:
+    src: config.conf
+    dest: "{{ ansible_env.HOME }}/.config/neofetch/"
 
 - name: check for existing xvfb server
   command: xdpyinfo -display :{{ display_server }}
   register: xserver_running
   ignore_errors: true
+  changed_when: false
 
 - name: start xvfb server
   shell: "Xvfb :{{ display_server }} -screen 0 640x480x24 &"
   when: xserver_running is failed
+  changed_when: false
+  # shell: alacritty --hold --position 0 0 -e neofetch &
 
-- name: start konsole
-  shell: konsole --noclose --fullscreen -e neofetch &
+- name: start terminal
+  shell: konsole --hide-menubar --hide-tabbar --noclose --fullscreen -e neofetch &
   environment:
     DISPLAY: :{{ display_server }}
+  changed_when: false
 
 - name: get a temporary filename for the screenshot
   tempfile:
     state: file
     suffix: ".png"
   register: screenshot_file
+  changed_when: false
+
+# - name: take a screenshot
+#   shell: import -window root -trim {{ screenshot_file.path }}
+#   environment:
+#     DISPLAY: :{{ display_server }}
+#   changed_when: false
 
 - name: take a screenshot
-  shell: import -window root {{ screenshot_file.path }}
+  shell: import -trim -window root {{ screenshot_file.path }}
   environment:
     DISPLAY: :{{ display_server }}
 
@@ -40,6 +65,8 @@
     dest: screenshot.png
     flat: yes
     validate_checksum: no
+  changed_when: false
 
 - name: terminate xvfb server
   command: pkill Xvfb
+  changed_when: false

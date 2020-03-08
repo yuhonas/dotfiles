@@ -14,9 +14,11 @@
     - feh  # wallpaper management
     - keychain # key manager for OpenSSH
     - nitrogen  # wallpaper management
+    - pciutils # for lspci so we can inspect the video card
     - ranger # visual file manager
     - regolith-desktop
     - xclip # for commandline clipboard management
+    # - xrandr # for xwindow resizing/rotating/scaling
     - xsel # for commandline clipboard management
     # - arc-theme # https://github.com/horst3180/arc-theme
     # - gnome-tweaks
@@ -55,13 +57,13 @@
 
 - name: ensure user has access to touch inputs
   user:
-    name: "{{ ansible_env.USER }}"
+    name: "{{ ansible_ssh_user }}"
     groups: input
     append: yes
   become: true
 
 - name: ensure we have an .config dir
-  file: path={{ ansible_env.HOME }}/.config
+  file: path={{ ansible_env.HOME }}/.config state=directory
 
 - name: install libinput for touchpad gestures
   package: name={{ item }} state=present
@@ -69,6 +71,32 @@
   with_items:
     - xdotool
     - libinput-tools
+
+- name: check if libinput-gestures is installed
+  command: libinput-gestures-setup status
+  register: libinput_installed
+  ignore_errors: true
+
+- name: create temporary installation directory
+  tempfile:
+    state: directory
+  register: temp_build_directory
+  when: libinput_installed is failed
+
+- name: cloning lib-input-gestures for installation
+  git:
+    repo: 'https://github.com/bulletmark/libinput-gestures.git'
+    dest: "{{ temp_build_directory.path }}"
+    version: master
+  when: libinput_installed is failed
+
+- name: installing lib-input-gestures
+  command:
+    cmd: make install
+    chdir: "{{ temp_build_directory.path }}"
+    creates: /usr/bin/libinput-gestures
+  become: true
+  when: libinput_installed is failed
 
 - name: get libinput status
   command: libinput-gestures-setup status
@@ -123,7 +151,7 @@
 #  https://github.com/docker/docker-snap/issues/1
 - name: ensure user has access to docker
   user:
-    name: "{{ ansible_env.USER }}"
+    name: "{{ ansible_ssh_user }}"
     groups: docker
     append: yes
   become: true
@@ -134,6 +162,22 @@
     - docker
     - spotify
   become: true
+
+- name: check for an intel graphics card
+  shell: |
+    set -o pipefail
+    lspci | grep VGA
+  args:
+    executable: /bin/bash
+  register: vga_card
+
+- name: copying x11 config for intel graphics card
+  copy:
+    src: 20-intel.conf
+    dest: /usr/share/X11/xorg.conf.d/
+    backup: yes
+  become: true
+  when: '"Intel Corporation" in vga_card.stdout'
 
 # - name: other applications
 #   package: name={{ item }} state=present

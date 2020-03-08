@@ -107,5 +107,5 @@ The following quicklook plugins
 Use the bootstrap script to install any depedencies and run the playbook
 
 ```
-$ bash <(curl -s https://raw.githubusercontent.com/yuhonas/mac-dev-playbook/master/bootstrap.sh)
+$ bash <(curl -s https://raw.githubusercontent.com/yuhonas/dotfiles/master/bootstrap.sh)
 ````
