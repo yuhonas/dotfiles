@@ -1,35 +1,20 @@
 ---
-# https://www.ubuntupit.com/best-things-to-do-after-installing-ubuntu/
-# https://regolith-linux.org/
-# - name: add regolith repo
-#   apt_repository:
-#     repo: ppa:kgilmer/regolith-stable
-#     state: present
-#   become: true
 
 - name: linux applications
   package: name={{ item }} state=present
   become: true
   with_items:
-    - feh  # wallpaper management
+    # - feh  # wallpaper management
     - keychain # key manager for OpenSSH
-    - nitrogen  # wallpaper management
+    # - nitrogen  # wallpaper management
     - pciutils # for lspci so we can inspect the video card
+    - pulseaudio # for audio
     - ranger # visual file manager
     - rclone # for dropbox and other file sharing services
-    # - regolith-desktop
+    - redshift # for nightshift
     - xclip # for commandline clipboard management
     # - xrandr # for xwindow resizing/rotating/scaling
     - xsel # for commandline clipboard management
-    # - arc-theme # https://github.com/horst3180/arc-theme
-    # - gnome-tweaks
-    # - gnome-shell-extensions
-
-# - name: add tlp repo
-#   apt_repository:
-#     repo: ppa:linrunner/tlp
-#     state: present
-#   become: true
 
 - name: install tlp for power management
   package: name={{ item }} state=present
@@ -37,24 +22,6 @@
   with_items:
     - tlp
     - tlp-rdw
-
-# - name: install dropbox
-#   apt:
-#     deb: https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2019.02.14_amd64.deb
-#   become: true
-
-# https://github.com/xflux-gui/fluxgui
-# - name: add flux repo
-#   apt_repository:
-#     repo: ppa:nathan-renniewaldock/flux
-#     state: present
-#   become: true
-
-# - name: install flux for nightshift
-#   package: name={{ item }} state=present
-#   become: true
-#   with_items:
-#     - fluxgui
 
 - name: ensure user has access to touch inputs
   user:
@@ -72,7 +39,6 @@
   with_items:
     - xdotool
     - libinput-gestures
-    # - libinput-tools
 
 - name: check if libinput-gestures is installed
   command: libinput-gestures-setup status

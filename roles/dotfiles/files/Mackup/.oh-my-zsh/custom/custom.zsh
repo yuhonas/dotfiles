@@ -19,6 +19,8 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 export TERM=xterm-256color
 
+export SPACESHIP_CHAR_SYMBOL="» "
+export SPACESHIP_GIT_PREFIX=""
 # color setup for ls
 # http://man7.org/linux/man-pages/man1/dircolors.1.html
 # eval $(gdircolors ~/.dircolors/dircolors.256dark)
@@ -34,7 +36,7 @@ _tldr() {
 zle -N _tldr
 
 # custom keybindings for fast directory exploration
-bindkey -s "^[l" "ls -al^J"  # alt-l shortcut to listing a directory
+# bindkey -s "^[l" "ls -al^J"  # alt-l shortcut to listing a directory
 bindkey -s "^[r" "ranger^J"  # alt-r shortcut to file explorer
 # custom keybinding for tldr help on the current command
 bindkey "^[H" _tldr

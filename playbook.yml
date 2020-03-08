@@ -22,4 +22,4 @@
 - hosts: os_Archlinux
   connection: local
   roles:
-    - {role: linux-apps, tags: []}
+    - {role: linux-apps, tags: [minimal]}
