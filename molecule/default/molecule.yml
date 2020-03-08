@@ -1,12 +1,11 @@
 ---
-dependency:
-  name: "galaxy"
 driver:
   name: "docker"
 lint: |
   set -e
   yamllint .
   ansible-lint
+  flake8
 platforms:
   - name: "instance"
     image: "ubuntu:latest"
@@ -20,8 +19,6 @@ provisioner:
   name: "ansible"
   env:
     PATH: "/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
-  lint:
-    name: "ansible-lint"
   inventory:
     host_vars:
       instance:
@@ -33,5 +30,3 @@ provisioner:
     converge: "../../playbook.yml"
 verifier:
   name: "testinfra"
-  lint:
-    name: "flake8"
