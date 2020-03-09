@@ -1,0 +1,17 @@
+[Unit]
+Description=RClone Service
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=notify
+
+ExecStart=/usr/bin/rclone mount dropbox: /home/clint/Dropbox --config /home/clint/.config/rclone/rclone.conf --buffer-size 256M --fast-list --dir-cache-time 96h --timeout 1h --umask 002 --vfs-cache-mode writes --log-file /home/clint/rclone.log --log-level INFO
+ExecStop=/usr/bin/fusermount -uz /home/clint/Dropbox
+Restart=on-failure
+User=clint
+Group=clint
+
+[Install]
+WantedBy=multi-user.target
+

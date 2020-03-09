@@ -3,9 +3,7 @@
   package: name={{ item }} state=present
   become: true
   with_items:
-    # - feh  # wallpaper management
     - keychain # key manager for OpenSSH
-    # - nitrogen  # wallpaper management
     - pciutils # for lspci so we can inspect the video card
     - pulseaudio # for audio
     - ranger # visual file manager
@@ -137,6 +135,7 @@
   args:
     executable: /bin/bash
   register: vga_card
+  changed_when: false
 
 - name: copying x11 config for intel graphics card
   copy:
