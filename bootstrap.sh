@@ -29,7 +29,7 @@ else
         # sudo apt-get install -y build-essential ca-certificates curl file git libssl-dev locales ruby zlib1g-dev python-apt
 
         # archlinux
-        sudo pacman --sync --noconfirm --needed base-devel git ca-certificates curl git ruby
+        sudo pacman --sync --refresh --noconfirm --needed base-devel git ca-certificates curl git ruby
         # set locale
         sudo localedef -i en_US -f UTF-8 en_US.UTF-8
 
