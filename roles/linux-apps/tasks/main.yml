@@ -1,34 +1,17 @@
 ---
-# https://www.ubuntupit.com/best-things-to-do-after-installing-ubuntu/
-# https://regolith-linux.org/
-- name: add regolith repo
-  apt_repository:
-    repo: ppa:kgilmer/regolith-stable
-    state: present
-  become: true
-
 - name: linux applications
   package: name={{ item }} state=present
   become: true
   with_items:
-    - feh  # wallpaper management
     - keychain # key manager for OpenSSH
-    - nitrogen  # wallpaper management
     - pciutils # for lspci so we can inspect the video card
+    - pulseaudio # for audio
     - ranger # visual file manager
-    - regolith-desktop
+    - rclone # for dropbox and other file sharing services
+    - redshift # for nightshift
     - xclip # for commandline clipboard management
     # - xrandr # for xwindow resizing/rotating/scaling
     - xsel # for commandline clipboard management
-    # - arc-theme # https://github.com/horst3180/arc-theme
-    # - gnome-tweaks
-    # - gnome-shell-extensions
-
-- name: add tlp repo
-  apt_repository:
-    repo: ppa:linrunner/tlp
-    state: present
-  become: true
 
 - name: install tlp for power management
   package: name={{ item }} state=present
@@ -36,24 +19,6 @@
   with_items:
     - tlp
     - tlp-rdw
-
-- name: install dropbox
-  apt:
-    deb: https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2019.02.14_amd64.deb
-  become: true
-
-# https://github.com/xflux-gui/fluxgui
-- name: add flux repo
-  apt_repository:
-    repo: ppa:nathan-renniewaldock/flux
-    state: present
-  become: true
-
-- name: install flux for nightshift
-  package: name={{ item }} state=present
-  become: true
-  with_items:
-    - fluxgui
 
 - name: ensure user has access to touch inputs
   user:
@@ -70,7 +35,7 @@
   become: true
   with_items:
     - xdotool
-    - libinput-tools
+    - libinput-gestures
 
 - name: check if libinput-gestures is installed
   command: libinput-gestures-setup status
@@ -111,18 +76,18 @@
   command: libinput-gestures-setup start
   when: '"is not running" in libinput_status.stdout'
 
-- name: disable quiet splash during bootup
-  replace:
-    path: /etc/default/grub
-    regexp: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"'
-    replace: 'GRUB_CMDLINE_LINUX_DEFAULT=""'
-  become: true
-  register: grub_config
+# - name: disable quiet splash during bootup
+#   replace:
+#     path: /etc/default/grub
+#     regexp: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"'
+#     replace: 'GRUB_CMDLINE_LINUX_DEFAULT=""'
+#   become: true
+#   register: grub_config
 
-- name: update grub config
-  command: update-grub
-  become: true
-  when: grub_config is changed
+# - name: update grub config
+#   command: update-grub
+#   become: true
+#   when: grub_config is changed
 
 # https://forums.linuxmint.com/viewtopic.php?t=91453
 - name: fix issue with thinkpad x1 carbon volume
@@ -156,12 +121,12 @@
     append: yes
   become: true
 
-- name: install apps
-  command: "snap install {{ item }}"
-  with_items:
-    - docker
-    - spotify
-  become: true
+# - name: install apps
+#   command: "snap install {{ item }}"
+#   with_items:
+#     - docker
+#     - spotify
+#   become: true
 
 - name: check for an intel graphics card
   shell: |
@@ -170,6 +135,7 @@
   args:
     executable: /bin/bash
   register: vga_card
+  changed_when: false
 
 - name: copying x11 config for intel graphics card
   copy:
