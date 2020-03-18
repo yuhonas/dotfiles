@@ -121,12 +121,20 @@
     append: yes
   become: true
 
-# - name: install apps
-#   command: "snap install {{ item }}"
-#   with_items:
-#     - docker
-#     - spotify
-#   become: true
+- name: check for installed apps
+  command: pamac list -i
+  register: installed_apps
+  changed_when: false
+
+- name: install google-chrome
+  command: pamac build --keep --no-confirm google-chrome
+  when: '"google-chrome" not in installed_apps.stdout'
+  become: true
+
+- name: install spotify
+  command: pamac build --keep --no-confirm spotify
+  when: '"spotify" not in installed_apps.stdout'
+  become: true
 
 - name: check for an intel graphics card
   shell: |
