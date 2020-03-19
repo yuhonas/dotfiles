@@ -1,0 +1,17 @@
+[Unit]
+Description=RClone Service
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=notify
+
+ExecStart=/usr/bin/rclone mount dropbox: {{ ansible_env.HOME }}/Dropbox --config {{ ansible_env.HOME }}/.config/rclone/rclone.conf --buffer-size 256M --fast-list --dir-cache-time 96h --timeout 1h --umask 002 --vfs-cache-mode writes --log-file {{ ansible_env.HOME }}/rclone.log --log-level INFO
+ExecStop=/usr/bin/fusermount -uz {{ ansible_env.HOME }}/Dropbox
+Restart=on-failure
+User=clint
+Group=clint
+
+[Install]
+WantedBy=multi-user.target
+

@@ -20,7 +20,7 @@ immutability=1
 plugin=org.kde.plasma.digitalclock
 
 [Containments][2][Applets][32][Configuration]
-PreloadWeight=17
+PreloadWeight=34
 
 [Containments][2][Applets][39]
 immutability=1
@@ -55,7 +55,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][2][Applets][6][Configuration]
-PreloadWeight=92
+PreloadWeight=100
 SystrayContainmentId=7
 
 [Containments][2][Applets][9]
@@ -249,11 +249,11 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][7][Applets][10][Configuration]
-PreloadWeight=13
+PreloadWeight=40
 
 [Containments][7][Applets][10][Configuration][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
+DialogHeight=605
+DialogWidth=840
 
 [Containments][7][Applets][11]
 immutability=1
@@ -323,14 +323,14 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][7][Applets][20][Configuration]
-PreloadWeight=9
+PreloadWeight=5
 
 [Containments][7][Applets][21]
 immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][7][Applets][21][Configuration]
-PreloadWeight=54
+PreloadWeight=100
 
 [Containments][7][Applets][22]
 immutability=1

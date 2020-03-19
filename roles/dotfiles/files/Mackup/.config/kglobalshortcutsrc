@@ -34,7 +34,7 @@ _k_friendly_name=KDE Daemon
 display=Display\tMeta+P,Display\tMeta+P,Switch Display
 
 [khotkeys]
-_k_friendly_name=System Settings Module
+_k_friendly_name=KDE Daemon
 {43554b15-2fb5-4766-bc35-1edef2a35a44}=Media Previous,none,Previous
 {866de3c9-7455-4994-a3fd-19b87c150b88}=Media Play,none,Play/Pause
 {98e18424-e0f6-49af-9be6-8d2e1c198d11}=Media Next,none, Next
@@ -48,6 +48,11 @@ increase_microphone_volume=Microphone Volume Up,Microphone Volume Up,Increase Mi
 increase_volume=Volume Up,Volume Up,Increase Volume
 mic_mute=Microphone Mute,Microphone Mute,Mute Microphone
 mute=Volume Mute,Volume Mute,Mute
+
+[konversation]
+_k_friendly_name=Konversation
+next_active_tab=none,none,Next Active Tab
+toggle_mainwindow_visibility=none,none,Show/Hide Konversation
 
 [krunner.desktop]
 RunClipboard=Alt+Shift+F2,Alt+Shift+F2,Run command on clipboard contents

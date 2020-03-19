@@ -25,7 +25,7 @@
       - lesspipe
       - mackup  # symlink farm
       - ncdu  # ncurses disk usage
-      - ripgrep  # like grep but better
+      # - ripgrep  # like grep but better
       - the_silver_searcher  # like ack but faster
       - tldr  # community driven man pages
       - tmux
