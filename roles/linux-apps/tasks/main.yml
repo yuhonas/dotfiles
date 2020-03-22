@@ -14,6 +14,12 @@
     # - xrandr # for xwindow resizing/rotating/scaling
     - xsel # for commandline clipboard management
 
+- name: copy rclone systemd script
+  template:
+    src: rclone.service.j2
+    dest: /etc/systemd/system/rclone.service
+  become: true
+
 - name: install tlp for power management
   package: name={{ item }} state=present
   become: true
