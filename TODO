@@ -7,15 +7,16 @@
 [x] touchpad gestures
 [ ] xrandr
 [x] sound fix https://forums.linuxmint.com/viewtopic.php?t=91453
-[ ] apps (spotify, chrome)
+[x] apps (spotify, chrome)
 [x] media keys
 [x] kubuntu config
 [ ] dropbox
+[x] kde wallet
 [x] github commandline
 [x] docker
 [ ] parcellite
 [x] hide tab bar for screenshot
-[ ] fix sudo path
+[x] fix sudo path
 [ ] bluetooth sound quality
 [ ] rclone (dropbox/googledrive)
 

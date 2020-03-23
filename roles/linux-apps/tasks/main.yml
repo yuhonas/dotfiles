@@ -11,7 +11,7 @@
     - rclone # for dropbox and other file sharing services
     - redshift # for nightshift
     - xclip # for commandline clipboard management
-    # - xrandr # for xwindow resizing/rotating/scaling
+    - xorg-xrandr # for xwindow resizing/rotating/scaling
     - xsel # for commandline clipboard management
 
 - name: copy rclone systemd script
