@@ -20,6 +20,9 @@
     dest: /etc/systemd/system/rclone.service
   become: true
 
+- name: ensure we have a dropbox dir that rclone can mount too
+  file: path={{ dropbox_directory }} state=directory
+
 - name: install tlp for power management
   package: name={{ item }} state=present
   become: true

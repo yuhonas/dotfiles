@@ -1,20 +1,17 @@
 [ ] mouse logitech gestures
 [x] grub logo
-[ ] display manager login
-[ ] lightbar
 [x] display artifact
-[ ] keybindings for mac
+[x] keybindings for mac
 [x] touchpad gestures
-[ ] xrandr
+[x] xrandr
 [x] sound fix https://forums.linuxmint.com/viewtopic.php?t=91453
 [x] apps (spotify, chrome)
 [x] media keys
 [x] kubuntu config
-[ ] dropbox
-[x] kde wallet
+[x] ssh keygen auth
 [x] github commandline
 [x] docker
-[ ] parcellite
+[x] clipboard management
 [x] hide tab bar for screenshot
 [x] fix sudo path
 [ ] bluetooth sound quality

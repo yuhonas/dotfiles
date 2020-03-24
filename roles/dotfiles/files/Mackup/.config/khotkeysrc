@@ -7,7 +7,7 @@ DataCount=4
 [Data_1]
 Comment=KMenuEdit Global Shortcuts
 DataCount=2
-Enabled=true
+Enabled=false
 Name=KMenuEdit
 SystemGroup=1
 Type=ACTION_DATA_GROUP

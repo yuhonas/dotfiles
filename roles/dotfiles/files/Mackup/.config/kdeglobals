@@ -1,5 +1,5 @@
 [$Version]
-update_info=filepicker.upd:filepicker-remove-old-previews-entry,fonts_global.upd:Fonts_Global,fonts_global_toolbar.upd:Fonts_Global_Toolbar
+update_info=filepicker.upd:filepicker-remove-old-previews-entry,fonts_global.upd:Fonts_Global,fonts_global_toolbar.upd:Fonts_Global_Toolbar,kwin.upd:animation-speed,icons_remove_effects.upd:IconsRemoveEffects
 
 [ColorEffects:Disabled]
 ChangeSelectionColor=
@@ -129,6 +129,7 @@ widgetStyle=Breeze
 Theme=breath2-dark
 
 [KDE]
+AnimationDurationFactor=1.000000
 ColorScheme=Breeze
 LookAndFeelPackage=org.kde.breath2.desktop
 contrast=4
@@ -158,18 +159,32 @@ ScaleFactor=1
 ScreenScaleFactors=eDP1=1;DP1=1;DP2=1;HDMI1=1;VIRTUAL1=1;
 
 [Shortcuts]
-BackwardWord=Ctrl+Left; Alt+B
-BeginningOfLine=Home; Ctrl+A
+Activate Next Tab=Ctrl+PgDown;\s
+Activate Previous Tab=Ctrl+PgUp;\s
+BackwardWord=Alt+B
+BeginningOfLine=Ctrl+A
+Clear=Ctrl+U
+Close=Ctrl+Esc
 Copy=Ctrl+C; Meta+C
 Cut=Ctrl+X; Meta+X
-DeleteWordBack=Ctrl+Backspace; Alt+W
-DeleteWordForward=Ctrl+Del; Alt+D
+DeleteFile=Shift+Del; Ctrl+D
+DeleteWordBack=Ctrl+W
+DeleteWordForward=Alt+D
+DocumentForward=Ctrl+F
 EndOfLine=Ctrl+E
 Find=Meta+F
-ForwardWord=Ctrl+Right; Alt+F
+Forward=
+ForwardWord=Alt+F
+New=
 Paste=Ctrl+V; Meta+V
+Print=
+Quit=
+RotateDown=Ctrl+N
+RotateUp=
+Save=Meta+S
 SelectAll=Meta+A
-TextCompletion=Ctrl+F
+TextCompletion=
+Up=Ctrl+P
 
 [WM]
 activeBackground=41,47,52
