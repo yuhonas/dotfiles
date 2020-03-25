@@ -6,7 +6,7 @@ After=network-online.target
 [Service]
 Type=notify
 
-ExecStart=/usr/bin/rclone mount dropbox: {{ dropbox_directory }} --config {{ ansible_env.HOME }}/.config/rclone/rclone.conf --buffer-size 256M --fast-list --dir-cache-time 96h --timeout 1h --umask 002 --vfs-cache-mode writes --log-file {{ ansible_env.HOME }}/rclone.log --log-level INFO
+ExecStart=/usr/bin/rclone mount dropbox: {{ dropbox_directory }} --config {{ rclone_config_path }} --buffer-size 256M --fast-list --dir-cache-time 96h --timeout 1h --umask 002 --vfs-cache-mode writes --log-file {{ rclone_log_path }} --log-level INFO
 ExecStop=/usr/bin/fusermount -uz {{ dropbox_directory }}
 Restart=on-failure
 User={{ ansible_ssh_user }}
