@@ -9,7 +9,7 @@ need to bootstrap a machine to a state with everything I need
 
 This repo is broken down into the following ansible roles
 
-### dotfiles
+#### dotfiles
 
 The minimum set of config/tools I need to work from the commandline, some
 highlights
