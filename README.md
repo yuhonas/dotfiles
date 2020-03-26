@@ -23,7 +23,7 @@ highlights
 
 See also [main.yml](./roles/dotfiles/tasks/main.yml)
 
-### developer
+#### developer
 
 What I generally need for development some highlights
 
@@ -32,25 +32,25 @@ What I generally need for development some highlights
 
 See also [main.yml](./roles/developer/tasks/main.yml)
 
-### linux-apps
+#### linux-apps
 
 All my favourite DE linux apps (assumes arch based system)
 
 See also [main.yml](./roles/linux-apps/tasks/main.yml)
 
-### osx-defaults
+#### osx-defaults
 
 A sane set of macos defaults
 
 See also [main.yml](./roles/osx-defaults/tasks/main.yml)
 
-### osx-apps
+#### osx-apps
 
 All my favourite osx apps
 
 See also [main.yml](./roles/osx-apps/tasks/main.yml)
 
-### screenshot
+#### screenshot
 
 Generates the terminal based screenshot used above
 
