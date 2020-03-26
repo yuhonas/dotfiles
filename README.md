@@ -9,16 +9,52 @@ need to bootstrap a machine to a state with everything I need
 
 This repo is broken down into the following ansible roles
 
-* [dotfiles](./roles/dotfiles/tasks/main.yml) - The minimum set of config/tools I need
-  to work from the commandline
-* [developer](./roles/developer/tasks/main.yml) - What I generally need for
-  development
-* [linux-apps](./roles/linux-apps/tasks/main.yml) - All my favourite DE linux
-  apps (assumes arch based system)
-* [osx-defaults](./roles/osx-defaults/tasks/main.yml) - A sane set of macos defaults
-* [osx-apps](./roles/osx-apps/tasks/main.yml) - All my favourite osx apps
-* [screenshot](./roles/screenshot/tasks/main.yml) - Generates the terminal based
-  screenshot used above
+### dotfiles
+
+The minimum set of config/tools I need to work from the commandline, some
+highlights
+
+* zsh w/custom config
+* tmux + plugins
+* fd/fasd/bat/exa/fzf
+* mackup for dotfile symlinking
+* tldr with custom key bindings for inline help lookups
+* vim w/custom config
+
+See also [main.yml](./roles/dotfiles/tasks/main.yml)
+
+### developer
+
+What I generally need for development some highlights
+
+* ruby, python, node & others managed by asdf
+* thing's I felt fell outside the minimal toolset I have in dotfiles
+
+See also [main.yml](./roles/developer/tasks/main.yml)
+
+### linux-apps
+
+All my favourite DE linux apps (assumes arch based system)
+
+See also [main.yml](./roles/linux-apps/tasks/main.yml)
+
+### osx-defaults
+
+A sane set of macos defaults
+
+See also [main.yml](./roles/osx-defaults/tasks/main.yml)
+
+### osx-apps
+
+All my favourite osx apps
+
+See also [main.yml](./roles/osx-apps/tasks/main.yml)
+
+### screenshot
+
+Generates the terminal based screenshot used above
+
+See also [main.yml](./roles/screenshot/tasks/main.yml)
 
 ### Prerequisites
 
