@@ -21,6 +21,9 @@ export TERM=xterm-256color
 
 export SPACESHIP_CHAR_SYMBOL="» "
 export SPACESHIP_GIT_PREFIX=""
+export SPACESHIP_NODE_SHOW=false
+export SPACESHIP_RUBY_SHOW=false
+
 # color setup for ls
 # http://man7.org/linux/man-pages/man1/dircolors.1.html
 # eval $(gdircolors ~/.dircolors/dircolors.256dark)
@@ -100,10 +103,10 @@ _fzf_complete_git_post() {
 
 # read from stdin, write to a temp file, open the temp file in a browser, then delete it
 # see https://gist.github.com/rchrd2/dc0ecbaeffaf75d253c3711985602d09
-stdin2www() {  
+stdin2www() {
   tmpfile=$(mktemp).html
   cat > $tmpfile
   open $tmpfile
-  #rm $tmpfile 
+  #rm $tmpfile
 }
 
