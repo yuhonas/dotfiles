@@ -20,14 +20,14 @@ immutability=1
 plugin=org.kde.plasma.digitalclock
 
 [Containments][2][Applets][32][Configuration]
-PreloadWeight=17
+PreloadWeight=64
 
 [Containments][2][Applets][39]
 immutability=1
 plugin=org.kde.plasma.kickoff
 
 [Containments][2][Applets][39][Configuration]
-PreloadWeight=100
+PreloadWeight=94
 
 [Containments][2][Applets][39][Configuration][General]
 favoritesPortedToKAstats=true
@@ -55,7 +55,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][2][Applets][6][Configuration]
-PreloadWeight=93
+PreloadWeight=84
 SystrayContainmentId=7
 
 [Containments][2][Applets][9]
@@ -84,11 +84,15 @@ location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
+[Containments][40][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
 [Containments][40][Configuration]
-PreloadWeight=2
+PreloadWeight=0
 
 [Containments][40][Wallpaper][org.kde.image][General]
-Image=file:///usr/share/wallpapers/Breath2/contents/images/2560x1440.png
+Image=file:///usr/share/backgrounds/wallpapers-2018/mountains-1412683.jpg
 
 [Containments][41]
 activityId=869c7978-a258-4b23-9c4d-f3aeca254bee
@@ -100,7 +104,7 @@ plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
 [Containments][41][Configuration]
-PreloadWeight=2
+PreloadWeight=0
 
 [Containments][41][Wallpaper][org.kde.image][General]
 Image=file:///usr/share/wallpapers/Breath2/contents/images/2560x1440.png
@@ -112,13 +116,55 @@ immutability=1
 lastScreen=3
 location=0
 plugin=org.kde.plasma.folder
-wallpaperplugin=org.kde.image
+wallpaperplugin=org.kde.potd
+
+[Containments][42][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
 
 [Containments][42][Configuration]
-PreloadWeight=2
+PreloadWeight=0
 
 [Containments][42][Wallpaper][org.kde.image][General]
 Image=file:///usr/share/wallpapers/Breath2/contents/images/1024x768.png
+
+[Containments][42][Wallpaper][org.kde.potd][General]
+FillMode=2
+Provider=flickr
+
+[Containments][43]
+activityId=869c7978-a258-4b23-9c4d-f3aeca254bee
+formfactor=0
+immutability=1
+lastScreen=4
+location=0
+plugin=org.kde.plasma.folder
+wallpaperplugin=org.kde.image
+
+[Containments][43][ConfigDialog]
+DialogHeight=813
+DialogWidth=846
+
+[Containments][43][Configuration]
+PreloadWeight=0
+
+[Containments][43][Wallpaper][org.kde.image][General]
+Image=file:///home/clintp/.local/share/wallpapers/Sweet-Wallpapers/Sweet-space.png
+
+[Containments][44]
+activityId=869c7978-a258-4b23-9c4d-f3aeca254bee
+formfactor=0
+immutability=1
+lastScreen=6
+location=0
+plugin=org.kde.plasma.folder
+wallpaperplugin=org.kde.image
+
+[Containments][44][Configuration]
+PreloadWeight=0
+
+[Containments][44][Wallpaper][org.kde.image][General]
+Image=file:///usr/share/wallpapers/Breath2/contents/images/2560x1440.png
 
 [Containments][7]
 activityId=
@@ -134,10 +180,10 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][7][Applets][10][Configuration]
-PreloadWeight=2
+PreloadWeight=0
 
 [Containments][7][Applets][10][Configuration][ConfigDialog]
-DialogHeight=465
+DialogHeight=360
 DialogWidth=840
 
 [Containments][7][Applets][11]
@@ -152,7 +198,7 @@ immutability=1
 plugin=org.kde.plasma.devicenotifier
 
 [Containments][7][Applets][12][Configuration]
-PreloadWeight=0
+PreloadWeight=39
 
 [Containments][7][Applets][13]
 immutability=1
@@ -167,6 +213,10 @@ plugin=org.kde.plasma.keyboardindicator
 
 [Containments][7][Applets][14][Configuration]
 PreloadWeight=0
+
+[Containments][7][Applets][14][Configuration][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
 
 [Containments][7][Applets][15]
 immutability=1
@@ -212,14 +262,14 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][7][Applets][20][Configuration]
-PreloadWeight=0
+PreloadWeight=84
 
 [Containments][7][Applets][21]
 immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][7][Applets][21][Configuration]
-PreloadWeight=93
+PreloadWeight=24
 
 [Containments][7][Applets][22]
 immutability=1

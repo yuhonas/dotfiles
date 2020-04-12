@@ -35,6 +35,7 @@ display=Display\tMeta+P,Display\tMeta+P,Switch Display
 
 [khotkeys]
 _k_friendly_name=KDE Daemon
+{2443cef7-37ea-4a0f-a596-e69beaca132f}=Meta+Space,none,Rofi
 {43554b15-2fb5-4766-bc35-1edef2a35a44}=Media Previous,none,Previous
 {866de3c9-7455-4994-a3fd-19b87c150b88}=Media Play,none,Play/Pause
 {98e18424-e0f6-49af-9be6-8d2e1c198d11}=Media Next,none, Next
@@ -56,7 +57,7 @@ toggle_mainwindow_visibility=none,none,Show/Hide Konversation
 [krunner.desktop]
 RunClipboard=Alt+Shift+F2,Alt+Shift+F2,Run command on clipboard contents
 _k_friendly_name=KRunner
-_launch=Meta+Space\tAlt+F2\tSearch,Alt+Space\tAlt+F2\tSearch,KRunner
+_launch=Meta+Shift+Space\tAlt+F2\tSearch,Alt+Space\tAlt+F2\tSearch,KRunner
 
 [ksmserver]
 Halt Without Confirmation=Ctrl+Alt+Shift+PgDown,none,Halt Without Confirmation
@@ -72,6 +73,8 @@ Decrease Opacity=none,none,Decrease Opacity of Active Window by 5 %
 Expose=Ctrl+F9,Ctrl+F9,Toggle Present Windows (Current desktop)
 ExposeAll=Ctrl+F10\tLaunch (C),Ctrl+F10\tLaunch (C),Toggle Present Windows (All desktops)
 ExposeClass=Ctrl+F7,Ctrl+F7,Toggle Present Windows (Window class)
+FlipSwitchAll=none,none,Toggle Flip Switch (All desktops)
+FlipSwitchCurrent=none,none,Toggle Flip Switch (Current desktop)
 Increase Opacity=none,none,Increase Opacity of Active Window by 5 %
 Invert Screen Colors=none,none,Invert Screen Colors
 Kill Window=Ctrl+Alt+Esc,Ctrl+Alt+Esc,Kill Window

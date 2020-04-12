@@ -2,7 +2,8 @@
 - name: ensure we have an .ssh dir with the correct perms
   file: path={{ ansible_env.HOME }}/.ssh state=directory mode=700
 
-- name: add home bin dir for custom scripts
+# https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+- name: add local bin dir for custom scripts
   file: path={{ ansible_env.HOME }}/.local/bin state=directory recurse=yes
 
 - name: add sites dir for various projects
@@ -25,7 +26,7 @@
       - lesspipe
       - mackup  # symlink farm
       - ncdu  # ncurses disk usage
-      # - ripgrep  # like grep but better
+      - ripgrep  # like grep but better
       - the_silver_searcher  # like ack but faster
       - tldr  # community driven man pages
       - tmux
@@ -72,21 +73,21 @@
   changed_when: false
   register: mackup_result
 
-# - name: restore dotfile config via mackup
-#   command: mackup restore --force
-#   when: mackup_result.stdout | length > 0
+- name: restore dotfile config via mackup
+  command: mackup restore --force
+  when: mackup_result.stdout | length > 0
 
-# - name: install tmux plugin manager
-#   git:
-#     repo: https://github.com/tmux-plugins/tpm
-#     dest: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
-#     recursive: yes
-#     version: master
+- name: install tmux plugin manager
+  git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
+    recursive: yes
+    version: master
 
-# - name: install tmux plugins
-#   command: "{{ ansible_env.HOME }}/.tmux/plugins/tpm/bin/install_plugins all"
-#   register: tmux_plugin_result
-#   changed_when: "'Installing' in tmux_plugin_result.stdout"
+- name: install tmux plugins
+  command: "{{ ansible_env.HOME }}/.tmux/plugins/tpm/bin/install_plugins all"
+  register: tmux_plugin_result
+  changed_when: "'Installing' in tmux_plugin_result.stdout"
 
 # - name: creates mutt configuration directory
 #   file: state=directory recurse=yes path={{ item }}
@@ -94,12 +95,12 @@
 #     - "{{ ansible_env.HOME }}/.mutt/cache/headers"
 #     - "{{ ansible_env.HOME }}/.mutt/cache/bodies"
 
-- name: downloading mutt solarized theme
-  git:
-    repo: https://github.com/altercation/mutt-colors-solarized.git
-    dest: "{{ ansible_env.HOME }}/.mutt/theme"
-    recursive: yes
-    version: master
+# - name: downloading mutt solarized theme
+#   git:
+#     repo: https://github.com/altercation/mutt-colors-solarized.git
+#     dest: "{{ ansible_env.HOME }}/.mutt/theme"
+#     recursive: yes
+#     version: master
 
 #  - name: tapping homebrew cask fonts
 #    homebrew_tap:

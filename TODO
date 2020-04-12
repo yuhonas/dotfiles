@@ -16,6 +16,8 @@
 [x] fix sudo path
 [ ] bluetooth sound quality
 [ ] rclone (dropbox/googledrive)
+[ ] encrypt home dir with dm-crypt (LUKS)
+[ ] additional mackup config
 
 ## keybindings
 
