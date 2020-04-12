@@ -2,8 +2,9 @@
 - name: ensure we have an .ssh dir with the correct perms
   file: path={{ ansible_env.HOME }}/.ssh state=directory mode=700
 
-- name: add home bin dir for custom scripts
-  file: path={{ ansible_env.HOME }}/bin state=directory
+# https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+- name: add local bin dir for custom scripts
+  file: path={{ ansible_env.HOME }}/.local/bin state=directory recurse=yes
 
 - name: add sites dir for various projects
   file: path={{ ansible_env.HOME }}/Sites state=directory
@@ -88,18 +89,18 @@
   register: tmux_plugin_result
   changed_when: "'Installing' in tmux_plugin_result.stdout"
 
-- name: creates mutt configuration directory
-  file: state=directory recurse=yes path={{ item }}
-  with_items:
-    - "{{ ansible_env.HOME }}/.mutt/cache/headers"
-    - "{{ ansible_env.HOME }}/.mutt/cache/bodies"
+# - name: creates mutt configuration directory
+#   file: state=directory recurse=yes path={{ item }}
+#   with_items:
+#     - "{{ ansible_env.HOME }}/.mutt/cache/headers"
+#     - "{{ ansible_env.HOME }}/.mutt/cache/bodies"
 
-- name: downloading mutt solarized theme
-  git:
-    repo: https://github.com/altercation/mutt-colors-solarized.git
-    dest: "{{ ansible_env.HOME }}/.mutt/theme"
-    recursive: yes
-    version: master
+# - name: downloading mutt solarized theme
+#   git:
+#     repo: https://github.com/altercation/mutt-colors-solarized.git
+#     dest: "{{ ansible_env.HOME }}/.mutt/theme"
+#     recursive: yes
+#     version: master
 
 #  - name: tapping homebrew cask fonts
 #    homebrew_tap:

@@ -1,0 +1,4 @@
+---
+dropbox_directory: "{{ ansible_env.HOME }}/Dropbox"
+rclone_config_path: "{{ ansible_env.HOME }}/.config/rclone/rclone.conf"
+rclone_log_path: "{{ ansible_env.HOME }}/rclone.log"

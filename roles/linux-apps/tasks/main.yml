@@ -3,6 +3,7 @@
   package: name={{ item }} state=present
   become: true
   with_items:
+    - docker
     - keychain # key manager for OpenSSH
     - pciutils # for lspci so we can inspect the video card
     - pulseaudio # for audio
@@ -10,8 +11,17 @@
     - rclone # for dropbox and other file sharing services
     - redshift # for nightshift
     - xclip # for commandline clipboard management
-    # - xrandr # for xwindow resizing/rotating/scaling
+    - xorg-xrandr # for xwindow resizing/rotating/scaling
     - xsel # for commandline clipboard management
+
+- name: copy rclone systemd script
+  template:
+    src: rclone.service.j2
+    dest: /etc/systemd/system/rclone.service
+  become: true
+
+- name: ensure we have a dropbox dir that rclone can mount too
+  file: path={{ dropbox_directory }} state=directory
 
 - name: install tlp for power management
   package: name={{ item }} state=present
@@ -129,12 +139,10 @@
 - name: install google-chrome
   command: pamac build --keep --no-confirm google-chrome
   when: '"google-chrome" not in installed_apps.stdout'
-  become: true
 
 - name: install spotify
   command: pamac build --keep --no-confirm spotify
   when: '"spotify" not in installed_apps.stdout'
-  become: true
 
 - name: check for an intel graphics card
   shell: |

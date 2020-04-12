@@ -20,14 +20,14 @@ immutability=1
 plugin=org.kde.plasma.digitalclock
 
 [Containments][2][Applets][32][Configuration]
-PreloadWeight=17
+PreloadWeight=64
 
 [Containments][2][Applets][39]
 immutability=1
 plugin=org.kde.plasma.kickoff
 
 [Containments][2][Applets][39][Configuration]
-PreloadWeight=100
+PreloadWeight=94
 
 [Containments][2][Applets][39][Configuration][General]
 favoritesPortedToKAstats=true
@@ -55,7 +55,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][2][Applets][6][Configuration]
-PreloadWeight=92
+PreloadWeight=84
 SystrayContainmentId=7
 
 [Containments][2][Applets][9]
@@ -75,51 +75,41 @@ PreloadWeight=0
 [Containments][2][General]
 AppletOrder=39;4;5;6;32;9
 
-[Containments][23]
-ItemGeometriesHorizontal=
+[Containments][40]
+activityId=869c7978-a258-4b23-9c4d-f3aeca254bee
+formfactor=0
+immutability=1
+lastScreen=0
+location=0
+plugin=org.kde.plasma.folder
+wallpaperplugin=org.kde.image
+
+[Containments][40][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
+[Containments][40][Configuration]
+PreloadWeight=0
+
+[Containments][40][Wallpaper][org.kde.image][General]
+Image=file:///usr/share/backgrounds/wallpapers-2018/mountains-1412683.jpg
+
+[Containments][41]
 activityId=869c7978-a258-4b23-9c4d-f3aeca254bee
 formfactor=0
 immutability=1
 lastScreen=1
 location=0
 plugin=org.kde.plasma.folder
-wallpaperplugin=org.kde.potd
-
-[Containments][23][ConfigDialog]
-DialogHeight=840
-DialogWidth=1080
-
-[Containments][23][Configuration]
-PreloadWeight=0
-
-[Containments][23][Wallpaper][org.kde.potd][General]
-FillMode=2
-
-[Containments][24]
-ItemGeometriesHorizontal=
-activityId=869c7978-a258-4b23-9c4d-f3aeca254bee
-formfactor=0
-immutability=1
-lastScreen=2
-location=0
-plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
-[Containments][24][ConfigDialog]
-DialogHeight=720
-DialogWidth=960
-
-[Containments][24][Configuration]
+[Containments][41][Configuration]
 PreloadWeight=0
 
-[Containments][24][Wallpaper][org.kde.color][General]
-Color=198,198,198
+[Containments][41][Wallpaper][org.kde.image][General]
+Image=file:///usr/share/wallpapers/Breath2/contents/images/2560x1440.png
 
-[Containments][24][Wallpaper][org.kde.image][General]
-Image=file:///home/clint/.local/share/wallpapers/KDE Plasma QATAR SKIES 02.png
-
-[Containments][25]
-ItemGeometriesHorizontal=
+[Containments][42]
 activityId=869c7978-a258-4b23-9c4d-f3aeca254bee
 formfactor=0
 immutability=1
@@ -128,64 +118,40 @@ location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.potd
 
-[Containments][25][ConfigDialog]
+[Containments][42][ConfigDialog]
 DialogHeight=540
 DialogWidth=720
 
-[Containments][25][Configuration]
+[Containments][42][Configuration]
 PreloadWeight=0
 
-[Containments][25][Wallpaper][org.kde.potd][General]
-FillMode=2
+[Containments][42][Wallpaper][org.kde.image][General]
+Image=file:///usr/share/wallpapers/Breath2/contents/images/1024x768.png
 
-[Containments][26]
-ItemGeometriesHorizontal=
+[Containments][42][Wallpaper][org.kde.potd][General]
+FillMode=2
+Provider=flickr
+
+[Containments][43]
 activityId=869c7978-a258-4b23-9c4d-f3aeca254bee
 formfactor=0
 immutability=1
 lastScreen=4
 location=0
 plugin=org.kde.plasma.folder
-wallpaperplugin=org.kde.potd
+wallpaperplugin=org.kde.image
 
-[Containments][26][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
+[Containments][43][ConfigDialog]
+DialogHeight=813
+DialogWidth=846
 
-[Containments][26][Configuration]
+[Containments][43][Configuration]
 PreloadWeight=0
 
-[Containments][26][Wallpaper][org.kde.color][General]
-Color=0,0,127
+[Containments][43][Wallpaper][org.kde.image][General]
+Image=file:///home/clintp/.local/share/wallpapers/Sweet-Wallpapers/Sweet-space.png
 
-[Containments][26][Wallpaper][org.kde.potd][General]
-FillMode=2
-
-[Containments][27]
-ItemGeometriesHorizontal=
-activityId=869c7978-a258-4b23-9c4d-f3aeca254bee
-formfactor=0
-immutability=1
-lastScreen=5
-location=0
-plugin=org.kde.plasma.folder
-wallpaperplugin=org.kde.potd
-
-[Containments][27][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
-
-[Containments][27][Configuration]
-PreloadWeight=0
-
-[Containments][27][Wallpaper][org.kde.image][General]
-Image=file:///home/clint/.local/share/wallpapers/KDE Plasma QATAR SKIES 02.png
-
-[Containments][27][Wallpaper][org.kde.potd][General]
-FillMode=2
-
-[Containments][33]
-ItemGeometriesHorizontal=
+[Containments][44]
 activityId=869c7978-a258-4b23-9c4d-f3aeca254bee
 formfactor=0
 immutability=1
@@ -194,46 +160,11 @@ location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
-[Containments][33][Configuration]
+[Containments][44][Configuration]
 PreloadWeight=0
 
-[Containments][34]
-ItemGeometriesHorizontal=
-activityId=869c7978-a258-4b23-9c4d-f3aeca254bee
-formfactor=0
-immutability=1
-lastScreen=0
-location=0
-plugin=org.kde.desktopcontainment
-wallpaperplugin=org.kde.image
-
-[Containments][34][ConfigDialog]
-DialogHeight=722
-DialogWidth=1164
-
-[Containments][34][Configuration]
-PreloadWeight=0
-
-[Containments][34][General]
-ToolBoxButtonState=topright
-ToolBoxButtonX=2530
-sortMode=-1
-
-[Containments][34][Wallpaper][org.kde.image][General]
-Image=file:///usr/share/backgrounds/manjaro-wallpapers-18.0/manjaro-cat.jpg
-
-[Containments][35]
-ItemGeometriesHorizontal=
-activityId=869c7978-a258-4b23-9c4d-f3aeca254bee
-formfactor=0
-immutability=1
-lastScreen=7
-location=0
-plugin=org.kde.plasma.folder
-wallpaperplugin=org.kde.image
-
-[Containments][35][Configuration]
-PreloadWeight=0
+[Containments][44][Wallpaper][org.kde.image][General]
+Image=file:///usr/share/wallpapers/Breath2/contents/images/2560x1440.png
 
 [Containments][7]
 activityId=
@@ -249,11 +180,11 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][7][Applets][10][Configuration]
-PreloadWeight=13
+PreloadWeight=0
 
 [Containments][7][Applets][10][Configuration][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
+DialogHeight=360
+DialogWidth=840
 
 [Containments][7][Applets][11]
 immutability=1
@@ -267,7 +198,7 @@ immutability=1
 plugin=org.kde.plasma.devicenotifier
 
 [Containments][7][Applets][12][Configuration]
-PreloadWeight=0
+PreloadWeight=39
 
 [Containments][7][Applets][13]
 immutability=1
@@ -283,12 +214,20 @@ plugin=org.kde.plasma.keyboardindicator
 [Containments][7][Applets][14][Configuration]
 PreloadWeight=0
 
+[Containments][7][Applets][14][Configuration][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
 [Containments][7][Applets][15]
 immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][7][Applets][15][Configuration]
 PreloadWeight=0
+
+[Containments][7][Applets][15][Configuration][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
 
 [Containments][7][Applets][16]
 immutability=1
@@ -323,14 +262,14 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][7][Applets][20][Configuration]
-PreloadWeight=9
+PreloadWeight=84
 
 [Containments][7][Applets][21]
 immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][7][Applets][21][Configuration]
-PreloadWeight=54
+PreloadWeight=24
 
 [Containments][7][Applets][22]
 immutability=1
@@ -339,12 +278,19 @@ plugin=org.kde.plasma.mediacontroller
 [Containments][7][Applets][22][Configuration]
 PreloadWeight=0
 
+[Containments][7][Applets][40]
+immutability=1
+plugin=org.kde.plasma.nightcolorcontrol
+
+[Containments][7][Applets][40][Configuration]
+PreloadWeight=0
+
 [Containments][7][Configuration]
 PreloadWeight=0
 
 [Containments][7][General]
-extraItems=org.kde.discovernotifier,org.kde.plasma.printmanager,org.kde.plasma.keyboardindicator,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.plasma.clipboard,org.kde.plasma.battery,org.kde.kdeconnect,org.kde.plasma.vault,org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.bluetooth,org.kde.plasma.networkmanagement
-knownItems=org.kde.discovernotifier,org.kde.plasma.printmanager,org.kde.plasma.keyboardindicator,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.plasma.clipboard,org.kde.plasma.battery,org.kde.kdeconnect,org.kde.plasma.vault,org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.bluetooth,org.kde.plasma.networkmanagement
+extraItems=org.kde.discovernotifier,org.kde.plasma.printmanager,org.kde.plasma.keyboardindicator,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.plasma.clipboard,org.kde.plasma.battery,org.kde.kdeconnect,org.kde.plasma.vault,org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.bluetooth,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol
+knownItems=org.kde.discovernotifier,org.kde.plasma.printmanager,org.kde.plasma.keyboardindicator,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.plasma.clipboard,org.kde.plasma.battery,org.kde.kdeconnect,org.kde.plasma.vault,org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.bluetooth,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol
 
 [General]
 immutability=1

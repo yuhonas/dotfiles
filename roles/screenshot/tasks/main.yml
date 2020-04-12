@@ -5,7 +5,11 @@
       - konsole
       - imagemagick
       - neofetch
+      - procps # for process management
       - xorg-server-xvfb
+      - xorg-font-util
+      - xorg-xdpyinfo
+      - ttf-hack # the terminal font I use
     state: present
     update_cache: yes
   become: true
@@ -18,12 +22,12 @@
 - name: check for existing xvfb server
   command: xdpyinfo -display :{{ display_server }}
   register: xserver_running
-  ignore_errors: true
+  failed_when: xserver_running.rc > 1 # 1 will be returned when a display server is not found
   changed_when: false
 
 - name: start xvfb server
   shell: "Xvfb :{{ display_server }} -screen 0 640x480x24 &"
-  when: xserver_running is failed
+  when: '"unable to open display" in xserver_running.stderr'
   changed_when: false
 
 - name: start terminal
@@ -43,6 +47,9 @@
   shell: import -trim -window root {{ screenshot_file.path }}
   environment:
     DISPLAY: :{{ display_server }}
+
+- name: crop image
+  shell: mogrify -crop 620x250+0+0 {{ screenshot_file.path }}
 
 - name: copy screenshot to local machine
   fetch:

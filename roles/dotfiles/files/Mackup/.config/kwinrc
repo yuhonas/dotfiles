@@ -1,8 +1,7 @@
 [$Version]
-update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-effect-to-js,kwin.upd:port-scale-effect-to-js,kwin.upd:port-dimscreen-effect-to-js,kwin.upd:auto-bordersize
+update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-effect-to-js,kwin.upd:port-scale-effect-to-js,kwin.upd:port-dimscreen-effect-to-js,kwin.upd:auto-bordersize,kwin.upd:animation-speed
 
 [Compositing]
-AnimationSpeed=3
 Backend=OpenGL
 Enabled=true
 GLCore=false
@@ -18,18 +17,50 @@ Id_1=6d1ee3a5-b257-4cb2-a6ab-a637b45e73db
 Number=1
 Rows=1
 
+[Effect-CoverSwitch]
+TabBox=false
+TabBoxAlternative=false
+
+[Effect-FlipSwitch]
+TabBox=false
+TabBoxAlternative=false
+
 [ModifierOnlyShortcuts]
 Meta=
 
 [Plugins]
+coverswitchEnabled=true
+flipswitchEnabled=true
+highlightwindowEnabled=true
 kwin4_effect_dimscreenEnabled=true
 kwin4_effect_loginEnabled=false
 kwin4_effect_logoutEnabled=false
 
 [TabBox]
+ActivitiesMode=1
+ApplicationsMode=0
 DesktopLayout=org.kde.breeze.desktop
 DesktopListLayout=org.kde.breeze.desktop
+DesktopMode=1
+HighlightWindows=true
+LayoutName=big_icons
+MinimizedMode=0
+MultiScreenMode=0
+ShowDesktopMode=0
+ShowTabBox=true
+SwitchingMode=0
+
+[TabBoxAlternative]
+ActivitiesMode=1
+ApplicationsMode=0
+DesktopMode=1
+HighlightWindows=true
 LayoutName=org.kde.breeze.desktop
+MinimizedMode=0
+MultiScreenMode=0
+ShowDesktopMode=0
+ShowTabBox=true
+SwitchingMode=0
 
 [org.kde.kdecoration2]
 library=org.kde.breeze

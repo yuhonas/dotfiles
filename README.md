@@ -2,110 +2,81 @@
 
 ![Screenshot](./screenshot.png)
 
-## What's in the box
+My overbaked, labour of love dotfiles for both manjaro linux / osx, _mostly_ everything I
+need to bootstrap a machine to a state with everything I need
 
-[oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) with [antigen](https://github.com/zsh-users/antigen) for plugin management with a sprinkling of 256 color's using [exa](https://github.com/ogham/exa) all rendered using [hyper](https://hyper.is/)
+## Gettting Started
 
-### A sane set of Mac defaults
+This repo is broken down into the following ansible roles
 
-* Autohide the dock
-* Avoid creating .DS_Store files on network volumes
-* Bottom left screen corner → Start screen saver
-* Change screenshot location
-* Disable natural scrolling
-* Disable sounds effects for user interface changes
-* Disable the warning when changing a file extension
-* Don't open Photos.app as soon as you plug something in
-* Enable full keyboard access for all controls
-* Enable repeating keys
-* Expand save panel by default
-* Finder: show all filename extensions
-* Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
-* Keep folders on top when sorting by name
-* New Finder windows points to home
-* Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
-* Set alert volume to 0
-* Set current Folder as Default Search Scope
-* Set keyboard repeat rate to "damn fast".
-* Show Full Path in Finder Title
-* Use a dark menu bar / dock
-* Use list view in all Finder windows by default
+#### dotfiles
 
-### Bootstrapped with your favourite applications
+The minimum set of config/tools I need to work from the commandline, some
+highlights
 
-* alfred
-* 1password
-* dropbox
-* evernote
-* flux
-* google-chrome
-* handbrake
-* libreoffice
-* rectangle
-* skype
-* spotify
-* torbrowser
-* uninstallpkg
+* zsh w/custom config
+* tmux + plugins
+* fd/fasd/bat/exa/fzf
+* mackup for dotfile symlinking
+* tldr with custom key bindings for inline help lookups
+* vim w/custom config
 
-### A handy set of system packages
+See also [main.yml](./roles/dotfiles/tasks/main.yml)
 
-* aria2
-* asdf
-* coreutils
-* ctags
-* dos2unix
-* fasd
-* fdupes
-* figlet
-* fpp
-* gnupg
-* hr
-* htop-osx
-* httpie
-* jq
-* lesspipe
-* lnav
-* md5deep
-* ncdu
-* nmap
-* pandoc
-* poppler
-* progress
-* pv
-* qt
-* readline
-* rename
-* ruby-build
-* the_silver_searcher
-* tig
-* tldr
-* tmux
-* tree
-* unrar
-* wget
-* zsh
+#### developer
 
-### A better Mac quicklook
+What I generally need for development some highlights
 
-The following quicklook plugins
+* ruby, python, node & others managed by asdf
+* thing's I felt fell outside the minimal toolset I have in dotfiles
 
-* betterzipql
-* qlcolorcode
-* qlmarkdown
-* qlstephen
-* quicklook-json
+See also [main.yml](./roles/developer/tasks/main.yml)
 
-## Installation
+#### linux-apps
+
+All my favourite DE linux apps (assumes arch based system)
+
+See also [main.yml](./roles/linux-apps/tasks/main.yml)
+
+#### osx-defaults
+
+A sane set of macos defaults
+
+See also [main.yml](./roles/osx-defaults/tasks/main.yml)
+
+#### osx-apps
+
+All my favourite osx apps
+
+See also [main.yml](./roles/osx-apps/tasks/main.yml)
+
+#### screenshot
+
+Generates the terminal based screenshot used above
+
+See also [main.yml](./roles/screenshot/tasks/main.yml)
 
 ### Prerequisites
 
-1. Xcode Command Line Tools
-1. Homebrew
-1. Git
-1. Ansible
+1. Xcode Command Line Tools (osx only)
+2. [git](https://git-scm.com/)
+3. [Ansible](https://www.ansible.com/)
+4. [Homebrew](https://brew.sh/)
 
-Use the bootstrap script to install any depedencies and run the playbook
+### Installing
+
+Use the bootstrap script to install any depedencies and run the
+[playbook](./playbook.yml)
 
 ```
 $ bash <(curl -s https://raw.githubusercontent.com/yuhonas/dotfiles/master/bootstrap.sh)
 ````
+
+## Running the tests
+
+This repo uses [molecule](https://molecule.readthedocs.io/en/latest/) and docker
+to lint, provision and test the playbook
+
+```
+$ molecule test
+```
