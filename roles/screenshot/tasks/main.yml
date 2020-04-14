@@ -48,7 +48,7 @@
   environment:
     DISPLAY: :{{ display_server }}
 
-- name: crop image
+- name: crop the screenshot
   shell: mogrify -crop 620x250+0+0 {{ screenshot_file.path }}
 
 - name: copy screenshot to local machine

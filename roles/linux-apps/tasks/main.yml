@@ -13,12 +13,27 @@
     - xclip # for commandline clipboard management
     - xorg-xrandr # for xwindow resizing/rotating/scaling
     - xsel # for commandline clipboard management
+    # - code
+    # - re2 # dependency for vscode
 
-- name: copy rclone systemd script
+- name: create a user .config dir
+  file: path="{{ ansible_env.HOME }}/.config" state=directory
+
+- name: create user dir for systemd inits
+  file: path="{{ ansible_env.HOME }}/.config/systemd/user" state=directory recurse=yes owner={{ ansible_ssh_user }}
+
+- name: copy rclone systemd init
   template:
     src: rclone.service.j2
-    dest: /etc/systemd/system/rclone.service
-  become: true
+    dest: "{{ ansible_env.HOME }}/.config/systemd/user/rclone.service"
+    owner: "{{ ansible_ssh_user }}"
+
+- name: copying ssh-agent systemd init
+  copy:
+    src: ssh-agent.service
+    dest: "{{ ansible_env.HOME }}/.config/systemd/user/ssh-agent.service"
+    owner: "{{ ansible_ssh_user }}"
+
 
 - name: ensure we have a dropbox dir that rclone can mount too
   file: path={{ dropbox_directory }} state=directory
@@ -36,9 +51,6 @@
     groups: input
     append: yes
   become: true
-
-- name: ensure we have an .config dir
-  file: path={{ ansible_env.HOME }}/.config state=directory
 
 - name: install libinput for touchpad gestures
   package: name={{ item }} state=present
@@ -144,22 +156,22 @@
   command: pamac build --keep --no-confirm spotify
   when: '"spotify" not in installed_apps.stdout'
 
-- name: check for an intel graphics card
-  shell: |
-    set -o pipefail
-    lspci | grep VGA
-  args:
-    executable: /bin/bash
-  register: vga_card
-  changed_when: false
+# - name: check for an intel graphics card
+#   shell: |
+#     set -o pipefail
+#     lspci | grep VGA
+#   args:
+#     executable: /bin/bash
+#   register: vga_card
+#   changed_when: false
 
-- name: copying x11 config for intel graphics card
-  copy:
-    src: 20-intel.conf
-    dest: /usr/share/X11/xorg.conf.d/
-    backup: yes
-  become: true
-  when: '"Intel Corporation" in vga_card.stdout'
+# - name: copying x11 config for intel graphics card
+#   copy:
+#     src: 20-intel.conf
+#     dest: /usr/share/X11/xorg.conf.d/
+#     backup: yes
+#   become: true
+#   when: '"Intel Corporation" in vga_card.stdout'
 
 # - name: other applications
 #   package: name={{ item }} state=present
