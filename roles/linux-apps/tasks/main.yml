@@ -25,8 +25,9 @@
 - name: copy rclone systemd init
   template:
     src: rclone.service.j2
-    dest: "{{ ansible_env.HOME }}/.config/systemd/user/rclone.service"
+    dest: /etc/systemd/system/rclone.service
     owner: "{{ ansible_ssh_user }}"
+  become: true
 
 - name: copying ssh-agent systemd init
   copy:
