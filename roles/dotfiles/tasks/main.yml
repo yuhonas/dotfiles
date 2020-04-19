@@ -15,6 +15,7 @@
     name:
       - asdf  # version manager
       - bat  # an improved cat
+      - cheat # cheat sheets, like tldr but allows for custom cheat sheets
       - colordiff  # colorized diff wrapper
       - ctags  # index generation for source and header files
       - exa  # an ls replacement

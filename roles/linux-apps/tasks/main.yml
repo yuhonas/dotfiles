@@ -4,7 +4,8 @@
   become: true
   with_items:
     - docker
-    - keychain # key manager for OpenSSH
+    # - keychain # key manager for OpenSSH
+    - ksshaskpass # https://wiki.archlinux.org/index.php/KDE_Wallet#Using_the_KDE_Wallet_to_store_ssh_key_passphrases
     - pciutils # for lspci so we can inspect the video card
     - pulseaudio # for audio
     - ranger # visual file manager
@@ -26,7 +27,6 @@
   template:
     src: rclone.service.j2
     dest: /etc/systemd/system/rclone.service
-    owner: "{{ ansible_ssh_user }}"
   become: true
 
 - name: copying ssh-agent systemd init
@@ -34,7 +34,6 @@
     src: ssh-agent.service
     dest: "{{ ansible_env.HOME }}/.config/systemd/user/ssh-agent.service"
     owner: "{{ ansible_ssh_user }}"
-
 
 - name: ensure we have a dropbox dir that rclone can mount too
   file: path={{ dropbox_directory }} state=directory
