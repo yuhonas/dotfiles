@@ -66,8 +66,13 @@
     recursive: yes
     version: master
 
-- name: symlinking dotfiles
+- name: symlinking mackup config
   file: src="{{ ansible_env.HOME }}/src/ansible/roles/dotfiles/files/mackup.cfg" dest="{{ ansible_env.HOME }}/.mackup.cfg" state=link
+
+- name: copy custom mackup configs to home dir
+  copy:
+    src: .mackup
+    dest: "{{ ansible_env.HOME }}"
 
 - name: check if there are dotfiles to symlink
   command: mackup restore --dry-run
