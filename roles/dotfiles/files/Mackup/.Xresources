@@ -1,0 +1,19 @@
+! === rofi ===
+! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
+/* rofi.color-normal: #353944,  #FFFFFF,  #353944,  #5294E2,  #FFFFFF */
+/* rofi.color-normal: #353944,  #FFFFFF,  #353944,  #5294E2,  #FFFFFF */
+/* rofi.color-normal: #353944,  #FFFFFF,  #353944,  #5294E2,  #FFFFFF */
+
+
+rofi.color-window: #1E272B, #9D6A47, #9D6A47
+rofi.color-normal: #1E272B, #FFFFFF, #1E272B, #1E272B, #188072
+rofi.color-active: #1E272B, #FFFFFF, #1E272B, #1E272B, #188072
+rofi.color-urgent: #1E272B, #FFFFFF, #1E272B, #1E272B, #188072
+rofi.show-icons: false
+rofi.font: Hack 11
+rofi.padding: 10
+rofi.bw: 0
+rofi.eh: 1
+rofi.separator-style: none
+/* rofi.columns: 1 */
+
