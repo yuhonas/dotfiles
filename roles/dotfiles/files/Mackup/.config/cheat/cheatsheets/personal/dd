@@ -1,0 +1,2 @@
+# write out a manjaro iso to the sda volume and sync any outstanding writes
+sudo dd if=manjaro-kde-19.0.2-200311-linux54.iso of=/dev/sda bs=1M status=progress oflag=sync && sudo sync

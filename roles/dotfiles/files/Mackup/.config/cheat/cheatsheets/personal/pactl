@@ -1,0 +1,6 @@
+---
+syntax: bash
+tags: [audio, bluetooth]
+---
+# To list the current bluetooth codec in use:
+pactl list | grep codec

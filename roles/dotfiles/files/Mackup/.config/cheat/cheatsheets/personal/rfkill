@@ -1,0 +1,2 @@
+# enable and disable wireless devices
+rfkill list all

@@ -1,0 +1,5 @@
+# display or control the kernal ring buffer
+dmesg 
+
+# show status of firmware
+dmesg | grep firmware

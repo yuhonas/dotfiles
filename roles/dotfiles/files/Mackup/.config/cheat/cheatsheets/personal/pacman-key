@@ -1,0 +1,7 @@
+---
+tags: [pacman, packages]
+---
+# refresh keys, see also https://wiki.archlinux.org/index.php/Pacman/Package_signing
+pacman-key --refresh-keys
+
+
