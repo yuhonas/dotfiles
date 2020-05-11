@@ -28,6 +28,7 @@
       - mackup  # symlink farm
       - ncdu  # ncurses disk usage
       - ripgrep  # like grep but better
+      - starship # fast/cross shell prompt
       - the_silver_searcher  # like ack but faster
       - tldr  # community driven man pages
       - tmux

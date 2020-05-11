@@ -1,0 +1,2 @@
+# update firmware
+fwupdmgr -y update

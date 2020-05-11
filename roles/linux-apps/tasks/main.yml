@@ -3,6 +3,7 @@
   package: name={{ item }} state=present
   become: true
   with_items:
+    - albert # application launcher
     - docker
     # - keychain # key manager for OpenSSH
     - ksshaskpass # https://wiki.archlinux.org/index.php/KDE_Wallet#Using_the_KDE_Wallet_to_store_ssh_key_passphrases

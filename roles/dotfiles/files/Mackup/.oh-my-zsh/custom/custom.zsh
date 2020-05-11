@@ -19,15 +19,6 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 export TERM=xterm-256color
 
-export SPACESHIP_CHAR_SYMBOL="» "
-export SPACESHIP_GIT_PREFIX=""
-export SPACESHIP_NODE_SHOW=false
-export SPACESHIP_RUBY_SHOW=false
-
-# color setup for ls
-# http://man7.org/linux/man-pages/man1/dircolors.1.html
-# eval $(gdircolors ~/.dircolors/dircolors.256dark)
-
 # truncate the existing command to the first word and wrap it in a tldr call
 _tldr() {
   local first_word
