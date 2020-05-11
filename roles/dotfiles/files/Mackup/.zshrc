@@ -100,15 +100,15 @@ antigen bundle MichaelAquilina/zsh-you-should-use
 # Load the theme.
 antigen theme $ZSH_THEME
 
-# Tell Antigen that you're done.
-antigen apply
-
-# User configuration
-
 # set the starship prompt if it exists
 if starship --version >/dev/null 2>&1; then
   eval "$(starship init zsh)"
 fi
+
+# Tell Antigen that you're done.
+antigen apply
+
+# User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
