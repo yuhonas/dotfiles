@@ -53,10 +53,17 @@
   changed_when: false
   register: brew_shellenv
 
+- name: get fzf directory
+  command: brew --prefix fzf
+  changed_when: false
+  register: brew_fzfdir
+
 - name: ensure brew env vars exist in zshenv
   blockinfile:
     path: "{{ ansible_env.HOME }}/.zshenv"
-    block: "{{ brew_shellenv.stdout }}"
+    block: |
+      {{ brew_shellenv.stdout }}
+      export FZF_BASE="{{ brew_fzfdir.stdout }}"
     insertbefore: BOF
     create: yes
 
