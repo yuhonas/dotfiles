@@ -34,19 +34,14 @@ endif
 
 call plug#begin('~/.vim/plugged')
 " general plugins
-Plug 'tpope/vim-sensible'
-Plug 'junegunn/fzf', { 'dir': '~/.vim/fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-surround'
-"Plug 'scrooloose/nerdtree'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'dir': '~/.vim/fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
-" Plug 'easymotion/vim-easymotion'
-
-" themes / ui
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
 
 " custom status line
 " https://shapeshed.com/vim-statuslines/
