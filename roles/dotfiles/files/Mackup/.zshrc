@@ -63,50 +63,48 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-ANTIGEN_PATH=$HOME/antigen
-source $ANTIGEN_PATH/antigen.zsh
+source <(antibody init)
 
 # Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+antibody bundle ohmyzsh/ohmyzsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle asdf
-antigen bundle colored-man-pages
-antigen bundle fasd
-antigen bundle fzf
-antigen bundle git
-antigen bundle bundler
-antigen bundle last-working-dir
-antigen bundle tmux
-antigen bundle extract
+antibody bundle "
+ohmyzsh/ohmyzsh path:plugins/asdf
+ohmyzsh/ohmyzsh path:plugins/colored-man-pages
+ohmyzsh/ohmyzsh path:plugins/fasd
+ohmyzsh/ohmyzsh path:plugins/fzf
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/bundler
+ohmyzsh/ohmyzsh path:plugins/last-working-dir
+ohmyzsh/ohmyzsh path:plugins/tmux
+ohmyzsh/ohmyzsh path:plugins/extract
+"
 
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions
-antigen bundle zdharma/fast-syntax-highlighting
-antigen bundle mollifier/cd-gitroot
-antigen bundle wfxr/forgit
-antigen bundle DarrinTisdale/zsh-aliases-exa
+# Third party plugins
+antibody bundle "
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-completions
+zdharma/fast-syntax-highlighting
+mollifier/cd-gitroot
+wfxr/forgit
+DarrinTisdale/zsh-aliases-exa
+MichaelAquilina/zsh-you-should-use
+"
 
 # My customizations
-antigen bundle $HOME/.oh-my-zsh/custom
+antibody bundle $HOME/.oh-my-zsh/custom
 
 # Reminders about aliases I've set up.
-#antigen bundle djui/alias-tips
-
-# ZSH plugin that reminds you to use existing aliases for commands you just typed.
-antigen bundle MichaelAquilina/zsh-you-should-use
+# antibody bundle djui/alias-tips
 
 # Load the theme.
-antigen theme $ZSH_THEME
+# antigen theme $ZSH_THEME
 
 # set the starship prompt if it exists
-if starship --version >/dev/null 2>&1; then
-  eval "$(starship init zsh)"
-fi
-
-# Tell Antigen that you're done.
-antigen apply
+#if starship --version >/dev/null 2>&1; then
+#  eval "$(starship init zsh)"
+#fi
 
 # User configuration
 

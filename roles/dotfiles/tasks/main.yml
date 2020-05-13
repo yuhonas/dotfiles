@@ -22,6 +22,7 @@
       - fasd  # jump navigation
       - fd  # find replacement
       - fzf  # fuzzy finder
+      - getantibody/tap/antibody # the fastest shell plugin manager (zsh)
       - git
       - ispell
       - lesspipe
@@ -59,13 +60,6 @@
     block: "{{ brew_shellenv.stdout }}"
     insertbefore: BOF
     create: yes
-
-- name: install antigen
-  git:
-    repo: https://github.com/zsh-users/antigen.git
-    dest: "{{ ansible_env.HOME }}/antigen"
-    recursive: yes
-    version: master
 
 - name: symlinking mackup config
   file: src="{{ ansible_env.HOME }}/src/ansible/roles/dotfiles/files/mackup.cfg" dest="{{ ansible_env.HOME }}/.mackup.cfg" state=link
