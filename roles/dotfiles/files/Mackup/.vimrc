@@ -42,47 +42,15 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
-
-" custom status line
-" https://shapeshed.com/vim-statuslines/
-set laststatus=2
-function! GitBranch()
-  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-endfunction
-
-function! StatuslineGit()
-  let l:branchname = GitBranch()
-  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
-endfunction
-
-set statusline=%#PmenuSel#
-set statusline+=%{StatuslineGit()}
-" set statusline+=%#LineNr#
-set statusline+=%#Title#
-set statusline+=\ %f
-" set statusline+=%m\
-set statusline+=%=
-set statusline+=%#CursorColumn#
-set statusline+=\ %y
-set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\[%{&fileformat}\]
-set statusline+=\ %p%%
-set statusline+=\ %l:%c
-" set statusline+=\
-
 Plug 'flazz/vim-colorschemes'
 
 " intellisense engine for vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " git
-" Plug 'tpope/vim-fugitive'
-Plug 'jreybert/vimagit'
 Plug 'airblade/vim-gitgutter'
+Plug 'jreybert/vimagit'
 Plug 'ruanyl/vim-gh-line'
-
-" golang support
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " elixir support
 Plug 'slashmili/alchemist.vim'
@@ -161,7 +129,7 @@ set termguicolors
 "syntax enable           " enable syntax processing
 
 try
-   colorscheme dracula
+   colorscheme gotham
    set background=dark
 catch
 endtry
@@ -298,6 +266,32 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+" custom status line
+" https://shapeshed.com/vim-statuslines/
+set laststatus=2
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
+
+set statusline=%#PmenuSel#
+set statusline+=%{StatuslineGit()}
+" set statusline+=%#LineNr#
+set statusline+=%#Title#
+set statusline+=\ %f
+" set statusline+=%m\
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
 
 " editorconfig configuration
 " ensure that this plugin works well with Tim Pope's fugitive, use the following patterns array:
