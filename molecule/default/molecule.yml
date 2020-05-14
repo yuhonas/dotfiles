@@ -30,3 +30,5 @@ provisioner:
     converge: "../../playbook.yml"
 verifier:
   name: "testinfra"
+  options:
+    s: false # set to true for test debugging see https://docs.pytest.org/en/latest/capture.html

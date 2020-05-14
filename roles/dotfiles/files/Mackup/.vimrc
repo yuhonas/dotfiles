@@ -129,7 +129,7 @@ set termguicolors
 "syntax enable           " enable syntax processing
 
 try
-   colorscheme gotham
+   colorscheme base16-railscasts
    set background=dark
 catch
 endtry
