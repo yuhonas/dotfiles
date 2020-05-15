@@ -80,18 +80,19 @@ ohmyzsh/ohmyzsh path:plugins/fzf
 ohmyzsh/ohmyzsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/history
 ohmyzsh/ohmyzsh path:plugins/last-working-dir
+ohmyzsh/ohmyzsh path:plugins/sudo
 ohmyzsh/ohmyzsh path:plugins/tmux
 "
 
 # Third party plugins
 antibody bundle "
-zsh-users/zsh-autosuggestions
-zsh-users/zsh-completions
-zdharma/fast-syntax-highlighting
-mollifier/cd-gitroot
-wfxr/forgit
 DarrinTisdale/zsh-aliases-exa
 MichaelAquilina/zsh-you-should-use
+mollifier/cd-gitroot
+wfxr/forgit
+zdharma/fast-syntax-highlighting
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-completions
 "
 
 # My customizations

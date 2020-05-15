@@ -14,12 +14,13 @@ This repo is broken down into the following ansible roles
 The minimum set of config/tools I need to work from the commandline, some
 highlights
 
-* zsh w/custom config
-* tmux + plugins
-* fd/fasd/bat/exa/fzf
+* [ohmyzsh](https://ohmyz.sh/) with a custom goodie packed [config](https://getantibody.github.io/), [antibody](https://getantibody.github.io/) for plugin management and the amazingly fast [starship](https://starship.rs/) prompt
+* tmux + [plugins](https://github.com/yuhonas/dotfiles/blob/master/roles/dotfiles/files/Mackup/.tmux.conf)
+* modern replacements for cat/find/ls with [bat](https://github.com/sharkdp/bat)/[fd](https://github.com/sharkdp/fd)/[exa](https://github.com/ogham/exa)
+* [fasd](https://github.com/clvv/fasd) for jump navigation
 * mackup for dotfile symlinking
-* tldr with custom key bindings for inline help lookups
-* vim w/custom config
+* [tldr](https://github.com/tldr-pages/tldr) & [cheat](https://github.com/cheat/cheat) with custom key bindings for inline help lookups
+* vim with an attempt at a "minimal" custom config
 
 See also [main.yml](./roles/dotfiles/tasks/main.yml)
 
@@ -27,7 +28,7 @@ See also [main.yml](./roles/dotfiles/tasks/main.yml)
 
 What I generally need for development some highlights
 
-* ruby, python, node & others managed by asdf
+* ruby, python, node & others managed by [asdf](https://github.com/asdf-vm/asdf)
 * thing's I felt fell outside the minimal toolset I have in dotfiles
 
 See also [main.yml](./roles/developer/tasks/main.yml)
