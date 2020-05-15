@@ -105,7 +105,7 @@ antibody bundle $HOME/.oh-my-zsh/custom
 # antigen theme $ZSH_THEME
 
 # set the starship prompt if it exists
-if starship --version >/dev/null 2>&1; then
+if (( $+commands[starship] )); then
   eval "$(starship init zsh)"
 fi
 
