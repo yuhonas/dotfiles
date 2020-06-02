@@ -1,9 +1,12 @@
 ---
 tags: [pacman, packages]
 ---
-# get information about a locally installed package, using vi as an example
-pacman -Q --info vi
+# get information about a locally installed package
+pacman -Q --info [FILE]
 
-# find which package contains a particular filename
+# find which remote packages contains a particular program
 # whilst also ensuring the database is up to date
 pacman -Fy [FILE]
+
+# find which local package owns a particuar program
+pacman -Qo [FILE]
