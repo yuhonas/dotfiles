@@ -14,4 +14,4 @@ def test_zsh_is_the_default_shell(host):
 
 def test_zsh_modules_loaded(host):
     cmd_output = host.check_output('zsh -ci "antibody list"')
-    assert len(cmd_output.split('\n')) == 8
+    assert len(cmd_output.split('\n')) == 9

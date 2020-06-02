@@ -79,6 +79,11 @@ if (( !$+commands[open] )); then
   alias open=open_command # alias to zsh's cross platform open_command
 fi
 
+# shortcut for emacs org mode based todo list
+# assumes an emacs daemon is running see
+# https://www.emacswiki.org/emacs/EmacsAsDaemon
+alias todo="emacsclient $HOME/TODO.org"
+
 # fbr - checkout branch specified or provide a list of all git branches
 # including remotes for selection
 #
