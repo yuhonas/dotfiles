@@ -1,3 +1,9 @@
+---
+tags: [pacman, packages]
+---
 # get information about a locally installed package, using vi as an example
 pacman -Q --info vi
 
+# find which package contains a particular filename
+# whilst also ensuring the database is up to date
+pacman -Fy [FILE]

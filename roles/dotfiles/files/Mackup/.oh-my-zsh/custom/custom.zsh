@@ -17,7 +17,16 @@ export FZF_CTRL_T_OPTS="--preview='less -10 {+} 2>/dev/null'"
 # use vim as the default editor
 export VISUAL=vim
 export EDITOR="$VISUAL"
-export TERM=xterm-256color
+
+# auto start tmux
+export ZSH_TMUX_AUTOSTART=true
+
+# set TERM if we're not in tmux
+[[ $TMUX = "" ]] && export TERM="xterm-256color"
+
+# IEx persistent history
+# https://medium.com/@tylerpachal/iex-persistent-history-5d7d64e905d3
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 # truncate the existing command to the first word and wrap it in a tldr call
 _tldr() {

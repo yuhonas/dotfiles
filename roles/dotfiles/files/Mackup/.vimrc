@@ -124,7 +124,6 @@ set tm=500
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " https://alex.dzyoba.com/blog/vim-revamp/
-" set termguicolors
 
 " https://github.com/tmux/tmux/issues/1246
 if exists('+termguicolors')
@@ -136,7 +135,7 @@ endif
 "syntax enable           " enable syntax processing
 
 try
-   colorscheme dracula
+   colorscheme nord
    set background=dark
 catch
 endtry
