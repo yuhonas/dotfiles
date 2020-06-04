@@ -68,7 +68,7 @@
     block: |
       golang 1.12.5
       nodejs 10.16.0
-      python 3.6.8
+      python 3.7.7
       ruby 2.7.1
 
 - name: update asdf plugin versions
@@ -89,7 +89,7 @@
       - csvkit
       - haxor-news
     state: present
-    executable: ~/.asdf/shims/pip3.6
+    executable: ~/.asdf/shims/pip
 
 - name: ruby packages
   gem:

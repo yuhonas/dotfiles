@@ -1,0 +1,4 @@
+---
+tags: [devops]
+---
+ansible -i ./inventory localhost -m setup
