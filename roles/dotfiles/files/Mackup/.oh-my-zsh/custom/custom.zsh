@@ -18,9 +18,6 @@ export FZF_CTRL_T_OPTS="--preview='less -10 {+} 2>/dev/null'"
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-# auto start tmux
-export ZSH_TMUX_AUTOSTART=true
-
 # set TERM if we're not in tmux
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
 

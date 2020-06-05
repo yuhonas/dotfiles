@@ -14,7 +14,6 @@ platforms:
       ANSIBLE_USER: "linuxbrew"
       SUDO_GROUP: "wheel"
       DEPLOY_GROUP: "deployer"
-      SHELL: "/bin/bash"
 provisioner:
   name: "ansible"
   env:
