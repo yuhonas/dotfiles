@@ -7,11 +7,11 @@
     - docker
     # - keychain # key manager for OpenSSH
     - ksshaskpass # https://wiki.archlinux.org/index.php/KDE_Wallet#Using_the_KDE_Wallet_to_store_ssh_key_passphrases
+    - muparser # for alberts calculator extension https://albertlauncher.github.io/docs/extensions/calculator/
     - pciutils # for lspci so we can inspect the video card
     - pulseaudio # for audio
     - ranger # visual file manager
     - rclone # for dropbox and other file sharing services
-    - redshift # for nightshift
     - xclip # for commandline clipboard management
     - xorg-xrandr # for xwindow resizing/rotating/scaling
     - xsel # for commandline clipboard management
@@ -113,16 +113,16 @@
 #   when: grub_config is changed
 
 # https://forums.linuxmint.com/viewtopic.php?t=91453
-- name: fix issue with thinkpad x1 carbon volume
-  blockinfile:
-    path: "/usr/share/pulseaudio/alsa-mixer/paths/analog-output.conf.common"
-    block: |
-      [Element Master]
-      switch = mute
-      volume = ignore
-    marker: "; {mark} ANSIBLE MANAGED BLOCK"
-    insertbefore: "Element PCM"
-  become: true
+# - name: fix issue with thinkpad x1 carbon volume
+#   blockinfile:
+#     path: "/usr/share/pulseaudio/alsa-mixer/paths/analog-output.conf.common"
+#     block: |
+#       [Element Master]
+#       switch = mute
+#       volume = ignore
+#     marker: "; {mark} ANSIBLE MANAGED BLOCK"
+#     insertbefore: "Element PCM"
+#   become: true
 
 # https://www.addictivetips.com/ubuntu-linux-tips/fix-media-keys-not-working-on-linux/
 - name: install playerctl for full media key support
@@ -157,22 +157,22 @@
   command: pamac build --keep --no-confirm spotify
   when: '"spotify" not in installed_apps.stdout'
 
-# - name: check for an intel graphics card
-#   shell: |
-#     set -o pipefail
-#     lspci | grep VGA
-#   args:
-#     executable: /bin/bash
-#   register: vga_card
-#   changed_when: false
+- name: check for an intel graphics card
+  shell: |
+    set -o pipefail
+    lspci | grep VGA
+  args:
+    executable: /bin/bash
+  register: vga_card
+  changed_when: false
 
-# - name: copying x11 config for intel graphics card
-#   copy:
-#     src: 20-intel.conf
-#     dest: /usr/share/X11/xorg.conf.d/
-#     backup: yes
-#   become: true
-#   when: '"Intel Corporation" in vga_card.stdout'
+- name: copying x11 config for intel graphics card
+  copy:
+    src: 20-intel.conf
+    dest: /usr/share/X11/xorg.conf.d/
+    backup: yes
+  become: true
+  when: '"Intel Corporation" in vga_card.stdout'
 
 # - name: other applications
 #   package: name={{ item }} state=present
