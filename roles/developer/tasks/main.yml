@@ -97,9 +97,7 @@
     state: present
     executable: ~/.asdf/shims/gem
   with_items:
-    - git-pulls
     - seeing_is_believing
-    - bropages
 
 - name: node packages
   npm:
