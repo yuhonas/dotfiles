@@ -14,10 +14,11 @@
 [x] clipboard management
 [x] hide tab bar for screenshot
 [x] fix sudo path
-[ ] bluetooth sound quality
-[ ] rclone (dropbox/googledrive)
+[x] bluetooth sound quality
+[x] rclone (dropbox/googledrive)
 [ ] encrypt home dir with dm-crypt (LUKS)
-[ ] additional mackup config
+[x] additional mackup config
+[x] enable fstrim
 
 ## keybindings
 

@@ -14,11 +14,11 @@ This repo is broken down into the following ansible roles
 The minimum set of config/tools I need to work from the commandline, some
 highlights
 
-* [ohmyzsh](https://ohmyz.sh/) with a custom goodie packed [config](https://getantibody.github.io/), [antibody](https://getantibody.github.io/) for plugin management and the amazingly fast [starship](https://starship.rs/) prompt
-* tmux + [plugins](https://github.com/yuhonas/dotfiles/blob/master/roles/dotfiles/files/Mackup/.tmux.conf)
+* [ohmyzsh](https://ohmyz.sh/) with a custom goodie packed [config](https://github.com/yuhonas/dotfiles/blob/master/roles/dotfiles/files/Mackup/.vimrc), [antibody](https://getantibody.github.io/) for plugin management and the amazingly fast [starship](https://starship.rs/) prompt
+* [tmux](https://github.com/tmux/tmux) + [plugins](https://github.com/yuhonas/dotfiles/blob/master/roles/dotfiles/files/Mackup/.tmux.conf)
 * modern replacements for cat/find/ls with [bat](https://github.com/sharkdp/bat)/[fd](https://github.com/sharkdp/fd)/[exa](https://github.com/ogham/exa)
 * [fasd](https://github.com/clvv/fasd) for jump navigation
-* mackup for dotfile symlinking
+* [mackup](https://github.com/lra/mackup) for dotfile symlinking
 * [tldr](https://github.com/tldr-pages/tldr) & [cheat](https://github.com/cheat/cheat) with custom key bindings for inline help lookups
 * vim with an attempt at a "minimal" custom config
 
