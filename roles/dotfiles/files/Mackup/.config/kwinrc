@@ -33,6 +33,7 @@ coverswitchEnabled=true
 flipswitchEnabled=true
 highlightwindowEnabled=true
 kwin4_effect_dimscreenEnabled=true
+kwin4_effect_fadeEnabled=false
 kwin4_effect_loginEnabled=false
 kwin4_effect_logoutEnabled=false
 

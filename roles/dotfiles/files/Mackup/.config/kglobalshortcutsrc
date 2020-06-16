@@ -4,7 +4,7 @@ switch-to-activity-869c7978-a258-4b23-9c4d-f3aeca254bee=none,none,Switch to acti
 
 [KDE Keyboard Layout Switcher]
 Switch keyboard layout to English (US)=none,none,Switch keyboard layout to English (US)
-Switch to Next Keyboard Layout=,none,Switch to Next Keyboard Layout
+Switch to Next Keyboard Layout=none,none,Switch to Next Keyboard Layout
 _k_friendly_name=KDE Daemon
 
 [com.alacritty.Alacritty.desktop]
@@ -34,11 +34,12 @@ _k_friendly_name=KDE Daemon
 display=Display\tMeta+P,Display\tMeta+P,Switch Display
 
 [khotkeys]
-_k_friendly_name=KDE Daemon
-{2443cef7-37ea-4a0f-a596-e69beaca132f}=Meta+Space,none,Rofi
+_k_friendly_name=System Settings Module
+{04b2ec2b-41b5-4dc2-b152-6e4108cfaa0f}=Meta+Shift+D,none,Open Downloads
 {43554b15-2fb5-4766-bc35-1edef2a35a44}=Media Previous,none,Previous
 {866de3c9-7455-4994-a3fd-19b87c150b88}=Media Play,none,Play/Pause
 {98e18424-e0f6-49af-9be6-8d2e1c198d11}=Media Next,none, Next
+{d03619b6-9b3c-48cc-9d9c-a2aadb485550}=none,none,Search
 
 [kmix]
 _k_friendly_name=Audio Volume
@@ -65,7 +66,7 @@ Lock Session=\t\tScreensaver,Meta+L\tCtrl+Alt+L\tScreensaver,Lock Session
 Log Out=Ctrl+Alt+Del,none,Log Out
 Log Out Without Confirmation=Ctrl+Alt+Shift+Del,none,Log Out Without Confirmation
 Reboot Without Confirmation=Ctrl+Alt+Shift+PgUp,none,Reboot Without Confirmation
-_k_friendly_name=ksmserver
+_k_friendly_name=System Settings
 
 [kwin]
 Activate Window Demanding Attention=Ctrl+Alt+A,Ctrl+Alt+A,Activate Window Demanding Attention
@@ -147,7 +148,7 @@ Walk Through Windows of Current Application Alternative=none,none,Walk Through W
 Walk Through Windows of Current Application Alternative (Reverse)=none,none,Walk Through Windows of Current Application Alternative (Reverse)
 Window Above Other Windows=none,none,Keep Window Above Others
 Window Below Other Windows=none,none,Keep Window Below Others
-Window Close=Alt+F4\tMeta+W,Alt+F4,Close Window
+Window Close=Alt+F4\tF4,Alt+F4,Close Window
 Window Fullscreen=none,none,Make Window Fullscreen
 Window Grow Horizontal=none,none,Pack Grow Window Horizontally
 Window Grow Vertical=none,none,Pack Grow Window Vertically

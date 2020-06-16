@@ -111,12 +111,12 @@ ForegroundVisited=145,61,136
 DirSelectDialog Size=640,480
 
 [General]
-BrowserApplication[$e]=google-chrome.desktop
+BrowserApplication=firefox.desktop
 ColorScheme=Breath2Dark
 Name=Breath2
 XftHintStyle=
 XftSubPixel=
-dbfile=/home/clint/.mozilla/firefox/lf8ft7s6.default/places.sqlite
+dbfile=/home/clintp/.mozilla/firefox/wrym53i9.default/places.sqlite
 fixed=Hack,9,-1,5,50,0,0,0,0,0,Regular
 font=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
 menuFont=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
@@ -155,8 +155,11 @@ Speedbar Width=255
 View Style=Simple
 
 [KScreen]
-ScaleFactor=1
-ScreenScaleFactors=eDP1=1;DP1=1;DP2=1;HDMI1=1;VIRTUAL1=1;
+ScaleFactor=1.5
+ScreenScaleFactors=eDP1=1.5;DP1=1.5;DP2=1.5;HDMI1=1.5;VIRTUAL1=1.5;
+
+[KShortcutsDialog Settings]
+Dialog Size=600,480
 
 [Shortcuts]
 Activate Next Tab=Ctrl+PgDown;\s
