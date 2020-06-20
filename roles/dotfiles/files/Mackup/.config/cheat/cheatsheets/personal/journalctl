@@ -1,0 +1,5 @@
+---
+tags: [systemd]
+---
+# query the systemd journal by warning priority
+journalctl -b0 -p4
