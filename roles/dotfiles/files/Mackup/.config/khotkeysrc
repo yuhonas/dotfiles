@@ -907,7 +907,7 @@ Type=SIMPLE_ACTION_DATA
 ActionsCount=1
 
 [Data_4_1Actions0]
-CommandURL=playerctl play-pause
+CommandURL=playerctl --player=spotify play-pause
 Type=COMMAND_URL
 
 [Data_4_1Conditions]
@@ -933,7 +933,7 @@ Type=SIMPLE_ACTION_DATA
 ActionsCount=1
 
 [Data_4_2Actions0]
-CommandURL=playerctl next
+CommandURL=playerctl --player=spotify next
 Type=COMMAND_URL
 
 [Data_4_2Conditions]
@@ -959,7 +959,7 @@ Type=SIMPLE_ACTION_DATA
 ActionsCount=1
 
 [Data_4_3Actions0]
-CommandURL=playerctl previous
+CommandURL=playerctl --player=spotify previous
 Type=COMMAND_URL
 
 [Data_4_3Conditions]
