@@ -11,7 +11,8 @@ env:
   # Note that some xterm terminfo databases don't declare support for italics.
   # You can verify this by checking for the presence of `smso` and `sitm` in
   # `infocmp xterm-256color`.
-  TERM: xterm-256color-italic
+  # TERM: xterm-256color-italic
+  #
   # autostart tmux session,
   # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/tmux0
   ZSH_TMUX_AUTOSTART: "true"

@@ -148,18 +148,18 @@ Show Inline Previews=true
 Show Preview=false
 Show Speedbar=true
 Show hidden files=false
-Sort by=Date
+Sort by=Name
 Sort directories first=true
-Sort reversed=true
+Sort reversed=false
 Speedbar Width=255
 View Style=Simple
 
 [KScreen]
-ScaleFactor=1.5
-ScreenScaleFactors=eDP1=1.5;DP1=1.5;DP2=1.5;HDMI1=1.5;VIRTUAL1=1.5;
+ScaleFactor=1
+ScreenScaleFactors=eDP1=1;DP1=1;DP2=1;HDMI1=1;VIRTUAL1=1;
 
 [KShortcutsDialog Settings]
-Dialog Size=600,480
+Dialog Size=914,873
 
 [Shortcuts]
 Activate Next Tab=Ctrl+PgDown;\s

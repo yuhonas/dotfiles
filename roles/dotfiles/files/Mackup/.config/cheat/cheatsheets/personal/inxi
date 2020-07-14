@@ -1,0 +1,2 @@
+# dump hardware/device drivers
+inxi -Fxxxza --no-host

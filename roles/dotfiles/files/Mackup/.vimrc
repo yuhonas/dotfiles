@@ -377,4 +377,8 @@ if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
 endif
 
+" https://sw.kovidgoyal.net/kitty/faq.html#using-a-color-theme-with-a-background-color-does-not-work-well-in-vim
+let &t_ut=''
 
+" disable ex-mode, I accidently hit it *way* too often
+map Q <Nop>
