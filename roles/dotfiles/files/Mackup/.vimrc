@@ -136,7 +136,7 @@ endif
 "syntax enable           " enable syntax processing
 
 try
-   colorscheme nord
+   colorscheme quantum
    set background=dark
 catch
 endtry
