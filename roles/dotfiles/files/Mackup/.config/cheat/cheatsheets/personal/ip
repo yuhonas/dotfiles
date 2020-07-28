@@ -1,2 +1,5 @@
 # show link status
 ip link
+
+# show the current ip & gateway
+ip route show

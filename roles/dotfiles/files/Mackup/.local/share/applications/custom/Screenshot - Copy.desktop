@@ -1,0 +1,13 @@
+[Desktop Entry]
+Comment=
+Exec=spectacle --region --background --clipboard
+Icon=spectacle
+Name=Screenshot - Copy
+NoDisplay=false
+Path[$e]=
+StartupNotify=true
+Terminal=0
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=

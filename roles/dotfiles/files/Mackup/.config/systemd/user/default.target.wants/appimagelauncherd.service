@@ -1,0 +1,10 @@
+[Unit]
+Description=AppImageLauncher daemon
+
+[Service]
+ExecStart=/usr/bin/appimagelauncherd
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target
