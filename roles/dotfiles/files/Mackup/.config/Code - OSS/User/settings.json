@@ -1,0 +1,10 @@
+{
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.leader": "\\",
+    "vim.cursorStylePerMode.replace": "underline",
+    "window.zoomLevel": 0,
+    "liveServer.settings.donotShowInfoMsg": true
+}
