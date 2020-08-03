@@ -1,5 +1,31 @@
 ---
 tags: [systemd]
 ---
-# query the systemd journal by warning priority
+# query the systemd boot message journal by warning priority
 journalctl -b0 -p4
+
+# list the last 10 lines
+journalctl -n 10
+
+# tail for updates
+journalctl -f
+
+# output as pretty printed json
+journalctl -n 10 -o json-pretty
+
+# select by absolute time period
+journalctl -S "2020-91-12 07:00:00"
+
+# select by relative time period
+journalctl -S -1d
+
+# query by data field
+# see also https://man7.org/linux/man-pages/man7/systemd.journal-fields.7.html
+journalctl -f _COMM=geek-app
+
+# cleanup log's by size
+journalctl --vacuum-size=100m
+
+# cleanup log's by time
+journalctl --vacuum-time=1weeks
+
