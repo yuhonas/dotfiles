@@ -5,7 +5,7 @@ switch-to-activity-869c7978-a258-4b23-9c4d-f3aeca254bee=none,none,Switch to acti
 [KDE Keyboard Layout Switcher]
 Switch keyboard layout to English (US)=none,none,Switch keyboard layout to English (US)
 Switch to Next Keyboard Layout=none,none,Switch to Next Keyboard Layout
-_k_friendly_name=KDE Daemon
+_k_friendly_name=Keyboard Layout Switcher
 
 [com.alacritty.Alacritty.desktop]
 New=none,none,New Terminal
@@ -26,7 +26,7 @@ _k_friendly_name=Accessibility
 Disable Touchpad=Touchpad Off,Touchpad Off,Disable Touchpad
 Enable Touchpad=Touchpad On,Touchpad On,Enable Touchpad
 Toggle Touchpad=Touchpad Toggle,Touchpad Toggle,Toggle Touchpad
-_k_friendly_name=KDE Daemon
+_k_friendly_name=Touchpad
 
 [kded5]
 Show System Activity=Meta+Ctrl+Esc,Ctrl+Esc,Show System Activity
@@ -34,12 +34,11 @@ _k_friendly_name=KDE Daemon
 display=Display\tMeta+P,Display\tMeta+P,Switch Display
 
 [khotkeys]
-_k_friendly_name=System Settings Module
+_k_friendly_name=KDE Daemon
 {04b2ec2b-41b5-4dc2-b152-6e4108cfaa0f}=Meta+Shift+D,none,Open Downloads
 {43554b15-2fb5-4766-bc35-1edef2a35a44}=Media Previous,none,Previous
 {866de3c9-7455-4994-a3fd-19b87c150b88}=Media Play,none,Play/Pause
 {98e18424-e0f6-49af-9be6-8d2e1c198d11}=Media Next,none, Next
-{d03619b6-9b3c-48cc-9d9c-a2aadb485550}=none,none,Search
 
 [kmix]
 _k_friendly_name=Audio Volume
@@ -66,7 +65,7 @@ Lock Session=\t\tScreensaver,Meta+L\tCtrl+Alt+L\tScreensaver,Lock Session
 Log Out=Ctrl+Alt+Del,none,Log Out
 Log Out Without Confirmation=Ctrl+Alt+Shift+Del,none,Log Out Without Confirmation
 Reboot Without Confirmation=Ctrl+Alt+Shift+PgUp,none,Reboot Without Confirmation
-_k_friendly_name=System Settings
+_k_friendly_name=Session Management
 
 [kwin]
 Activate Window Demanding Attention=Ctrl+Alt+A,Ctrl+Alt+A,Activate Window Demanding Attention
@@ -79,7 +78,7 @@ FlipSwitchCurrent=none,none,Toggle Flip Switch (Current desktop)
 Increase Opacity=none,none,Increase Opacity of Active Window by 5 %
 Invert Screen Colors=none,none,Invert Screen Colors
 Kill Window=Ctrl+Alt+Esc,Ctrl+Alt+Esc,Kill Window
-MoveMouseToCenter=Meta+F6,Meta+F6,Move Mouse to Center
+MoveMouseToCenter=Meta+F6\tCtrl+6,Meta+F6,Move Mouse to Center
 MoveMouseToFocus=Meta+F5,Meta+F5,Move Mouse to Focus
 MoveZoomDown=none,none,Move Zoomed Area Downwards
 MoveZoomLeft=none,none,Move Zoomed Area to Left
@@ -95,8 +94,8 @@ Switch One Desktop Up=none,Meta+Ctrl+Up,Switch One Desktop Up
 Switch One Desktop to the Left=none,Meta+Ctrl+Left,Switch One Desktop to the Left
 Switch One Desktop to the Right=none,Meta+Ctrl+Right,Switch One Desktop to the Right
 Switch Window Down=Meta+Alt+Down,Meta+Alt+Down,Switch to Window Below
-Switch Window Left=Meta+Alt+Left,Meta+Alt+Left,Switch to Window to the Left
-Switch Window Right=Meta+Alt+Right,Meta+Alt+Right,Switch to Window to the Right
+Switch Window Left=Meta+Alt+Left\tCtrl+Shift+H,Meta+Alt+Left,Switch to Window to the Left
+Switch Window Right=Meta+Alt+Right\tCtrl+Shift+L,Meta+Alt+Right,Switch to Window to the Right
 Switch Window Up=Meta+Alt+Up,Meta+Alt+Up,Switch to Window Above
 Switch to Desktop 1=Ctrl+F1,Ctrl+F1,Switch to Desktop 1
 Switch to Desktop 10=none,none,Switch to Desktop 10
@@ -148,7 +147,7 @@ Walk Through Windows of Current Application Alternative=none,none,Walk Through W
 Walk Through Windows of Current Application Alternative (Reverse)=none,none,Walk Through Windows of Current Application Alternative (Reverse)
 Window Above Other Windows=none,none,Keep Window Above Others
 Window Below Other Windows=none,none,Keep Window Below Others
-Window Close=Alt+F4\tF4,Alt+F4,Close Window
+Window Close=Ctrl+Shift+W\tAlt+F4,Alt+F4,Close Window
 Window Fullscreen=none,none,Make Window Fullscreen
 Window Grow Horizontal=none,none,Pack Grow Window Horizontally
 Window Grow Vertical=none,none,Pack Grow Window Vertically
@@ -250,6 +249,7 @@ Decrease Screen Brightness=Monitor Brightness Down,Monitor Brightness Down,Decre
 Hibernate=Hibernate,Hibernate,Hibernate
 Increase Keyboard Brightness=Keyboard Brightness Up,Keyboard Brightness Up,Increase Keyboard Brightness
 Increase Screen Brightness=Monitor Brightness Up,Monitor Brightness Up,Increase Screen Brightness
+PowerDown=Power Down,Power Down,Power Down
 PowerOff=Power Off,Power Off,Power Off
 Sleep=Sleep,Sleep,Suspend
 Toggle Keyboard Backlight=Keyboard Light On/Off,Keyboard Light On/Off,Toggle Keyboard Backlight
@@ -286,6 +286,10 @@ stop current activity=,Meta+S,Stop Current Activity
 switch to next activity=none,none,Switch to Next Activity
 switch to previous activity=none,none,Switch to Previous Activity
 toggle do not disturb=none,none,Toggle do not disturb
+
+[systemsettings.desktop]
+_k_friendly_name=System Settings
+_launch=Tools,Tools,System Settings
 
 [wacomtablet]
 Map to fullscreen=,Meta+Ctrl+F,Map to fullscreen
