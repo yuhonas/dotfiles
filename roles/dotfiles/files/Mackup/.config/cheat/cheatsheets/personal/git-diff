@@ -1,0 +1,6 @@
+---
+syntax: bash
+tags: [git]
+---
+# check for leftover merge conflict markers
+git diff --check
