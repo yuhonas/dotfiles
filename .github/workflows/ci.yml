@@ -16,7 +16,7 @@ jobs:
       run: molecule test --destroy never
     - name: Publish docker image
       run: |
-        export CONTAINER_ID="$(docker ps -a | ag molecule_local | cut -d' ' -f1)"
+        export CONTAINER_ID="$(docker ps -a | grep molecule_local | cut -d' ' -f1)"
         docker commit $CONTAINER_ID docker.pkg.github.com/$GITHUB_REPOSITORY/base:$GITHUB_SHA
         echo "$PUBLISH_PAT" | docker login -u yuhonas --password-stdin docker.pkg.github.com
         docker push docker.pkg.github.com/$GITHUB_REPOSITORY/base:$GITHUB_SHA
