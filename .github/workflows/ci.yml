@@ -14,11 +14,16 @@ jobs:
         pip install -r ./molecule-requirements.txt
     - name: Test using molecule
       run: molecule test --destroy never
-    - name: Publish docker image
+    - name: Login to github container registry
+      uses: docker/login-action@v1
+      with:
+        registry: docker.pkg.github.com
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.PUBLISH_PAT }}
+    - name: Commit & publish docker image
       run: |
         export CONTAINER_ID="$(docker ps -a | grep molecule_local | cut -d' ' -f1)"
         docker commit $CONTAINER_ID docker.pkg.github.com/$GITHUB_REPOSITORY/base:$GITHUB_SHA
-        echo "$PUBLISH_PAT" | docker login -u yuhonas --password-stdin docker.pkg.github.com
         docker push docker.pkg.github.com/$GITHUB_REPOSITORY/base:$GITHUB_SHA
     # - uses: actions/upload-artifact@v1
     #   with:
