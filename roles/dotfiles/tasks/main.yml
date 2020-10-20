@@ -17,7 +17,6 @@
       - bat  # an improved cat
       - cheat # cheat sheets, like tldr but allows for custom cheat sheets
       - colordiff  # colorized diff wrapper
-      - ctags  # index generation for source and header files
       - exa  # an ls replacement
       - fasd  # jump navigation
       - fd  # find replacement
@@ -27,6 +26,7 @@
       - ispell
       - lesspipe
       - mackup  # symlink farm
+      # - moreutils # https://joeyh.name/code/moreutils/
       - ncdu  # ncurses disk usage
       - ripgrep  # like grep but better
       - starship # fast/cross shell prompt
