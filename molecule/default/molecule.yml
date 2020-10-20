@@ -8,7 +8,7 @@ lint: |
   flake8
 platforms:
   - name: "instance"
-    image: "manjarolinux/base:latest"
+    image: "archlinux/base:latest"
     env:
       PATH: "/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
       ANSIBLE_USER: "linuxbrew"
