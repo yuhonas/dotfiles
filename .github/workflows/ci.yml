@@ -22,8 +22,7 @@ jobs:
         password: ${{ secrets.PUBLISH_PAT }}
     - name: Commit & publish docker image
       run: |
-        export CONTAINER_ID="$(docker ps -a | grep molecule_local | cut -d' ' -f1)"
-        docker commit $CONTAINER_ID docker.pkg.github.com/$GITHUB_REPOSITORY/base:$GITHUB_SHA
+        docker commit molecule_instance docker.pkg.github.com/$GITHUB_REPOSITORY/base:$GITHUB_SHA
         docker push docker.pkg.github.com/$GITHUB_REPOSITORY/base:$GITHUB_SHA
     # - uses: actions/upload-artifact@v1
     #   with:

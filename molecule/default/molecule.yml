@@ -7,7 +7,7 @@ lint: |
   ansible-lint
   flake8
 platforms:
-  - name: "instance"
+  - name: "molecule_instance"
     image: "archlinux/base:latest"
     env:
       PATH: "/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
@@ -20,7 +20,7 @@ provisioner:
     PATH: "/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
   inventory:
     host_vars:
-      instance:
+      molecule_instance:
         ansible_user: "linuxbrew"
   options:
     tags: "minimal"
