@@ -71,7 +71,7 @@ Use the bootstrap script to install any depedencies and run the
 
 ```
 $ bash <(curl -s https://raw.githubusercontent.com/yuhonas/dotfiles/master/bootstrap.sh)
-````
+```
 
 ## Running the tests
 
@@ -81,3 +81,12 @@ to lint, provision and test the playbook
 ```
 $ molecule test
 ```
+
+## Trying it out with Docker
+
+Every test run through molecule generates a _minimal_ docker base image which is then published & can be found under [packages](https://github.com/yuhonas/dotfiles/packages/458733)
+
+See also
+
+* [ci.yml](https://github.com/yuhonas/dotfiles/blob/master/.github/workflows/ci.yml)
+* [molecule.yml](https://github.com/yuhonas/dotfiles/blob/master/molecule/default/molecule.yml)
