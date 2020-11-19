@@ -28,6 +28,11 @@ TabBoxAlternative=false
 [ModifierOnlyShortcuts]
 Meta=
 
+[NightColor]
+Active=true
+LatitudeAuto=-37.8159
+LongitudeAuto=144.9669
+
 [Plugins]
 coverswitchEnabled=true
 flipswitchEnabled=true
@@ -65,4 +70,4 @@ SwitchingMode=0
 
 [org.kde.kdecoration2]
 library=org.kde.breeze
-theme=
+theme=Breeze

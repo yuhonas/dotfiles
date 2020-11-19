@@ -1,0 +1,2 @@
+# analyze system startup performance
+systemd-analyze blame

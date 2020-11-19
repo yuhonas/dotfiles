@@ -14,7 +14,7 @@
     state: present
     name:
       - asdf  # version manager
-      - bat  # an improved cat
+      - bat  # an improved cat, see also https://altbox.dev/
       - cheat # cheat sheets, like tldr but allows for custom cheat sheets
       - colordiff  # colorized diff wrapper
       - exa  # an ls replacement

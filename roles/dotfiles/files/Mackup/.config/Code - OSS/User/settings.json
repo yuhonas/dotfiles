@@ -6,5 +6,6 @@
     "vim.leader": "\\",
     "vim.cursorStylePerMode.replace": "underline",
     "window.zoomLevel": 0,
-    "liveServer.settings.donotShowInfoMsg": true
+    "liveServer.settings.donotShowInfoMsg": true,
+    "diffEditor.renderSideBySide": false
 }
