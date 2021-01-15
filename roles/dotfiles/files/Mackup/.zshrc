@@ -86,8 +86,9 @@ ohmyzsh/ohmyzsh path:plugins/tmux
 "
 
 # Third party plugins
+# DarrinTisdale/zsh-aliases-exa
 antibody bundle "
-DarrinTisdale/zsh-aliases-exa
+yuhonas/zsh-aliases-lsd
 MichaelAquilina/zsh-you-should-use
 mollifier/cd-gitroot
 wfxr/forgit

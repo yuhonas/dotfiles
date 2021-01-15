@@ -25,6 +25,7 @@
       - git
       - ispell
       - lesspipe
+      - lsd # an ls replacement
       - mackup  # symlink farm
       # - moreutils # https://joeyh.name/code/moreutils/
       - ncdu  # ncurses disk usage

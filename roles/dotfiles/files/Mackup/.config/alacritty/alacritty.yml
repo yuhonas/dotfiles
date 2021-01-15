@@ -1,4 +1,4 @@
- # Configuration for Alacritty, the GPU enhanced terminal emulator
+# Configuration for Alacritty, the GPU enhanced terminal emulator
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -42,7 +42,7 @@ window:
   # Available values:
   # - full: borders and title bar
   # - none: neither borders nor title bar
-  decorations: none
+  # decorations: none
 
   # Startup Mode (changes require restart)
   #
@@ -70,7 +70,6 @@ scrolling:
 # prevent unexpected behavior in these applications, it's also required to
 # change the `it` value in terminfo when altering this setting.
 #
-
 # Font configuration (changes require restart)
 font:
   # The normal (roman) font face to use.
@@ -132,200 +131,34 @@ draw_bold_text_with_bright_colors: false
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
 # custom_cursor_colors: false
-
 # Colors
 colors:
-  # Default colours
-  # primary:
-  #   background: '0xffffff'
-  #   foreground: '0x2e2e2d'
-
-  # Colors that should be used to draw the terminal cursor. If these are unset,
-  # the cursor colour will be the inverse of the cell colour.
-  # cursor:
-  #   text: '0x2e2e2d'
-  #   # text: '0x000000'
-  #   cursor: '0xffffff'
-
-  # Normal colors
-  # normal:
-  #   black:   '0x000000'
-  #   red:     '0xc62828'
-  #   green:   '0x558b2f'
-  #   yellow:  '0xf9a825'
-  #   blue:    '0x1565c0'
-  #   magenta: '0x6a1e9a'
-  #   cyan:    '0x00838f'
-  #   white:   '0xf2f2f2'
-
-  # Bright colors
-  # bright:
-  #   black:   '0x545454'
-  #   red:     '0xef5350'
-  #   green:   '0x8bc34a'
-  #   yellow:  '0xffeb3b'
-  #   blue:    '0x64b5f6'
-  #   magenta: '0xba68c8'
-  #   cyan:    '0x26c6da'
-  #   white:   '0xe0e0e0'
-
-  # Dim colors (Optional)
-  # dim:
-  #   black:   '0x333333'
-  #   red:     '0xf2777a'
-  #   green:   '0x99cc99'
-  #   yellow:  '0xffcc66'
-  #   blue:    '0x6699cc'
-  #   magenta: '0xcc99cc'
-  #   cyan:    '0x66cccc'
-  #   white:   '0xdddddd'
-
-  # Tomorrow Night Bright
-  # primary:
-  #   background: '0x000000'
-  #   foreground: '0xeaeaea'
-  #
-  # cursor:
-  #   text: '0x000000'
-  #   cursor: '0xffffff'
-  #
-  # normal:
-  #   black:   '0x000000'
-  #   red:     '0xd54e53'
-  #   green:   '0xb9ca4a'
-  #   yellow:  '0xe6c547'
-  #   blue:    '0x7aa6da'
-  #   magenta: '0xc397d8'
-  #   cyan:    '0x70c0ba'
-  #   white:   '0xffffff'
-  #
-  # bright:
-  #   black:   '0x666666'
-  #   red:     '0xff3334'
-  #   green:   '0x9ec400'
-  #   yellow:  '0xe7c547'
-  #   blue:    '0x7aa6da'
-  #   magenta: '0xb77ee0'
-  #   cyan:    '0x54ced6'
-  #   white:   '0xffffff'
-
-  # Gruvbox dark
+  name: Atelierdune (dark)
+  author: Chris Kempson
   primary:
-    # hard contrast: background = '0x1d2021'
-    background: '0x282828'
-    # soft contrast: background = '0x32302f'
-    foreground: '0xebdbb2'
-
-  # Normal colors
+    background: "#20201d"
+    foreground: "#a6a28c"
+  cursor:
+    text: "#20201d"
+    cursor: "#a6a28c"
   normal:
-    black:   '0x282828'
-    red:     '0xcc241d'
-    green:   '0x98971a'
-    yellow:  '0xd79921'
-    blue:    '0x458588'
-    magenta: '0xb16286'
-    cyan:    '0x689d6a'
-    white:   '0xa89984'
-
-  # Bright colors
+    black: "#20201d"
+    red: "#d73737"
+    green: "#60ac39"
+    yellow: "#cfb017"
+    blue: "#6684e1"
+    magenta: "#b854d4"
+    cyan: "#1fad83"
+    white: "#a6a28c"
   bright:
-    black:   '0x928374'
-    red:     '0xfb4934'
-    green:   '0xb8bb26'
-    yellow:  '0xfabd2f'
-    blue:    '0x83a598'
-    magenta: '0xd3869b'
-    cyan:    '0x8ec07c'
-    white:   '0xebdbb2'
-
-  # nord theme
-  # primary:
-  #   background: '0x2E3440'
-  #   foreground: '0xD8DEE9'
-
-  # # Normal colors
-  # normal:
-  #   black:   '0x3B4252'
-  #   red:     '0xBF616A'
-  #   green:   '0xA3BE8C'
-  #   yellow:  '0xEBCB8B'
-  #   blue:    '0x81A1C1'
-  #   magenta: '0xB48EAD'
-  #   cyan:    '0x88C0D0'
-  #   white:   '0xE5E9F0'
-
-  # # Bright colors
-  # bright:
-  #   black:   '0x4C566A'
-  #   red:     '0xBF616A'
-  #   green:   '0xA3BE8C'
-  #   yellow:  '0xEBCB8B'
-  #   blue:    '0x81A1C1'
-  #   magenta: '0xB48EAD'
-  #   cyan:    '0x8FBCBB'
-  #   white:   '0xECEFF4'
-
-  # one dark theme
-  # primary:
-  #   background: '0x1e2127'
-  #   foreground: '0xabb2bf'
-
-  # # Normal colors
-  # normal:
-  #   black:   '0x1e2127'
-  #   red:     '0xe06c75'
-  #   green:   '0x98c379'
-  #   yellow:  '0xd19a66'
-  #   blue:    '0x61afef'
-  #   magenta: '0xc678dd'
-  #   cyan:    '0x56b6c2'
-  #   white:   '0xabb2bf'
-
-  # # Bright colors
-  # bright:
-  #   black:   '0x5c6370'
-  #   red:     '0xe06c75'
-  #   green:   '0x98c379'
-  #   yellow:  '0xd19a66'
-  #   blue:    '0x61afef'
-  #   magenta: '0xc678dd'
-  #   cyan:    '0x56b6c2'
-  #   white:   '0xffffff'
-
-  # Colors (Ayu Dark)
-  # primary:
-  #   background: '0x0A0E14'
-  #   foreground: '0xB3B1AD'
-
-  # # Normal colors
-  # normal:
-  #   black: '0x01060E'
-  #   red: '0xEA6C73'
-  #   green: '0x91B362'
-  #   yellow: '0xF9AF4F'
-  #   blue: '0x53BDFA'
-  #   magenta: '0xFAE994'
-  #   cyan: '0x90E1C6'
-  #   white: '0xC7C7C7'
-
-  # # Bright colors
-  # bright:
-  #   black: '0x686868'
-  #   red: '0xF07178'
-  #   green: '0xC2D94C'
-  #   yellow: '0xFFB454'
-  #   blue: '0x59C2FF'
-  #   magenta: '0xFFEE99'
-  #   cyan: '0x95E6CB'
-  #   white: '0xFFFFFF'
-  #
-  # The indexed colors include all colors from 16 to 256.
-  # When these are not set, they're filled with sensible defaults.
-  #
-  # Example:
-  #   `- { index: 16, color: '0xff00ff' }`
-  #
-  indexed_colors: []
+    black: "#7d7a68"
+    red: "#d73737"
+    green: "#60ac39"
+    yellow: "#cfb017"
+    blue: "#6684e1"
+    magenta: "#b854d4"
+    cyan: "#1fad83"
+    white: "#fefbec"
 
 # Visual Bell
 #
@@ -456,7 +289,6 @@ background_opacity: 1.0
 #   - { key: Q,        mods: Command,       action: Quit                         }
 #   - { key: N,        mods: Command,       action: SpawnNewInstance             }
 #   - { key: Return,   mods: Command,       action: ToggleFullscreen             }
-
 #   - { key: Home,                          chars: "\x1bOH",   mode: AppCursor   }
 #   - { key: Home,                          chars: "\x1b[H",   mode: ~AppCursor  }
 #   - { key: End,                           chars: "\x1bOF",   mode: AppCursor   }
@@ -507,7 +339,6 @@ background_opacity: 1.0
 #   - { key: Back,     mods: Alt,           chars: "\x1b\x7f"                    }
 #   - { key: Insert,                        chars: "\x1b[2~"                     }
 #   - { key: Delete,                        chars: "\x1b[3~"                     }
-
 #     # shortcuts for tmux. the leader key is control-b (0x02)
 #   - { key: W,        mods: Command,       chars: "\x02&"                       }  # close tab (kill)
 #   - { key: T,        mods: Command,       chars: "\x02c"                       }  # new tab
@@ -516,7 +347,6 @@ background_opacity: 1.0
 #   - { key: RBracket, mods: Command,       chars: "\x02o"                       }  # select next pane
 #   - { key: LBracket, mods: Command,       chars: "\x02;"                       }  # select last (previously used) pane
 #   - { key: F,        mods: Command,       chars: "\x02/"                       }  # search (upwards) (see tmux.conf)
-
 mouse:
   # Click settings
   #
@@ -528,25 +358,23 @@ mouse:
 
   # If this is `true`, the cursor is temporarily hidden when typing.
   hide_when_typing: true
-
   # URL launcher
   # url:
-    # This program is executed when clicking on a text which is recognized as a URL.
-    # The URL is always added to the command as the last parameter.
-    #
-    # When set to `None`, URL launching will be disabled completely.
-    #
-    # Default:
-    #   - (macOS) open
-    #   - (Linux) xdg-open
-    #   - (Windows) explorer
-    # launcher:
-    #   program: xdg-open
-    #   args: []
-
-    # These are the modifiers that need to be held down for opening URLs when clicking
-    # on them. The available modifiers are documented in the key binding section.
-    # modifiers: Control|Shift
+  # This program is executed when clicking on a text which is recognized as a URL.
+  # The URL is always added to the command as the last parameter.
+  #
+  # When set to `None`, URL launching will be disabled completely.
+  #
+  # Default:
+  #   - (macOS) open
+  #   - (Linux) xdg-open
+  #   - (Windows) explorer
+  # launcher:
+  #   program: xdg-open
+  #   args: []
+  # These are the modifiers that need to be held down for opening URLs when clicking
+  # on them. The available modifiers are documented in the key binding section.
+  # modifiers: Control|Shift
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
@@ -586,7 +414,6 @@ cursor:
   unfocused_hollow: true
 
 # dynamic_title: false
-
 # Live config reload (changes require restart)
 live_config_reload: true
 
@@ -596,9 +423,8 @@ live_config_reload: true
 # Entries in shell.args are passed unmodified as arguments to the shell.
 # shell:
 #   program: /usr/local/homebrew/bin/fish
-  # args:
-  #   - --command=tmux
-
+# args:
+#   - --command=tmux
 debug:
   # Should display the render timer
   render_timer: false
