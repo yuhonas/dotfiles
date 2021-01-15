@@ -39,6 +39,7 @@
       - wget
       - vim
       - zsh
+    update_homebrew: yes
 
 - name: check if oh-my-zsh is installed
   stat:
