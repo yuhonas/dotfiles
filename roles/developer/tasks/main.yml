@@ -107,7 +107,7 @@
     global: true
     executable: ~/.asdf/shims/npm
   with_items:
-    - surge
+    - alacritty-themes
 
 - name: asdf reshim
   command: asdf reshim

@@ -1,0 +1,2 @@
+# read the contents of example.txt into a variable
+read SOME_VARIABLE < example.txt
