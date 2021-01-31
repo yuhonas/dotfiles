@@ -24,11 +24,11 @@
 - name: create user dir for systemd inits
   file: path="{{ ansible_env.HOME }}/.config/systemd/user" state=directory recurse=yes owner={{ ansible_ssh_user }}
 
-- name: copy rclone systemd init
-  template:
-    src: rclone.service.j2
-    dest: /etc/systemd/system/rclone.service
-  become: true
+# - name: copy rclone systemd init
+#   template:
+#     src: rclone.service.j2
+#     dest: /etc/systemd/system/rclone.service
+#   become: true
 
 - name: copying ssh-agent systemd init
   copy:
@@ -36,8 +36,8 @@
     dest: "{{ ansible_env.HOME }}/.config/systemd/user/ssh-agent.service"
     owner: "{{ ansible_ssh_user }}"
 
-- name: ensure we have a dropbox dir that rclone can mount too
-  file: path={{ dropbox_directory }} state=directory
+# - name: ensure we have a dropbox dir that rclone can mount too
+#   file: path={{ dropbox_directory }} state=directory
 
 - name: install tlp for power management
   package: name={{ item }} state=present
