@@ -12,7 +12,7 @@
     - pciutils # for lspci so we can inspect the video card
     - pulseaudio # for audio
     - ranger # visual file manager
-    - rclone # for dropbox and other file sharing services
+    - restic # for fast, secure backup's
     - xclip # for commandline clipboard management
     - xorg-xrandr # for xwindow resizing/rotating/scaling
     - xsel # for commandline clipboard management

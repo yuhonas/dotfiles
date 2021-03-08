@@ -16,6 +16,9 @@ env:
   # autostart tmux session,
   # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/tmux0
   ZSH_TMUX_AUTOSTART: "true"
+  # fix X11 scaling issues
+  # https://github.com/alacritty/alacritty/issues/1501
+  WINIT_X11_SCALE_FACTOR: "1.0"
 
 window:
   # Window dimensions (changes require restart)
@@ -43,7 +46,6 @@ window:
   # - full: borders and title bar
   # - none: neither borders nor title bar
   # decorations: none
-
   # Startup Mode (changes require restart)
   #
   # Values for `startup_mode`:
@@ -94,7 +96,7 @@ font:
     # style: "Medium Italic"
 
   # Point size of the font
-  size: 10.0
+  size: 12
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -133,32 +135,32 @@ draw_bold_text_with_bright_colors: false
 # custom_cursor_colors: false
 # Colors
 colors:
-  name: Atelierdune (dark)
+  name: Ashes (dark)
   author: Chris Kempson
   primary:
-    background: "#20201d"
-    foreground: "#a6a28c"
+    background: "#1c2023"
+    foreground: "#c7ccd1"
   cursor:
-    text: "#20201d"
-    cursor: "#a6a28c"
+    text: "#1c2023"
+    cursor: "#c7ccd1"
   normal:
-    black: "#20201d"
-    red: "#d73737"
-    green: "#60ac39"
-    yellow: "#cfb017"
-    blue: "#6684e1"
-    magenta: "#b854d4"
-    cyan: "#1fad83"
-    white: "#a6a28c"
+    black: "#1c2023"
+    red: "#c7ae95"
+    green: "#95c7ae"
+    yellow: "#aec795"
+    blue: "#ae95c7"
+    magenta: "#c795ae"
+    cyan: "#95aec7"
+    white: "#c7ccd1"
   bright:
-    black: "#7d7a68"
-    red: "#d73737"
-    green: "#60ac39"
-    yellow: "#cfb017"
-    blue: "#6684e1"
-    magenta: "#b854d4"
-    cyan: "#1fad83"
-    white: "#fefbec"
+    black: "#747c84"
+    red: "#c7ae95"
+    green: "#95c7ae"
+    yellow: "#aec795"
+    blue: "#ae95c7"
+    magenta: "#c795ae"
+    cyan: "#95aec7"
+    white: "#f3f4f5"
 
 # Visual Bell
 #
@@ -441,7 +443,7 @@ debug:
   #   - Info
   #   - Debug
   #   - Trace
-  log_level: None
+  log_level: "Error"
 
   # Print all received window events.
   print_events: false

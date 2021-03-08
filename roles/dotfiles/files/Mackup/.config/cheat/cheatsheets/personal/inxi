@@ -1,2 +1,5 @@
 # dump hardware/device drivers
 inxi -Fxxxza --no-host
+
+# dump graphics driver info
+inxi -G
