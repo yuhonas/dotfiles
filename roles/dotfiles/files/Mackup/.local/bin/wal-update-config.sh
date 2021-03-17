@@ -1,5 +1,9 @@
 #!/bin/bash
 
+set -e
+set -u
+set -o pipefail
+
 # use a rofi dark theme if pywall has generated one
 WALL_ROFI_THEME="$HOME/.cache/wal/colors-rofi-dark.rasi"
 ROFI_DIR=$HOME/.config/rofi
@@ -19,7 +23,7 @@ fi
 # add custom css for waybar
 if [[ -f $WALL_WAYBAR_THEME ]]; then
   [ -d $WAYBAR_DIR ] || mkdir -p $WAYBAR_DIR
-  cp -v $WALL_WAYBAR_THEME $WAYBAR_DIR/custom.css
+  cp -v $WALL_WAYBAR_THEME $WAYBAR_DIR/style.local.css
 fi
 
 # reload sway if we have it
