@@ -1,9 +1,4 @@
-# Default config for sway
 #
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
 ### Variables
 # first up let's import colors from pywall
 include "$HOME/.cache/wal/colors-sway"
@@ -21,12 +16,28 @@ set $term alacritty
 # Your preferred browser, let's leave it up to the system
 set $browser "xdg-open http://about:blank"
 
+# Window borders
+default_border pixel 1
+default_floating_border normal
+hide_edge_borders smart
+
+smart_gaps on
+gaps inner 10
+
+# for_window [title="."] title_format "<span style='color:#ffffff'>%title (%app_id)</span>"
+
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu -fn "-xos4-terminus-medium-r-*-*-14-*" | xargs swaymsg exec --
+# set $menu dmenu_path | dmenu -fn "-xos4-terminus-medium-r-*-*-14-*" | xargs swaymsg exec --
+set $menu rofi -show drun -modi drun -location 1 -width 100 \
+		 -lines 1 -line-margin 0 -line-padding 1 \
+		 -separator-style none -columns 9 -bw 0 \
+		 -font "mono 12" \
+     -display-drun "run"
+
 # set $menu albert toggle | xargs swaymsg exec --
-set $swaylock "swaylock -r --image $HOME/src/ansible/archlinux-lock-transparent.png --color '$$background' --scaling fit"
+set $swaylock "swaylock -r --image $HOME/.config/sway/lockscreen.png --color '$$color3' --scaling center"
 
 ### Output configuration
 #
@@ -41,15 +52,22 @@ output * scale 1.0 bg $wallpaper fill
 #
 # Example configuration:
 #
-exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
-
-bindsym $mod+Escape exec $swaylock
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
+#
+# exec swayidle -w \
+#          timeout 300 '$$swaylock -f' \
+#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#          before-sleep '$$swaylock -f'
+
+bindsym $mod+Escape exec $swaylock
+
+# Default workspaces for common programs
+#
+# There's an issue moving spotify to another workspace
+# See https://github.com/i3/i3/issues/2060
+for_window [class="Spotify"] move to workspace 2
 
 ### Input configuration
 #
@@ -132,6 +150,11 @@ bindsym $mod+Escape exec $swaylock
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
+
+    # Swtich using tab
+    bindsym $mod+tab workspace next_on_output
+    bindsym $mod+Shift+tab workspace prev_on_output
+
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
@@ -212,25 +235,15 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    # position top
-
-    # # When the status_command prints a new line to stdout, swaybar updates.
-    # # The default just shows the current date and time.
-    # status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-    # # status_command waybar
-
-    # colors {
-    #     statusline #ffffff
-    #     background #323232
-    #     inactive_workspace #32323200 #32323200 #5c5c5c
-    # }
     swaybar_command waybar
 }
 
-# Configure the titlebar colors
-client.focused $color3 $color3 $foreground
+# Configure the titlebar font/colors
+# TODO: Move these to .Xresources
+client.focused $color3 $color3 #FFFFFF
 client.unfocused $background $background $color8
 
+font pango: Sans 11
 
 input "type:keyboard" {
    xkb_options caps:escape
@@ -241,25 +254,30 @@ input type:touchpad {
     # natural_scroll enabled
 }
 
-# keyboard function key shortcuts
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-
 # display brightness
 bindsym XF86MonBrightnessUp exec brillo -u 20000 -A 5
 bindsym XF86MonBrightnessDown exec brillo -u 20000 -U 5
 
 # media keys
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioPlay exec playerctl --player=spotify play-pause
-bindsym XF86AudioPrev exec playerctl --player=spotify next
-bindsym XF86AudioNext exec playerctl --player=spotify previous
+bindsym XF86AudioPrev exec playerctl --player=spotify previous
+bindsym XF86AudioNext exec playerctl --player=spotify next
+
+# bindsym --release $mod+c exec wtype -M ctrl c -m ctrl
 
 # load albert
-# exec_always "albert | xargs swaymsg exec --"
+# exec --no-startup-id albert | xargs swaymsg exec --
 
-# load mouse tweaks
-# exec_always "libinput-gestures-setup start"
+# autostart items
+exec --no-startup-id libinput-gestures
+exec --no-startup-id flashfocus
+
+# start insync with hack
+# see https://forums.insynchq.com/t/gui-not-starting-under-wayland/15770/8
+exec --no-startup-id insync start --qt-qpa-platform=xcb
 
 
 include /etc/sway/config.d/*

@@ -6,7 +6,6 @@
     - albert # application launcher
     - docker
     # - keychain # key manager for OpenSSH
-    - kolourpaint
     - ksshaskpass # https://wiki.archlinux.org/index.php/KDE_Wallet#Using_the_KDE_Wallet_to_store_ssh_key_passphrases
     - muparser # for alberts calculator extension https://albertlauncher.github.io/docs/extensions/calculator/
     - pciutils # for lspci so we can inspect the video card
@@ -182,4 +181,5 @@
 #     - nerd-fonts-complete
 #     - neomutt
 #     - polybar
+#     - community/sxiv
 
