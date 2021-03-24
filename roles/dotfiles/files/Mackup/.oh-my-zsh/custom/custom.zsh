@@ -1,11 +1,11 @@
 # fzf default options
 # https://github.com/junegunn/fzf
 # https://minsw.github.io/fzf-color-picker/
-export FZF_DEFAULT_OPTS="--reverse
---color=fg:#d0d0d0,hl:#5f87af
---color=fg+:#d0d0d0,hl+:#5fd7ff
---color=info:#afaf87,prompt:#00d6a4,pointer:#af5fff
---color=marker:#87ff00,spinner:#af5fff,header:#87afaf"
+export FZF_DEFAULT_OPTS="--reverse"
+# --color=fg:#d0d0d0,hl:#5f87af
+# --color=fg+:#d0d0d0,hl+:#5fd7ff
+# --color=info:#afaf87,prompt:#00d6a4,pointer:#af5fff
+# --color=marker:#87ff00,spinner:#af5fff,header:#87afaf"
 
 # Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden'

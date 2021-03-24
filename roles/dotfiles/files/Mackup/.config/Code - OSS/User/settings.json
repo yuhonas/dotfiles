@@ -1,11 +1,12 @@
 {
     "vim.incsearch": true,
-    "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
     "vim.leader": "\\",
     "vim.cursorStylePerMode.replace": "underline",
     "window.zoomLevel": 0,
     "liveServer.settings.donotShowInfoMsg": true,
-    "diffEditor.renderSideBySide": false
+    "diffEditor.renderSideBySide": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "vim.useSystemClipboard": false
 }

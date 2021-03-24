@@ -3,14 +3,14 @@
   package: name={{ item }} state=present
   become: true
   with_items:
-    - albert # application launcher
+    - community/rofi-calc
     - docker
     # - keychain # key manager for OpenSSH
     - ksshaskpass # https://wiki.archlinux.org/index.php/KDE_Wallet#Using_the_KDE_Wallet_to_store_ssh_key_passphrases
-    - muparser # for alberts calculator extension https://albertlauncher.github.io/docs/extensions/calculator/
     - pciutils # for lspci so we can inspect the video card
     - pulseaudio # for audio
     - ranger # visual file manager
+    - rofi
     - restic # for fast, secure backup's
     - xclip # for commandline clipboard management
     - xorg-xrandr # for xwindow resizing/rotating/scaling

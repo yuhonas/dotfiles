@@ -452,3 +452,30 @@ debug:
   ref_test: false
 
 # vim: nospell
+# BEGIN ACE
+colors:
+  primary:
+    background: '#2f2a38'
+    foreground: '#e8cac1'
+  cursor:
+    text:       '#2f2a38'
+    cursor:     '#e8cac1'
+  normal:
+    black:      '#2f2a38'
+    red:        '#5667A5'
+    green:      '#4D75CA'
+    yellow:     '#9F738E'
+    blue:       '#7485AD'
+    magenta:    '#5E91E3'
+    cyan:       '#ADA4BB'
+    white:      '#e8cac1'
+  bright:
+    black:      '#a28d87'
+    red:        '#5667A5'
+    green:      '#4D75CA'
+    yellow:     '#9F738E'
+    blue:       '#7485AD'
+    magenta:    '#5E91E3'
+    cyan:       '#ADA4BB'
+    white:      '#e8cac1'
+# END ACE

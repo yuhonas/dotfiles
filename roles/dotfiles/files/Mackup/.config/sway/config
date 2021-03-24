@@ -30,11 +30,13 @@ gaps inner 10
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | dmenu -fn "-xos4-terminus-medium-r-*-*-14-*" | xargs swaymsg exec --
-set $menu rofi -show drun -modi drun -location 1 -width 100 \
+set $menu rofi -show combi \
+     -modi "combi,calc" \
+     -combi-modi "drun,power:rofi-power-menu" -location 1 -width 100 \
 		 -lines 1 -line-margin 0 -line-padding 1 \
 		 -separator-style none -columns 9 -bw 0 \
 		 -font "mono 12" \
-     -display-drun "run"
+     -display-combi "->"
 
 # set $menu albert toggle | xargs swaymsg exec --
 set $swaylock "swaylock -r --image $HOME/.config/sway/lockscreen.png --color '$$color3' --scaling center"

@@ -2,7 +2,7 @@
 update_info=spectacle_shortcuts.upd:spectacle-migrate-shortcuts
 
 [Data]
-DataCount=6
+DataCount=7
 
 [Data_1]
 Comment=KMenuEdit Global Shortcuts
@@ -887,7 +887,7 @@ Uuid={370cb9b3-fd48-41b6-b487-9ff8ee76bf18}
 
 [Data_4]
 Comment=Comment
-DataCount=3
+DataCount=4
 Enabled=true
 Name=Media Keys
 SystemGroup=0
@@ -975,6 +975,32 @@ Key=Media Previous
 Type=SHORTCUT
 Uuid={43554b15-2fb5-4766-bc35-1edef2a35a44}
 
+[Data_4_4]
+Comment=Comment
+Enabled=true
+Name=Thinkpad (Play/Pause)
+Type=SIMPLE_ACTION_DATA
+
+[Data_4_4Actions]
+ActionsCount=1
+
+[Data_4_4Actions0]
+CommandURL=playerctl --player=spotify play-pause
+Type=COMMAND_URL
+
+[Data_4_4Conditions]
+Comment=
+ConditionsCount=0
+
+[Data_4_4Triggers]
+Comment=Simple_action
+TriggersCount=1
+
+[Data_4_4Triggers0]
+Key=Home
+Type=SHORTCUT
+Uuid={af6700a8-0d85-4d5f-b449-ad8de6c7bd7e}
+
 [Data_5]
 Comment=Comment
 Enabled=false
@@ -1026,6 +1052,32 @@ TriggersCount=1
 Key=Meta+Shift+D
 Type=SHORTCUT
 Uuid={04b2ec2b-41b5-4dc2-b152-6e4108cfaa0f}
+
+[Data_7]
+Comment=Comment
+Enabled=true
+Name=Albert
+Type=SIMPLE_ACTION_DATA
+
+[Data_7Actions]
+ActionsCount=1
+
+[Data_7Actions0]
+CommandURL=albert show
+Type=COMMAND_URL
+
+[Data_7Conditions]
+Comment=
+ConditionsCount=0
+
+[Data_7Triggers]
+Comment=Simple_action
+TriggersCount=1
+
+[Data_7Triggers0]
+Key=Alt+Space
+Type=SHORTCUT
+Uuid={8849d7ac-d530-43f0-858f-1d0d95a26d85}
 
 [Directories]
 dir_pixmap[$d]

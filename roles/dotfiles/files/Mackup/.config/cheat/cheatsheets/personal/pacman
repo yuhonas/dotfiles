@@ -10,3 +10,6 @@ pacman -Fy [FILE]
 
 # find which local package owns a particuar program
 pacman -Qo [FILE]
+
+# list files installed by a package
+pacman -Ql [FILE]
