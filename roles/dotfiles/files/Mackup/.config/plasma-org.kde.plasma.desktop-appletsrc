@@ -152,7 +152,7 @@ ToolBoxButtonState=topcenter
 ToolBoxButtonX=838
 iconSize=2
 locked=true
-positions=1,26,desktop:/Acrobat Reader DC.lnk,0,4,desktop:/Trader Workstation.desktop,0,3,desktop:/Kindle.lnk,0,2,desktop:/Kindle.desktop,0,1,desktop:/https:⁄⁄theconversation.com⁄we-need-a-code-to-protect-our-online-privacy-and-wipe-out-dark-patterns-in-digital-design-145622.desktop,0,0
+positions=1,26,desktop:/Kindle.lnk,0,2,desktop:/Trader Workstation.desktop,0,3,desktop:/https:⁄⁄theconversation.com⁄we-need-a-code-to-protect-our-online-privacy-and-wipe-out-dark-patterns-in-digital-design-145622.desktop,0,0,desktop:/Kindle.desktop,0,1,desktop:/Acrobat Reader DC.lnk,0,4
 sortMode=-1
 
 [Containments][69][Wallpaper][org.kde.image][General]
@@ -178,7 +178,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][7][Applets][10][Configuration]
-PreloadWeight=7
+PreloadWeight=54
 
 [Containments][7][Applets][10][Configuration][ConfigDialog]
 DialogHeight=956
@@ -196,7 +196,7 @@ immutability=1
 plugin=org.kde.plasma.devicenotifier
 
 [Containments][7][Applets][12][Configuration]
-PreloadWeight=57
+PreloadWeight=69
 
 [Containments][7][Applets][13]
 immutability=1
@@ -260,14 +260,14 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][7][Applets][20][Configuration]
-PreloadWeight=0
+PreloadWeight=37
 
 [Containments][7][Applets][21]
 immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][7][Applets][21][Configuration]
-PreloadWeight=5
+PreloadWeight=45
 
 [Containments][7][Applets][22][Configuration]
 PreloadWeight=42
@@ -311,7 +311,7 @@ DialogWidth=720
 PreloadWeight=0
 
 [Containments][70][Wallpaper][org.kde.image][General]
-Image=/home/clintp/.local/share/wallpapers/No.Plasma.logo.suede.gears.blue.yellow.ii.png
+Image=file:///home/clintp/.local/share/wallpapers/No.Plasma.logo.suede.gears.blue.yellow.ii.png
 
 [Containments][71]
 activityId=869c7978-a258-4b23-9c4d-f3aeca254bee
@@ -341,7 +341,7 @@ wallpaperplugin=org.kde.image
 PreloadWeight=0
 
 [Containments][72][Wallpaper][org.kde.image][General]
-Image=/home/clintp/.local/share/wallpapers/No.Plasma.logo.suede.gears.blue.yellow.ii.png
+Image=file:///home/clintp/.local/share/wallpapers/No.Plasma.logo.suede.gears.blue.yellow.ii.png
 
 [Containments][75]
 activityId=869c7978-a258-4b23-9c4d-f3aeca254bee
@@ -363,4 +363,4 @@ immutability=1
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/https:⁄⁄theconversation.com⁄we-need-a-code-to-protect-our-online-privacy-and-wipe-out-dark-patterns-in-digital-design-145622.desktop,0,desktop:/Kindle.desktop,0,desktop:/Acrobat Reader DC.lnk,0,desktop:/Trader Workstation.desktop,0,desktop:/Kindle.lnk,0
+screenMapping=desktop:/Acrobat Reader DC.lnk,0,desktop:/Kindle.desktop,0,desktop:/https:⁄⁄theconversation.com⁄we-need-a-code-to-protect-our-online-privacy-and-wipe-out-dark-patterns-in-digital-design-145622.desktop,0,desktop:/Kindle.lnk,0,desktop:/Trader Workstation.desktop,0
