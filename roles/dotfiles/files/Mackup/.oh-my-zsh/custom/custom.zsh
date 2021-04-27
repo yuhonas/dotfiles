@@ -14,9 +14,11 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="--preview='less -10 {+} 2>/dev/null'"
 
-# use vim as the default editor
-export VISUAL=vim
+# use neovim as the default editor
+export VISUAL=nvim
 export EDITOR="$VISUAL"
+alias vi="nvim"
+alias vim="nvim"
 
 # set TERM if we're not in tmux
 [[ $TMUX = "" ]] && export TERM="xterm-256color"

@@ -29,6 +29,7 @@
       - mackup  # symlink farm
       # - moreutils # https://joeyh.name/code/moreutils/
       - ncdu  # ncurses disk usage
+      - neovim
       - ripgrep  # like grep but better
       - starship # fast/cross shell prompt
       - the_silver_searcher  # like ack but faster
@@ -36,7 +37,6 @@
       - tmux
       - tree
       - wget
-      - vim
       - zsh
     update_homebrew: yes
 
