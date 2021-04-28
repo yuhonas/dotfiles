@@ -1,0 +1,2 @@
+# xargs with a piped command
+ls *.xml --sort modified | xargs -I % bash -c 'cat "%" | xml2json >> output.json'

@@ -4,6 +4,7 @@
     - name: classify hosts depending on their os distribution
       group_by:
         key: os_{{ ansible_facts['os_family'] }}
+      changed_when: false
   tags: minimal
 
 - hosts: all
