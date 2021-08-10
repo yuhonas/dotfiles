@@ -106,7 +106,6 @@ plugin=org.kde.plasma.digitalclock
 PreloadWeight=100
 
 [Containments][2][Applets][74][Configuration][Appearance]
-selectedTimeZones=America/Los_Angeles,Europe/Berlin,Local,Australia/Perth
 wheelChangesTimezone=true
 
 [Containments][2][Applets][74][Configuration][ConfigDialog]
@@ -121,7 +120,7 @@ plugin=org.kde.plasma.showdesktop
 PreloadWeight=0
 
 [Containments][2][ConfigDialog]
-DialogHeight=99
+DialogHeight=93
 DialogWidth=2560
 
 [Containments][2][Configuration]
@@ -141,7 +140,7 @@ plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
 [Containments][69][ConfigDialog]
-DialogHeight=1375
+DialogHeight=1367
 DialogWidth=2560
 
 [Containments][69][Configuration]
@@ -152,11 +151,11 @@ ToolBoxButtonState=topcenter
 ToolBoxButtonX=838
 iconSize=2
 locked=true
-positions=1,26,desktop:/Kindle.lnk,0,2,desktop:/Trader Workstation.desktop,0,3,desktop:/https:⁄⁄theconversation.com⁄we-need-a-code-to-protect-our-online-privacy-and-wipe-out-dark-patterns-in-digital-design-145622.desktop,0,0,desktop:/Kindle.desktop,0,1,desktop:/Acrobat Reader DC.lnk,0,4
+positions=1,23,desktop:/Kindle.lnk,0,3,desktop:/Kindle.desktop,0,2,desktop:/https:⁄⁄theconversation.com⁄we-need-a-code-to-protect-our-online-privacy-and-wipe-out-dark-patterns-in-digital-design-145622.desktop,0,1,desktop:/Acrobat Reader DC.lnk,0,0,desktop:/https:⁄⁄codepen.io⁄hello_anwen⁄pen⁄mQBdmx.desktop,0,5,desktop:/Trader Workstation.desktop,0,4
 sortMode=-1
 
 [Containments][69][Wallpaper][org.kde.image][General]
-Image=file:///home/clintp/.local/share/wallpapers/No.Plasma.logo.suede.gears.blue.yellow.ii.png
+Image=file:///usr/share/backgrounds/wallpapers-2018/sunset-3095689.jpg
 SlidePaths=/home/clintp/.local/share/wallpapers,/usr/share/wallpapers
 
 [Containments][69][Wallpaper][org.kde.potd][General]
@@ -178,7 +177,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][7][Applets][10][Configuration]
-PreloadWeight=54
+PreloadWeight=100
 
 [Containments][7][Applets][10][Configuration][ConfigDialog]
 DialogHeight=956
@@ -196,7 +195,7 @@ immutability=1
 plugin=org.kde.plasma.devicenotifier
 
 [Containments][7][Applets][12][Configuration]
-PreloadWeight=69
+PreloadWeight=92
 
 [Containments][7][Applets][13]
 immutability=1
@@ -221,7 +220,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][7][Applets][15][Configuration]
-PreloadWeight=0
+PreloadWeight=2
 
 [Containments][7][Applets][15][Configuration][ConfigDialog]
 DialogHeight=540
@@ -253,21 +252,21 @@ immutability=1
 plugin=org.kde.plasma.battery
 
 [Containments][7][Applets][19][Configuration]
-PreloadWeight=0
+PreloadWeight=5
 
 [Containments][7][Applets][20]
 immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][7][Applets][20][Configuration]
-PreloadWeight=37
+PreloadWeight=100
 
 [Containments][7][Applets][21]
 immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][7][Applets][21][Configuration]
-PreloadWeight=45
+PreloadWeight=99
 
 [Containments][7][Applets][22][Configuration]
 PreloadWeight=42
@@ -295,6 +294,7 @@ hiddenItems=org.kde.plasma.nightcolorcontrol
 knownItems=org.kde.plasma.printmanager,org.kde.plasma.keyboardindicator,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.plasma.clipboard,org.kde.plasma.battery,org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.bluetooth,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.plasma.keyboardlayout
 
 [Containments][70]
+ItemGeometriesHorizontal=
 activityId=869c7978-a258-4b23-9c4d-f3aeca254bee
 formfactor=0
 immutability=1
@@ -329,6 +329,7 @@ PreloadWeight=0
 Image=file:///home/clintp/.local/share/wallpapers/No.Plasma.logo.suede.gears.blue.yellow.ii.png
 
 [Containments][72]
+ItemGeometriesHorizontal=
 activityId=869c7978-a258-4b23-9c4d-f3aeca254bee
 formfactor=0
 immutability=1
@@ -363,4 +364,4 @@ immutability=1
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/Acrobat Reader DC.lnk,0,desktop:/Kindle.desktop,0,desktop:/https:⁄⁄theconversation.com⁄we-need-a-code-to-protect-our-online-privacy-and-wipe-out-dark-patterns-in-digital-design-145622.desktop,0,desktop:/Kindle.lnk,0,desktop:/Trader Workstation.desktop,0
+screenMapping=desktop:/Kindle.lnk,0,desktop:/Acrobat Reader DC.lnk,0,desktop:/https:⁄⁄codepen.io⁄hello_anwen⁄pen⁄mQBdmx.desktop,0,desktop:/Trader Workstation.desktop,0,desktop:/https:⁄⁄theconversation.com⁄we-need-a-code-to-protect-our-online-privacy-and-wipe-out-dark-patterns-in-digital-design-145622.desktop,0,desktop:/Kindle.desktop,0

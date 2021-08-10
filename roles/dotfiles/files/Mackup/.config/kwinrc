@@ -42,8 +42,8 @@ Meta=
 
 [NightColor]
 Active=true
-LatitudeAuto=-34.9274
-LongitudeAuto=138.6005
+LatitudeAuto=-32.0813
+LongitudeAuto=115.9879
 NightTemperature=3100
 
 [Plugins]

@@ -109,7 +109,7 @@ ForegroundVisited=127,140,141
 
 [DirSelect Dialog]
 DirSelectDialog Size=844,598
-History Items[$e]=file:$HOME/Downloads,file:$HOME/Downloads
+History Items[$e]=file:$HOME/Downloads,file:$HOME/Downloads,file:$HOME/Downloads
 
 [General]
 BrowserApplication=firefox.desktop
@@ -157,8 +157,8 @@ Speedbar Width=255
 View Style=Simple
 
 [KScreen]
-ScaleFactor=1
-ScreenScaleFactors=eDP1=1;DP1=1;DP2=1;HDMI1=1;VIRTUAL1=1;
+ScaleFactor=1.25
+ScreenScaleFactors=eDP1=1.25;DP1=1.25;DP2=1.25;HDMI1=1.25;VIRTUAL1=1.25;
 
 [KShortcutsDialog Settings]
 Dialog Size=914,873
@@ -167,32 +167,56 @@ Dialog Size=914,873
 MaximumRemoteSize=0
 
 [Shortcuts]
+AboutApp=
+AboutKDE=
 Activate Next Tab=Ctrl+PgDown;\s
 Activate Previous Tab=Ctrl+PgUp;\s
 BackwardWord=Alt+B
 BeginningOfLine=Ctrl+A
 Clear=Ctrl+U
 Close=Ctrl+Esc
-Copy=Ctrl+C; Meta+C
+ConfigureNotifications=
+ConfigureToolbars=
+Copy=Ctrl+C
 Cut=Ctrl+X; Meta+X
-DeleteFile=Shift+Del; Ctrl+D
+DeleteFile=Ctrl+D; Shift+Del
 DeleteWordBack=Ctrl+W
 DeleteWordForward=Alt+D
 DocumentForward=Ctrl+F
+Donate=
+EditBookmarks=
 EndOfLine=Ctrl+E
 Find=Meta+F
+FitToHeight=
+FitToPage=
+FitToWidth=
 Forward=
 ForwardWord=Alt+F
+Goto=
+GotoPage=
+KeyBindings=
+Mail=
 New=
+OpenRecent=
 Paste=Ctrl+V; Meta+V
 Print=
+PrintPreview=
 Quit=
+ReportBug=
+Revert=
 RotateDown=Ctrl+N
 RotateUp=
 Save=Meta+S
-SelectAll=Meta+A
+SaveOptions=
+SelectAll=
+ShowStatusbar=
+ShowToolbar=
+Spelling=
+SwitchApplicationLanguage=
 TextCompletion=
+TipofDay=
 Up=Ctrl+P
+Zoom=
 
 [WM]
 activeBackground=49,54,59

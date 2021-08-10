@@ -1,51 +1,54 @@
 // Place your key bindings in this file to override the defaults
 [
-    {
-        "key": "ctrl+w k",
-        "command": "workbench.action.focusAboveGroup",
-        "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode == 'Normal'",
-    },
-    {
-        "key": "ctrl+w j",
-        "command": "workbench.action.focusBelowGroup",
-        "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode == 'Normal'",
-    },
-    {
-        "key": "ctrl+w h",
-        "command": "workbench.action.focusLeftGroup",
-        "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode == 'Normal'",
-    },
-    {
-        "key": "ctrl+w l",
-        "command": "workbench.action.focusRightGroup",
-        "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode == 'Normal'",
-    },
-    {
-        "key": "ctrl+j",
-        "command": "selectNextSuggestion",
-        "when": "suggestWidgetVisible"
-      },
-      {
-        "key": "ctrl+k",
-        "command": "selectPrevSuggestion",
-        "when": "suggestWidgetVisible"
-      },{
-        "key": "ctrl+j",
-        "command": "workbench.action.quickOpenSelectNext",
-        "when": "inQuickOpen"
-      },
-      {
-        "key": "ctrl+k",
-        "command": "workbench.action.quickOpenSelectPrevious",
-        "when": "inQuickOpen"
-      },
-      {
-        "key": "ctrl+w c",
-        "command": "workbench.action.closeActiveEditor",
-        "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode == 'Normal'"
-      },
-      {
-        "key": "ctrl+w n",
-        "command": "workbench.action.openNewEditor",
-        "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode == 'Normal'"
-      }
+  // {
+  //   "key": "ctrl+p",
+  //   "command": "workbench.action.quickOpen",
+  //   "when": "!editorFocus && !inQuickOpen"
+  // },
+  {
+    "key": "ctrl+w",
+    "command": "workbench.action.closeActiveEditor",
+    "when": "!editorFocus"
+  },
+  {
+    "key": "ctrl+1",
+    "command": "workbench.action.openEditorAtIndex1"
+  },
+  {
+    "key": "ctrl+2",
+    "command": "workbench.action.openEditorAtIndex2"
+  },
+  {
+    "key": "ctrl+3",
+    "command": "workbench.action.openEditorAtIndex3"
+  },
+  {
+    "key": "ctrl+4",
+    "command": "workbench.action.openEditorAtIndex4"
+  },
+  {
+    "key": "ctrl+5",
+    "command": "workbench.action.openEditorAtIndex5"
+  },
+  {
+    "key": "ctrl+6",
+    "command": "workbench.action.openEditorAtIndex6"
+  },
+  {
+    "key": "ctrl+7",
+    "command": "workbench.action.openEditorAtIndex7"
+  },
+  {
+    "key": "ctrl+8",
+    "command": "workbench.action.openEditorAtIndex8"
+  },
+  {
+    "key": "ctrl+9",
+    "command": "workbench.action.openEditorAtIndex9"
+  },
+  {
+    "key": "ctrl+shift+v",
+    "command": "-markdown.showPreview",
+    "when": "!notebookEditorFocused && editorLangId == 'markdown'"
+  }
+]
