@@ -27,6 +27,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.vim/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-repeat'
 " https://www.rogin.xyz/blog/sensible-neovim
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'

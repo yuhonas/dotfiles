@@ -1,2 +1,5 @@
 [character]
 symbol = "»"
+
+[aws]
+disabled = true

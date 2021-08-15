@@ -151,7 +151,7 @@ ToolBoxButtonState=topcenter
 ToolBoxButtonX=838
 iconSize=2
 locked=true
-positions=1,23,desktop:/Kindle.lnk,0,3,desktop:/Kindle.desktop,0,2,desktop:/https:⁄⁄theconversation.com⁄we-need-a-code-to-protect-our-online-privacy-and-wipe-out-dark-patterns-in-digital-design-145622.desktop,0,1,desktop:/Acrobat Reader DC.lnk,0,0,desktop:/https:⁄⁄codepen.io⁄hello_anwen⁄pen⁄mQBdmx.desktop,0,5,desktop:/Trader Workstation.desktop,0,4
+positions=1,23,desktop:/https:⁄⁄theconversation.com⁄we-need-a-code-to-protect-our-online-privacy-and-wipe-out-dark-patterns-in-digital-design-145622.desktop,0,1,desktop:/Acrobat Reader DC.lnk,0,0,desktop:/Kindle.lnk,0,3,desktop:/Kindle.desktop,0,2,desktop:/https:⁄⁄codepen.io⁄hello_anwen⁄pen⁄mQBdmx.desktop,0,5,desktop:/Trader Workstation.desktop,0,4
 sortMode=-1
 
 [Containments][69][Wallpaper][org.kde.image][General]
@@ -364,4 +364,4 @@ immutability=1
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/Kindle.lnk,0,desktop:/Acrobat Reader DC.lnk,0,desktop:/https:⁄⁄codepen.io⁄hello_anwen⁄pen⁄mQBdmx.desktop,0,desktop:/Trader Workstation.desktop,0,desktop:/https:⁄⁄theconversation.com⁄we-need-a-code-to-protect-our-online-privacy-and-wipe-out-dark-patterns-in-digital-design-145622.desktop,0,desktop:/Kindle.desktop,0
+screenMapping=desktop:/Acrobat Reader DC.lnk,0,desktop:/Kindle.lnk,0,desktop:/Trader Workstation.desktop,0,desktop:/Kindle.desktop,0,desktop:/https:⁄⁄codepen.io⁄hello_anwen⁄pen⁄mQBdmx.desktop,0,desktop:/https:⁄⁄theconversation.com⁄we-need-a-code-to-protect-our-online-privacy-and-wipe-out-dark-patterns-in-digital-design-145622.desktop,0
