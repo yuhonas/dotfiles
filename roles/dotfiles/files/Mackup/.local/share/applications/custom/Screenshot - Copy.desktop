@@ -1,6 +1,6 @@
 [Desktop Entry]
 Comment=
-Exec=spectacle --region --background --clipboard
+Exec=spectacle --region --background -c
 Icon=spectacle
 Name=Screenshot - Copy
 NoDisplay=false

@@ -1,5 +1,5 @@
 [character]
-symbol = "»"
+format = "» "
 
 [aws]
 disabled = true

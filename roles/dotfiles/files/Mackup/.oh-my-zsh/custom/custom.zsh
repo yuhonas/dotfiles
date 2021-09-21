@@ -43,6 +43,10 @@ bindkey -s "^[r" "ranger^J"  # alt-r shortcut to file explorer
 # custom keybinding for tldr help on the current command
 bindkey "^[H" _tldr
 
+# ctrl-backspace for backword killword
+bindkey '^H' backward-kill-word
+
+
 # less input pre-processing through lesspipe
 # https://manpages.debian.org/jessie/less/lesspipe.1.en.html
 export LESSOPEN="|/usr/local/bin/lesspipe.sh %s"
