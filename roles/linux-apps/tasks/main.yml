@@ -5,23 +5,22 @@
   with_items:
     - community/rofi-calc
     - docker
-    # - keychain # key manager for OpenSSH
-    - ksshaskpass # https://wiki.archlinux.org/index.php/KDE_Wallet#Using_the_KDE_Wallet_to_store_ssh_key_passphrases
-    - pciutils # for lspci so we can inspect the video card
-    - pulseaudio # for audio
-    - ranger # visual file manager
+    - ksshaskpass  # https://wiki.archlinux.org/index.php/KDE_Wallet#Using_the_KDE_Wallet_to_store_ssh_key_passphrases
+    - pciutils  # for lspci so we can inspect the video card
+    - pulseaudio  # for audio
+    - ranger  # visual file manager
     - rofi
-    - restic # for fast, secure backup's
-    - xclip # for commandline clipboard management
-    - xorg-xrandr # for xwindow resizing/rotating/scaling
-    - xsel # for commandline clipboard management
-    - yay # AUR Helper written in go
+    - restic  # for fast, secure backup's
+    - xclip  # for commandline clipboard management
+    - xorg-xrandr  # for xwindow resizing/rotating/scaling
+    - xsel  # for commandline clipboard management
+    - yay  # AUR Helper written in go
 
 - name: create a user .config dir
   file: path="{{ ansible_env.HOME }}/.config" state=directory
 
 - name: create user dir for systemd inits
-  file: path="{{ ansible_env.HOME }}/.config/systemd/user" state=directory recurse=yes owner={{ ansible_ssh_user }}
+  file: path="{{ ansible_env.HOME }}/.config/systemd/user" state=directory recurse=true owner={{ ansible_ssh_user }}
 
 # - name: copy rclone systemd init
 #   template:
@@ -49,7 +48,7 @@
   user:
     name: "{{ ansible_ssh_user }}"
     groups: input
-    append: yes
+    append: true
   become: true
 
 - name: install libinput for touchpad gestures
@@ -140,7 +139,7 @@
   user:
     name: "{{ ansible_ssh_user }}"
     groups: docker
-    append: yes
+    append: true
   become: true
 
 - name: check for installed apps
@@ -169,7 +168,7 @@
   copy:
     src: 20-intel.conf
     dest: /usr/share/X11/xorg.conf.d/
-    backup: yes
+    backup: true
   become: true
   when: '"Intel Corporation" in vga_card.stdout'
 

@@ -11,7 +11,7 @@
       - xorg-xdpyinfo
       - ttf-hack # the terminal font I use
     state: present
-    update_cache: yes
+    update_cache: true
   become: true
 
 - name: copy over a custom neofetch config for the screenshot
@@ -55,7 +55,7 @@
   fetch:
     src: "{{ screenshot_file.path }}"
     dest: screenshot.png
-    flat: yes
+    flat: true
     validate_checksum: no
   changed_when: false
 

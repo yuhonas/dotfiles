@@ -4,7 +4,7 @@
 
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 - name: add local bin dir for custom scripts
-  file: path={{ ansible_env.HOME }}/.local/bin state=directory recurse=yes
+  file: path={{ ansible_env.HOME }}/.local/bin state=directory recurse=true
 
 - name: add sites dir for various projects
   file: path={{ ansible_env.HOME }}/Sites state=directory
@@ -38,7 +38,7 @@
       - tree
       - wget
       - zsh
-    update_homebrew: yes
+    update_homebrew: true
 
 - name: check if oh-my-zsh is installed
   stat:
@@ -67,7 +67,7 @@
       {{ brew_shellenv.stdout }}
       export FZF_BASE="{{ brew_fzfdir.stdout }}"
     insertbefore: BOF
-    create: yes
+    create: true
 
 - name: symlinking mackup config
   file: src="{{ ansible_env.HOME }}/src/ansible/roles/dotfiles/files/mackup.cfg" dest="{{ ansible_env.HOME }}/.mackup.cfg" state=link
@@ -88,7 +88,7 @@
   git:
     repo: https://github.com/tmux-plugins/tpm
     dest: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
-    recursive: yes
+    recursive: true
     version: master
 
 - name: install tmux plugins

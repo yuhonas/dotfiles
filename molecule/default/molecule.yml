@@ -3,8 +3,8 @@ driver:
   name: "docker"
 lint: |
   set -e
-  yamllint .
-  ansible-lint
+  # yamllint .
+  ansible-lint -x formatting playbook.yml roles/
   flake8
 platforms:
   - name: "molecule_instance"
