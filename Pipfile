@@ -11,6 +11,7 @@ ansible-lint = "*"
 flake8 = "*"
 molecule-docker = "*"
 yamllint = "==1.20.0"
+pytest = "*"
 
 [requires]
 python_version = "3.9"
