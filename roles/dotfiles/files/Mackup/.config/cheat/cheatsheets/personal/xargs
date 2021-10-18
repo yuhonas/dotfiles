@@ -1,2 +1,6 @@
 # xargs with a piped command
 ls *.xml --sort modified | xargs -I % bash -c 'cat "%" | xml2json >> output.json'
+
+# get the last created zip file and unzip it's content's to the /tmp directory
+ls --oneline --reverse --sort=created *.zip | head -n 1 | xargs -I % unzip -n "%" -d /tmp
+

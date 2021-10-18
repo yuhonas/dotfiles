@@ -44,7 +44,7 @@ bindkey -s "^[r" "ranger^J"  # alt-r shortcut to file explorer
 bindkey "^[H" _tldr
 
 # ctrl-backspace for backword killword
-bindkey '^H' backward-kill-word
+# bindkey '^H' backward-kill-word
 
 
 # less input pre-processing through lesspipe

@@ -21,6 +21,7 @@ env:
   WINIT_X11_SCALE_FACTOR: "1.0"
 
 window:
+  # title: Terminal
   # Window dimensions (changes require restart)
   #
   # Specified in number of columns/lines, not pixels. If both are zero this
@@ -415,7 +416,7 @@ cursor:
   # window is not focused.
   unfocused_hollow: true
 
-# dynamic_title: false
+# dynamic_title: true
 # Live config reload (changes require restart)
 live_config_reload: true
 
@@ -455,27 +456,27 @@ debug:
 # BEGIN ACE
 colors:
   primary:
-    background: '#031934'
-    foreground: '#bdaec1'
+    background: '#01205F'
+    foreground: '#a7d6ea'
   cursor:
-    text:       '#031934'
-    cursor:     '#bdaec1'
+    text:       '#01205F'
+    cursor:     '#a7d6ea'
   normal:
-    black:      '#031934'
-    red:        '#504A74'
-    green:      '#685278'
-    yellow:     '#375285'
-    blue:       '#615C87'
-    magenta:    '#716A8E'
-    cyan:       '#787890'
-    white:      '#bdaec1'
+    black:      '#01205F'
+    red:        '#5968AB'
+    green:      '#016DC7'
+    yellow:     '#256ECA'
+    blue:       '#2496DF'
+    magenta:    '#2297E1'
+    cyan:       '#43AAE7'
+    white:      '#a7d6ea'
   bright:
-    black:      '#847987'
-    red:        '#504A74'
-    green:      '#685278'
-    yellow:     '#375285'
-    blue:       '#615C87'
-    magenta:    '#716A8E'
-    cyan:       '#787890'
-    white:      '#bdaec1'
+    black:      '#7495a3'
+    red:        '#5968AB'
+    green:      '#016DC7'
+    yellow:     '#256ECA'
+    blue:       '#2496DF'
+    magenta:    '#2297E1'
+    cyan:       '#43AAE7'
+    white:      '#a7d6ea'
 # END ACE
