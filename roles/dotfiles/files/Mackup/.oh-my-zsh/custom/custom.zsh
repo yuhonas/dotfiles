@@ -2,10 +2,6 @@
 # https://github.com/junegunn/fzf
 # https://minsw.github.io/fzf-color-picker/
 export FZF_DEFAULT_OPTS="--reverse"
-# --color=fg:#d0d0d0,hl:#5f87af
-# --color=fg+:#d0d0d0,hl+:#5fd7ff
-# --color=info:#afaf87,prompt:#00d6a4,pointer:#af5fff
-# --color=marker:#87ff00,spinner:#af5fff,header:#87afaf"
 
 # Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden'
@@ -19,6 +15,16 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 alias vi="nvim"
 alias vim="nvim"
+
+# Import pywal colors if they have been exported
+# this sets FZF and a whole bunch of color ENV variables to be used in scripts 
+# see also https://github.com/dylanaraps/wal
+
+PYWAL_COLORS="$HOME/.cache/wal/colors.sh"
+
+if [ -f "$PYWAL_COLORS" ]; then
+  source $PYWAL_COLORS
+fi
 
 # set TERM if we're not in tmux
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
