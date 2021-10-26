@@ -211,7 +211,7 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 " Put your non-Plugin stuff after this line
 "
 
-" set number              " show line numbers
+set number              " show line numbers
 " set showcmd             " show command in bottom bar
 " set cursorline 		" highlight current line
 inoremap fd <esc>       " escape is something  little far away

@@ -55,6 +55,7 @@
 - name: create alfred configuration directory
   file:
     path: "{{ ansible_env.HOME }}/Library/Application Support/Alfred 3/Alfred.alfredpreferences/preferences/features/websearch"
+    mode: 0644
     state: directory
 
 - name: symlink alfred configuration

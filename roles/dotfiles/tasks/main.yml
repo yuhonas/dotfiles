@@ -7,7 +7,7 @@
   file: path={{ ansible_env.HOME }}/.local/bin state=directory recurse=true
 
 - name: add sites dir for various projects
-  file: path={{ ansible_env.HOME }}/Sites state=directory
+  file: path={{ ansible_env.HOME }}/Sites state=directory mode=0644
 
 - name: base packages
   homebrew:
@@ -62,6 +62,7 @@
 - name: ensure brew env vars exist in zshenv
   blockinfile:
     path: "{{ ansible_env.HOME }}/.zshenv"
+    mode: 0644
     block: |
       {{ brew_shellenv.stdout }}
       export FZF_BASE="{{ brew_fzfdir.stdout }}"

@@ -16,10 +16,10 @@
     - xsel  # for commandline clipboard management
     - yay  # AUR Helper written in go
 - name: create a user .config dir
-  file: path="{{ ansible_env.HOME }}/.config" state=directory
+  file: path="{{ ansible_env.HOME }}/.config" state=directory mode=0644
 
 - name: create user dir for systemd inits
-  file: path="{{ ansible_env.HOME }}/.config/systemd/user" state=directory recurse=true owner={{ ansible_ssh_user }}
+  file: path="{{ ansible_env.HOME }}/.config/systemd/user" state=directory recurse=true owner={{ ansible_ssh_user }} mode=0644
 
 # - name: copy rclone systemd init
 #   template:
@@ -32,6 +32,7 @@
     src: ssh-agent.service
     dest: "{{ ansible_env.HOME }}/.config/systemd/user/ssh-agent.service"
     owner: "{{ ansible_ssh_user }}"
+    mode: 0644
 
 # - name: ensure we have a dropbox dir that rclone can mount too
 #   file: path={{ dropbox_directory }} state=directory
@@ -168,6 +169,7 @@
     src: 20-intel.conf
     dest: /usr/share/X11/xorg.conf.d/
     backup: true
+    mode: 0644
   become: true
   when: '"Intel Corporation" in vga_card.stdout'
 

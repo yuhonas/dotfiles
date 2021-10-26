@@ -18,6 +18,7 @@
   copy:
     src: config.conf
     dest: "{{ ansible_env.HOME }}/.config/neofetch/"
+    mode: 0644
 
 - name: check for existing xvfb server
   command: xdpyinfo -display :{{ display_server }}
