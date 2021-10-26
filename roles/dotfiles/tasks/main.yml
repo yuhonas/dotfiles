@@ -22,15 +22,14 @@
       - fd  # find replacement
       - fzf  # fuzzy finder
       - getantibody/tap/antibody # the fastest shell plugin manager (zsh)
+      - gocryptfs # encrypted overlay filesystem
       - git
       - ispell
       - lesspipe
-      - lsd # an ls replacement
       - mackup  # symlink farm
-      # - moreutils # https://joeyh.name/code/moreutils/
       - ncdu  # ncurses disk usage
       - neovim
-      - ripgrep  # like grep but better
+      # - ripgrep  # like grep but better, see https://news.ycombinator.com/item?id=12567328
       - starship # fast/cross shell prompt
       - the_silver_searcher  # like ack but faster
       - tldr  # community driven man pages

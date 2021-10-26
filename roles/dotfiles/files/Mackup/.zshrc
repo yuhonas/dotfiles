@@ -84,6 +84,7 @@ ohmyzsh/ohmyzsh path:plugins/last-working-dir
 ohmyzsh/ohmyzsh path:plugins/sudo
 ohmyzsh/ohmyzsh path:plugins/tmux
 "
+# wookayin/fzf-fasd
 
 # Third party plugins
 # DarrinTisdale/zsh-aliases-exa
