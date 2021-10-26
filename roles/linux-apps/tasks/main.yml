@@ -15,7 +15,6 @@
     - xorg-xrandr  # for xwindow resizing/rotating/scaling
     - xsel  # for commandline clipboard management
     - yay  # AUR Helper written in go
-
 - name: create a user .config dir
   file: path="{{ ansible_env.HOME }}/.config" state=directory
 
