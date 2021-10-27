@@ -3,7 +3,7 @@
 
 set -e
 
-SRC_DIRECTORY="$HOME/src"
+SRC_DIRECTORY="$HOME/dotfiles"
 ANSIBLE_DIRECTORY="$SRC_DIRECTORY/ansible"
 ANSIBLE_REPO="https://github.com/yuhonas/dotfiles.git"
 export ANSIBLE_NOCOWS=1
