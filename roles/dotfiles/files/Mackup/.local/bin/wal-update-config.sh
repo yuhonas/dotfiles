@@ -20,6 +20,11 @@ fi
 # see https://github.com/dylanaraps/pywal/wiki/Customization#user-content-scripting-files
 . $HOME/.cache/wal/colors.sh
 
+# swap out alacritty colors if the exporter is installed
+if type alacritty-color-export.sh > /dev/null 2>&1; then
+  alacritty-color-export.sh
+fi
+
 # add custom css for waybar
 if [[ -f $WALL_WAYBAR_THEME ]]; then
   [ -d $WAYBAR_DIR ] || mkdir -p $WAYBAR_DIR
