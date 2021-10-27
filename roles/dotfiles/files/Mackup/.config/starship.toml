@@ -3,3 +3,6 @@ format = "» "
 
 [aws]
 disabled = true
+
+[python]
+disabled = true

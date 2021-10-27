@@ -19,6 +19,7 @@
 #      - hr
       - httpie
       # - inotify-tools
+      - imagemagick # for pywal amongst other useful manipulations
       - jq
 #      - lazygit
 #      - lnav
@@ -28,6 +29,7 @@
       - p7zip
       - pandoc
       - pgcli
+      - pidof # for pywal
       - poppler  # for lesspipe
       - pv
 #      - qt
@@ -87,6 +89,7 @@
   pip:
     name:
       - csvkit
+      - pywal
     state: present
     executable: "{{ ansible_env.HOME }}/.asdf/shims/pip"
 

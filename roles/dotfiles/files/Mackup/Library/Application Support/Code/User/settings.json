@@ -1,6 +1,6 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "workbench.colorTheme": "Monokai Dimmed",
+    "workbench.colorTheme": "Default Dark+",
     "window.zoomLevel": 0,
     "editor.fontSize": 14,
     "editor.minimap.enabled": false,

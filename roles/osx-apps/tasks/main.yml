@@ -5,12 +5,12 @@
   homebrew_cask: name={{ item }} state=present
   with_items:
     - 1password
-    - alacritty
     - alfred
     # - bitbar
     # - drop-to-gif
     # - evernote
     # - firefox
+    # - google-drive
     # - handbrake
     # - insomnia
     # - keybase
@@ -31,13 +31,14 @@
 - name: developer applications
   homebrew_cask: name={{ item }} state=present
   with_items:
+    # - alacritty
     # - dash
     # - gitkraken
+    - kitty
     # - iterm2
     # - postico
     # - sequel-pro
     # - sourcetree
-    # - sublime-text
     # - vagrant-manager
     - visual-studio-code
 

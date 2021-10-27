@@ -22,7 +22,7 @@
       - fd  # find replacement
       - fzf  # fuzzy finder
       - gawk # for tmux fingers plugin
-      - getantibody/tap/antibody # the fastest shell plugin manager (zsh)
+      # - getantibody/tap/antibody # the fastest shell plugin manager (zsh)
 #      - gocryptfs # encrypted overlay filesystem
       - git
       - ispell
