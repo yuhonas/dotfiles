@@ -10,18 +10,18 @@
       - dos2unix
       - emacs
       - jdupes # faster then fdupes
-      - figlet
-      - fortune
+#      - figlet
+#      - fortune
       - github/gh/gh # https://github.com/cli/cli
-      - git-extras
+#      - git-extras
       # - git-town
       - gnupg
-      - hr
+#      - hr
       - httpie
       # - inotify-tools
       - jq
-      - lazygit
-      - lnav
+#      - lazygit
+#      - lnav
       - md5deep
       - neofetch
       - nmap
@@ -30,13 +30,13 @@
       - pgcli
       - poppler  # for lesspipe
       - pv
-      - qt
+#      - qt
       - readline
       - redis
       - ruby-build
-      - sox  # sound processing lib
+#      - sox  # sound processing lib
       - sqlite
-      - thefuck
+      # - thefuck
       - w3m
 
 - name: find where asdf was installed
@@ -46,32 +46,30 @@
 
 # - debug: msg="{{ asdf_location.stdout }}"
 
-- name: ensure asdf is in the $PATH
-  blockinfile:
-    path: "{{ ansible_env.HOME }}/.bashrc"
-    block: |
-      export ASDF_DIR={{ asdf_location.stdout }}
-      export PATH=~/.asdf/shims:$PATH
+#- name: ensure asdf is in the $PATH
+#  blockinfile:
+#    path: "{{ ansible_env.HOME }}/.bashrc"
+#    block: |
+#      export ASDF_DIR={{ asdf_location.stdout }}
+#      export PATH=~/.asdf/shims:$PATH
 
 - name: add asdf plugins
   command: "asdf plugin-add {{ item }}"
   with_items:
-    - golang
     - ruby
     - nodejs
     - python
   ignore_errors: true
 
-- name: set global asdf versions
-  blockinfile:
-    path: "{{ ansible_env.HOME }}/.tool-versions"
-    mode: 0644
-    create: true
-    block: |
-      golang 1.12.5
-      nodejs 14.15.0
-      python 3.7.7
-      ruby 2.7.1
+# - name: set global asdf versions
+#   blockinfile:
+#     path: "{{ ansible_env.HOME }}/.tool-versions"
+#     mode: 0644
+#     create: true
+#     block: |
+#       nodejs 17.0.1
+#       python 3.9.0
+#       ruby 2.7.4
 
 - name: update asdf plugin versions
   command: asdf plugin-update --all
@@ -89,32 +87,31 @@
   pip:
     name:
       - csvkit
-      - haxor-news
     state: present
-    executable: ~/.asdf/shims/pip
+    executable: "{{ ansible_env.HOME }}/.asdf/shims/pip"
 
-- name: ruby packages
-  gem:
-    name: "{{ item }}"
-    state: present
-    executable: ~/.asdf/shims/gem
-  with_items:
-    - seeing_is_believing
+# - name: ruby packages
+#   gem:
+#     name: "{{ item }}"
+#     state: present
+#     executable: "{{ ansible_env.HOME }}/.asdf/shims/gem"
+#  with_items:
+#    - seeing_is_believing
 
-- name: node packages
-  npm:
-    name: "{{ item }}"
-    state: present
-    global: true
-    executable: ~/.asdf/shims/npm
-  with_items:
-    - alacritty-themes
+# - name: node packages
+#   npm:
+#     name: "{{ item }}"
+#     state: present
+#     global: true
+#     executable: "{{ ansible_env.HOME }}/.asdf/shims/npm"
+#   with_items:
+#     - alacritty-themes
 
 - name: asdf reshim
   command: asdf reshim
 
-- name: install spacemacs
-  git:
-    repo: https://github.com/syl20bnr/spacemacs
-    dest: "{{ ansible_env.HOME }}/.emacs.d"
-    version: master
+#- name: install spacemacs
+#  git:
+#    repo: https://github.com/syl20bnr/spacemacs
+#    dest: "{{ ansible_env.HOME }}/.emacs.d"
+#    version: master

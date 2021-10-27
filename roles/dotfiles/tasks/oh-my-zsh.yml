@@ -28,5 +28,5 @@
   become: true
 
 - name: setting zsh as the default shell
-  shell: "chsh --shell {{ zsh_path.stdout }} {{ ansible_ssh_user  }}"
+  shell: "chsh --shell {{ zsh_path.stdout }} {{ ansible_user  }}"
   become: true

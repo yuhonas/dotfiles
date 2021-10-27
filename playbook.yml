@@ -16,8 +16,8 @@
 - hosts: os_Darwin
   connection: local
   roles:
-    - osx-apps
-    - osx-defaults
+   - osx-apps
+   # - osx-defaults
 
 - hosts: os_Archlinux
   connection: local

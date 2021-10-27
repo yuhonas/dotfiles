@@ -1,4 +1,3 @@
----
 - name: update homebrew
   homebrew: update_homebrew=yes
 
@@ -6,61 +5,65 @@
   homebrew_cask: name={{ item }} state=present
   with_items:
     - 1password
+    - alacritty
     - alfred
-    - bitbar
-    - drop-to-gif
-    - dropbox
-    - evernote
-    - firefox
-    - flux
-    - handbrake
-    - insomnia
-    - keybase
-    - libreoffice
+    # - bitbar
+    # - drop-to-gif
+    # - evernote
+    # - firefox
+    # - handbrake
+    # - insomnia
+    # - keybase
+    # - libreoffice
     - rectangle
-    - skype
+    # - skype
+    - signal
     - spotify
-    - torbrowser
-    - uninstallpkg
+    - tor-browser
+    # - uninstallpkg
     - vlc
 
+# the version of bash that ships with macos (3.2.x) at the time
+# is super old and breaks the tmux fingers plugin
+- name: install a modern version of bash
+  homebrew: name=bash state=latest
 
 - name: developer applications
   homebrew_cask: name={{ item }} state=present
   with_items:
-    - dash
-    - gitkraken
-    - iterm2
-    - postico
-    - sequel-pro
-    - sourcetree
-    - sublime-text
-    - vagrant-manager
+    # - dash
+    # - gitkraken
+    # - iterm2
+    # - postico
+    # - sequel-pro
+    # - sourcetree
+    # - sublime-text
+    # - vagrant-manager
     - visual-studio-code
 
-- name: quicklook plugins
-  homebrew_cask: name={{ item }} state=present
-  with_items:
-    - betterzipql
-    - qlcolorcode
-    - qlmarkdown
-    - qlstephen
-    - quicklook-json
+# - name: quicklook plugins
+#   homebrew_cask: name={{ item }} state=present
+#   with_items:
+#     - betterzipql
+#     - qlcolorcode
+#     - qlmarkdown
+#     - qlstephen
+#     - quicklook-json
 
 
 # see https://superuser.com/questions/256232/how-can-i-get-qmake-on-mac-os-x
-- name: link qt
-  homebrew: name=qt state=linked
+# - name: link qt
+#   homebrew: name=qt state=linked
 
-- name: create alfred configuration directory
-  file:
-    path: "{{ ansible_env.HOME }}/Library/Application Support/Alfred 3/Alfred.alfredpreferences/preferences/features/websearch"
-    mode: 0644
-    state: directory
+# - name: create alfred configuration directory
+#   file:
+#     path: "{{ ansible_env.HOME }}/Library/Application Support/Alfred 3/Alfred.alfredpreferences/preferences/features/websearch"
+#     mode: 0644
+#     state: directory
 
-- name: symlink alfred configuration
-  file:
-    src: "{{ role_path }}/files/alfred/prefs.plist"
-    dest: "{{ ansible_env.HOME }}/Library/Application Support/Alfred 3/Alfred.alfredpreferences/preferences/features/websearch/prefs.plist"
-    state: link
-    force: true
+# - name: symlink alfred configuration
+#   file:
+#     src: "{{ role_path }}/files/alfred/prefs.plist"
+#     dest: "{{ ansible_env.HOME }}/Library/Application Support/Alfred 3/Alfred.alfredpreferences/preferences/features/websearch/prefs.plist"
+#     state: link
+#     force: true

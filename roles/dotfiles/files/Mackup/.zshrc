@@ -1,140 +1,70 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# download znap plugin manager if it's not there yet.
+[[ -f ~/dotfiles/zsh-snap/znap.zsh ]] ||
+    git clone --depth 1 -- \
+        https://github.com/marlonrichert/zsh-snap.git ~/dotfiles/zsh-snap
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+source ~/dotfiles/zsh-snap/znap.zsh  # Start Znap
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+# source $ZSH/oh-my-zsh.sh
+# export ZSH_CACHE_DIR=$ZSH/cache
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+znap source ohmyzsh/ohmyzsh
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+znap source ohmyzsh/ohmyzsh plugins/asdf
+# znap source ohmyzsh/ohmyzsh plugins/bundler
+znap source ohmyzsh/ohmyzsh plugins/colored-man-pages
+znap source ohmyzsh/ohmyzsh plugins/cp
+znap source ohmyzsh/ohmyzsh plugins/extract
+znap source ohmyzsh/ohmyzsh plugins/fasd
+znap source ohmyzsh/ohmyzsh plugins/fzf
+znap source ohmyzsh/ohmyzsh plugins/git
+znap source ohmyzsh/ohmyzsh plugins/history
+znap source ohmyzsh/ohmyzsh plugins/last-working-dir
+znap source ohmyzsh/ohmyzsh plugins/osx
+znap source ohmyzsh/ohmyzsh plugins/sudo
+znap source ohmyzsh/ohmyzsh plugins/tmux
+## wookayin/fzf-fasd
 
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+## Third party plugins
+znap source Aloxaf/fzf-tab
+znap source DarrinTisdale/zsh-aliases-exa
+znap source MichaelAquilina/zsh-you-should-use
+znap source mollifier/cd-gitroot
+znap source wfxr/forgit
+znap source zdharma/fast-syntax-highlighting
+znap source zsh-users/zsh-autosuggestions
+znap source zsh-users/zsh-completions
 
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-source <(antibody init)
-
-# Load the oh-my-zsh's library.
-antibody bundle ohmyzsh/ohmyzsh
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antibody bundle "
-ohmyzsh/ohmyzsh path:plugins/archlinux
-ohmyzsh/ohmyzsh path:plugins/asdf
-ohmyzsh/ohmyzsh path:plugins/bundler
-ohmyzsh/ohmyzsh path:plugins/colored-man-pages
-ohmyzsh/ohmyzsh path:plugins/cp
-ohmyzsh/ohmyzsh path:plugins/extract
-ohmyzsh/ohmyzsh path:plugins/fasd
-ohmyzsh/ohmyzsh path:plugins/fzf
-ohmyzsh/ohmyzsh path:plugins/git
-ohmyzsh/ohmyzsh path:plugins/history
-ohmyzsh/ohmyzsh path:plugins/last-working-dir
-ohmyzsh/ohmyzsh path:plugins/sudo
-ohmyzsh/ohmyzsh path:plugins/tmux
-"
-# wookayin/fzf-fasd
-
-# Third party plugins
-# DarrinTisdale/zsh-aliases-exa
-antibody bundle "
-Aloxaf/fzf-tab
-DarrinTisdale/zsh-aliases-exa
-MichaelAquilina/zsh-you-should-use
-mollifier/cd-gitroot
-wfxr/forgit
-zdharma/fast-syntax-highlighting
-zsh-users/zsh-autosuggestions
-zsh-users/zsh-completions
-"
-
-# My customizations
-antibody bundle $HOME/.oh-my-zsh/custom
-
-# Reminders about aliases I've set up.
-# antibody bundle djui/alias-tips
-
-# Load the theme.
-# antigen theme $ZSH_THEME
+## My customizations
+source $HOME/.oh-my-zsh/custom/custom.zsh
 
 # set the starship prompt if it exists
 if (( $+commands[starship] )); then
-  eval "$(starship init zsh)"
+  # eval "$(starship init zsh)"
+  znap eval starship 'starship init zsh --print-full-init'
 fi
 
-# User configuration
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
 
-# export MANPATH="/usr/local/man:$MANPATH"
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zinit-zsh/z-a-rust \
+    zinit-zsh/z-a-as-monitor \
+    zinit-zsh/z-a-patch-dl \
+    zinit-zsh/z-a-bin-gem-node
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+### End of Zinit's installer chunk
