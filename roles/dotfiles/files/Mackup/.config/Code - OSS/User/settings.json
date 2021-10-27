@@ -1,11 +1,28 @@
 {
     "vim.incsearch": true,
-    "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
     "vim.leader": "\\",
     "vim.cursorStylePerMode.replace": "underline",
-    "window.zoomLevel": 0,
     "liveServer.settings.donotShowInfoMsg": true,
-    "diffEditor.renderSideBySide": false
+    "diffEditor.renderSideBySide": false,
+    "vim.useSystemClipboard": false,
+    "vim.handleKeys": {
+        "<C-w>": false,
+        "<C-p>": false
+    },
+    "vim.commandLineModeKeyBindings": [
+
+    ],
+    "editor.minimap.enabled": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "keyboard.dispatch": "keyCode",
+    "todo.symbols.box": "[ ]",
+    "todo.symbols.done": "[x]",
+    "todo.symbols.cancelled": "[-]",
+    "solargraph.commandPath": "/home/clintp/.asdf/shims/solargraph",
+    "tailwindCSS.includeLanguages": {
+        "slim": "html",
+        "slim-lang": "html"
+    }
 }

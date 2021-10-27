@@ -10,3 +10,10 @@ rofi.padding: 10
 rofi.bw: 0
 rofi.eh: 1
 rofi.separator-style: none
+
+
+Sxiv.background: #000000
+Sxiv.foreground: #00C0FF
+Sxiv.font: Hack-9
+
+

@@ -1,11 +1,7 @@
 # fzf default options
 # https://github.com/junegunn/fzf
 # https://minsw.github.io/fzf-color-picker/
-export FZF_DEFAULT_OPTS="--reverse
---color=fg:#d0d0d0,hl:#5f87af
---color=fg+:#d0d0d0,hl+:#5fd7ff
---color=info:#afaf87,prompt:#00d6a4,pointer:#af5fff
---color=marker:#87ff00,spinner:#af5fff,header:#87afaf"
+export FZF_DEFAULT_OPTS="--reverse"
 
 # Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden'
@@ -14,9 +10,21 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="--preview='less -10 {+} 2>/dev/null'"
 
-# use vim as the default editor
-export VISUAL=vim
+# use neovim as the default editor
+export VISUAL=nvim
 export EDITOR="$VISUAL"
+alias vi="nvim"
+alias vim="nvim"
+
+# Import pywal colors if they have been exported
+# this sets FZF and a whole bunch of color ENV variables to be used in scripts 
+# see also https://github.com/dylanaraps/wal
+
+PYWAL_COLORS="$HOME/.cache/wal/colors.sh"
+
+if [ -f "$PYWAL_COLORS" ]; then
+  source $PYWAL_COLORS
+fi
 
 # set TERM if we're not in tmux
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
@@ -40,6 +48,10 @@ bindkey -s "^[l" "ls -al^J"  # alt-l shortcut to listing a directory
 bindkey -s "^[r" "ranger^J"  # alt-r shortcut to file explorer
 # custom keybinding for tldr help on the current command
 bindkey "^[H" _tldr
+
+# ctrl-backspace for backword killword
+# bindkey '^H' backward-kill-word
+
 
 # less input pre-processing through lesspipe
 # https://manpages.debian.org/jessie/less/lesspipe.1.en.html

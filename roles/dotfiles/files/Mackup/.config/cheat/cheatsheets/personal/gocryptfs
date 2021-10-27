@@ -1,0 +1,18 @@
+# Creating an encrypted folder
+mkdir <encrypted> <decrypted>
+gocryptfs -init <encrypted>
+gocryptfs <encrypted> <decrypted>
+
+# Unmounting an encrypted folder
+fusermount -u <decrypted>
+rmdir <decrypted>
+
+# Allow other users to access the encrypted folder
+gocryptfs -allow_other <encrypted> <decrypted>
+
+# Change the password of an encrypted folder
+$ gocryptfs -passwd <encrypted>
+
+# Mount directory as read only
+$ gocryptfs -ro <encrypted> <decrypted>
+

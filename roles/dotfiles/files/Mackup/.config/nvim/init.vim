@@ -1,38 +1,25 @@
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""A
-" Sets how many lines of history VIM has to remember
-set history=500
-
-" Enable filetype plugins
-filetype indent on           " load filetype-specific indent files
-filetype on
-filetype plugin indent on
-
-" Set to auto read when a file is changed from the outside
-" set autoread
-
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
 let mapleader = "\<Space>"
 
-" fast quitting
-nmap <leader>q :q!<cr>
-
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
-command W w !sudo tee % > /dev/null
+command! W w !sudo tee % > /dev/null
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if empty(glob('~/.vim/plugged'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+let g:vim_plugged_path=stdpath('data') . '/plugged'
 
-call plug#begin('~/.vim/plugged')
+if empty(glob(g:vim_plugged_path))
+   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+ endif
+
+call plug#begin(g:vim_plugged_path)
 " general plugins
 Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
@@ -40,29 +27,31 @@ Plug 'junegunn/fzf', { 'dir': '~/.vim/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-repeat'
+" https://www.rogin.xyz/blog/sensible-neovim
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
-Plug 'flazz/vim-colorschemes'
-Plug 'dylanaraps/wal'
-Plug 'wincent/terminus'
+" Plug 'flazz/vim-colorschemes'
+" Plug 'dylanaraps/wal'
+" Plug 'wincent/terminus'
 Plug 'jamessan/vim-gnupg', { 'branch': 'main' }
 
-" intellisense engine for vim
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" " intellisense engine for vim
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" git
-Plug 'airblade/vim-gitgutter'
-Plug 'jreybert/vimagit'
-Plug 'ruanyl/vim-gh-line'
+" " git
+" Plug 'airblade/vim-gitgutter'
+" Plug 'jreybert/vimagit'
+" Plug 'ruanyl/vim-gh-line'
 
-" elixir support
-Plug 'slashmili/alchemist.vim'
-Plug 'elixir-editors/vim-elixir'
+" " elixir support
+" Plug 'slashmili/alchemist.vim'
+" Plug 'elixir-editors/vim-elixir'
 
-" ruby/rails support
-Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rails'
-" All of your Plugins must be added before the following line
+" " ruby/rails support
+" Plug 'vim-ruby/vim-ruby'
+" Plug 'tpope/vim-rails'
+" " All of your Plugins must be added before the following line
 call plug#end()
 
 
@@ -71,24 +60,14 @@ call plug#end()
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""A
 
-" Turn on the Wild menu
-" set wildmenu
-
-" Always show current position
-" set ruler
-
 " Height of the command bar
-"set cmdheight=2
-
-" A buffer becomes hidden when it is abandoned
-set hidden
+set cmdheight=2
 
 "set shell=bash                " as we're using fish shell, let's set bash explicitally or some plugins may not work
-set nocompatible              " be iMproved, required
 
 " Configure backspace so it acts as it should act
 "set backspace=2               " Backspace deletes like most programs in insert mode
-"set backspace=eol,start,indent
+set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
 " Ignore case when searching
@@ -97,30 +76,15 @@ set ignorecase
 " When searching try to be smart about cases
 set smartcase
 
-" Highlight search results
-set hlsearch
-
-" Makes search act like search in modern browsers
-" set incsearch
 
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
-
-" For regular expressions turn magic on
-set magic
 
 " Show matching brackets when text indicator is over them
 set showmatch
 
 " How many tenths of a second to blink when matching brackets
 set mat=2
-
-" No annoying sound on errors
-set belloff=all
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -129,22 +93,22 @@ set tm=500
 " https://alex.dzyoba.com/blog/vim-revamp/
 
 " https://github.com/tmux/tmux/issues/1246
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
+" if exists('+termguicolors')
+"   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"   set termguicolors
+" endif
 
 "syntax enable           " enable syntax processing
 
-try
-   colorscheme quantum
-   set background=dark
-catch
-endtry
+" try
+"    colorscheme quantum
+"    set background=dark
+" catch
+" endtry
 
 " Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
+" set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
@@ -165,24 +129,21 @@ set noswapfile
 " tabs are spaces
 set expandtab
 
-" Be smart when using tabs ;)
-"set smarttab
+"" Be smart when using tabs ;)
+""set smarttab
 
-" number of visual spaces per TAB
+"" number of visual spaces per TAB
 set tabstop=2
 
-" number of spaces in tab when editing
-set softtabstop=2
+"" number of spaces in tab when editing
+"set softtabstop=2
 
-" Make it obvious where 80 characters is
+"" Make it obvious where 80 characters is
 set textwidth=80
 
 set shiftwidth=2
 
-" copy indent from current line into next
-"set autoindent
-
-set colorcolumn=+1
+" set colorcolumn=+1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
@@ -251,8 +212,8 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 "
 
 set number              " show line numbers
-set showcmd             " show command in bottom bar
-set cursorline 		" highlight current line
+" set showcmd             " show command in bottom bar
+" set cursorline 		" highlight current line
 inoremap fd <esc>       " escape is something  little far away
 
 " NERDTree Configuration
@@ -302,85 +263,85 @@ set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
 
-" editorconfig configuration
-" ensure that this plugin works well with Tim Pope's fugitive, use the following patterns array:
-let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
+"" editorconfig configuration
+"" ensure that this plugin works well with Tim Pope's fugitive, use the following patterns array:
+"let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 
-" coc configuration
-" https://github.com/neoclide/coc.nvim
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"" coc configuration
+"" https://github.com/neoclide/coc.nvim
+"" Use tab for trigger completion with characters ahead and navigate.
+"" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+"inoremap <silent><expr> <TAB>
+"      \ pumvisible() ? "\<C-n>" :
+"      \ <SID>check_back_space() ? "\<TAB>" :
+"      \ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+"function! s:check_back_space() abort
+"  let col = col('.') - 1
+"  return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
 
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+"" Use <c-space> to trigger completion.
+"inoremap <silent><expr> <c-space> coc#refresh()
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Or use `complete_info` if your vim support it, like:
-inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+"" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+"" Coc only does snippet and additional edit on confirm.
+"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"" Or use `complete_info` if your vim support it, like:
+"inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-"nmap <silent> gs <Plug>(coc-references)
-map <leader>gs :CocList outline<cr>
+"" Remap keys for gotos
+"nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gy <Plug>(coc-type-definition)
+"nmap <silent> gi <Plug>(coc-implementation)
+"nmap <silent> gr <Plug>(coc-references)
+""nmap <silent> gs <Plug>(coc-references)
+"map <leader>gs :CocList outline<cr>
 
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+"" Use K to show documentation in preview window
+"nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
+"function! s:show_documentation()
+"  if (index(['vim','help'], &filetype) >= 0)
+"    execute 'h '.expand('<cword>')
+"  else
+"    call CocAction('doHover')
+"  endif
+"endfunction
 
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+"" Highlight symbol under cursor on CursorHold
+"autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+"" Remap for rename current word
+"nmap <leader>rn <Plug>(coc-rename)
 
-" Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
+"" Remap for format selected region
+"xmap <leader>f  <Plug>(coc-format-selected)
 
-" Easymotion config
-" https://github.com/easymotion/vim-easymotion
-" <Leader>f{char} to move to {char}
-map  <Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader>f <Plug>(easymotion-overwin-f)
+"" Easymotion config
+"" https://github.com/easymotion/vim-easymotion
+"" <Leader>f{char} to move to {char}
+"map  <Leader>f <Plug>(easymotion-bd-f)
+"nmap <Leader>f <Plug>(easymotion-overwin-f)
 
-" s{char}{char} to move to {char}{char}
-"nmap s <Plug>(easymotion-overwin-f2)
+"" s{char}{char} to move to {char}{char}
+""nmap s <Plug>(easymotion-overwin-f2)
 
-" Move to line
-map <Leader>L <Plug>(easymotion-bd-jk)
-nmap <Leader>L <Plug>(easymotion-overwin-line)
+"" Move to line
+"map <Leader>L <Plug>(easymotion-bd-jk)
+"nmap <Leader>L <Plug>(easymotion-overwin-line)
 
-" Move to word
-map  <Leader>w <Plug>(easymotion-bd-w)
+"" Move to word
+"map  <Leader>w <Plug>(easymotion-bd-w)
 
-" machine specific vim customizations
-if filereadable(expand('~/.vimrc.local'))
-  source ~/.vimrc.local
-endif
+"" machine specific vim customizations
+"if filereadable(expand('~/.vimrc.local'))
+"  source ~/.vimrc.local
+"endif
 
 " https://sw.kovidgoyal.net/kitty/faq.html#using-a-color-theme-with-a-background-color-does-not-work-well-in-vim
-let &t_ut=''
+" let &t_ut=''
 
 " disable ex-mode, I accidently hit it *way* too often
 map Q <Nop>

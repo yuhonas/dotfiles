@@ -19,7 +19,7 @@ class Object
   def local_methods(obj = self)
     (obj.methods - obj.class.superclass.instance_methods).sort
   end
-  
+
   # print documentation
   #
   #   ri 'Array#pop'
@@ -36,7 +36,9 @@ class Object
 end
 
 def copy(str)
-  IO.popen('pbcopy', 'w') { |f| f << str.to_s }
+  # use zsh clipboard aliases so it works cross platform
+  # see https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
+  IO.popen('zsh --interactive -c clipcopy', 'w') { |f| f << str.to_s }
 end
 
 def copy_history
@@ -48,5 +50,7 @@ def copy_history
 end
 
 def paste
-  `pbpaste`
+  # use zsh clipboard aliases so it works cross platform
+  # see https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
+  `zsh --interactive -c clippaste`
 end

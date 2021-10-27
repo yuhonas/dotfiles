@@ -1,5 +1,5 @@
 [ActionPlugins][0]
-MidButton;NoModifier=org.kde.contextmenu
+MiddleButton;NoModifier=org.kde.contextmenu
 RightButton;NoModifier=org.kde.contextmenu
 wheel:Vertical;NoModifier=org.kde.switchdesktop
 
@@ -56,7 +56,7 @@ immutability=1
 plugin=org.kde.plasma.kickoff
 
 [Containments][2][Applets][39][Configuration]
-PreloadWeight=100
+PreloadWeight=92
 
 [Containments][2][Applets][39][Configuration][ConfigDialog]
 DialogHeight=540
@@ -83,12 +83,19 @@ plugin=org.kde.plasma.taskmanager
 [Containments][2][Applets][5][Configuration]
 PreloadWeight=0
 
+[Containments][2][Applets][5][Configuration][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
+[Containments][2][Applets][5][Configuration][General]
+launchers=applications:systemsettings.desktop,preferred://filemanager,applications:org.kde.dolphin.desktop
+
 [Containments][2][Applets][6]
 immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][2][Applets][6][Configuration]
-PreloadWeight=100
+PreloadWeight=97
 SystrayContainmentId=7
 
 [Containments][2][Applets][74]
@@ -96,25 +103,23 @@ immutability=1
 plugin=org.kde.plasma.digitalclock
 
 [Containments][2][Applets][74][Configuration]
-PreloadWeight=56
+PreloadWeight=92
 
 [Containments][2][Applets][74][Configuration][Appearance]
-selectedTimeZones=America/Los_Angeles,Europe/Berlin,Local
+wheelChangesTimezone=true
 
 [Containments][2][Applets][74][Configuration][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
+DialogHeight=744
+DialogWidth=1072
 
-[Containments][2][Applets][75]
+[Containments][2][Applets][78]
 immutability=1
-plugin=org.kde.plasma.systemloadviewer
+plugin=org.kde.plasma.icon
 
-[Containments][2][Applets][75][Configuration]
-PreloadWeight=0
-
-[Containments][2][Applets][75][Configuration][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
+[Containments][2][Applets][78][Configuration]
+PreloadWeight=42
+localPath=/home/clintp/.local/share/plasma_icons/org.kde.dolphin (1).desktop
+url=file:///usr/share/applications/org.kde.dolphin.desktop
 
 [Containments][2][Applets][9]
 immutability=1
@@ -124,16 +129,18 @@ plugin=org.kde.plasma.showdesktop
 PreloadWeight=0
 
 [Containments][2][ConfigDialog]
-DialogHeight=84
+DialogHeight=93
 DialogWidth=2560
 
 [Containments][2][Configuration]
 PreloadWeight=0
 
 [Containments][2][General]
-AppletOrder=39;4;5;6;9;74;75
+AppletOrder=39;4;78;5;6;9;74
 
 [Containments][69]
+ItemGeometries-1920x1080=
+ItemGeometries-2560x1440=
 ItemGeometriesHorizontal=
 activityId=869c7978-a258-4b23-9c4d-f3aeca254bee
 formfactor=0
@@ -144,21 +151,23 @@ plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
 [Containments][69][ConfigDialog]
-DialogHeight=817
-DialogWidth=1103
+DialogHeight=1367
+DialogWidth=2560
 
 [Containments][69][Configuration]
 PreloadWeight=0
 
 [Containments][69][General]
 ToolBoxButtonState=topcenter
-ToolBoxButtonX=953
-iconSize=3
+ToolBoxButtonX=838
+iconSize=2
 locked=true
+positions=1,26,desktop:/https:⁄⁄codepen.io⁄hello_anwen⁄pen⁄mQBdmx.desktop,0,5,desktop:/Trader Workstation.desktop,0,4,desktop:/https:⁄⁄theconversation.com⁄we-need-a-code-to-protect-our-online-privacy-and-wipe-out-dark-patterns-in-digital-design-145622.desktop,0,1,desktop:/Acrobat Reader DC.lnk,0,0,desktop:/Kindle.lnk,0,3,desktop:/Kindle.desktop,0,2
 sortMode=-1
 
 [Containments][69][Wallpaper][org.kde.image][General]
-Image=file:///home/clintp/.local/share/wallpapers/layan-dark.png
+Image=file:///usr/share/backgrounds/wallpapers-2018/antelope-canyon-984055.jpg
+SlidePaths=/home/clintp/.local/share/wallpapers,/usr/share/wallpapers
 
 [Containments][69][Wallpaper][org.kde.potd][General]
 Category=1065374
@@ -179,7 +188,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][7][Applets][10][Configuration]
-PreloadWeight=81
+PreloadWeight=88
 
 [Containments][7][Applets][10][Configuration][ConfigDialog]
 DialogHeight=956
@@ -197,7 +206,7 @@ immutability=1
 plugin=org.kde.plasma.devicenotifier
 
 [Containments][7][Applets][12][Configuration]
-PreloadWeight=16
+PreloadWeight=33
 
 [Containments][7][Applets][13]
 immutability=1
@@ -254,21 +263,21 @@ immutability=1
 plugin=org.kde.plasma.battery
 
 [Containments][7][Applets][19][Configuration]
-PreloadWeight=12
+PreloadWeight=0
 
 [Containments][7][Applets][20]
 immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][7][Applets][20][Configuration]
-PreloadWeight=51
+PreloadWeight=97
 
 [Containments][7][Applets][21]
 immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][7][Applets][21][Configuration]
-PreloadWeight=100
+PreloadWeight=78
 
 [Containments][7][Applets][22][Configuration]
 PreloadWeight=42
@@ -280,19 +289,28 @@ plugin=org.kde.plasma.nightcolorcontrol
 [Containments][7][Applets][40][Configuration]
 PreloadWeight=0
 
+[Containments][7][Applets][75]
+immutability=1
+plugin=org.kde.plasma.keyboardlayout
+
+[Containments][7][Applets][75][Configuration]
+PreloadWeight=0
+
 [Containments][7][ConfigDialog]
 DialogHeight=881
-DialogWidth=785
+DialogWidth=1193
 
 [Containments][7][Configuration]
 PreloadWeight=0
 
 [Containments][7][General]
-extraItems=org.kde.discovernotifier,org.kde.plasma.printmanager,org.kde.plasma.keyboardindicator,org.kde.plasma.notifications,org.kde.plasma.clipboard,org.kde.plasma.battery,org.kde.kdeconnect,org.kde.plasma.vault,org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.bluetooth,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol
+extraItems=org.kde.plasma.printmanager,org.kde.plasma.keyboardindicator,org.kde.plasma.notifications,org.kde.plasma.clipboard,org.kde.plasma.battery,org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.bluetooth,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.plasma.keyboardlayout
 hiddenItems=org.kde.plasma.nightcolorcontrol
-knownItems=org.kde.discovernotifier,org.kde.plasma.printmanager,org.kde.plasma.keyboardindicator,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.plasma.clipboard,org.kde.plasma.battery,org.kde.kdeconnect,org.kde.plasma.vault,org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.bluetooth,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol
+knownItems=org.kde.plasma.printmanager,org.kde.plasma.keyboardindicator,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.plasma.clipboard,org.kde.plasma.battery,org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.bluetooth,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.plasma.keyboardlayout
 
 [Containments][70]
+ItemGeometries-2560x1440=
+ItemGeometriesHorizontal=
 activityId=869c7978-a258-4b23-9c4d-f3aeca254bee
 formfactor=0
 immutability=1
@@ -309,7 +327,7 @@ DialogWidth=720
 PreloadWeight=0
 
 [Containments][70][Wallpaper][org.kde.image][General]
-Image=file:///home/clintp/.local/share/wallpapers/layan-dark.png
+Image=file:///home/clintp/.local/share/wallpapers/No.Plasma.logo.suede.gears.blue.yellow.ii.png
 
 [Containments][71]
 activityId=869c7978-a258-4b23-9c4d-f3aeca254bee
@@ -324,9 +342,10 @@ wallpaperplugin=org.kde.image
 PreloadWeight=0
 
 [Containments][71][Wallpaper][org.kde.image][General]
-Image=file:///usr/share/wallpapers/Breath2/contents/images/2560x1440.png
+Image=file:///home/clintp/.local/share/wallpapers/No.Plasma.logo.suede.gears.blue.yellow.ii.png
 
 [Containments][72]
+ItemGeometriesHorizontal=
 activityId=869c7978-a258-4b23-9c4d-f3aeca254bee
 formfactor=0
 immutability=1
@@ -339,11 +358,41 @@ wallpaperplugin=org.kde.image
 PreloadWeight=0
 
 [Containments][72][Wallpaper][org.kde.image][General]
-Image=file:///usr/share/wallpapers/Breath2/contents/images/2560x1440.png
+Image=file:///home/clintp/.local/share/wallpapers/No.Plasma.logo.suede.gears.blue.yellow.ii.png
+
+[Containments][75]
+activityId=869c7978-a258-4b23-9c4d-f3aeca254bee
+formfactor=0
+immutability=1
+lastScreen=6
+location=0
+plugin=org.kde.plasma.folder
+wallpaperplugin=org.kde.image
+
+[Containments][75][Configuration]
+PreloadWeight=0
+
+[Containments][75][Wallpaper][org.kde.image][General]
+Image=/home/clintp/.local/share/wallpapers/No.Plasma.logo.suede.gears.blue.yellow.ii.png
+
+[Containments][76]
+activityId=869c7978-a258-4b23-9c4d-f3aeca254bee
+formfactor=0
+immutability=1
+lastScreen=4
+location=0
+plugin=org.kde.plasma.folder
+wallpaperplugin=org.kde.image
+
+[Containments][76][Configuration]
+PreloadWeight=2
+
+[Containments][76][Wallpaper][org.kde.image][General]
+Image=file:///usr/share/wallpapers/Next/contents/images/1920x1080.png
 
 [General]
 immutability=1
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=
+screenMapping=desktop:/Acrobat Reader DC.lnk,0,desktop:/Kindle.desktop,0,desktop:/https:⁄⁄theconversation.com⁄we-need-a-code-to-protect-our-online-privacy-and-wipe-out-dark-patterns-in-digital-design-145622.desktop,0,desktop:/Trader Workstation.desktop,0,desktop:/Kindle.lnk,0,desktop:/https:⁄⁄codepen.io⁄hello_anwen⁄pen⁄mQBdmx.desktop,0

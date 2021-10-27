@@ -4,10 +4,10 @@
 
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 - name: add local bin dir for custom scripts
-  file: path={{ ansible_env.HOME }}/.local/bin state=directory recurse=yes
+  file: path={{ ansible_env.HOME }}/.local/bin state=directory recurse=true
 
 - name: add sites dir for various projects
-  file: path={{ ansible_env.HOME }}/Sites state=directory
+  file: path={{ ansible_env.HOME }}/Sites state=directory mode=0644
 
 - name: base packages
   homebrew:
@@ -22,23 +22,22 @@
       - fd  # find replacement
       - fzf  # fuzzy finder
       - getantibody/tap/antibody # the fastest shell plugin manager (zsh)
+      - gocryptfs # encrypted overlay filesystem
       - git
       - ispell
       - lesspipe
-      - lsd # an ls replacement
       - mackup  # symlink farm
-      # - moreutils # https://joeyh.name/code/moreutils/
       - ncdu  # ncurses disk usage
-      - ripgrep  # like grep but better
+      - neovim
+      # - ripgrep  # like grep but better, see https://news.ycombinator.com/item?id=12567328
       - starship # fast/cross shell prompt
       - the_silver_searcher  # like ack but faster
       - tldr  # community driven man pages
       - tmux
       - tree
       - wget
-      - vim
       - zsh
-    update_homebrew: yes
+    update_homebrew: true
 
 - name: check if oh-my-zsh is installed
   stat:
@@ -63,11 +62,12 @@
 - name: ensure brew env vars exist in zshenv
   blockinfile:
     path: "{{ ansible_env.HOME }}/.zshenv"
+    mode: 0644
     block: |
       {{ brew_shellenv.stdout }}
       export FZF_BASE="{{ brew_fzfdir.stdout }}"
     insertbefore: BOF
-    create: yes
+    create: true
 
 - name: symlinking mackup config
   file: src="{{ ansible_env.HOME }}/src/ansible/roles/dotfiles/files/mackup.cfg" dest="{{ ansible_env.HOME }}/.mackup.cfg" state=link
@@ -88,7 +88,7 @@
   git:
     repo: https://github.com/tmux-plugins/tpm
     dest: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
-    recursive: yes
+    recursive: true
     version: master
 
 - name: install tmux plugins

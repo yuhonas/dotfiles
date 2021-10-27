@@ -15,105 +15,106 @@ IntensityEffect=2
 [ColorEffects:Inactive]
 ChangeSelectionColor=true
 Color=112,111,110
-ColorAmount=-0.95000000000000007
-ColorEffect=0
-ContrastAmount=0.10000000000000001
-ContrastEffect=0
+ColorAmount=0.025
+ColorEffect=2
+ContrastAmount=0.1
+ContrastEffect=2
 Enable=false
 IntensityAmount=0
 IntensityEffect=0
 
 [Colors:Button]
-BackgroundAlternate=224,223,222
-BackgroundNormal=41,47,52
-DecorationFocus=26,188,156
-DecorationHover=26,188,156
-ForegroundActive=155,89,182
-ForegroundInactive=130,148,163
-ForegroundLink=76,107,138
-ForegroundNegative=231,76,60
-ForegroundNeutral=230,126,34
-ForegroundNormal=255,255,255
-ForegroundPositive=52,152,219
-ForegroundVisited=145,61,136
-
-[Colors:Complementary]
-BackgroundAlternate=62,71,78
-BackgroundNormal=35,38,41
-DecorationFocus=29,153,243
-DecorationHover=77,77,77
+BackgroundAlternate=77,77,77
+BackgroundNormal=49,54,59
+DecorationFocus=61,174,233
+DecorationHover=61,174,233
 ForegroundActive=61,174,233
-ForegroundInactive=67,76,84
+ForegroundInactive=189,195,199
 ForegroundLink=41,128,185
 ForegroundNegative=218,68,83
 ForegroundNeutral=246,116,0
-ForegroundNormal=252,252,252
+ForegroundNormal=239,240,241
 ForegroundPositive=39,174,96
 ForegroundVisited=127,140,141
 
+[Colors:Complementary]
+BackgroundAlternate=59,64,69
+BackgroundNormal=49,54,59
+DecorationFocus=30,146,255
+DecorationHover=61,174,230
+ForegroundActive=246,116,0
+ForegroundInactive=175,176,179
+ForegroundLink=61,174,230
+ForegroundNegative=237,21,21
+ForegroundNeutral=201,206,59
+ForegroundNormal=239,240,241
+ForegroundPositive=17,209,22
+ForegroundVisited=61,174,230
+
 [Colors:Selection]
-BackgroundAlternate=54,215,183
-BackgroundNormal=26,188,156
-DecorationFocus=26,188,156
-DecorationHover=26,188,156
-ForegroundActive=96,55,113
-ForegroundInactive=222,222,222
-ForegroundLink=0,98,218
-ForegroundNegative=231,76,60
-ForegroundNeutral=168,88,23
-ForegroundNormal=255,255,255
-ForegroundPositive=37,116,165
-ForegroundVisited=145,61,136
+BackgroundAlternate=29,153,243
+BackgroundNormal=61,174,233
+DecorationFocus=61,174,233
+DecorationHover=61,174,233
+ForegroundActive=252,252,252
+ForegroundInactive=239,240,241
+ForegroundLink=253,188,75
+ForegroundNegative=218,68,83
+ForegroundNeutral=246,116,0
+ForegroundNormal=239,240,241
+ForegroundPositive=39,174,96
+ForegroundVisited=189,195,199
 
 [Colors:Tooltip]
-BackgroundAlternate=62,71,78
-BackgroundNormal=41,47,52
-DecorationFocus=26,188,156
-DecorationHover=26,188,156
-ForegroundActive=155,89,182
-ForegroundInactive=130,148,163
-ForegroundLink=126,178,230
-ForegroundNegative=231,76,60
-ForegroundNeutral=230,126,34
-ForegroundNormal=247,247,247
-ForegroundPositive=52,152,219
-ForegroundVisited=145,61,136
+BackgroundAlternate=77,77,77
+BackgroundNormal=49,54,59
+DecorationFocus=61,174,233
+DecorationHover=61,174,233
+ForegroundActive=61,174,233
+ForegroundInactive=189,195,199
+ForegroundLink=41,128,185
+ForegroundNegative=218,68,83
+ForegroundNeutral=246,116,0
+ForegroundNormal=239,240,241
+ForegroundPositive=39,174,96
+ForegroundVisited=127,140,141
 
 [Colors:View]
-BackgroundAlternate=62,71,78
-BackgroundNormal=33,37,41
-DecorationFocus=26,188,156
-DecorationHover=26,188,156
-ForegroundActive=155,89,182
-ForegroundInactive=130,148,163
-ForegroundLink=76,107,138
-ForegroundNegative=231,76,60
-ForegroundNeutral=230,126,34
-ForegroundNormal=255,255,255
-ForegroundPositive=52,152,219
-ForegroundVisited=145,61,136
+BackgroundAlternate=49,54,59
+BackgroundNormal=35,38,41
+DecorationFocus=61,174,233
+DecorationHover=61,174,233
+ForegroundActive=61,174,233
+ForegroundInactive=189,195,199
+ForegroundLink=41,128,185
+ForegroundNegative=218,68,83
+ForegroundNeutral=246,116,0
+ForegroundNormal=239,240,241
+ForegroundPositive=39,174,96
+ForegroundVisited=127,140,141
 
 [Colors:Window]
-BackgroundAlternate=62,71,78
-BackgroundNormal=41,47,52
-DecorationFocus=26,188,156
-DecorationHover=26,188,156
-ForegroundActive=155,89,182
-ForegroundInactive=130,148,163
-ForegroundLink=76,107,138
-ForegroundNegative=231,76,60
-ForegroundNeutral=230,126,34
-ForegroundNormal=255,255,255
-ForegroundPositive=52,152,219
-ForegroundVisited=145,61,136
+BackgroundAlternate=77,77,77
+BackgroundNormal=49,54,59
+DecorationFocus=61,174,233
+DecorationHover=61,174,233
+ForegroundActive=61,174,233
+ForegroundInactive=189,195,199
+ForegroundLink=41,128,185
+ForegroundNegative=218,68,83
+ForegroundNeutral=246,116,0
+ForegroundNormal=239,240,241
+ForegroundPositive=39,174,96
+ForegroundVisited=127,140,141
 
 [DirSelect Dialog]
-DirSelectDialog Size=640,480
+DirSelectDialog Size=844,598
+History Items[$e]=file:$HOME/VirtualBox VMs,file:$HOME/Downloads,file:$HOME/Downloads,file:$HOME/Downloads
 
 [General]
 BrowserApplication=firefox.desktop
-ColorScheme=Breath2Dark
-Name=Breath2
+ColorScheme=BreezeDark
+Name=Breeze Dark
 XftHintStyle=
 XftSubPixel=
 dbfile=/home/clintp/.mozilla/firefox/wrym53i9.default/places.sqlite
@@ -126,20 +127,21 @@ toolBarFont=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
 widgetStyle=Breeze
 
 [Icons]
-Theme=breath2-dark
+Theme=breeze-dark
 
 [KDE]
 AnimationDurationFactor=1.000000
 ColorScheme=Breeze
-LookAndFeelPackage=org.kde.breath2.desktop
+LookAndFeelPackage=org.kde.breezedark.desktop
+ShowDeleteCommand=false
 contrast=4
-widgetStyle=breeze
+widgetStyle=Breeze
 
 [KFileDialog Settings]
 Allow Expansion=false
 Automatically select filename extension=true
 Breadcrumb Navigation=true
-Decoration position=0
+Decoration position=2
 LocationCombo Completionmode=5
 PathCombo Completionmode=5
 Show Bookmarks=false
@@ -148,7 +150,7 @@ Show Inline Previews=true
 Show Preview=false
 Show Speedbar=true
 Show hidden files=false
-Sort by=Name
+Sort by=Date
 Sort directories first=true
 Sort reversed=false
 Speedbar Width=255
@@ -161,39 +163,67 @@ ScreenScaleFactors=eDP1=1;DP1=1;DP2=1;HDMI1=1;VIRTUAL1=1;
 [KShortcutsDialog Settings]
 Dialog Size=914,873
 
+[PreviewSettings]
+MaximumRemoteSize=0
+MaximumSize=5242880
+
 [Shortcuts]
+AboutApp=
+AboutKDE=
 Activate Next Tab=Ctrl+PgDown;\s
 Activate Previous Tab=Ctrl+PgUp;\s
 BackwardWord=Alt+B
 BeginningOfLine=Ctrl+A
 Clear=Ctrl+U
 Close=Ctrl+Esc
-Copy=Ctrl+C; Meta+C
+ConfigureNotifications=
+ConfigureToolbars=
+Copy=Ctrl+C
 Cut=Ctrl+X; Meta+X
-DeleteFile=Shift+Del; Ctrl+D
+DeleteFile=Ctrl+D; Shift+Del
 DeleteWordBack=Ctrl+W
 DeleteWordForward=Alt+D
 DocumentForward=Ctrl+F
+Donate=
+EditBookmarks=
 EndOfLine=Ctrl+E
 Find=Meta+F
+FitToHeight=
+FitToPage=
+FitToWidth=
 Forward=
 ForwardWord=Alt+F
+Goto=
+GotoPage=
+KeyBindings=
+Mail=
 New=
+OpenRecent=
 Paste=Ctrl+V; Meta+V
 Print=
+PrintPreview=
 Quit=
+ReportBug=
+Revert=
 RotateDown=Ctrl+N
 RotateUp=
 Save=Meta+S
-SelectAll=Meta+A
+SaveOptions=
+SelectAll=
+ShowStatusbar=
+ShowToolbar=
+Spelling=
+SwitchApplicationLanguage=
 TextCompletion=
+TipofDay=
 Up=Ctrl+P
+Zoom=
 
 [WM]
-activeBackground=41,47,52
-activeBlend=41,47,52
+activeBackground=49,54,59
+activeBlend=255,255,255
 activeFont=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
-activeForeground=255,255,255
-inactiveBackground=41,47,52
-inactiveBlend=41,47,52
-inactiveForeground=130,130,130
+activeForeground=239,240,241
+inactiveBackground=49,54,59
+inactiveBlend=75,71,67
+inactiveForeground=127,140,141

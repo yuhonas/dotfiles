@@ -1,5 +1,5 @@
 [$Version]
-update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-effect-to-js,kwin.upd:port-scale-effect-to-js,kwin.upd:port-dimscreen-effect-to-js,kwin.upd:auto-bordersize,kwin.upd:animation-speed
+update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-effect-to-js,kwin.upd:port-scale-effect-to-js,kwin.upd:port-dimscreen-effect-to-js,kwin.upd:auto-bordersize,kwin.upd:animation-speed,kwin.upd:desktop-grid-click-behavior,kwin.upd:no-swap-encourage
 
 [Compositing]
 Backend=OpenGL
@@ -17,6 +17,18 @@ Id_1=6d1ee3a5-b257-4cb2-a6ab-a637b45e73db
 Number=1
 Rows=1
 
+[DrmOutputs][484e89aac4][0226679787]
+Scale=1
+
+[DrmOutputs][484e89aac4][ef3f8eb4a6]
+Scale=2
+
+[DrmOutputs][d5e26935b0][dac2a4fa17]
+Scale=1
+
+[DrmOutputs][d5e26935b0][ef3f8eb4a6]
+Scale=2
+
 [Effect-CoverSwitch]
 TabBox=false
 TabBoxAlternative=false
@@ -30,8 +42,9 @@ Meta=
 
 [NightColor]
 Active=true
-LatitudeAuto=-37.8159
-LongitudeAuto=144.9669
+LatitudeAuto=-32.0813
+LongitudeAuto=115.9879
+NightTemperature=3100
 
 [Plugins]
 coverswitchEnabled=true

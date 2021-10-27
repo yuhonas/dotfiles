@@ -1,8 +1,114 @@
 [$Version]
 update_info=spectacle_shortcuts.upd:spectacle-migrate-shortcuts
 
+[ColorEffects:Disabled]
+ChangeSelectionColor[$d]
+Color[$d]
+ColorAmount[$d]
+ColorEffect[$d]
+ContrastAmount[$d]
+ContrastEffect[$d]
+Enable[$d]
+IntensityAmount[$d]
+IntensityEffect[$d]
+
+[ColorEffects:Inactive]
+ChangeSelectionColor[$d]
+Color[$d]
+ColorAmount[$d]
+ColorEffect[$d]
+ContrastAmount[$d]
+ContrastEffect[$d]
+Enable[$d]
+IntensityAmount[$d]
+IntensityEffect[$d]
+
+[Colors:Button]
+BackgroundAlternate[$d]
+BackgroundNormal[$d]
+DecorationFocus[$d]
+DecorationHover[$d]
+ForegroundActive[$d]
+ForegroundInactive[$d]
+ForegroundLink[$d]
+ForegroundNegative[$d]
+ForegroundNeutral[$d]
+ForegroundNormal[$d]
+ForegroundPositive[$d]
+ForegroundVisited[$d]
+
+[Colors:Complementary]
+BackgroundAlternate[$d]
+BackgroundNormal[$d]
+DecorationFocus[$d]
+DecorationHover[$d]
+ForegroundActive[$d]
+ForegroundInactive[$d]
+ForegroundLink[$d]
+ForegroundNegative[$d]
+ForegroundNeutral[$d]
+ForegroundNormal[$d]
+ForegroundPositive[$d]
+ForegroundVisited[$d]
+
+[Colors:Selection]
+BackgroundAlternate[$d]
+BackgroundNormal[$d]
+DecorationFocus[$d]
+DecorationHover[$d]
+ForegroundActive[$d]
+ForegroundInactive[$d]
+ForegroundLink[$d]
+ForegroundNegative[$d]
+ForegroundNeutral[$d]
+ForegroundNormal[$d]
+ForegroundPositive[$d]
+ForegroundVisited[$d]
+
+[Colors:Tooltip]
+BackgroundAlternate[$d]
+BackgroundNormal[$d]
+DecorationFocus[$d]
+DecorationHover[$d]
+ForegroundActive[$d]
+ForegroundInactive[$d]
+ForegroundLink[$d]
+ForegroundNegative[$d]
+ForegroundNeutral[$d]
+ForegroundNormal[$d]
+ForegroundPositive[$d]
+ForegroundVisited[$d]
+
+[Colors:View]
+BackgroundAlternate[$d]
+BackgroundNormal[$d]
+DecorationFocus[$d]
+DecorationHover[$d]
+ForegroundActive[$d]
+ForegroundInactive[$d]
+ForegroundLink[$d]
+ForegroundNegative[$d]
+ForegroundNeutral[$d]
+ForegroundNormal[$d]
+ForegroundPositive[$d]
+ForegroundVisited[$d]
+
+[Colors:Window]
+BackgroundAlternate[$d]
+BackgroundNormal[$d]
+DecorationFocus[$d]
+DecorationHover[$d]
+ForegroundActive[$d]
+ForegroundInactive[$d]
+ForegroundLink[$d]
+ForegroundNegative[$d]
+ForegroundNeutral[$d]
+ForegroundNormal[$d]
+ForegroundPositive[$d]
+ForegroundVisited[$d]
+
 [Data]
-DataCount=6
+DataCount=9
 
 [Data_1]
 Comment=KMenuEdit Global Shortcuts
@@ -887,7 +993,7 @@ Uuid={370cb9b3-fd48-41b6-b487-9ff8ee76bf18}
 
 [Data_4]
 Comment=Comment
-DataCount=3
+DataCount=5
 Enabled=true
 Name=Media Keys
 SystemGroup=0
@@ -975,6 +1081,58 @@ Key=Media Previous
 Type=SHORTCUT
 Uuid={43554b15-2fb5-4766-bc35-1edef2a35a44}
 
+[Data_4_4]
+Comment=Comment
+Enabled=true
+Name=Thinkpad (Play/Pause)
+Type=SIMPLE_ACTION_DATA
+
+[Data_4_4Actions]
+ActionsCount=1
+
+[Data_4_4Actions0]
+CommandURL=playerctl --player=spotify play-pause
+Type=COMMAND_URL
+
+[Data_4_4Conditions]
+Comment=
+ConditionsCount=0
+
+[Data_4_4Triggers]
+Comment=Simple_action
+TriggersCount=1
+
+[Data_4_4Triggers0]
+Key=Home
+Type=SHORTCUT
+Uuid={af6700a8-0d85-4d5f-b449-ad8de6c7bd7e}
+
+[Data_4_5]
+Comment=Comment
+Enabled=true
+Name=Thinkpad (Next)
+Type=SIMPLE_ACTION_DATA
+
+[Data_4_5Actions]
+ActionsCount=1
+
+[Data_4_5Actions0]
+CommandURL=playerctl --player=spotify next
+Type=COMMAND_URL
+
+[Data_4_5Conditions]
+Comment=
+ConditionsCount=0
+
+[Data_4_5Triggers]
+Comment=Simple_action
+TriggersCount=1
+
+[Data_4_5Triggers0]
+Key=End
+Type=SHORTCUT
+Uuid={3299b1b3-6dd2-4fd4-8bc6-397fb80ddd3b}
+
 [Data_5]
 Comment=Comment
 Enabled=false
@@ -1027,6 +1185,88 @@ Key=Meta+Shift+D
 Type=SHORTCUT
 Uuid={04b2ec2b-41b5-4dc2-b152-6e4108cfaa0f}
 
+[Data_7]
+Comment=Comment
+Enabled=true
+Name=Albert
+Type=SIMPLE_ACTION_DATA
+
+[Data_7Actions]
+ActionsCount=1
+
+[Data_7Actions0]
+CommandURL=albert show
+Type=COMMAND_URL
+
+[Data_7Conditions]
+Comment=
+ConditionsCount=0
+
+[Data_7Triggers]
+Comment=Simple_action
+TriggersCount=1
+
+[Data_7Triggers0]
+Key=Alt+Space
+Type=SHORTCUT
+Uuid={8849d7ac-d530-43f0-858f-1d0d95a26d85}
+
+[Data_8]
+Comment=Comment
+Enabled=true
+Name=Brave
+Type=SIMPLE_ACTION_DATA
+
+[Data_8Actions]
+ActionsCount=1
+
+[Data_8Actions0]
+CommandURL=brave
+Type=COMMAND_URL
+
+[Data_8Conditions]
+Comment=
+ConditionsCount=0
+
+[Data_8Triggers]
+Comment=Simple_action
+TriggersCount=1
+
+[Data_8Triggers0]
+Key=Ctrl+Alt+B
+Type=SHORTCUT
+Uuid={5c141124-ff2e-4186-a8ad-337f3c57148a}
+
+[Data_9]
+Comment=Comment
+Enabled=true
+Name=Terminal
+Type=SIMPLE_ACTION_DATA
+
+[Data_9Actions]
+ActionsCount=1
+
+[Data_9Actions0]
+CommandURL=alacritty
+Type=COMMAND_URL
+
+[Data_9Conditions]
+Comment=
+ConditionsCount=0
+
+[Data_9Triggers]
+Comment=Simple_action
+TriggersCount=1
+
+[Data_9Triggers0]
+Key=Ctrl+Alt+T
+Type=SHORTCUT
+Uuid={50b93d9d-9bd9-4fd3-9960-5a5b721be730}
+
+[DirSelect Dialog]
+DirSelectDialog Size[$d]
+History Items[$d]
+
 [Directories]
 dir_pixmap[$d]
 
@@ -1037,12 +1277,14 @@ Name[$d]
 XftAntialias[$d]
 XftHintStyle[$d]
 XftSubPixel[$d]
+dbfile[$d]
 fixed[$d]
 font[$d]
 menuFont[$d]
 shadeSortColumn[$d]
 smallestReadableFont[$d]
 toolBarFont[$d]
+widgetStyle[$d]
 
 [Gestures]
 Disabled=true
@@ -1057,15 +1299,40 @@ WindowsCount=0
 Theme[$d]
 
 [KDE]
+AnimationDurationFactor[$d]
 ChangeCursor[$d]
 ColorScheme[$d]
 LookAndFeelPackage[$d]
+ShowDeleteCommand[$d]
 SingleClick[$d]
 contrast[$d]
 widgetStyle[$d]
 
 [KFileDialog Settings]
+Allow Expansion[$d]
+Automatically select filename extension[$d]
 Breadcrumb Navigation[$d]
+Decoration position[$d]
+LocationCombo Completionmode[$d]
+PathCombo Completionmode[$d]
+Show Bookmarks[$d]
+Show Full Path[$d]
+Show Inline Previews[$d]
+Show Preview[$d]
+Show Speedbar[$d]
+Show hidden files[$d]
+Sort by[$d]
+Sort directories first[$d]
+Sort reversed[$d]
+Speedbar Width[$d]
+View Style[$d]
+
+[KScreen]
+ScaleFactor[$d]
+ScreenScaleFactors[$d]
+
+[KShortcutsDialog Settings]
+Dialog Size[$d]
 
 [Main]
 AlreadyImported=defaults,konqueror_gestures_kde321,konsole,spectacle,kde32b1
@@ -1076,10 +1343,72 @@ Version=2
 Trash[$d]
 
 [PreviewSettings]
+MaximumRemoteSize[$d]
 MaximumSize[$d]
 camera[$d]
 file[$d]
 fonts[$d]
 
+[Shortcuts]
+AboutApp[$d]
+AboutKDE[$d]
+Activate Next Tab[$d]
+Activate Previous Tab[$d]
+BackwardWord[$d]
+BeginningOfLine[$d]
+Clear[$d]
+Close[$d]
+ConfigureNotifications[$d]
+ConfigureToolbars[$d]
+Copy[$d]
+Cut[$d]
+DeleteFile[$d]
+DeleteWordBack[$d]
+DeleteWordForward[$d]
+DocumentForward[$d]
+Donate[$d]
+EditBookmarks[$d]
+EndOfLine[$d]
+Find[$d]
+FitToHeight[$d]
+FitToPage[$d]
+FitToWidth[$d]
+Forward[$d]
+ForwardWord[$d]
+Goto[$d]
+GotoPage[$d]
+KeyBindings[$d]
+Mail[$d]
+New[$d]
+OpenRecent[$d]
+Paste[$d]
+Print[$d]
+PrintPreview[$d]
+Quit[$d]
+ReportBug[$d]
+Revert[$d]
+RotateDown[$d]
+RotateUp[$d]
+Save[$d]
+SaveOptions[$d]
+SelectAll[$d]
+ShowStatusbar[$d]
+ShowToolbar[$d]
+Spelling[$d]
+SwitchApplicationLanguage[$d]
+TextCompletion[$d]
+TipofDay[$d]
+Up[$d]
+Zoom[$d]
+
 [Voice]
 Shortcut=
+
+[WM]
+activeBackground[$d]
+activeBlend[$d]
+activeFont[$d]
+activeForeground[$d]
+inactiveBackground[$d]
+inactiveBlend[$d]
+inactiveForeground[$d]

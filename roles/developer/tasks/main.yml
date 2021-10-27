@@ -44,7 +44,7 @@
   register: asdf_location
   changed_when: false
 
-- debug: msg="{{ asdf_location.stdout }}"
+# - debug: msg="{{ asdf_location.stdout }}"
 
 - name: ensure asdf is in the $PATH
   blockinfile:
@@ -65,6 +65,7 @@
 - name: set global asdf versions
   blockinfile:
     path: "{{ ansible_env.HOME }}/.tool-versions"
+    mode: 0644
     create: true
     block: |
       golang 1.12.5
