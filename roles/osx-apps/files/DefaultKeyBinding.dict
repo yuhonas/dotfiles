@@ -1,0 +1,10 @@
+// Custom key bindings to give emacs line editing outside the terminal
+// https://irreal.org/blog/?p=259
+// https://github.com/ttscoff/KeyBindings
+{
+    "~d" = "deleteWordForward:";
+    "^w" = "deleteWordBackward:";
+    "~f" = "moveWordForward:";
+    "~b" = "moveWordBackward:";
+    "^u" = "deleteToBeginningOfParagraph:";
+}

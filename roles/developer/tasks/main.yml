@@ -89,7 +89,7 @@
   pip:
     name:
       - csvkit
-      - pywal
+      - git+https://github.com/dylanaraps/pywal.git # use master
     state: present
     executable: "{{ ansible_env.HOME }}/.asdf/shims/pip"
 
