@@ -18,7 +18,6 @@
       - gnupg
 #      - hr
       - httpie
-      # - inotify-tools
       - imagemagick # for pywal amongst other useful manipulations
       - jq
 #      - lazygit
@@ -32,9 +31,9 @@
       - pidof # for pywal
       - poppler  # for lesspipe
       - pv
-#      - qt
       - readline
       - redis
+      # - restic  # for fast, secure backup's
       - ruby-build
 #      - sox  # sound processing lib
       - sqlite
@@ -112,6 +111,17 @@
 
 - name: asdf reshim
   command: asdf reshim
+
+- name: install developer fonts tap
+  homebrew_tap:
+    name: homebrew/cask-fonts
+    state: present
+
+# - name: install developer font
+#   homebrew:
+#     state: present
+#     name:
+#       - font-fira-code # https://github.com/tonsky/FiraCode
 
 #- name: install spacemacs
 #  git:

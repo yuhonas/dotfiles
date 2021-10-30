@@ -10,7 +10,6 @@
     - pulseaudio  # for audio
     - ranger  # visual file manager
     - rofi
-    - restic  # for fast, secure backup's
     - xclip  # for commandline clipboard management
     - xorg-xrandr  # for xwindow resizing/rotating/scaling
     - xsel  # for commandline clipboard management

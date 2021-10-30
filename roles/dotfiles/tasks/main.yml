@@ -30,7 +30,7 @@
       - mackup  # symlink farm
       - ncdu  # ncurses disk usage
       - neovim
-      # - ripgrep  # like grep but better, see https://news.ycombinator.com/item?id=12567328
+      - ripgrep  # like grep but better, a dependancy on doommacs, also just handy to have around
       - starship # fast/cross shell prompt
       - the_silver_searcher  # like ack but faster
       - tldr  # community driven man pages
