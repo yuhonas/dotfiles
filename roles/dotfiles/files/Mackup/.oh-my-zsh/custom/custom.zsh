@@ -88,7 +88,12 @@ if (( !$+commands[open] )); then
   alias open=open_command # alias to zsh's cross platform open_command
 fi
 
-# shortcut for emacs org mode based todo list
+# if we have kitty then use it to preview images inplace in the terminal
+# https://sw.kovidgoyal.net/kitty/kittens/icat/
+if (( $+commands[kitty] )); then
+  alias icat="kitty +kitten icat"
+fi
+
 # assumes an emacs daemon is running see
 # https://www.emacswiki.org/emacs/EmacsAsDaemon
 alias todo="emacsclient $HOME/TODO.org"
