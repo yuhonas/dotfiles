@@ -51,12 +51,6 @@
 #     - qlstephen
 #     - quicklook-json
 
-- name: ensure we have an .ssh dir with the correct perms
-  file: path="{{ ansible_env.HOME }}/Library/KeyBindings" state=directory mode=755
-
-- name: symlinking custom key bindings
-  file: src="{{ role_path }}/files/DefaultKeyBinding.dict" dest="{{ ansible_env.HOME }}/Library/KeyBindings/DefaultKeyBinding.dict" state=link
-
 # - name: link qt
 #   homebrew: name=qt state=linked
 

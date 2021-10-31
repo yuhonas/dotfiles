@@ -9,8 +9,8 @@ source ~/dotfiles/zsh-snap/znap.zsh  # Start Znap
 
 # source $ZSH/oh-my-zsh.sh
 # export ZSH_CACHE_DIR=$ZSH/cache
-
 znap source ohmyzsh/ohmyzsh
+
 
 znap source ohmyzsh/ohmyzsh plugins/asdf
 # znap source ohmyzsh/ohmyzsh plugins/bundler
@@ -25,7 +25,7 @@ znap source ohmyzsh/ohmyzsh plugins/last-working-dir
 znap source ohmyzsh/ohmyzsh plugins/osx
 znap source ohmyzsh/ohmyzsh plugins/sudo
 znap source ohmyzsh/ohmyzsh plugins/tmux
-## wookayin/fzf-fasd
+znap source wookayin/fzf-fasd
 
 ## Third party plugins
 znap source Aloxaf/fzf-tab
@@ -36,6 +36,7 @@ znap source wfxr/forgit
 znap source zdharma/fast-syntax-highlighting
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-completions
+
 
 ## My customizations
 source $HOME/.oh-my-zsh/custom/custom.zsh

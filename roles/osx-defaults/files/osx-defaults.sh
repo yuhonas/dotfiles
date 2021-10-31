@@ -13,14 +13,14 @@ sudo nvram SystemAudioVolume=" "
 
 ## Enable repeating keys
 # https://www.howtogeek.com/267463/how-to-enable-key-repeating-in-macos/
-defaults write -g ApplePressAndHoldEnabled -bool false
+# defaults write -g ApplePressAndHoldEnabled -bool false
 
 ## Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 ## Set keyboard repeat rate to "damn fast".
-defaults write NSGlobalDomain KeyRepeat -int 2
+# defaults write NSGlobalDomain KeyRepeat -int 2
 
 ## Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
@@ -83,19 +83,19 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # 12: Notification Center
 
 ## Top right screen corner → Start screen saver
-defaults write com.apple.dock wvous-tr-corner -int 5
-defaults write com.apple.dock wvous-tr-modifier -int 0
+# defaults write com.apple.dock wvous-tr-corner -int 5
+# defaults write com.apple.dock wvous-tr-modifier -int 0
 
 ## Bottom right screen corner → Put display to sleep
-defaults write com.apple.dock wvous-br-corner -int 10
-defaults write com.apple.dock wvous-br-modifier -int 0
+# defaults write com.apple.dock wvous-br-corner -int 10
+# defaults write com.apple.dock wvous-br-modifier -int 0
 
 ## Always show scrollbars
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 
 ## Use a dark menu bar / dock
-defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+# defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
 # Autohide the dock - http://www.idownloadblog.com/2015/02/14/auto-hide-dock-no-delay-mac/
 # defaults write com.apple.dock autohide -bool true
@@ -107,7 +107,7 @@ defaults write NSGlobalDomain com.apple.sound.uiaudio.enabled -int 0
 defaults write NSGlobalDomain com.apple.sound.beep.volume -float 0.0
 
 ## Disable natural scrolling
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+# defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 ## Don't want Photos.app to open up as soon as you plug something in?
 defaults write com.apple.ImageCapture disableHotPlug -bool YES
@@ -117,7 +117,8 @@ defaults write org.videolan.vlc NSRecentDocumentsLimit 0
 defaults write org.videolan.vlc.LSSharedFileList RecentDocuments -dict-add MaxAmount 0
 
 ## Show battery percentage remaining in menu bar
-defaults write com.apple.menuextra.battery ShowPercent YES
+## TODO: Doesn't seem to be working in MacOS Monterey
+#defaults write com.apple.menuextra.battery ShowPercent YES
 
 # Disable Notification Center and remove the menu bar icon
 # launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
