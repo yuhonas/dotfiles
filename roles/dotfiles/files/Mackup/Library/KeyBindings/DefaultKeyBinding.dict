@@ -1,10 +1,23 @@
 // Custom key bindings to give emacs line editing outside the terminal
 // https://irreal.org/blog/?p=259
 // https://github.com/ttscoff/KeyBindings
+// https://developer.apple.com/documentation/appkit/nsstandardkeybindingresponding
 {
     "~d" = "deleteWordForward:";
     "^w" = "deleteWordBackward:";
     "~f" = "moveWordForward:";
     "~b" = "moveWordBackward:";
     "^u" = "deleteToBeginningOfParagraph:";
+
+    // blank line after current
+    "~o" = (moveToEndOfParagraph:, insertNewline:);
+    // blank line before current
+    "~O" = (moveToBeginningOfParagraph:, moveLeft:, insertNewline:);
+
+    // paste paragraph below
+    "~p" = (moveToEndOfParagraph:,moveRight:,insertNewline:,moveLeft:, paste:);
+    // paste paragraph above
+    "~P" = (moveToBeginningOfParagraph:, moveLeft:, paste:);
+
+    "^_" = "undo:"; /* Ctrl-_ */
 }
