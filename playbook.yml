@@ -17,7 +17,7 @@
   connection: local
   roles:
    - osx-apps
-   # - osx-defaults
+   - osx-defaults
 
 - hosts: os_Archlinux
   connection: local

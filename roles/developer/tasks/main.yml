@@ -62,16 +62,6 @@
     - python
   ignore_errors: true
 
-# - name: set global asdf versions
-#   blockinfile:
-#     path: "{{ ansible_env.HOME }}/.tool-versions"
-#     mode: 0644
-#     create: true
-#     block: |
-#       nodejs 17.0.1
-#       python 3.9.0
-#       ruby 2.7.4
-
 - name: update asdf plugin versions
   command: asdf plugin-update --all
 
@@ -91,23 +81,6 @@
       - git+https://github.com/dylanaraps/pywal.git # use master
     state: present
     executable: "{{ ansible_env.HOME }}/.asdf/shims/pip"
-
-# - name: ruby packages
-#   gem:
-#     name: "{{ item }}"
-#     state: present
-#     executable: "{{ ansible_env.HOME }}/.asdf/shims/gem"
-#  with_items:
-#    - seeing_is_believing
-
-# - name: node packages
-#   npm:
-#     name: "{{ item }}"
-#     state: present
-#     global: true
-#     executable: "{{ ansible_env.HOME }}/.asdf/shims/npm"
-#   with_items:
-#     - alacritty-themes
 
 - name: asdf reshim
   command: asdf reshim

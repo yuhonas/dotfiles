@@ -20,10 +20,10 @@ if [ "$(uname)" == "Darwin" ]; then
     if [[ ! -x /opt/homebrew/bin/brew ]]; then
         echo "Info   | Install   | homebrew"
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        echo 'eval $(/opt/homebrew/bin/brew)' >>$HOME/.zprofile
+        source $HOME/.zprofile
     fi
 
-    # echo 'eval $(/opt/homebrew/bin/brew)' >>$HOME/.zprofile
-    # source $HOME/.zprofile
 else
     # Download and install linuxbrew
     if [[ ! -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
