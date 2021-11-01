@@ -86,6 +86,12 @@
   command: mackup restore --force
   when: mackup_result.stdout | length > 0
 
+- name: install community cheat sheets
+  git:
+    repo: https://github.com/cheat/cheatsheets.git
+    dest: "{{ ansible_env.HOME }}/.config/cheat/cheatsheets/community"
+    version: master
+
 - name: install tmux plugin manager
   git:
     repo: https://github.com/tmux-plugins/tpm
