@@ -35,6 +35,8 @@ Plug 'tpope/vim-surround'
 Plug 'dylanaraps/wal'
 " Plug 'wincent/terminus'
 Plug 'jamessan/vim-gnupg', { 'branch': 'main' }
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 " " intellisense engine for vim
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}

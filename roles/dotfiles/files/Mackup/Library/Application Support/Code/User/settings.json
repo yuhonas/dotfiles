@@ -1,7 +1,6 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "workbench.colorTheme": "Default Dark+",
-    "window.zoomLevel": 0,
+  "window.zoomLevel": 0,
     "editor.fontSize": 14,
     "editor.minimap.enabled": false,
     "editor.tabSize": 2,
