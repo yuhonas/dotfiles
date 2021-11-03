@@ -1,0 +1,15 @@
+{	sources = (
+		{	clientUnsubscribedMailboxNames = ( "[Gmail]/All Mail", "[Gmail]/Important", "[Gmail]/Starred" );
+			derivedAccountHostname = :false;
+			derivedAccountUsername = :false;
+			derivedSMTPHostname = :false;
+			derivedSMTPUsername = :false;
+			name = "Gmail";
+			port = "993";
+			portSelection = "manual";
+			requireSSL = :true;
+			serverURL = "imap://clint%40yuhonas.com@imap.gmail.com";
+			smtp = "smtp://clint%40yuhonas.com@smtp.gmail.com";
+		},
+	);
+}

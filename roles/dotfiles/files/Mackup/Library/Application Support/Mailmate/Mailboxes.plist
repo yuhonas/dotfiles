@@ -1,0 +1,188 @@
+{	deltaMailboxes = (
+		{	previousUUID = "";
+			uuid = "ALL_MESSAGES";
+		},
+		{	previousUUID = "";
+			uuid = "ALL_JUNK_DELETED";
+		},
+		{	previousUUID = "ALL_JUNK_DELETED";
+			uuid = "ALL_BODY_PARTS";
+		},
+		{	previousUUID = "ALL_MESSAGES";
+			uuid = "INBOX";
+		},
+		{	previousUUID = "INBOX";
+			uuid = "ARCHIVE";
+		},
+		{	previousUUID = "ARCHIVE";
+			uuid = "DRAFTS";
+		},
+		{	previousUUID = "DRAFTS";
+			uuid = "SENT";
+		},
+		{	previousUUID = "SENT";
+			uuid = "JUNK";
+		},
+		{	previousUUID = "JUNK";
+			uuid = "TRASH";
+		},
+		{	previousUUID = "TRASH";
+			uuid = "B9AE565F-06D7-469C-AF9E-9CBC36661ABB";
+		},
+		{	previousUUID = "B9AE565F-06D7-469C-AF9E-9CBC36661ABB";
+			uuid = "TAGS";
+		},
+		{	previousUUID = "TAGS";
+			uuid = "MAILING_LISTS";
+		},
+		{	previousUUID = "MAILING_LISTS";
+			uuid = "9BDF1FC5-C74B-4FA9-A5F5-3A493EC46BEF";
+		},
+		{	previousUUID = "81DC2174-6ECD-4155-969A-E3DACF23F366";
+			uuid = "999A8BF6-3104-4074-99D5-3BE3000DC15C";
+		},
+		{	previousUUID = "999A8BF6-3104-4074-99D5-3BE3000DC15C";
+			uuid = "FLAGGED";
+		},
+		{	previousUUID = "FLAGGED";
+			uuid = "7571959B-9381-4E5D-BD02-259E2D1F5077";
+		},
+		{	previousUUID = "7571959B-9381-4E5D-BD02-259E2D1F5077";
+			uuid = "71776AF4-34D9-4C8C-B510-221142768A03";
+		},
+		{	previousUUID = "71776AF4-34D9-4C8C-B510-221142768A03";
+			uuid = "31BEBFAF-85CE-4626-B2C4-7F3CC96A75F9";
+		},
+		{	previousUUID = "31BEBFAF-85CE-4626-B2C4-7F3CC96A75F9";
+			uuid = "8B91CCF6-8BF1-424A-A7CA-391AF8200FA5";
+		},
+		{	previousUUID = "8B91CCF6-8BF1-424A-A7CA-391AF8200FA5";
+			uuid = "PERSONAL_INBOX";
+		},
+		{	previousUUID = "PERSONAL_INBOX";
+			uuid = "39B356BA-773A-404C-A488-3DE7BA14B7C9";
+		},
+		{	previousUUID = "39B356BA-773A-404C-A488-3DE7BA14B7C9";
+			uuid = "3A5640D6-1FE3-4AB6-97C8-116DD6345379";
+		},
+		{	previousUUID = "3A5640D6-1FE3-4AB6-97C8-116DD6345379";
+			uuid = "CB5CCC26-5A0B-4888-AE3F-654D544541E9";
+		},
+		{	previousUUID = "";
+			uuid = "imap://clint%40yuhonas.com@imap.gmail.com";
+		},
+	);
+	mailboxes = (
+		{	filter = "#flags.flag !=[x] '\\Seen'";
+			name = "Unread";
+			parentUUID = "MAILBOXES";
+			partitioningFormatString = "${#source.path.noinbox} — ${#source.#name}";
+			partitioningHeader = "#source";
+			set = "ALL_MESSAGES";
+			uuid = "B9AE565F-06D7-469C-AF9E-9CBC36661ABB";
+		},
+		{	countKey = "all";
+			filter = "##tags.tag exists";
+			name = "Tagged";
+			parentUUID = "MAILBOXES";
+			partitioningHeader = "##tags.tag";
+			set = "ALL_MESSAGES";
+			uuid = "TAGS";
+		},
+		{	filter = "list-id.identifier exists";
+			name = "Mailing Lists";
+			parentUUID = "MAILBOXES";
+			partitioningFormatString = "${list-id.description:${subject.blob:?${subject.blob:/capitalize}:${list-id.identifier.final-level}}}";
+			partitioningHeader = "list-id.identifier";
+			set = "ALL_MESSAGES";
+			showSingleChild = :true;
+			uuid = "MAILING_LISTS";
+		},
+		{	name = "Examples";
+			parentUUID = "MAILBOXES";
+			uuid = "9BDF1FC5-C74B-4FA9-A5F5-3A493EC46BEF";
+		},
+		{	filter = "#date-received > 7 days ago";
+			name = "Last Week";
+			parentUUID = "9BDF1FC5-C74B-4FA9-A5F5-3A493EC46BEF";
+			set = "ALL_MESSAGES";
+			uuid = "81DC2174-6ECD-4155-969A-E3DACF23F366";
+		},
+		{	countKey = "unread";
+			name = "Years";
+			parentUUID = "9BDF1FC5-C74B-4FA9-A5F5-3A493EC46BEF";
+			partitioningHeader = "#date.year";
+			set = "ALL_MESSAGES";
+			showSingleChild = :true;
+			uuid = "999A8BF6-3104-4074-99D5-3BE3000DC15C";
+		},
+		{	countKey = "all";
+			filter = "#flags.flag = '\\Flagged'";
+			name = "Flagged";
+			parentUUID = "9BDF1FC5-C74B-4FA9-A5F5-3A493EC46BEF";
+			partitioningFormatString = "${#source.path.noinbox} — ${#source.#name}";
+			partitioningHeader = "#source";
+			set = "ALL_MESSAGES";
+			uuid = "FLAGGED";
+		},
+		{	countKey = "all";
+			filter = "#flags.flag = '$Muted'";
+			name = "Muted";
+			parentUUID = "9BDF1FC5-C74B-4FA9-A5F5-3A493EC46BEF";
+			partitioningFormatString = "${#source.path.noinbox} — ${#source.#name}";
+			partitioningHeader = "#source";
+			set = "ALL_MESSAGES";
+			uuid = "7571959B-9381-4E5D-BD02-259E2D1F5077";
+		},
+		{	countKey = "all";
+			filter = "content-type.type =[a] 'image'";
+			name = "Messages with Images";
+			parentUUID = "9BDF1FC5-C74B-4FA9-A5F5-3A493EC46BEF";
+			set = "ALL_MESSAGES";
+			uuid = "71776AF4-34D9-4C8C-B510-221142768A03";
+		},
+		{	countKey = "all";
+			filter = "content-type.subtype =[a] 'pdf'";
+			name = "Messages with PDFs";
+			parentUUID = "9BDF1FC5-C74B-4FA9-A5F5-3A493EC46BEF";
+			set = "ALL_MESSAGES";
+			uuid = "31BEBFAF-85CE-4626-B2C4-7F3CC96A75F9";
+		},
+		{	countKey = "all";
+			filter = "content-type.type = 'text' and content-type.subtype = 'html'";
+			name = "HTML Only Messages";
+			parentUUID = "9BDF1FC5-C74B-4FA9-A5F5-3A493EC46BEF";
+			set = "ALL_MESSAGES";
+			uuid = "8B91CCF6-8BF1-424A-A7CA-391AF8200FA5";
+		},
+		{	filter = "#recipient.address = $SENT.from.address";
+			name = "Personal Inbox";
+			parentUUID = "9BDF1FC5-C74B-4FA9-A5F5-3A493EC46BEF";
+			set = "INBOX";
+			uuid = "PERSONAL_INBOX";
+		},
+		{	filter = "#thread-id =[c] $PERSONAL_INBOX.#thread-id";
+			name = "Personal Inbox with Threads";
+			parentUUID = "9BDF1FC5-C74B-4FA9-A5F5-3A493EC46BEF";
+			set = "ALL_MESSAGES";
+			uuid = "39B356BA-773A-404C-A488-3DE7BA14B7C9";
+		},
+		{	countKey = "all";
+			name = "Email Clients";
+			parentUUID = "9BDF1FC5-C74B-4FA9-A5F5-3A493EC46BEF";
+			partitioningHeader = "#mailer.name";
+			set = "ALL_MESSAGES";
+			showSingleChild = :true;
+			uuid = "3A5640D6-1FE3-4AB6-97C8-116DD6345379";
+		},
+		{	countKey = "all";
+			filter = "#relay exists";
+			name = "Outbound";
+			parentUUID = "9BDF1FC5-C74B-4FA9-A5F5-3A493EC46BEF";
+			partitioningFormatString = "${#source.path.noinbox}";
+			partitioningHeader = "#source";
+			set = "ALL_MESSAGES";
+			uuid = "CB5CCC26-5A0B-4888-AE3F-654D544541E9";
+		},
+	);
+}

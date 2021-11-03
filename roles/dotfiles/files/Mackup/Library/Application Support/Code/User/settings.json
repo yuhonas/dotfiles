@@ -9,5 +9,7 @@
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.snippetSuggestions": "top",
     "editor.formatOnPaste": true,
-    "files.trimTrailingWhitespace": true
+    "files.trimTrailingWhitespace": true,
+    "terminal.external.osxExec": "kitty",
+    "terminal.integrated.fontFamiy": "Fira Code Retina"
   }

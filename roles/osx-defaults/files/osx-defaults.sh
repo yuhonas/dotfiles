@@ -150,3 +150,6 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode T
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
+# Set key repeat for vscode
+# See https://github.com/VSCodeVim/Vim#mac-setup
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
