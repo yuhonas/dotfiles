@@ -25,10 +25,10 @@ znap source ohmyzsh/ohmyzsh plugins/last-working-dir
 znap source ohmyzsh/ohmyzsh plugins/osx
 znap source ohmyzsh/ohmyzsh plugins/sudo
 znap source ohmyzsh/ohmyzsh plugins/tmux
-znap source wookayin/fzf-fasd
+# znap source wookayin/fzf-fasd
 
 ## Third party plugins
-znap source Aloxaf/fzf-tab
+# znap source Aloxaf/fzf-tab
 znap source DarrinTisdale/zsh-aliases-exa
 znap source MichaelAquilina/zsh-you-should-use
 znap source mollifier/cd-gitroot
