@@ -36,7 +36,7 @@ Plug 'dylanaraps/wal'
 " Plug 'wincent/terminus'
 " Plug 'jamessan/vim-gnupg', { 'branch': 'main' }
 Plug 'godlygeek/tabular'
-Plug 'justinmk/vim-sneak'
+" Plug 'justinmk/vim-sneak'
 
 
 " " intellisense engine for vim

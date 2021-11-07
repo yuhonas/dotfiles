@@ -32,7 +32,7 @@ defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder ShowPathbar -bool true
 
 ## Show Full Path in Finder Title
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+# defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
 ## Set current Folder as Default Search Scope
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
@@ -61,7 +61,8 @@ defaults write com.apple.screencapture type -string "png"
 defaults write com.apple.screencapture location ~/Downloads
 
 ## Finder: show hidden files by default
-defaults write com.apple.finder AppleShowAllFiles -bool true
+# Use CMD-Shift . to show hidden files
+# defaults write com.apple.finder AppleShowAllFiles -bool true
 
 ## Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
