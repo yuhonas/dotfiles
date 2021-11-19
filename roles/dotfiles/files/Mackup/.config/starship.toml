@@ -1,3 +1,4 @@
+command_timeout = 1000
 [character]
 success_symbol = "[»](bold green)"
 error_symbol = "[✖](bold red)"
@@ -12,3 +13,4 @@ disabled = true
 truncation_length = 8
 truncate_to_repo = false
 truncation_symbol = "../"
+

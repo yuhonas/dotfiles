@@ -11,5 +11,8 @@
     "editor.formatOnPaste": true,
     "files.trimTrailingWhitespace": true,
     "terminal.external.osxExec": "kitty",
-    "terminal.integrated.fontFamiy": "Fira Code Retina"
+    "terminal.integrated.fontFamiy": "Fira Code Retina",
+    "terminal.integrated.macOptionIsMeta": true,
+    "editor.fontFamily": "Monaco, Menlo, 'Courier New', monospace",
+    "rubyTestExplorer.logpanel": false
   }

@@ -8,17 +8,16 @@
       - borgbackup # for secure incremental backups
       - coreutils
       - ctags  # index generation for source and header files
-      # - dos2unix
       - emacs
       - jdupes # faster then fdupes
-#      - figlet
-#      - fortune
+      - fx # for exploring json files in the terminal
+      - grex # A tool generating regular expressions from user-provided test cases
       - github/gh/gh # https://github.com/cli/cli
 #      - git-extras
       # - git-town
       - gnupg
 #      - hr
-      - httpie # developer friendly curl alterantive
+      - httpie # developer friendly curl alternative
       - imagemagick # for pywal amongst other useful image manipulations
       - jq
 #      - lazygit
