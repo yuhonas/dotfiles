@@ -187,3 +187,5 @@
        :config
        ;;literate
        (default +bindings +smartparens))
+(setq confirm-kill-emacs nil)
+

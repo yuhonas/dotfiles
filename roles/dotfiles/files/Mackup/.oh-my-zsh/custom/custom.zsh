@@ -17,7 +17,7 @@ alias vi="nvim"
 alias vim="nvim"
 
 # Import pywal colors if they have been exported
-# this sets FZF and a whole bunch of color ENV variables to be used in scripts 
+# this sets FZF and a whole bunch of color ENV variables to be used in scripts
 # see also https://github.com/dylanaraps/wal
 
 PYWAL_COLORS="$HOME/.cache/wal/colors.sh"
@@ -38,6 +38,7 @@ _tldr() {
   local first_word
   first_word=("${(@s/ /)BUFFER}") # split words based on \s
 
+  # tldr --pager "$first_word[1]"
   BUFFER="tldr $first_word[1]"
   zle accept-line
 }
@@ -51,7 +52,6 @@ bindkey "^[H" _tldr
 
 # ctrl-backspace for backword killword
 # bindkey '^H' backward-kill-word
-
 
 # less input pre-processing through lesspipe
 # https://manpages.debian.org/jessie/less/lesspipe.1.en.html
@@ -88,15 +88,17 @@ if (( !$+commands[open] )); then
   alias open=open_command # alias to zsh's cross platform open_command
 fi
 
-# if we have kitty then use it to preview images inplace in the terminal
+# if we have kitty then set some handy aliases
 # https://sw.kovidgoyal.net/kitty/kittens/icat/
 if (( $+commands[kitty] )); then
-  alias icat="kitty +kitten icat"
+  alias icat="kitty +kitten icat" # in terminal image preview
+  alias d="kitty +kitten diff"
 fi
 
-# assumes an emacs daemon is running see
+# attempt to open up with emacs in daemon mode
+# fallback to emacs if it's not running
 # https://www.emacswiki.org/emacs/EmacsAsDaemon
-alias todo="emacs $HOME/TODO.org"
+alias todo="emacsclient --alternate-editor emacs $HOME/TODO.org"
 
 # fbr - checkout branch specified or provide a list of all git branches
 # including remotes for selection
@@ -128,4 +130,16 @@ stdin2www() {
   open $tmpfile
   #rm $tmpfile
 }
+
+# https://stackoverflow.com/questions/4602153/how-do-i-use-wget-to-download-all-images-into-a-single-folder-from-a-url
+wget_images() {
+  wget -nd -r -A jpeg,jpg,bmp,gif,png $1
+}
+
+
+# set the starship prompt if it exists
+if (( $+commands[starship] )); then
+  # eval "$(starship init zsh)"
+  znap eval starship 'starship init zsh --print-full-init'
+fi
 

@@ -20,7 +20,8 @@ if [ "$(uname)" == "Darwin" ]; then
     if [[ ! -x /opt/homebrew/bin/brew ]]; then
         echo "Info   | Install   | homebrew"
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-        echo 'eval $(/opt/homebrew/bin/brew shellenv)' >>$HOME/.zprofile
+        # dont use idempotent shellenv see https://github.com/Homebrew/brew/pull/11789
+        echo 'eval $(HOMEBREW_SHELLENV_PREFIX="" /opt/homebrew/bin/brew shellenv)' >>$HOME/.zprofile
         source $HOME/.zprofile
     fi
 

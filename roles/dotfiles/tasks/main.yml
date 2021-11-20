@@ -7,8 +7,10 @@
   file: path={{ ansible_env.HOME }}/.local/bin state=directory recurse=true
 
 - name: add sites dir for various projects
-  file: path={{ ansible_env.HOME }}/Sites state=directory mode=0644
+  file: path={{ ansible_env.HOME }}/Sites state=directory mode=0700
 
+# i'm a big fan of "modern" replacements for various utilities
+# see https://zaiste.net/posts/shell-commands-rust/ & https://lib.rs/command-line-utilities
 - name: base packages
   homebrew:
     state: present
@@ -22,8 +24,6 @@
       - fd  # find replacement
       - fzf  # fuzzy finder
       - gawk # for tmux fingers plugin
-      # - getantibody/tap/antibody # the fastest shell plugin manager (zsh)
-#      - gocryptfs # encrypted overlay filesystem
       - git
       - ispell
       - lesspipe
@@ -33,9 +33,8 @@
       - ripgrep  # like grep but better, a dependancy on doommacs, also just handy to have around
       - starship # fast/cross shell prompt
       - the_silver_searcher  # like ack but faster
-      - tldr  # community driven man pages
+      - tealdeer # a faster implemention of tldr (community driven man pages)
       - tmux
-      - tree
       - wget
       - zsh
     update_homebrew: true
@@ -52,6 +51,8 @@
 
 - name: get brew env variables
   command: brew shellenv
+  environment:
+    HOMEBREW_SHELLENV_PREFIX: ""
   changed_when: false
   register: brew_shellenv
 
