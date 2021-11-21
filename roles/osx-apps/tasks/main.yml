@@ -10,17 +10,15 @@
     # - drop-to-gif
     # - evernote
     # - firefox
-    # - google-drive
+    - google-drive
     # - handbrake
     # - insomnia
     # - keybase
-    # - libreoffice
     - rectangle
-    # - skype
     - signal
     - spotify
     - tor-browser
-    # - uninstallpkg
+    - uninstallpkg
     - vlc
 
 # the version of bash that ships with macos (3.2.x) at the time
@@ -31,17 +29,12 @@
 - name: developer applications
   homebrew_cask: name={{ item }} state=present
   with_items:
-    # - alacritty
-    # - dash
     # - gitkraken
     - kitty
-    # - iterm2
-    # - postico
-    # - sequel-pro
-    # - sourcetree
-    # - vagrant-manager
+    - postico
     - visual-studio-code
 
+# TODO: These don't appear to be updated for MacOS Monterey (M1)
 # - name: quicklook plugins
 #   homebrew_cask: name={{ item }} state=present
 #   with_items:
