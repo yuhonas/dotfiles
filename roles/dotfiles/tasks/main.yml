@@ -1,16 +1,23 @@
 ---
+
+- name: Debugging system path variables
+  ansible.builtin.debug:
+    msg: "playbook_dir: {{ playbook_dir}} inventory_dir:{{ inventory_dir }} inventory_file:{{ inventory_file }} role_path:{{ role_path }}"
+
 - name: ensure we have an .ssh dir with the correct perms
-  file: path={{ ansible_env.HOME }}/.ssh state=directory mode=700
+  file: path={{ ansible_env.HOME }}/.ssh state=directory mode=0700
 
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 - name: add local bin dir for custom scripts
-  file: path={{ ansible_env.HOME }}/.local/bin state=directory recurse=true
+  file: path={{ ansible_env.HOME }}/.local/bin state=directory recurse=true mode=0700
 
 - name: add sites dir for various projects
   file: path={{ ansible_env.HOME }}/Sites state=directory mode=0700
 
-# i'm a big fan of "modern" replacements for various utilities
-# see https://zaiste.net/posts/shell-commands-rust/ & https://lib.rs/command-line-utilities
+# i'm a fan of some "modern" replacements for various utilities
+# * https://github.com/ibraheemdev/modern-unix
+# * https://zaiste.net/posts/shell-commands-rust/
+# * https://lib.rs/command-line-utilities
 - name: base packages
   homebrew:
     state: present
@@ -84,10 +91,10 @@
     create: true
 
 - name: symlinking mackup config
-  file: src="files/mackup.cfg" dest="{{ ansible_env.HOME }}/.mackup.cfg" state=link
+  file: src="{{ role_path }}/mackup.cfg" dest="{{ ansible_env.HOME }}/.mackup.cfg" state=link
 
 - name: symlinking mackup config directory
-  file: src="files/.mackup" dest="{{ ansible_env.HOME }}/.mackup" state=link
+  file: src="{{ role_path }}/.mackup" dest="{{ ansible_env.HOME }}/.mackup" state=link
   #file: src="{{ ansible_env.HOME }}/src/ansible/roles/dotfiles/files/.mackup" dest="{{ ansible_env.HOME }}/.mackup" state=link
 
 - name: check if there are dotfiles to symlink
