@@ -84,10 +84,10 @@
     create: true
 
 - name: symlinking mackup config
-  file: src="{{ role_path }}/files/mackup.cfg" dest="{{ ansible_env.HOME }}/.mackup.cfg" state=link
+  file: src="files/mackup.cfg" dest="{{ ansible_env.HOME }}/.mackup.cfg" state=link
 
 - name: symlinking mackup config directory
-  file: src="{{ role_path }}/files/.mackup" dest="{{ ansible_env.HOME }}/.mackup" state=link
+  file: src="files/.mackup" dest="{{ ansible_env.HOME }}/.mackup" state=link
   #file: src="{{ ansible_env.HOME }}/src/ansible/roles/dotfiles/files/.mackup" dest="{{ ansible_env.HOME }}/.mackup" state=link
 
 - name: check if there are dotfiles to symlink
