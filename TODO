@@ -1,35 +1,4 @@
-[ ] mouse logitech gestures
-[x] grub logo
-[x] display artifact
-[x] keybindings for mac
-[x] touchpad gestures
-[x] xrandr
-[x] sound fix https://forums.linuxmint.com/viewtopic.php?t=91453
-[x] apps (spotify, chrome)
-[x] media keys
-[x] kubuntu config
-[x] ssh keygen auth
-[x] github commandline
-[x] docker
-[x] clipboard management
-[x] hide tab bar for screenshot
-[x] fix sudo path
-[x] bluetooth sound quality
-[x] rclone (dropbox/googledrive)
-[ ] encrypt home dir with dm-crypt (LUKS)
-[x] additional mackup config
-[x] enable fstrim
-
-## keybindings
-
-CMD-C - Copy
-CMD-V - Paste
-CMD-T - New Tab
-CMD-W - Close Tab/Window
-ALT-CMD-F Full Screen
-ALT-CMD-I Window tile up
-ALT-CMD-K Window tile down
-ALT-CMD-J Window tile left
-ALT-CMD-L Window tile right
-
-https://www.reddit.com/r/kde/comments/55udc1/how_do_i_stop_the_meta_key_from_opening_the/
+[x] don't symlink DefaultKeyBinding file
+[ ] https://itectec.com/askdifferent/textedit-key-bindings-modified-in-defaultkeybinding-dict-stopped-working/
+[ ] fix zprofile https://docs.brew.sh/Shell-Completion
+zshenv

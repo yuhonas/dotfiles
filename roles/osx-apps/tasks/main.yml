@@ -24,7 +24,7 @@
 # the version of bash that ships with macos (3.2.x) at the time
 # is super old and breaks the tmux fingers plugin
 - name: install a modern version of bash
-  homebrew: name=bash state=latest
+  homebrew: name=bash state=present
 
 - name: developer applications
   homebrew_cask: name={{ item }} state=present
@@ -33,6 +33,18 @@
     - kitty
     - postico
     - visual-studio-code
+
+- name: ensure we have a directory for custom key bindings
+  file: path={{ ansible_env.HOME }}/Library/KeyBindings state=directory mode=700
+
+# copy custom macos keybindings
+# symlinking causes issues in some apps
+# see https://itectec.com/askdifferent/textedit-key-bindings-modified-in-defaultkeybinding-dict-stopped-working/
+- name: copying DefaultKeyBinding for custom key bindings in osx text inputs
+  copy:
+    src: KeyBindings/DefaultKeyBinding.dict
+    dest: "{{ ansible_env.HOME }}/Library/KeyBindings"
+    mode: 0644
 
 # TODO: These don't appear to be updated for MacOS Monterey (M1)
 # - name: quicklook plugins

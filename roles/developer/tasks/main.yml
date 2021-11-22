@@ -17,7 +17,6 @@
       # - git-town
       - gnupg
 #      - hr
-      - httpie # developer friendly curl alternative
       - imagemagick # for pywal amongst other useful image manipulations
       - jq
 #      - lazygit
@@ -37,6 +36,7 @@
 #      - sox  # sound processing lib
       - sqlite
       # - thefuck
+      - xh # developer friendly curl alternative inspired by httpie
       - w3m # text based browser
 
 - name: find where asdf was installed

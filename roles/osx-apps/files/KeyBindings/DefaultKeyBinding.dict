@@ -2,12 +2,15 @@
 // https://irreal.org/blog/?p=259
 // https://github.com/ttscoff/KeyBindings
 // https://developer.apple.com/documentation/appkit/nsstandardkeybindingresponding
+// https://web.archive.org/web/20161220060333/http://osxnotes.net/keybindings.html
 {
     "~d" = "deleteWordForward:";
     "^w" = "deleteWordBackward:";
     "~f" = "moveWordForward:";
     "~b" = "moveWordBackward:";
     "^u" = "deleteToBeginningOfParagraph:";
+    "~l" = (lowercaseWord:, moveForward:, moveForward:);
+    "~u" = (uppercaseWord:, moveForward:, moveForward:);
 
     // blank line after current
     "~o" = (moveToEndOfParagraph:, insertNewline:);
