@@ -91,12 +91,12 @@
     create: true
 
 - name: symlinking mackup config
-  file: src="{{ playbook_dir }}/roles/dotfiles/files/mackup.cfg" dest="{{ ansible_env.HOME }}/.mackup.cfg" state=link
-  # file: src="{{ ansible_env.HOME }}/src/ansible/roles/dotfiles/files/mackup.cfg" dest="{{ ansible_env.HOME }}/.mackup.cfg" state=link
+  # file: src="{{ playbook_dir }}/roles/dotfiles/files/mackup.cfg" dest="{{ ansible_env.HOME }}/.mackup.cfg" state=link
+  file: src="{{ ansible_env.HOME }}/dotfiles/ansible/roles/dotfiles/files/mackup.cfg" dest="{{ ansible_env.HOME }}/.mackup.cfg" state=link
 
 - name: symlinking mackup config directory
-  file: src="{{ playbook_dir }}/roles/dotfiles/files/.mackup" dest="{{ ansible_env.HOME }}/.mackup" state=link
-  # file: src="{{ ansible_env.HOME }}/src/ansible/roles/dotfiles/files/.mackup" dest="{{ ansible_env.HOME }}/.mackup" state=link
+  # file: src="{{ playbook_dir }}/roles/dotfiles/files/.mackup" dest="{{ ansible_env.HOME }}/.mackup" state=link
+  file: src="{{ ansible_env.HOME }}/dotfiles/ansible/roles/dotfiles/files/.mackup" dest="{{ ansible_env.HOME }}/.mackup" state=link
 
 - name: check if there are dotfiles to symlink
   command: mackup restore --dry-run
