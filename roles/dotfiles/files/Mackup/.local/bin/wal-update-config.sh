@@ -10,26 +10,34 @@ ROFI_DIR=$HOME/.config/rofi
 
 WALL_WAYBAR_THEME="$HOME/.cache/wal/colors-waybar.css"
 WAYBAR_DIR=$HOME/.config/waybar
+WAY_WALLPAPER=$(cat "$HOME/.cache/wal/wal")
 
-if [[ -f $WALL_ROFI_THEME ]]; then
-  [ -d $ROFI_DIR ] || mkdir -p $ROFI_DIR
-  cp -v $WALL_ROFI_THEME $ROFI_DIR/config.rasi
-fi
+# if [[ -f $WALL_ROFI_THEME ]]; then
+#   [ -d $ROFI_DIR ] || mkdir -p $ROFI_DIR
+#   cp -v $WALL_ROFI_THEME $ROFI_DIR/config.rasi
+# fi
 
 # load theme into env variables / also themes FZF
 # see https://github.com/dylanaraps/pywal/wiki/Customization#user-content-scripting-files
 . $HOME/.cache/wal/colors.sh
 
 # swap out alacritty colors if the exporter is installed
-if type alacritty-color-export.sh > /dev/null 2>&1; then
-  alacritty-color-export.sh
+# if type alacritty-color-export.sh > /dev/null 2>&1; then
+#   alacritty-color-export.sh
+# fi
+
+if [[ $OSTYPE == 'darwin'* ]]; then
+  osascript -e "tell application \"System Events\" to tell every desktop to set
+  picture to \"$WAY_WALLPAPER\""
+
 fi
 
+
 # add custom css for waybar
-if [[ -f $WALL_WAYBAR_THEME ]]; then
-  [ -d $WAYBAR_DIR ] || mkdir -p $WAYBAR_DIR
-  cp -v $WALL_WAYBAR_THEME $WAYBAR_DIR/style.local.css
-fi
+# if [[ -f $WALL_WAYBAR_THEME ]]; then
+#   [ -d $WAYBAR_DIR ] || mkdir -p $WAYBAR_DIR
+#   cp -v $WALL_WAYBAR_THEME $WAYBAR_DIR/style.local.css
+# fi
 
 # reload sway if we have it
 if type swaymsg > /dev/null 2>&1; then

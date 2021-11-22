@@ -3,41 +3,41 @@
   homebrew:
     state: present
     name:
-      - aria2
+      - aria2 # lightweight multiprotocol download util
       - awscli
+      - borgbackup # for secure incremental backups
       - coreutils
       - ctags  # index generation for source and header files
-      - dos2unix
       - emacs
       - jdupes # faster then fdupes
-      - figlet
-      - fortune
+      - fx # for exploring json files in the terminal
+      - grex # A tool generating regular expressions from user-provided test cases
       - github/gh/gh # https://github.com/cli/cli
-      - git-extras
+#      - git-extras
       # - git-town
       - gnupg
-      - hr
-      - httpie
-      # - inotify-tools
+#      - hr
+      - imagemagick # for pywal amongst other useful image manipulations
       - jq
-      - lazygit
-      - lnav
+#      - lazygit
+      - lnav # better log file navigator
       - md5deep
       - neofetch
       - nmap
       - p7zip
-      - pandoc
-      - pgcli
+      - pandoc # useful document converter
+      - pgcli # commandline interface for postgres
+      - pidof # for pywal
       - poppler  # for lesspipe
-      - pv
-      - qt
+      - pv # useful pipe viewer see https://catonmat.net/unix-utilities-pipe-viewer
       - readline
       - redis
       - ruby-build
-      - sox  # sound processing lib
+#      - sox  # sound processing lib
       - sqlite
-      - thefuck
-      - w3m
+      # - thefuck
+      - xh # developer friendly curl alternative inspired by httpie
+      - w3m # text based browser
 
 - name: find where asdf was installed
   command: "brew --prefix asdf"
@@ -46,32 +46,20 @@
 
 # - debug: msg="{{ asdf_location.stdout }}"
 
-- name: ensure asdf is in the $PATH
-  blockinfile:
-    path: "{{ ansible_env.HOME }}/.bashrc"
-    block: |
-      export ASDF_DIR={{ asdf_location.stdout }}
-      export PATH=~/.asdf/shims:$PATH
+#- name: ensure asdf is in the $PATH
+#  blockinfile:
+#    path: "{{ ansible_env.HOME }}/.bashrc"
+#    block: |
+#      export ASDF_DIR={{ asdf_location.stdout }}
+#      export PATH=~/.asdf/shims:$PATH
 
 - name: add asdf plugins
   command: "asdf plugin-add {{ item }}"
   with_items:
-    - golang
     - ruby
     - nodejs
     - python
   ignore_errors: true
-
-- name: set global asdf versions
-  blockinfile:
-    path: "{{ ansible_env.HOME }}/.tool-versions"
-    mode: 0644
-    create: true
-    block: |
-      golang 1.12.5
-      nodejs 14.15.0
-      python 3.7.7
-      ruby 2.7.1
 
 - name: update asdf plugin versions
   command: asdf plugin-update --all
@@ -89,32 +77,26 @@
   pip:
     name:
       - csvkit
-      - haxor-news
+      - git+https://github.com/dylanaraps/pywal.git # use master
     state: present
-    executable: ~/.asdf/shims/pip
-
-- name: ruby packages
-  gem:
-    name: "{{ item }}"
-    state: present
-    executable: ~/.asdf/shims/gem
-  with_items:
-    - seeing_is_believing
-
-- name: node packages
-  npm:
-    name: "{{ item }}"
-    state: present
-    global: true
-    executable: ~/.asdf/shims/npm
-  with_items:
-    - alacritty-themes
+    executable: "{{ ansible_env.HOME }}/.asdf/shims/pip"
 
 - name: asdf reshim
   command: asdf reshim
 
-- name: install spacemacs
-  git:
-    repo: https://github.com/syl20bnr/spacemacs
-    dest: "{{ ansible_env.HOME }}/.emacs.d"
-    version: master
+- name: install developer fonts tap
+  homebrew_tap:
+    name: homebrew/cask-fonts
+    state: present
+
+# - name: install developer font
+#   homebrew:
+#     state: present
+#     name:
+#       - font-fira-code # https://github.com/tonsky/FiraCode
+
+#- name: install spacemacs
+#  git:
+#    repo: https://github.com/syl20bnr/spacemacs
+#    dest: "{{ ansible_env.HOME }}/.emacs.d"
+#    version: master

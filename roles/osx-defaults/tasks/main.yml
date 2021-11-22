@@ -5,8 +5,8 @@
 
 # https://www.jamf.com/jamf-nation/discussions/10576/menu-bar-customization
 
-- name: add volume status to menu
-  command: open "/System/Library/CoreServices/Menu Extras/Volume.menu"
+# - name: add volume status to menu
+#   command: open "/System/Library/CoreServices/Menu Extras/Volume.menu"
 
 # - name: display turns off after 45 minutes on a/c power
 #   command: pmset -c displaysleep 45

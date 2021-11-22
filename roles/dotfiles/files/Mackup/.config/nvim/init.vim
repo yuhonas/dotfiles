@@ -32,9 +32,12 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 " Plug 'flazz/vim-colorschemes'
-" Plug 'dylanaraps/wal'
+Plug 'dylanaraps/wal'
 " Plug 'wincent/terminus'
-Plug 'jamessan/vim-gnupg', { 'branch': 'main' }
+" Plug 'jamessan/vim-gnupg', { 'branch': 'main' }
+Plug 'godlygeek/tabular'
+" Plug 'justinmk/vim-sneak'
+
 
 " " intellisense engine for vim
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -101,11 +104,11 @@ set mat=2
 
 "syntax enable           " enable syntax processing
 
-" try
-"    colorscheme quantum
-"    set background=dark
-" catch
-" endtry
+try
+   colorscheme wal
+   " set background=dark
+catch
+endtry
 
 " Set utf8 as standard encoding and en_US as the standard language
 " set encoding=utf8

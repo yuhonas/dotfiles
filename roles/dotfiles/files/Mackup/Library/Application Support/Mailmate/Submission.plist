@@ -1,0 +1,8 @@
+{	smtpServers = (
+		{	port = "465";
+			portSelection = "manual";
+			requireSSL = :true;
+			serverURL = "smtp://clint%40yuhonas.com@smtp.gmail.com";
+		},
+	);
+}

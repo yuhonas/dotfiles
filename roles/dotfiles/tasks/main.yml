@@ -1,14 +1,23 @@
 ---
+
+- name: Debugging system path variables
+  ansible.builtin.debug:
+    msg: "playbook_dir: {{ playbook_dir}} inventory_dir:{{ inventory_dir }} inventory_file:{{ inventory_file }} role_path:{{ role_path }}"
+
 - name: ensure we have an .ssh dir with the correct perms
-  file: path={{ ansible_env.HOME }}/.ssh state=directory mode=700
+  file: path={{ ansible_env.HOME }}/.ssh state=directory mode=0700
 
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 - name: add local bin dir for custom scripts
-  file: path={{ ansible_env.HOME }}/.local/bin state=directory recurse=true
+  file: path={{ ansible_env.HOME }}/.local/bin state=directory recurse=true mode=0700
 
 - name: add sites dir for various projects
-  file: path={{ ansible_env.HOME }}/Sites state=directory mode=0644
+  file: path={{ ansible_env.HOME }}/Sites state=directory mode=0700
 
+# i'm a fan of some "modern" replacements for various utilities
+# * https://github.com/ibraheemdev/modern-unix
+# * https://zaiste.net/posts/shell-commands-rust/
+# * https://lib.rs/command-line-utilities
 - name: base packages
   homebrew:
     state: present
@@ -21,20 +30,19 @@
       - fasd  # jump navigation
       - fd  # find replacement
       - fzf  # fuzzy finder
-      - getantibody/tap/antibody # the fastest shell plugin manager (zsh)
-      - gocryptfs # encrypted overlay filesystem
+      - gawk # for tmux fingers plugin
       - git
       - ispell
+      - less # the version that comes with macos is old
       - lesspipe
       - mackup  # symlink farm
       - ncdu  # ncurses disk usage
       - neovim
-      # - ripgrep  # like grep but better, see https://news.ycombinator.com/item?id=12567328
+      - ripgrep  # like grep but better, a dependancy on doommacs, also just handy to have around
       - starship # fast/cross shell prompt
       - the_silver_searcher  # like ack but faster
-      - tldr  # community driven man pages
+      - tealdeer # a faster implemention of tldr (community driven man pages)
       - tmux
-      - tree
       - wget
       - zsh
     update_homebrew: true
@@ -51,29 +59,44 @@
 
 - name: get brew env variables
   command: brew shellenv
+  environment:
+    HOMEBREW_SHELLENV_PREFIX: ""
   changed_when: false
   register: brew_shellenv
 
-- name: get fzf directory
-  command: brew --prefix fzf
-  changed_when: false
-  register: brew_fzfdir
+# - name: get fzf directory
+#   command: brew --prefix fzf
+#   changed_when: false
+#   register: brew_fzfdir
 
-- name: ensure brew env vars exist in zshenv
+# - name: ensure brew env vars exist in zshenv
+#   blockinfile:
+#     path: "{{ ansible_env.HOME }}/.zshenv"
+#     mode: 0644
+#     block: |
+#       {{ brew_shellenv.stdout }}
+#       export FZF_BASE="{{ brew_fzfdir.stdout }}"
+#     insertbefore: BOF
+#     create: true
+# see https://docs.brew.sh/Shell-Completion
+
+- name: ensure we have brew path & shell completions loaded on startup
   blockinfile:
-    path: "{{ ansible_env.HOME }}/.zshenv"
+    path: "{{ ansible_env.HOME }}/.zprofile"
     mode: 0644
     block: |
       {{ brew_shellenv.stdout }}
-      export FZF_BASE="{{ brew_fzfdir.stdout }}"
+      FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
     insertbefore: BOF
     create: true
 
 - name: symlinking mackup config
-  file: src="{{ ansible_env.HOME }}/src/ansible/roles/dotfiles/files/mackup.cfg" dest="{{ ansible_env.HOME }}/.mackup.cfg" state=link
+  # file: src="{{ playbook_dir }}/roles/dotfiles/files/mackup.cfg" dest="{{ ansible_env.HOME }}/.mackup.cfg" state=link
+  file: src="{{ ansible_env.HOME }}/dotfiles/ansible/roles/dotfiles/files/mackup.cfg" dest="{{ ansible_env.HOME }}/.mackup.cfg" state=link
 
 - name: symlinking mackup config directory
-  file: src="{{ ansible_env.HOME }}/src/ansible/roles/dotfiles/files/.mackup" dest="{{ ansible_env.HOME }}/.mackup" state=link
+  # file: src="{{ playbook_dir }}/roles/dotfiles/files/.mackup" dest="{{ ansible_env.HOME }}/.mackup" state=link
+  file: src="{{ ansible_env.HOME }}/dotfiles/ansible/roles/dotfiles/files/.mackup" dest="{{ ansible_env.HOME }}/.mackup" state=link
 
 - name: check if there are dotfiles to symlink
   command: mackup restore --dry-run
@@ -83,6 +106,12 @@
 - name: restore dotfile config via mackup
   command: mackup restore --force
   when: mackup_result.stdout | length > 0
+
+- name: install community cheat sheets
+  git:
+    repo: https://github.com/cheat/cheatsheets.git
+    dest: "{{ ansible_env.HOME }}/.config/cheat/cheatsheets/community"
+    version: master
 
 - name: install tmux plugin manager
   git:

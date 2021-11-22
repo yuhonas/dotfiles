@@ -1,7 +1,6 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "workbench.colorTheme": "Monokai Dimmed",
-    "window.zoomLevel": 0,
+  "window.zoomLevel": 0,
     "editor.fontSize": 14,
     "editor.minimap.enabled": false,
     "editor.tabSize": 2,
@@ -10,5 +9,10 @@
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.snippetSuggestions": "top",
     "editor.formatOnPaste": true,
-    "files.trimTrailingWhitespace": true
+    "files.trimTrailingWhitespace": true,
+    "terminal.external.osxExec": "kitty",
+    "terminal.integrated.fontFamiy": "Fira Code Retina",
+    "terminal.integrated.macOptionIsMeta": true,
+    "editor.fontFamily": "Monaco, Menlo, 'Courier New', monospace",
+    "rubyTestExplorer.logpanel": false
   }
