@@ -1,15 +1,10 @@
 ---
-
-- name: Debugging system path variables
-  ansible.builtin.debug:
-    msg: "playbook_dir: {{ playbook_dir}} inventory_dir:{{ inventory_dir }} inventory_file:{{ inventory_file }} role_path:{{ role_path }}"
-
 - name: ensure we have an .ssh dir with the correct perms
   file: path={{ ansible_env.HOME }}/.ssh state=directory mode=0700
 
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 - name: add local bin dir for custom scripts
-  file: path={{ ansible_env.HOME }}/.local/bin state=directory recurse=true mode=0700
+  file: path={{ ansible_env.HOME }}/.local/bin state=directory recurse=true
 
 - name: add sites dir for various projects
   file: path={{ ansible_env.HOME }}/Sites state=directory mode=0700
