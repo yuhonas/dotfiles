@@ -1,4 +1,4 @@
-[x] don't symlink DefaultKeyBinding file
-[ ] https://itectec.com/askdifferent/textedit-key-bindings-modified-in-defaultkeybinding-dict-stopped-working/
-[ ] fix zprofile https://docs.brew.sh/Shell-Completion
-zshenv
+[x] don't symlink DefaultKeyBinding file - https://itectec.com/askdifferent/textedit-key-bindings-modified-in-defaultkeybinding-dict-stopped-working/
+[x] fix zprofile https://docs.brew.sh/Shell-Completion
+[ ] move from tmux to kitty
+[ ] use a better page with vim key bindings eg. vim https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/

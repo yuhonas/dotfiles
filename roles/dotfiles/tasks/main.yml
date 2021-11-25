@@ -59,22 +59,7 @@
   changed_when: false
   register: brew_shellenv
 
-# - name: get fzf directory
-#   command: brew --prefix fzf
-#   changed_when: false
-#   register: brew_fzfdir
-
-# - name: ensure brew env vars exist in zshenv
-#   blockinfile:
-#     path: "{{ ansible_env.HOME }}/.zshenv"
-#     mode: 0644
-#     block: |
-#       {{ brew_shellenv.stdout }}
-#       export FZF_BASE="{{ brew_fzfdir.stdout }}"
-#     insertbefore: BOF
-#     create: true
 # see https://docs.brew.sh/Shell-Completion
-
 - name: ensure we have brew path & shell completions loaded on startup
   blockinfile:
     path: "{{ ansible_env.HOME }}/.zprofile"
@@ -86,11 +71,9 @@
     create: true
 
 - name: symlinking mackup config
-  # file: src="{{ playbook_dir }}/roles/dotfiles/files/mackup.cfg" dest="{{ ansible_env.HOME }}/.mackup.cfg" state=link
   file: src="{{ ansible_env.HOME }}/dotfiles/ansible/roles/dotfiles/files/mackup.cfg" dest="{{ ansible_env.HOME }}/.mackup.cfg" state=link
 
 - name: symlinking mackup config directory
-  # file: src="{{ playbook_dir }}/roles/dotfiles/files/.mackup" dest="{{ ansible_env.HOME }}/.mackup" state=link
   file: src="{{ ansible_env.HOME }}/dotfiles/ansible/roles/dotfiles/files/.mackup" dest="{{ ansible_env.HOME }}/.mackup" state=link
 
 - name: check if there are dotfiles to symlink

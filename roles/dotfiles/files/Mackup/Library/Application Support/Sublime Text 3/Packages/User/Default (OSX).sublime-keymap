@@ -1,4 +1,0 @@
-[
-   { "keys": ["ctrl+h"], "command": "dash_doc",
-                           "args": { "flip_syntax_sensitive": true } }
-]

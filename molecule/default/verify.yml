@@ -4,7 +4,18 @@
 - name: Verify
   hosts: all
   gather_facts: false
+  tags: minimal
+
   tasks:
-  - name: Example assertion
-    assert:
-      that: true
+    - name: get default shell of ansible user
+      shell: "cat /etc/passwd | grep {{ ansible_ssh_user }}"
+      register: ansible_ssh_user_shell
+
+    - name: get installed zsh module count
+      shell: "zsh -ci 'znap status | wc -l'"
+      register: zsh_installed_module_count
+
+    - assert:
+        that:
+          - "'zsh' in ansible_ssh_user_shell.stdout"
+          - zsh_installed_module_count.stdout == "11"

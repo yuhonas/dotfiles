@@ -27,5 +27,5 @@ provisioner:
   playbooks:
     prepare: "../../prepare.yml"
     converge: "../../playbook.yml"
-verifier:
-  name: ansible
+# verifier:
+#   name: ansible

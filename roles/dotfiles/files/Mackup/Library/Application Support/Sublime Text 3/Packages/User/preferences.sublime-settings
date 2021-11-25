@@ -1,9 +1,0 @@
-{
-	"ignored_packages":
-	[
-		"Vintage"
-	],
-
-	"index_exclude_patterns": ["*.log", ".cache"],
-	"show_errors_inline": false
-}
