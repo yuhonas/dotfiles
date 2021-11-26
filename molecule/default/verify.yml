@@ -18,4 +18,4 @@
     - assert:
         that:
           - "'zsh' in ansible_ssh_user_shell.stdout"
-          - zsh_installed_module_count.stdout == "11"
+          - "'11' in zsh_installed_module_count.stdout_lines"
