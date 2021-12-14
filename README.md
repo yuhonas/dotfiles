@@ -84,7 +84,7 @@ $ molecule test
 
 ## Trying it out with Docker
 
-Every test run through molecule generates a _minimal_ docker base image which is then published & can be found under [packages](https://github.com/yuhonas/dotfiles/packages/458733)
+Every test run through molecule generates a _minimal_ docker base image which is then published & can be found under [releases](https://github.com/yuhonas/dotfiles/releases)
 
 See also
 
