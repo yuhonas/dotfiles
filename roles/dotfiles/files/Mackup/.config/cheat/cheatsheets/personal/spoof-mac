@@ -1,0 +1,6 @@
+---
+tags: [network]
+---
+# change the mac address on network interface en0
+# see also https://osxdaily.com/2021/09/05/change-mac-address-macos-mac-spoof/
+spoof-mac randomize en0

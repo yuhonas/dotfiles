@@ -338,10 +338,10 @@ set statusline+=\ %l:%c
 "" Move to word
 "map  <Leader>w <Plug>(easymotion-bd-w)
 
-"" machine specific vim customizations
-"if filereadable(expand('~/.vimrc.local'))
-"  source ~/.vimrc.local
-"endif
+" machine specific vim customizations
+if filereadable(expand('~/.vimrc.local'))
+  source ~/.vimrc.local
+endif
 
 " https://sw.kovidgoyal.net/kitty/faq.html#using-a-color-theme-with-a-background-color-does-not-work-well-in-vim
 " let &t_ut=''

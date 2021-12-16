@@ -14,5 +14,8 @@
     "terminal.integrated.fontFamiy": "Fira Code Retina",
     "terminal.integrated.macOptionIsMeta": true,
     "editor.fontFamily": "Monaco, Menlo, 'Courier New', monospace",
-    "rubyTestExplorer.logpanel": false
+    "rubyTestExplorer.logpanel": false,
+    "workbench.colorTheme": "Dracula",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active"
   }

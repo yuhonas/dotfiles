@@ -1,3 +1,4 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
 export ZSH="$HOME/.oh-my-zsh"
 
 # download znap plugin manager if it's not there yet.
@@ -41,3 +42,6 @@ znap source yuhonas/zsh-ansimotd
 ## My customizations
 source $HOME/.oh-my-zsh/custom/custom.zsh
 
+# FIXME: Open issue
+# see https://github.com/ohmyzsh/ohmyzsh/pull/10481
+export ASDF_DIR="$(brew --prefix asdf)/libexec"

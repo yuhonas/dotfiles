@@ -52,20 +52,18 @@
     file: oh-my-zsh.yml
   when: not zsh_stat_result.stat.exists
 
-- name: get brew env variables
-  command: brew shellenv
-  environment:
-    HOMEBREW_SHELLENV_PREFIX: ""
+- name: find brew binary path
+  command: which brew
   changed_when: false
-  register: brew_shellenv
+  register: brew_binary_path
 
 # see https://docs.brew.sh/Shell-Completion
-- name: ensure we have brew path & shell completions loaded on startup
+- name: ensure we have the brew path & shell completions loaded on startup
   blockinfile:
     path: "{{ ansible_env.HOME }}/.zprofile"
     mode: 0644
     block: |
-      {{ brew_shellenv.stdout }}
+      eval "$({{ brew_binary_path.stdout }} shellenv)"
       FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
     insertbefore: BOF
     create: true
