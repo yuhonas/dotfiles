@@ -1,7 +1,5 @@
 ---
-# This is an example playbook to execute Ansible tests.
-
-- name: Verify
+- name: Verify the basics
   hosts: all
   gather_facts: false
   tags: minimal
@@ -15,7 +13,13 @@
       shell: "zsh -ci 'znap status | wc -l'"
       register: zsh_installed_module_count
 
+    - name: run brew from zsh
+      shell: "zsh -c 'brew --version'"
+      ignore_errors: yes
+      register: brew_from_zsh
+
     - assert:
         that:
           - "'zsh' in ansible_ssh_user_shell.stdout"
           - "'11' in zsh_installed_module_count.stdout_lines"
+          - "brew_from_zsh.failed == false"

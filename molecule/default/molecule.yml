@@ -8,7 +8,7 @@ lint: |
   flake8
 platforms:
   - name: "molecule_instance"
-    image: "archlinux/archlinux:latest"
+    image: "archlinux/archlinux:base-devel-20211226.0.42348"
     env:
       PATH: "/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
       ANSIBLE_USER: "linuxbrew"
@@ -27,5 +27,3 @@ provisioner:
   playbooks:
     prepare: "../../prepare.yml"
     converge: "../../playbook.yml"
-# verifier:
-#   name: ansible

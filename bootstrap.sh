@@ -8,7 +8,6 @@ ANSIBLE_DIRECTORY="$SRC_DIRECTORY/ansible"
 ANSIBLE_REPO="https://github.com/yuhonas/dotfiles.git"
 export ANSIBLE_NOCOWS=1
 
-
 if [ "$(uname)" == "Darwin" ]; then
     # Download and install Command Line Tools
     if [[ ! -x /usr/bin/gcc ]]; then
@@ -36,7 +35,7 @@ else
 
         echo "Info   | Install   | linuxbrew"
         yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-        echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >>$HOME/.profile
+        echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >>$HOME/.bash_profile
     fi
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 fi
@@ -61,6 +60,11 @@ mkdir -p $SRC_DIRECTORY
 # Clone down ansible
 if [[ ! -d $ANSIBLE_DIRECTORY ]]; then
   git clone $ANSIBLE_REPO $ANSIBLE_DIRECTORY
+
+  # if we're part of a build we should checkout the supplied SHA
+  if [[ -n "$GITHUB_SHA" ]]; then
+    git checkout "$GITHUB_SHA"
+  fi
 fi
 
 if [[ -z "$NO_PROVISION" ]]; then

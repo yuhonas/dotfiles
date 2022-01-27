@@ -2,3 +2,4 @@ playbook.retry
 .DS_Store
 *.swp
 *.pyc
+.zshrc.local
