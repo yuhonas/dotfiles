@@ -8,12 +8,10 @@
     - alfred
     # - bitbar
     # - drop-to-gif
-    # - evernote
-    # - firefox
+    - karabiner-elements
     - google-drive
     # - handbrake
     # - insomnia
-    # - keybase
     - rectangle
     - signal
     - spotify
@@ -29,7 +27,6 @@
 - name: developer applications
   homebrew_cask: name={{ item }} state=present
   with_items:
-    # - gitkraken
     - kitty
     - postico
     - visual-studio-code
