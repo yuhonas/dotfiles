@@ -26,7 +26,7 @@ znap source ohmyzsh/ohmyzsh plugins/sudo
 znap source ohmyzsh/ohmyzsh plugins/tmux
 
 ## Third party plugins
-znap source Aloxaf/fzf-tab
+# znap source Aloxaf/fzf-tab
 znap source DarrinTisdale/zsh-aliases-exa
 znap source MichaelAquilina/zsh-you-should-use
 znap source mollifier/cd-gitroot

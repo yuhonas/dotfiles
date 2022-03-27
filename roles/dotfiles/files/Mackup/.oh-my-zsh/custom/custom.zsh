@@ -139,7 +139,8 @@ wget_images() {
 
 # set the starship prompt if it exists
 if (( $+commands[starship] )); then
-  # eval "$(starship init zsh)"
-  znap eval starship 'starship init zsh --print-full-init'
+  eval "$(starship init zsh --print-full-init)"
+  # FIXME: https://github.com/starship/starship/issues/3553
+  # znap eval starship 'starship init zsh --print-full-init'
 fi
 
