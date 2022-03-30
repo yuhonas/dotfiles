@@ -24,23 +24,25 @@ if [ "$(uname)" == "Darwin" ]; then
 else
     # Download and install linuxbrew
     if [[ ! -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
-        # ubuntu
-        # sudo apt-get update
-        # sudo apt-get install -y build-essential ca-certificates curl file git libssl-dev locales ruby zlib1g-dev python-apt
-
         # archlinux
-        sudo pacman --sync --refresh --noconfirm --needed base-devel git ca-certificates curl git ruby
+        sudo pacman --sync --refresh --noconfirm --needed \
+          base-devel \
+          git ca-certificates \
+          curl \
+          git \
+          libxcrypt-compat # for homebrew installation which installs ruby 2.6.8
+
         # set locale
         sudo localedef -i en_US -f UTF-8 en_US.UTF-8
 
         echo "Info   | Install   | linuxbrew"
-        yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >>$HOME/.bash_profile
     fi
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 fi
 
-brew update --force
+brew update
 
 # Download and install git
 if ! type git > /dev/null 2>&1; then

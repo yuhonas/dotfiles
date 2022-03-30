@@ -20,7 +20,7 @@
       - asdf  # version manager
       - bat  # an improved cat, see also https://altbox.dev/
       - cheat # cheat sheets, like tldr but allows for custom cheat sheets
-      - colordiff  # colorized diff wrapper
+      - diffutils  # gnu diff, macos version lacks color
       - exa  # an ls replacement
       - fasd  # jump navigation
       - fd  # find replacement

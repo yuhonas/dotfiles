@@ -8,7 +8,7 @@ lint: |
   flake8
 platforms:
   - name: "molecule_instance"
-    image: "archlinux/archlinux:base-devel-20211226.0.42348"
+    image: "archlinux/archlinux:latest"
     env:
       PATH: "/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
       ANSIBLE_USER: "linuxbrew"

@@ -21,5 +21,5 @@
     - assert:
         that:
           - "'zsh' in ansible_ssh_user_shell.stdout"
-          - "'11' in zsh_installed_module_count.stdout_lines"
+          - "'10' in zsh_installed_module_count.stdout_lines"
           - "brew_from_zsh.failed == false"
