@@ -43,15 +43,14 @@
     dest: "{{ ansible_env.HOME }}/Library/KeyBindings"
     mode: 0644
 
-# TODO: These don't appear to be updated for MacOS Monterey (M1)
-# - name: quicklook plugins
-#   homebrew_cask: name={{ item }} state=present
-#   with_items:
-#     - betterzipql
-#     - qlcolorcode
-#     - qlmarkdown
-#     - qlstephen
-#     - quicklook-json
+- name: quicklook plugins
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+    - betterzip
+    - qlmarkdown
+#     - qlcolorcode # https://github.com/anthonygelibert/QLColorCode/issues/88#issuecomment-927783435
+#     - qlstephen # https://github.com/whomwah/qlstephen/issues/133
+#     - quicklook-json # TODO: Verify this works on M1/Apple Silicon
 
 # - name: link qt
 #   homebrew: name=qt state=linked

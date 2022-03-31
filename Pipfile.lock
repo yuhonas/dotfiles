@@ -18,10 +18,10 @@
     "default": {
         "ansible": {
             "hashes": [
-                "sha256:0b7c52ec51e326941aa1af5affd9bfed9c1bfc61619c1c4210dce1665a4c4b29"
+                "sha256:b8a76d737889c9bfd0e6b0f2276dcf8d836da667067a355776f3504d7a66d518"
             ],
             "index": "pypi",
-            "version": "==4.7.0"
+            "version": "==5.5.0"
         },
         "ansible-compat": {
             "hashes": [
@@ -33,18 +33,18 @@
         },
         "ansible-core": {
             "hashes": [
-                "sha256:a0fba319963ff83c249bd0531b0b87d67e3ac0723f9cbf24b96790ff3774a897"
+                "sha256:827af75985a6f04b980bd371027bf038cb187640628557298acb9983a8f2c2da"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
-            "version": "==2.11.10"
+            "markers": "python_version >= '3.8'",
+            "version": "==2.12.4"
         },
         "ansible-lint": {
             "hashes": [
-                "sha256:92a6d3eda27691d1c8c8787bc6cc3fab76fe070ccd369b4a6fc187d93eab867f",
-                "sha256:d64aca59c8d896541d379b9205b2126b851088aab0a2c2cab19ff74b184cdf1c"
+                "sha256:2160a60b4ab034c04006d701a1779340ffb0f6e28f030ff8de958e1062a88962",
+                "sha256:fb57755825b50da88c226052772bd843d37714155b504175912daac0e186e8c0"
             ],
             "index": "pypi",
-            "version": "==5.2.1"
+            "version": "==5.4.0"
         },
         "arrow": {
             "hashes": [
@@ -172,11 +172,11 @@
         },
         "click": {
             "hashes": [
-                "sha256:19a4baa64da924c5e0cd889aba8e947f280309f1a2ce0947a3e3a7bcb7cc72d6",
-                "sha256:977c213473c7665d3aa092b41ff12063227751c41d7b17165013e10069cc5cd2"
+                "sha256:5e0d195c2067da3136efb897449ec1e9e6c98282fbf30d7f9e164af9be901a6b",
+                "sha256:7ab900e38149c9872376e8f9b5986ddcaf68c0f413cf73678a0bca5547e6f976"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==8.1.0"
+            "version": "==8.1.1"
         },
         "click-help-colors": {
             "hashes": [
@@ -225,14 +225,6 @@
             ],
             "markers": "python_version >= '3.6'",
             "version": "==36.0.2"
-        },
-        "distro": {
-            "hashes": [
-                "sha256:151aeccf60c216402932b52e40ee477a939f8d58898927378a02abbe852c1c39",
-                "sha256:d596311d707e692c2160c37807f83e3820c5d539d5a83e87cfb6babd8ba3a06b"
-            ],
-            "markers": "python_version >= '3.6'",
-            "version": "==1.7.0"
         },
         "docker": {
             "hashes": [
@@ -360,11 +352,10 @@
         },
         "paramiko": {
             "hashes": [
-                "sha256:443f4da23ec24e9a9c0ea54017829c282abdda1d57110bf229360775ccd27a31",
-                "sha256:f6cbd3e1204abfdbcd40b3ecbc9d32f04027cd3080fe666245e21e7540ccfc1b"
+                "sha256:ac6593479f2b47a9422eca076b22cff9f795495e6733a64723efc75dd8c92101",
+                "sha256:ddb1977853aef82804b35d72a0e597b244fa326c404c350bd00c5b01dbfee71a"
             ],
-            "index": "pypi",
-            "version": "==2.10.1"
+            "version": "==2.10.3"
         },
         "pathspec": {
             "hashes": [
@@ -520,7 +511,7 @@
                 "sha256:3fba9dd15ebe048e2795a02ac19baee79dc12cc50b074ef70f2958cd651b59a9",
                 "sha256:ce5c714e984a2d185399e4e1dd1f8b2feacb7cecfc576f1522425643a36a57ea"
             ],
-            "markers": "python_version < '4' and python_full_version >= '3.6.2'",
+            "markers": "python_full_version >= '3.6.2' and python_full_version < '4.0.0'",
             "version": "==12.0.1"
         },
         "ruamel.yaml": {
@@ -561,14 +552,6 @@
             ],
             "markers": "python_version < '3.11' and platform_python_implementation == 'CPython'",
             "version": "==0.2.6"
-        },
-        "selinux": {
-            "hashes": [
-                "sha256:820adcf1b4451c9cc7759848797703263ba0eb6a4cad76d73548a9e0d57b7926",
-                "sha256:d435f514e834e3fdc0941f6a29d086b80b2ea51b28112aee6254bd104ee42a74"
-            ],
-            "markers": "sys_platform == 'linux'",
-            "version": "==0.2.1"
         },
         "setuptools": {
             "hashes": [
@@ -614,7 +597,7 @@
                 "sha256:44ece4d53fb1706f667c9bd1c648f5469a2ec925fcf3a776667042d645472c14",
                 "sha256:aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_full_version < '4.0.0'",
             "version": "==1.26.9"
         },
         "wcmatch": {
