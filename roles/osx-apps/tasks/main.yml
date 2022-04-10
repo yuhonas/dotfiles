@@ -15,6 +15,7 @@
     - rectangle
     - signal
     - spotify
+    - switchaudio-osx
     - tor-browser
     - uninstallpkg
     - vlc
@@ -58,15 +59,15 @@
 #     - qlstephen # https://github.com/whomwah/qlstephen/issues/133
 #     - quicklook-json # TODO: Verify this works on M1/Apple Silicon
 
-# - name: link qt
-#   homebrew: name=qt state=linked
+# Used in terminal/other places
+- name: install thirdy party fonts
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+    - font-fira-code
+    - font-hack
 
-# - name: create alfred configuration directory
-#   file:
-#     path: "{{ ansible_env.HOME }}/Library/Application Support/Alfred 3/Alfred.alfredpreferences/preferences/features/websearch"
-#     mode: 0644
-#     state: directory
-
+# TODO: Alfred offers a first party sync
+# However I don't use dropbox (which they recommend), need to investigate further
 # - name: symlink alfred configuration
 #   file:
 #     src: "{{ role_path }}/files/alfred/prefs.plist"

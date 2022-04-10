@@ -138,6 +138,9 @@
                                         "key_code": "escape"
                                     }
                                 ],
+                                "parameters": {
+                                  "basic.to_if_alone_timeout_milliseconds": 1200
+                                },
                                 "type": "basic"
                             }
                         ]
@@ -179,6 +182,25 @@
                                 "to": [
                                     {
                                       "shell_command": "open -a 'Brave Browser'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": {
+                                        "mandatory": [
+                                          "left_command",
+                                          "left_control",
+                                          "left_option",
+                                          "left_shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                      "shell_command": "open -a kitty"
                                     }
                                 ],
                                 "type": "basic"

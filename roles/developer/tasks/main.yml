@@ -3,6 +3,7 @@
   homebrew:
     state: present
     name:
+      - asdf  # version manager
       - aria2 # lightweight multiprotocol download util
       - awscli
       - borgbackup # for secure incremental backups
@@ -13,17 +14,13 @@
       - fx # for exploring json files in the terminal
       - grex # A tool generating regular expressions from user-provided test cases
       - github/gh/gh # https://github.com/cli/cli
-#      - git-extras
-      # - git-town
       - gnupg
-#      - hr
+      - ghq # remote repository management https://github.com/x-motemen/ghq
       - imagemagick # for pywal amongst other useful image manipulations
-      - jq
-#      - lazygit
+      - jq # command-line json processor
       - lnav # better log file navigator
       - md5deep
-      - neofetch
-      - nmap
+      - nmap # useful port scanner
       - p7zip
       - pandoc # useful document converter
       - pgcli # commandline interface for postgres
@@ -32,17 +29,15 @@
       - pv # useful pipe viewer see https://catonmat.net/unix-utilities-pipe-viewer
       - readline
       - redis
-      - ruby-build
-#      - sox  # sound processing lib
+      - ruby-build # for asdf
       - sqlite
-      # - thefuck
       - xh # developer friendly curl alternative inspired by httpie
       - w3m # text based browser
 
-- name: find where asdf was installed
-  command: "brew --prefix asdf"
-  register: asdf_location
-  changed_when: false
+# - name: find where asdf was installed
+#   command: "brew --prefix asdf"
+#   register: asdf_location
+#   changed_when: false
 
 # - debug: msg="{{ asdf_location.stdout }}"
 
