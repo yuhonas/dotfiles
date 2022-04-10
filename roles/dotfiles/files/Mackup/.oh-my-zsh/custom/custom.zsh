@@ -83,6 +83,11 @@ export BAT_STYLE=plain
 autoload zmv
 alias mmv='noglob zmv -W'
 
+# Drop the hard coded colors in exa
+# https://github.com/ogham/exa/issues/363
+# https://github.com/ogham/exa/blob/master/man/exa_colors.5.md
+export EXA_COLORS="reset"
+
 # cross platform open command if we can't find an existing one
 if (( !$+commands[open] )); then
   alias open=open_command # alias to zsh's cross platform open_command
@@ -136,8 +141,8 @@ wget_images() {
   wget -nd -r -A jpeg,jpg,bmp,gif,png $1
 }
 
-
 # set the starship prompt if it exists
+# https://github.com/starship/starship
 if (( $+commands[starship] )); then
   eval "$(starship init zsh --print-full-init)"
   # FIXME: https://github.com/starship/starship/issues/3553
