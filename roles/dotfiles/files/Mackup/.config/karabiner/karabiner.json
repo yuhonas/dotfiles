@@ -257,7 +257,7 @@
                                 },
                                 "to": [
                                     {
-                                      "shell_command": "PATH=~/.asdf/shims/:/opt/homebrew/bin:/usr/bin:/bin ~/Sites/shellscripts/select-wallpaper.sh"
+                                      "shell_command": "PATH=~/.asdf/shims/:/opt/homebrew/bin:/usr/bin:/bin ~/.local/bin/select-wallpaper.sh"
                                     }
                                 ],
                                 "type": "basic"
@@ -276,7 +276,7 @@
                                 },
                                 "to": [
                                     {
-                                      "shell_command": "PATH=~/.asdf/shims/:/opt/homebrew/bin:/usr/bin:/bin ~/Sites/shellscripts/switch-audio-source.sh"
+                                      "shell_command": "PATH=~/.asdf/shims/:/opt/homebrew/bin:/usr/bin:/bin ~/.local/bin/switch-audio-source.sh"
                                     }
                                 ],
                                 "type": "basic"
