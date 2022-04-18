@@ -1,21 +1,43 @@
 // Place your settings in this file to overwrite the default settings
 {
   "window.zoomLevel": 0,
-    "editor.fontSize": 14,
-    "editor.minimap.enabled": false,
-    "editor.tabSize": 2,
-    "editor.detectIndentation": false,
-    "sublimeTextKeymap.promptV3Features": true,
-    "editor.multiCursorModifier": "ctrlCmd",
-    "editor.snippetSuggestions": "top",
-    "editor.formatOnPaste": true,
-    "files.trimTrailingWhitespace": true,
-    "terminal.external.osxExec": "kitty",
-    "terminal.integrated.fontFamiy": "Fira Code Retina",
-    "terminal.integrated.macOptionIsMeta": true,
-    "editor.fontFamily": "Monaco, Menlo, 'Courier New', monospace",
-    "rubyTestExplorer.logpanel": false,
-    "workbench.colorTheme": "Dracula",
-    "editor.bracketPairColorization.enabled": true,
-    "editor.guides.bracketPairs": "active"
-  }
+  "editor.fontSize": 14,
+  "editor.minimap.enabled": false,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "sublimeTextKeymap.promptV3Features": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.snippetSuggestions": "top",
+  "editor.formatOnPaste": true,
+  "files.trimTrailingWhitespace": true,
+  "terminal.external.osxExec": "kitty",
+  "terminal.integrated.fontFamiy": "Fira Code Retina",
+  "terminal.integrated.macOptionIsMeta": true,
+  "editor.fontFamily": "Monaco, Menlo, 'Courier New', monospace",
+  "rubyTestExplorer.logpanel": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "workbench.colorTheme": "Monokai",
+  // https://github.com/VSCodeVim/Vim/issues/3201
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [
+        "u"
+      ],
+      "commands": [
+        "undo"
+      ]
+    },
+    {
+      "before": [
+        "<C-r>"
+      ],
+      "commands": [
+        "redo"
+      ]
+    }
+  ],
+  "vim.handleKeys": {
+  },
+  "terminal.integrated.showExitAlert": false
+}

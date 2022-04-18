@@ -5,7 +5,7 @@
 	co = checkout
 	tree = log --oneline --decorate --graph
 	up = pull --rebase --autostash
-	cleanup = "!git branch --merged master | grep -v '^*\\|master' | xargs -n 1 git branch -D"
+	cleanup = "!git branch --merged main | grep -v '^*\\|main' | xargs -n 1 git branch -D"
 [color]
 	diff = auto
 	status = auto

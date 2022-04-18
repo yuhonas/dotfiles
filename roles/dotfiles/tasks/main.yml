@@ -6,8 +6,8 @@
 - name: add local bin dir for custom scripts
   file: path={{ ansible_env.HOME }}/.local/bin state=directory recurse=true
 
-- name: add sites dir for various projects
-  file: path={{ ansible_env.HOME }}/Sites state=directory mode=0700
+- name: add projects dir for various projects
+  file: path={{ ansible_env.HOME }}/Projects state=directory mode=0700
 
 # i'm a fan of some "modern" replacements for various utilities
 # * https://github.com/ibraheemdev/modern-unix
@@ -56,14 +56,15 @@
   changed_when: false
   register: brew_binary_path
 
-# see https://docs.brew.sh/Shell-Completion
-- name: ensure we have the brew path & shell completions loaded on startup
+# This *should* be in zshenv however due to issues with path reordering in macos it's not
+# see https://gist.github.com/Linerre/f11ad4a6a934dcf01ee8415c9457e7b2
+- name: ensure we have the brew path & brew shell completions loaded on startup
   blockinfile:
     path: "{{ ansible_env.HOME }}/.zprofile"
     mode: 0644
     block: |
       eval "$({{ brew_binary_path.stdout }} shellenv)"
-      FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+      export FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
     insertbefore: BOF
     create: true
 

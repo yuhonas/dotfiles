@@ -27,7 +27,7 @@ if [ -f "$PYWAL_COLORS" ]; then
 fi
 
 # set TERM if we're not in tmux
-[[ $TMUX = "" ]] && export TERM="xterm-256color"
+# [[ $TMUX = "" ]] && export TERM="xterm-256color"
 
 # IEx persistent history
 # https://medium.com/@tylerpachal/iex-persistent-history-5d7d64e905d3

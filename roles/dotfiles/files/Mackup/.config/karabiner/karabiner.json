@@ -139,7 +139,7 @@
                                     }
                                 ],
                                 "parameters": {
-                                  "basic.to_if_alone_timeout_milliseconds": 1200
+                                  "basic.to_if_alone_timeout_milliseconds": 500
                                 },
                                 "type": "basic"
                             }
@@ -201,6 +201,82 @@
                                 "to": [
                                     {
                                       "shell_command": "open -a kitty"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": {
+                                        "mandatory": [
+                                          "left_command",
+                                          "left_control",
+                                          "left_option",
+                                          "left_shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                      "shell_command": "open -a MailMate"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "c",
+                                    "modifiers": {
+                                        "mandatory": [
+                                          "left_command",
+                                          "left_control",
+                                          "left_option",
+                                          "left_shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                      "shell_command": "open -a 'Visual Studio Code'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "w",
+                                    "modifiers": {
+                                        "mandatory": [
+                                          "left_command",
+                                          "left_control",
+                                          "left_option",
+                                          "left_shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                      "shell_command": "PATH=~/.asdf/shims/:/opt/homebrew/bin:/usr/bin:/bin ~/Sites/shellscripts/select-wallpaper.sh"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": {
+                                        "mandatory": [
+                                          "left_command",
+                                          "left_control",
+                                          "left_option",
+                                          "left_shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                      "shell_command": "PATH=~/.asdf/shims/:/opt/homebrew/bin:/usr/bin:/bin ~/Sites/shellscripts/switch-audio-source.sh"
                                     }
                                 ],
                                 "type": "basic"

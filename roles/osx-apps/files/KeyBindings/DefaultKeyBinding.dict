@@ -13,14 +13,14 @@
     "~u" = (uppercaseWord:, moveForward:, moveForward:);
 
     // blank line after current
-    "~o" = (moveToEndOfParagraph:, insertNewline:);
+    // "~o" = (moveToEndOfParagraph:, insertNewline:);
     // blank line before current
-    "~O" = (moveToBeginningOfParagraph:, moveLeft:, insertNewline:);
+    // "~O" = (moveToBeginningOfParagraph:, moveLeft:, insertNewline:);
 
     // paste paragraph below
-    "~p" = (moveToEndOfParagraph:,moveRight:,insertNewline:,moveLeft:, paste:);
+    // "~p" = (moveToEndOfParagraph:,moveRight:,insertNewline:,moveLeft:, paste:);
     // paste paragraph above
-    "~P" = (moveToBeginningOfParagraph:, moveLeft:, paste:);
+    // "~P" = (moveToBeginningOfParagraph:, moveLeft:, paste:);
 
     "^_" = "undo:"; /* Ctrl-_ */
 }
