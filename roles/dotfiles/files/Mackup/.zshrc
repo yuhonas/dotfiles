@@ -29,7 +29,7 @@ znap source ohmyzsh/ohmyzsh plugins/tmux
 # znap source Aloxaf/fzf-tab
 znap source DarrinTisdale/zsh-aliases-exa
 znap source MichaelAquilina/zsh-you-should-use
-znap source mollifier/cd-gitroot
+znap source yuhonas/cd-gitroot
 znap source wfxr/forgit
 znap source zdharma-continuum/fast-syntax-highlighting
 znap source zsh-users/zsh-autosuggestions
