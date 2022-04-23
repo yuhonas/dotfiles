@@ -28,35 +28,22 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-repeat'
-" https://www.rogin.xyz/blog/sensible-neovim
-Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sensible' " https://www.rogin.xyz/blog/sensible-neovim
 Plug 'tpope/vim-surround'
-" Plug 'flazz/vim-colorschemes'
 Plug 'dylanaraps/wal'
+Plug 'godlygeek/tabular'
+
 " Plug 'wincent/terminus'
 " Plug 'jamessan/vim-gnupg', { 'branch': 'main' }
-Plug 'godlygeek/tabular'
 " Plug 'justinmk/vim-sneak'
 
-
-" " intellisense engine for vim
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" " git
+" git
 " Plug 'airblade/vim-gitgutter'
 " Plug 'jreybert/vimagit'
 " Plug 'ruanyl/vim-gh-line'
 
-" " elixir support
-" Plug 'slashmili/alchemist.vim'
-" Plug 'elixir-editors/vim-elixir'
-
-" " ruby/rails support
-" Plug 'vim-ruby/vim-ruby'
-" Plug 'tpope/vim-rails'
 " " All of your Plugins must be added before the following line
 call plug#end()
-
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -265,6 +252,11 @@ set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
+
+" Config for vim-surround
+" These conflict with vim-rsi
+let g:AutoPairsShortcutFastWrap = '' " default: '<M-b>'
+let g:AutoPairsShortcutBackInsert = '' " default '<M-b>'
 
 "" editorconfig configuration
 "" ensure that this plugin works well with Tim Pope's fugitive, use the following patterns array:
