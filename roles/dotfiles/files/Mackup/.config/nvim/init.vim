@@ -1,8 +1,7 @@
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-let mapleader = "\<Space>"
+" change the leader key from "\" to ";" ("," is also popular)
+let mapleader="\<Space>"
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
@@ -32,6 +31,9 @@ Plug 'tpope/vim-sensible' " https://www.rogin.xyz/blog/sensible-neovim
 Plug 'tpope/vim-surround'
 Plug 'dylanaraps/wal'
 Plug 'godlygeek/tabular'
+Plug 'freitass/todo.txt-vim'
+Plug 'jceb/vim-orgmode'
+Plug 'ervandew/supertab'
 
 " Plug 'wincent/terminus'
 " Plug 'jamessan/vim-gnupg', { 'branch': 'main' }
