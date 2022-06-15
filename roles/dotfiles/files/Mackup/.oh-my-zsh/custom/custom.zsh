@@ -100,10 +100,19 @@ if (( $+commands[kitty] )); then
   alias d="kitty +kitten diff"
 fi
 
+# if we have todo.sh installed
+# let's add some handy aliases
+# https://github.com/todotxt/todo.txt-cli/wiki/Tips-and-Tricks
+if (( $+commands[todo.sh] )); then
+  export TODOTXT_DEFAULT_ACTION=ls
+  export TODO_ACTIONS_DIR=$HOME/.config/todo/actions.d
+  alias t='todo.sh'
+fi
+
 # attempt to open up with emacs in daemon mode
 # fallback to emacs if it's not running
 # https://www.emacswiki.org/emacs/EmacsAsDaemon
-alias todo="emacsclient --alternate-editor emacs $HOME/TODO.org"
+# alias todo="emacsclient --alternate-editor emacs $HOME/TODO.org"
 
 # fbr - checkout branch specified or provide a list of all git branches
 # including remotes for selection
