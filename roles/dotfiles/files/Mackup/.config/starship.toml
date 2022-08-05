@@ -6,8 +6,8 @@ error_symbol = "[✖](bold red)"
 [aws]
 disabled = true
 
-[python]
-disabled = true
+# [python]
+# disabled = true
 
 [directory]
 truncation_length = 8

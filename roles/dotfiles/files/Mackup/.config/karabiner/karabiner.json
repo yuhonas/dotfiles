@@ -226,7 +226,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "c",
+                                    "key_code": "v",
                                     "modifiers": {
                                         "mandatory": [
                                           "left_command",

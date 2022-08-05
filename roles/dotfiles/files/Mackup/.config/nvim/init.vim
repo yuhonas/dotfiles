@@ -131,7 +131,7 @@ set tabstop=2
 "set softtabstop=2
 
 "" Make it obvious where 80 characters is
-set textwidth=80
+set textwidth=120
 
 set shiftwidth=2
 

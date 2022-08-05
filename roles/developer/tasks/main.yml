@@ -27,6 +27,7 @@
       - pidof # for pywal
       - poppler  # for lesspipe
       - pv # useful pipe viewer see https://catonmat.net/unix-utilities-pipe-viewer
+      # - cube2222/octosql/octosql
       - readline
       - redis
       - ruby-build # for asdf
