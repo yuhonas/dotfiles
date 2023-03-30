@@ -6,8 +6,10 @@
   with_items:
     - 1password
     - alfred
+    # - amethyst # tiling window manager
     # - bitbar
     # - drop-to-gif
+    - fantastical
     - karabiner-elements
     - google-drive
     # - handbrake

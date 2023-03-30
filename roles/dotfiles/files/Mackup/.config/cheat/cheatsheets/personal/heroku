@@ -1,0 +1,2 @@
+# dump remote postgres database and import into locally destructively
+heroku run 'pg_dump -c --no-acl --no-owner ' | psql -d <local database name>
