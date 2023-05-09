@@ -3,6 +3,8 @@
 # top-most EditorConfig file
 root = true
 
+max_line_length = 100
+
 # Unix-style newlines with a newline ending every file
 [*]
 end_of_line = lf

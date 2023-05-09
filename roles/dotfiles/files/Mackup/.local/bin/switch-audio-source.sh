@@ -2,7 +2,7 @@
 #
 # Select an audio source
 #
-# depends on
+# @depends on
 # https://github.com/deweller/switchaudio-osx
 
 tell application "System Events"
