@@ -34,6 +34,7 @@ Plug 'godlygeek/tabular'
 Plug 'freitass/todo.txt-vim'
 Plug 'jceb/vim-orgmode'
 Plug 'ervandew/supertab'
+Plug 'inkarkat/vim-ReplaceWithRegister'
 
 " Plug 'wincent/terminus'
 " Plug 'jamessan/vim-gnupg', { 'branch': 'main' }
@@ -206,7 +207,7 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 set number              " show line numbers
 " set showcmd             " show command in bottom bar
 " set cursorline 		" highlight current line
-inoremap fd <esc>       " escape is something  little far away
+" inoremap fd <esc>       " escape is something  little far away
 
 " NERDTree Configuration
 " let g:NERDTreeChDirMode=1

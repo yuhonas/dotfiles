@@ -1,8 +1,10 @@
 {
     "global": {
+        "ask_for_confirmation_before_quitting": true,
         "check_for_updates_on_startup": true,
-        "show_in_menu_bar": true,
-        "show_profile_name_in_menu_bar": false
+        "show_in_menu_bar": false,
+        "show_profile_name_in_menu_bar": false,
+        "unsafe_ui": false
     },
     "profiles": [
         {
@@ -123,6 +125,9 @@
                                 "from": {
                                     "key_code": "caps_lock"
                                 },
+                                "parameters": {
+                                    "basic.to_if_alone_timeout_milliseconds": 500
+                                },
                                 "to": [
                                     {
                                         "key_code": "left_shift",
@@ -138,9 +143,6 @@
                                         "key_code": "escape"
                                     }
                                 ],
-                                "parameters": {
-                                  "basic.to_if_alone_timeout_milliseconds": 500
-                                },
                                 "type": "basic"
                             }
                         ]
@@ -153,16 +155,16 @@
                                     "key_code": "s",
                                     "modifiers": {
                                         "mandatory": [
-                                          "left_command",
-                                          "left_control",
-                                          "left_option",
-                                          "left_shift"
+                                            "left_command",
+                                            "left_control",
+                                            "left_option",
+                                            "left_shift"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                      "shell_command": "open -a Spotify"
+                                        "shell_command": "open -a Spotify"
                                     }
                                 ],
                                 "type": "basic"
@@ -172,16 +174,16 @@
                                     "key_code": "b",
                                     "modifiers": {
                                         "mandatory": [
-                                          "left_command",
-                                          "left_control",
-                                          "left_option",
-                                          "left_shift"
+                                            "left_command",
+                                            "left_control",
+                                            "left_option",
+                                            "left_shift"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                      "shell_command": "open -a 'Brave Browser'"
+                                        "shell_command": "open -a 'Brave Browser'"
                                     }
                                 ],
                                 "type": "basic"
@@ -191,16 +193,16 @@
                                     "key_code": "k",
                                     "modifiers": {
                                         "mandatory": [
-                                          "left_command",
-                                          "left_control",
-                                          "left_option",
-                                          "left_shift"
+                                            "left_command",
+                                            "left_control",
+                                            "left_option",
+                                            "left_shift"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                      "shell_command": "open -a kitty"
+                                        "shell_command": "open -a kitty"
                                     }
                                 ],
                                 "type": "basic"
@@ -210,16 +212,16 @@
                                     "key_code": "m",
                                     "modifiers": {
                                         "mandatory": [
-                                          "left_command",
-                                          "left_control",
-                                          "left_option",
-                                          "left_shift"
+                                            "left_command",
+                                            "left_control",
+                                            "left_option",
+                                            "left_shift"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                      "shell_command": "open -a MailMate"
+                                        "shell_command": "open -a MailMate"
                                     }
                                 ],
                                 "type": "basic"
@@ -229,16 +231,16 @@
                                     "key_code": "v",
                                     "modifiers": {
                                         "mandatory": [
-                                          "left_command",
-                                          "left_control",
-                                          "left_option",
-                                          "left_shift"
+                                            "left_command",
+                                            "left_control",
+                                            "left_option",
+                                            "left_shift"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                      "shell_command": "open -a 'Visual Studio Code'"
+                                        "shell_command": "open -a 'Visual Studio Code'"
                                     }
                                 ],
                                 "type": "basic"
@@ -248,16 +250,16 @@
                                     "key_code": "w",
                                     "modifiers": {
                                         "mandatory": [
-                                          "left_command",
-                                          "left_control",
-                                          "left_option",
-                                          "left_shift"
+                                            "left_command",
+                                            "left_control",
+                                            "left_option",
+                                            "left_shift"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                      "shell_command": "PATH=~/.asdf/shims/:/opt/homebrew/bin:/usr/bin:/bin ~/.local/bin/select-wallpaper.sh"
+                                        "shell_command": "PATH=~/.asdf/shims/:/opt/homebrew/bin:/usr/bin:/bin ~/.local/bin/select-wallpaper.sh"
                                     }
                                 ],
                                 "type": "basic"
@@ -267,16 +269,16 @@
                                     "key_code": "a",
                                     "modifiers": {
                                         "mandatory": [
-                                          "left_command",
-                                          "left_control",
-                                          "left_option",
-                                          "left_shift"
+                                            "left_command",
+                                            "left_control",
+                                            "left_option",
+                                            "left_shift"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                      "shell_command": "PATH=~/.asdf/shims/:/opt/homebrew/bin:/usr/bin:/bin ~/.local/bin/switch-audio-source.sh"
+                                        "shell_command": "PATH=~/.asdf/shims/:/opt/homebrew/bin:/usr/bin:/bin ~/.local/bin/switch-audio-source.sh"
                                     }
                                 ],
                                 "type": "basic"
@@ -348,7 +350,8 @@
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    "treat_as_built_in_keyboard": false
                 },
                 {
                     "disable_built_in_keyboard_if_exists": false,
@@ -402,7 +405,8 @@
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    "treat_as_built_in_keyboard": false
                 },
                 {
                     "disable_built_in_keyboard_if_exists": false,
@@ -415,7 +419,8 @@
                     },
                     "ignore": true,
                     "manipulate_caps_lock_led": true,
-                    "simple_modifications": []
+                    "simple_modifications": [],
+                    "treat_as_built_in_keyboard": false
                 },
                 {
                     "disable_built_in_keyboard_if_exists": false,
@@ -428,7 +433,61 @@
                     },
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
-                    "simple_modifications": []
+                    "simple_modifications": [],
+                    "treat_as_built_in_keyboard": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": false,
+                        "is_pointing_device": true,
+                        "product_id": 834,
+                        "vendor_id": 1452
+                    },
+                    "ignore": true,
+                    "manipulate_caps_lock_led": false,
+                    "simple_modifications": [],
+                    "treat_as_built_in_keyboard": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 50484,
+                        "vendor_id": 1133
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "simple_modifications": [
+                        {
+                            "from": {
+                                "key_code": "left_option"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "left_command"
+                                }
+                            ]
+                        }
+                    ],
+                    "treat_as_built_in_keyboard": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": false,
+                        "is_pointing_device": true,
+                        "product_id": 50484,
+                        "vendor_id": 1133
+                    },
+                    "ignore": true,
+                    "manipulate_caps_lock_led": false,
+                    "simple_modifications": [],
+                    "treat_as_built_in_keyboard": false
                 }
             ],
             "fn_function_keys": [

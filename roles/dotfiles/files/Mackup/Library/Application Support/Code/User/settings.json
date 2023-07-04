@@ -1,7 +1,6 @@
 // Place your settings in this file to overwrite the default settings
 
 {
-  "window.zoomLevel": 0,
   "editor.fontSize": 14,
   "editor.minimap.enabled": false,
   "editor.tabSize": 2,
@@ -59,5 +58,7 @@
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
-  }
+  },
+  "vim.easymotion": true,
+  "terminal.integrated.defaultProfile.osx": "zsh"
 }

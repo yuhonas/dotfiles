@@ -1,5 +1,7 @@
 --database=postgresql
---skip-action-mailer
 --skip-action-mailbox
 --skip-action-text
+--javascript=esbuild
+--css=tailwind
+--template=~/dotfiles/rails_template.rb
 
