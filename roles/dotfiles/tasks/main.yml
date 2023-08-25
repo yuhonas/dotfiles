@@ -21,7 +21,7 @@
       - cheat # cheat sheets, like tldr but allows for custom cheat sheets
       - diffutils  # gnu diff, macos version lacks color
       - exa  # an ls replacement
-      - fasd  # jump navigation
+      # - fasd  # jump navigation - has been disabled in homebrew see https://github.com/Homebrew/homebrew-core/pull/112791
       - fd  # find replacement
       - fzf  # fuzzy finder
       - gawk # for tmux fingers plugin
