@@ -2,17 +2,22 @@
 require 'irb/completion'
 require 'irb/ext/save-history'
 
+# See also https://medium.com/simply-dev/do-more-with-rails-console-by-configuring-irbrc-e5c25284305d
+
 IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
 
 IRB.conf[:PROMPT_MODE] = :SIMPLE
 
-%w[rubygems looksee/shortcuts wirble].each do |gem|
+%w[rubygems looksee/shortcuts ].each do |gem|
   begin
     require gem
   rescue LoadError
   end
 end
+
+# exit using `q`
+alias q exit
 
 class Object
   # list methods which aren't in superclass
@@ -35,10 +40,16 @@ class Object
   end
 end
 
-def copy(str)
-  # use zsh clipboard aliases so it works cross platform
-  # see https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/clipboard.zsh
-  IO.popen('zsh --interactive -c clipcopy', 'w') { |f| f << str.to_s }
+def clipcopy(str)
+  IO.popen('pbcopy', 'w') { |f| f << str.to_s }
+end
+
+def uf
+  User.first
+end
+
+def ul
+  User.last
 end
 
 def copy_history
