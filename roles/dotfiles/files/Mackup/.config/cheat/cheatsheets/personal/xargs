@@ -5,4 +5,4 @@ ls *.xml --sort modified | xargs -I % bash -c 'cat "%" | xml2json >> output.json
 ls --oneline --reverse --sort=created *.zip | head -n 1 | xargs -I % unzip -n "%" -d /tmp
 
 # iterate through all selected files in mac finder (will work with spaces in filenames)
-pfs | xargs -0 -n 1 echo
+pfs | xargs -I % echo  "%"

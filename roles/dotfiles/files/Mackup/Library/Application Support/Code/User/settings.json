@@ -17,7 +17,7 @@
   "rubyTestExplorer.logpanel": false,
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
-  "workbench.colorTheme": "Wal",
+  "workbench.colorTheme": "Tomorrow Night Blue",
   // https://github.com/VSCodeVim/Vim/issues/3201
   "vim.normalModeKeyBindings": [
     {
@@ -52,7 +52,10 @@
     "editor.formatOnSave": true
   },
   "[ruby]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
+    "editor.formatOnSave": true
+  },
+  "[rust]": {
     "editor.formatOnSave": true
   },
   "[vue]": {

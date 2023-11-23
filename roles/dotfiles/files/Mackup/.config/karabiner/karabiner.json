@@ -119,7 +119,7 @@
                         ]
                     },
                     {
-                        "description": "Caps Lock → Hyper Key (⌃⌥⇧⌘) (Escape if alone)",
+                        "description": "Caps Lock → Hyper Key (⌃⌥⇧⌘) (Escape if alone!)",
                         "manipulators": [
                             {
                                 "from": {
@@ -260,6 +260,25 @@
                                 "to": [
                                     {
                                         "shell_command": "PATH=~/.asdf/shims/:/opt/homebrew/bin:/usr/bin:/bin ~/.local/bin/select-wallpaper.sh"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command",
+                                            "left_control",
+                                            "left_option",
+                                            "left_shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open ~/Downloads"
                                     }
                                 ],
                                 "type": "basic"

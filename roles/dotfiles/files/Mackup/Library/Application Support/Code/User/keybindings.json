@@ -69,5 +69,13 @@
   {
     "key": "cmd+9",
     "command": "workbench.action.openEditorAtIndex9"
+  },
+  {
+    "key": "ctrl+shift+alt+cmd+t",
+    "command": "test-explorer.run-this-test"
+  },
+  {
+    "key": "ctrl+shift+alt+cmd+r",
+    "command": "test-explorer.run-all"
   }
 ]
