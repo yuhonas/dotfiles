@@ -1,4 +1,4 @@
-# Yuhonas dotfiles ![](https://github.com/yuhonas/dotfiles/workflows/ci/badge.svg)
+# Yuhonas dotfiles [![ci](https://github.com/yuhonas/dotfiles/actions/workflows/ci.yml/badge.svg)](https://github.com/yuhonas/dotfiles/actions/workflows/ci.yml)
 
 ![Screenshot](./screenshot.png)
 
