@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 require 'irb/completion'
-require 'irb/ext/save-history'
+# require 'irb/ext/save-history'
 
 # See also https://medium.com/simply-dev/do-more-with-rails-console-by-configuring-irbrc-e5c25284305d
 

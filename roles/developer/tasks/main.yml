@@ -33,6 +33,8 @@
       - ruby-build # for asdf
       - sqlite
       - xh # developer friendly curl alternative inspired by httpie
+      - ugrep # grep replacement
+      - uv # pip replacement https://github.com/astral-sh/uv
       - w3m # text based browser
 
 # - name: find where asdf was installed

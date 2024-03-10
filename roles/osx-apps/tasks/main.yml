@@ -9,12 +9,13 @@
     # - amethyst # tiling window manager
     # - bitbar
     # - drop-to-gif
-    - fantastical
+    # - fantastical
     - karabiner-elements
     - google-drive
     # - handbrake
     # - insomnia
-    - rectangle
+    - monitorcontrol # for brightness control support on external monitors
+    - rectangle # for window management
     - signal
     - spotify
     - switchaudio-osx
