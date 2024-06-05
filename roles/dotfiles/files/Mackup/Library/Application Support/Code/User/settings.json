@@ -43,6 +43,11 @@
   "vim.cursorStylePerMode.replace": "underline",
   "vim.replaceWithRegister": true,
   "editor.inlineSuggest.enabled": true,
+  "prettier.documentSelectors": ["**/*.astro"],
+  "[astro]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -55,6 +60,9 @@
     "editor.formatOnSave": true
   },
   "[rust]": {
+    "editor.formatOnSave": true
+  },
+  "[elixir]": {
     "editor.formatOnSave": true
   },
   "[vue]": {
@@ -94,5 +102,10 @@
   "[typescript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
-  "workbench.colorTheme": "Wal"
+  "tailwindCSS.includeLanguages": {
+    "elixir": "html",
+    "phoenix-heex": "html"
+  },
+  "workbench.colorTheme": "Solarized Dark",
+  "github.copilot.editor.enableAutoCompletions": true
 }

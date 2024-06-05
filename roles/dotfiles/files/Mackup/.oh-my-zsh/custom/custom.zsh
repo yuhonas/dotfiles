@@ -158,3 +158,8 @@ if (( $+commands[starship] )); then
   # znap eval starship 'starship init zsh --print-full-init'
 fi
 
+if (( $+commands[thefuck] )); then
+  eval $(thefuck --alias)
+fi
+
+
