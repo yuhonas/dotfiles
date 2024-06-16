@@ -27,10 +27,16 @@ if [ -n "$wallpaper_file" ]; then
   # do not set the walpaper using wal, it's broken in macos sonora
   # see https://github.com/dylanaraps/pywal/issues/715
   if wal -n -i "$wallpaper_file" -q; then
-    accent_color=$(jq --raw-output '.colors.color9' < "$HOME/.cache/wal/colors.json")
+    accent_color=$(jq --raw-output '.colors.color13' < "$HOME/.cache/wal/colors.json")
+
+    # accent_color = "#03a061"
 
     echo "Found color $accent_color"
+
     osx-colors set "$accent_color"
+
+    # setting lights
+    $HOME/.local/bin/set-light-color "$accent_color"
   fi
 fi
 

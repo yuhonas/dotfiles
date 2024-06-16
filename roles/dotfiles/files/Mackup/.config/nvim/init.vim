@@ -25,14 +25,15 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.vim/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-rsi'
-Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rsi' " readline style insertion
+Plug 'tpope/vim-repeat' " extends repeating for surround.vim amongst others
 Plug 'tpope/vim-sensible' " https://www.rogin.xyz/blog/sensible-neovim
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-rails' " vim rails
 Plug 'dylanaraps/wal'
-Plug 'godlygeek/tabular'
+Plug 'godlygeek/tabular' " easy alignmnent of text
 Plug 'freitass/todo.txt-vim'
-Plug 'jceb/vim-orgmode'
+"Plug 'jceb/vim-orgmode'
 Plug 'ervandew/supertab'
 Plug 'inkarkat/vim-ReplaceWithRegister'
 
@@ -137,6 +138,12 @@ set textwidth=120
 set shiftwidth=2
 
 " set colorcolumn=+1
+
+"""""""""""""""""""""""""""""""
+" edit config & reload config "
+"""""""""""""""""""""""""""""""
+nnoremap <leader>ev :exe 'edit' $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers

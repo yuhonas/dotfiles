@@ -26,6 +26,7 @@
       - fzf  # fuzzy finder
       - gawk # for tmux fingers plugin
       - git
+      - glow # markdown viewer
       - ispell
       - less # the version that comes with macos is old
       - lesspipe
@@ -40,6 +41,7 @@
       - tealdeer # a faster implemention of tldr (community driven man pages)
       - tmux
       - wget
+      - zellij # tmux replacement
       - zsh
     update_homebrew: true
 

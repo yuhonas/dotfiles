@@ -73,7 +73,6 @@
     "editor.defaultFormatter": "ms-python.autopep8",
     "editor.formatOnSave": true
   },
-  "vim.easymotion": true,
   "terminal.integrated.defaultProfile.osx": "zsh",
   "rubyLsp.featuresConfiguration": {},
   "rubyLsp.enabledFeatures": {
@@ -107,5 +106,6 @@
     "phoenix-heex": "html"
   },
   "workbench.colorTheme": "Solarized Dark",
-  "github.copilot.editor.enableAutoCompletions": true
+  "github.copilot.editor.enableAutoCompletions": true,
+  "vim.easymotionDimBackground": false
 }
