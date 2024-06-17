@@ -52,3 +52,8 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;;disable splash screen and startup message
+;;https://linux-tips.com/t/disabling-emacs-splash-screen/211
+(setq inhibit-startup-message t)
+(setq initial-scratch-message nil)

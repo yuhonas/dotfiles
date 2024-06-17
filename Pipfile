@@ -9,8 +9,9 @@ verify_ssl = true
 ansible = "*"
 ansible-lint = "*"
 flake8 = "*"
-molecule-docker = "*"
-yamllint = "==1.20.0"
+yamllint = "*"
+molecule = "*"
+molecule-plugins = {extras = ["docker"], version = "*"}
 
 [requires]
-python_version = "3.9"
+python_version = "3.10"

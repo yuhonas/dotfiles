@@ -43,6 +43,11 @@
   "vim.cursorStylePerMode.replace": "underline",
   "vim.replaceWithRegister": true,
   "editor.inlineSuggest.enabled": true,
+  "prettier.documentSelectors": ["**/*.astro"],
+  "[astro]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -57,6 +62,9 @@
   "[rust]": {
     "editor.formatOnSave": true
   },
+  "[elixir]": {
+    "editor.formatOnSave": true
+  },
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
@@ -65,7 +73,6 @@
     "editor.defaultFormatter": "ms-python.autopep8",
     "editor.formatOnSave": true
   },
-  "vim.easymotion": true,
   "terminal.integrated.defaultProfile.osx": "zsh",
   "rubyLsp.featuresConfiguration": {},
   "rubyLsp.enabledFeatures": {
@@ -94,5 +101,11 @@
   "[typescript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
-  "workbench.colorTheme": "Wal"
+  "tailwindCSS.includeLanguages": {
+    "elixir": "html",
+    "phoenix-heex": "html"
+  },
+  "workbench.colorTheme": "Solarized Dark",
+  "github.copilot.editor.enableAutoCompletions": true,
+  "vim.easymotionDimBackground": false
 }

@@ -35,3 +35,32 @@ trustExitCode = true
 #	insteadOf = https://github.com/
 [init]
 	defaultBranch = main
+[maintenance]
+	repo = /Users/yuhonas/zsh/cd-gitroot
+	repo = /Users/yuhonas/zsh/fast-syntax-highlighting
+	repo = /Users/yuhonas/zsh/forgit
+	repo = /Users/yuhonas/zsh/fzf-tab
+	repo = /Users/yuhonas/zsh/fzf-z
+	repo = /Users/yuhonas/zsh/ohmyzsh
+	repo = /Users/yuhonas/zsh/znap
+	repo = /Users/yuhonas/zsh/zsh-aliases-exa
+	repo = /Users/yuhonas/zsh/zsh-ansimotd
+	repo = /Users/yuhonas/zsh/zsh-autosuggestions
+	repo = /Users/yuhonas/zsh/zsh-completions
+	repo = /Users/yuhonas/zsh/zsh-you-should-use
+	repo = /Users/yuhonas/zsh/fzf-fasd
+	repo = /Users/yuhonas/zsh/zsh-autocomplete
+	repo = /Users/yuhonas/zsh/DarrinTisdale/zsh-aliases-exa
+	repo = /Users/yuhonas/zsh/MichaelAquilina/zsh-you-should-use
+	repo = /Users/yuhonas/zsh/ohmyzsh/ohmyzsh
+	repo = /Users/yuhonas/zsh/wfxr/forgit
+	repo = /Users/yuhonas/zsh/yuhonas/cd-gitroot
+	repo = /Users/yuhonas/zsh/yuhonas/zsh-ansimotd
+	repo = /Users/yuhonas/zsh/zdharma-continuum/fast-syntax-highlighting
+	repo = /Users/yuhonas/zsh/zsh-users/zsh-autosuggestions
+	repo = /Users/yuhonas/zsh/zsh-users/zsh-completions
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
