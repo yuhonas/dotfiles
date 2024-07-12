@@ -1,19 +1,27 @@
 ---
 driver:
-  name: "docker"
-lint: |
-  set -e
-  # yamllint .
-  ansible-lint -x formatting playbook.yml roles/
-  flake8
+  name: docker
+dependency:
+  name: galaxy
+  options:
+    requirements-file: requirements.yml
+# lint: |
+#   set -e
+#   # yamllint .
+#   ansible-lint -x formatting playbook.yml roles/
+#   flake8
 platforms:
-  - name: "molecule_instance"
+  - name: molecule_instance
     image: "archlinux/archlinux:latest"
+    platform: amd64
+    pre_build_image: false
     env:
       PATH: "/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
       ANSIBLE_USER: "linuxbrew"
       SUDO_GROUP: "wheel"
       DEPLOY_GROUP: "deployer"
+scenario:
+  name: default
 provisioner:
   name: "ansible"
   env:

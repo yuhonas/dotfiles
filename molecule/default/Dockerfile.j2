@@ -35,6 +35,9 @@ RUN set -xe \
   && sed -i "/^%${SUDO_GROUP}/s/ALL\$/NOPASSWD:ALL/g" /etc/sudoers \
   && sed -i "/%wheel/s/^# //g" /etc/sudoers
 
+# set ansible user password to ansible
+RUN echo "${ANSIBLE_USER}:${ANSIBLE_USER}" | chpasswd
+
 USER ${ANSIBLE_USER}:${ANSIBLE_USER}
 WORKDIR /home/${ANSIBLE_USER}
 
