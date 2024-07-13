@@ -9,7 +9,6 @@
       - borgbackup # for secure incremental backups
       - coreutils
       - ctags  # index generation for source and header files
-      - emacs
       - jdupes # faster then fdupes
       - fx # for exploring json files in the terminal
       - grex # A tool generating regular expressions from user-provided test cases
@@ -36,20 +35,6 @@
       - ugrep # grep replacement
       - uv # pip replacement https://github.com/astral-sh/uv
       - w3m # text based browser
-
-# - name: find where asdf was installed
-#   command: "brew --prefix asdf"
-#   register: asdf_location
-#   changed_when: false
-
-# - debug: msg="{{ asdf_location.stdout }}"
-
-#- name: ensure asdf is in the $PATH
-#  blockinfile:
-#    path: "{{ ansible_env.HOME }}/.bashrc"
-#    block: |
-#      export ASDF_DIR={{ asdf_location.stdout }}
-#      export PATH=~/.asdf/shims:$PATH
 
 - name: add asdf plugins
   command: "asdf plugin-add {{ item }}"
