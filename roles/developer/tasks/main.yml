@@ -9,6 +9,7 @@
       - borgbackup # for secure incremental backups
       - coreutils
       - ctags  # index generation for source and header files
+      - entr # run arbitrary commands when files change
       - jdupes # faster then fdupes
       - fx # for exploring json files in the terminal
       - grex # A tool generating regular expressions from user-provided test cases

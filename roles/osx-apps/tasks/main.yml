@@ -14,6 +14,7 @@
     # - handbrake
     # - insomnia
     - monitorcontrol # for brightness control support on external monitors
+    # - noti # for notifications
     - obsidian # awesome note taking app
     - rectangle # for window management
     - signal
