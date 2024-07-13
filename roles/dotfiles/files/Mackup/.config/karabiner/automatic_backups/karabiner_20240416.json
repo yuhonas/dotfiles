@@ -320,21 +320,6 @@
                                     }
                                 ],
                                 "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "print_screen",
-                                    "modifiers": {
-                                        "mandatory": [
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "/Users/yuhonas/.asdf/shims/kasa --host 10.0.0.106 toggle"
-                                    }
-                                ],
-                                "type": "basic"
                             }
                         ]
                     }
@@ -762,7 +747,7 @@
             ],
             "virtual_hid_keyboard": {
                 "country_code": 0,
-                "indicate_sticky_modifier_keys_state": false,
+                "indicate_sticky_modifier_keys_state": true,
                 "mouse_key_xy_scale": 100
             }
         }

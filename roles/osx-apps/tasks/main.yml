@@ -5,7 +5,6 @@
   homebrew_cask: name={{ item }} state=present
   with_items:
     - 1password
-    - alfred
     # - amethyst # tiling window manager
     # - bitbar
     # - drop-to-gif
@@ -15,6 +14,7 @@
     # - handbrake
     # - insomnia
     - monitorcontrol # for brightness control support on external monitors
+    - obsidian # awesome note taking app
     - rectangle # for window management
     - signal
     - spotify
@@ -22,6 +22,7 @@
     - tor-browser
     - uninstallpkg
     - vlc
+    - zappy # better screenshot tool
 
 # the version of bash that ships with macos (3.2.x) at the time
 # is super old and breaks the tmux fingers plugin
@@ -40,6 +41,7 @@
     - kitty
     - postico
     - visual-studio-code
+    - warp
 
 - name: ensure we have a directory for custom key bindings
   file: path={{ ansible_env.HOME }}/Library/KeyBindings state=directory mode=700
