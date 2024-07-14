@@ -45,7 +45,6 @@ _tldr() {
 zle -N _tldr
 
 # custom keybindings for fast directory exploration
-bindkey -s "^[l" "ls -al^J"  # alt-l shortcut to listing a directory
 bindkey -s "^[r" "ranger^J"  # alt-r shortcut to file explorer
 # custom keybinding for tldr help on the current command
 bindkey "^[H" _tldr
@@ -100,20 +99,6 @@ if (( $+commands[kitty] )); then
   alias d="kitty +kitten diff"
 fi
 
-# if we have todo.sh installed
-# let's add some handy aliases
-# https://github.com/todotxt/todo.txt-cli/wiki/Tips-and-Tricks
-if (( $+commands[todo.sh] )); then
-  export TODOTXT_DEFAULT_ACTION=ls
-  export TODO_ACTIONS_DIR=$HOME/.config/todo/actions.d
-  alias t='todo.sh'
-fi
-
-# attempt to open up with emacs in daemon mode
-# fallback to emacs if it's not running
-# https://www.emacswiki.org/emacs/EmacsAsDaemon
-# alias todo="emacsclient --alternate-editor emacs $HOME/TODO.org"
-
 # fbr - checkout branch specified or provide a list of all git branches
 # including remotes for selection
 #
@@ -162,4 +147,39 @@ if (( $+commands[thefuck] )); then
   eval $(thefuck --alias)
 fi
 
+
+# Define the function to traverse the directory stack
+function fzf_cd_stack() {
+	local dir
+	dir=$(dirs -v | fzf --height 40% --reverse --prompt="Dir Stack> ") && zle -I
+	if [[ -n $dir ]]; then
+		# Extract the directory path and change to it
+		local target_dir
+		target_dir=$(echo $dir | awk '{print $2}')
+		eval "cd $target_dir"
+	fi
+	zle reset-prompt
+}
+
+# zle -N fzf_cd_stack_widget fzf_cd_stack
+
+# Bind the widget to Ctrl+G
+# bindkey '^G' fzf_cd_stack_widget
+
+fasd-fzf-cd-editor() {
+	item="$(fasd -Rl "$1" | fzf -1 -0 --no-sort +m)"
+	if [[ -d ${item} ]]; then
+		cd "${item}"
+	elif [[ -f ${item} ]]; then
+		($EDITOR "${item}" </dev/tty)
+	else
+		return 1
+	fi
+	zle accept-line
+}
+
+# zle -N fasd-fzf-cd-editor
+
+# Bind the widget to Ctrl+E
+# bindkey '^e' fasd-fzf-cd-editor
 
