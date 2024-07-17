@@ -17,6 +17,7 @@
   homebrew:
     state: present
     name:
+      - atuin # an improved shell history - https://docs.atuin.sh/
       - bat  # an improved cat, see also https://altbox.dev/
       - cheat # cheat sheets, like tldr but allows for custom cheat sheets
       - diffutils  # gnu diff, macos version lacks color
