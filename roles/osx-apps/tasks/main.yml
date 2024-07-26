@@ -9,7 +9,7 @@
     # - bitbar
     # - drop-to-gif
     # - fantastical
-    - karabiner-elements
+    - karabiner-elements # keyboard remapping
     - google-drive
     # - handbrake
     # - insomnia
@@ -19,7 +19,7 @@
     - rectangle # for window management
     - signal
     - spotify
-    - switchaudio-osx
+    - switchaudio-osx # for switching audio devices from the command line
     - tor-browser
     - uninstallpkg
     - vlc

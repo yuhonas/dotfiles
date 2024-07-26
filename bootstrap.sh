@@ -16,10 +16,9 @@ if [ "$(uname)" == "Darwin" ]; then
 	fi
 
 	# Download and install homebrew
-	if [[ ! -x /opt/homebrew/bin/brew ]]; then
+  if ! type brew >/dev/null 2>&1; then
 		echo "Info   | Install   | homebrew"
-		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-		# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+		bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	fi
 	eval $(/opt/homebrew/bin/brew shellenv)
 else
@@ -45,16 +44,18 @@ fi
 
 brew update
 
-# Download and install git
+# Install git
 if ! type git >/dev/null 2>&1; then
 	echo "Info   | Install   | git"
 	brew install git
 fi
 
-# Download and install Ansible
+# Install ansible
+# Assumes system python is installed
 if ! type ansible >/dev/null 2>&1; then
 	echo "Info   | Install   | ansible"
-	brew install ansible
+  python3 -m pip install pipx
+  python3 -m pipx install ansible
 fi
 
 # Make the code directory
@@ -72,5 +73,5 @@ fi
 
 if [[ -z "$NO_PROVISION" ]]; then
 	# Provision the box
-	ansible-playbook --ask-become-pass --become-method=sudo -i $ANSIBLE_DIRECTORY/inventory $ANSIBLE_DIRECTORY/playbook.yml
+	python3 -m ansible-playbook -i $ANSIBLE_DIRECTORY/inventory $ANSIBLE_DIRECTORY/playbook.yml
 fi
