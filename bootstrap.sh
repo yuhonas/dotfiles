@@ -55,7 +55,7 @@ fi
 if ! type ansible >/dev/null 2>&1; then
 	echo "Info   | Install   | ansible"
   python3 -m pip install pipx
-  python3 -m pipx install ansible
+  python3 -m pipx install --install-deps ansible
 fi
 
 # Make the code directory
