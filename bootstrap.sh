@@ -71,7 +71,10 @@ if [[ ! -d $ANSIBLE_DIRECTORY ]]; then
 	fi
 fi
 
+# add .local/bin to the PATH as that's what pipx uses
+export PATH="$HOME/.local/bin:$PATH"
+
 if [[ -z "$NO_PROVISION" ]]; then
 	# Provision the box
-	python3 -m ansible-playbook -i $ANSIBLE_DIRECTORY/inventory $ANSIBLE_DIRECTORY/playbook.yml
+	ansible-playbook -i $ANSIBLE_DIRECTORY/inventory $ANSIBLE_DIRECTORY/playbook.yml
 fi
