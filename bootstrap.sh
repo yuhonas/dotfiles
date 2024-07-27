@@ -76,5 +76,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 if [[ -z "$NO_PROVISION" ]]; then
 	# Provision the box
-	ansible-playbook -i $ANSIBLE_DIRECTORY/inventory $ANSIBLE_DIRECTORY/playbook.yml
+	ansible-playbook --ask-become-pass --become-method=sudo -i $ANSIBLE_DIRECTORY/inventory $ANSIBLE_DIRECTORY/playbook.yml
+
 fi
