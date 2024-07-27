@@ -27,9 +27,11 @@ else
 		# archlinux
 		sudo pacman --sync --refresh --noconfirm --needed \
 			base-devel \
-			git ca-certificates \
-			curl \
 			git \
+      ca-certificates \
+			curl \
+      procps-ng \
+      file \
 			libxcrypt-compat # for homebrew installation which installs ruby 2.6.8
 
 		# set locale
@@ -54,8 +56,9 @@ fi
 # Assumes system python is installed
 if ! type ansible >/dev/null 2>&1; then
 	echo "Info   | Install   | ansible"
-  python3 -m pip install pipx
-  python3 -m pipx install --install-deps ansible
+  brew install ansible
+  # python3 -m pip install pipx
+  # python3 -m pipx install --install-deps ansible
 fi
 
 # Make the code directory
