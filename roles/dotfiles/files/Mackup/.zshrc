@@ -11,7 +11,7 @@ source ~/zsh/znap/znap.zsh  # Start Znap
 znap source ohmyzsh/ohmyzsh
 
 # first party plugins
-znap source ohmyzsh/ohmyzsh plugins/asdf
+znap source ohmyzsh/ohmyzsh plugins/mise
 # znap source ohmyzsh/ohmyzsh plugins/bundler
 znap source ohmyzsh/ohmyzsh plugins/colored-man-pages
 znap source ohmyzsh/ohmyzsh plugins/cp
@@ -35,6 +35,8 @@ znap source zdharma-continuum/fast-syntax-highlighting
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-completions
 znap source yuhonas/zsh-ansimotd
+znap source tom-doerr/zsh_codex
+
 # znap source marlonrichert/zsh-autocomplete
 # znap source wookayin/fzf-fasd
 

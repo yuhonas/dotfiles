@@ -3,7 +3,6 @@
   homebrew:
     state: present
     name:
-      - asdf  # version manager
       - aria2 # lightweight multiprotocol download util
       - awscli
       - borgbackup # for secure incremental backups
@@ -20,67 +19,33 @@
       - jq # command-line json processor
       - lnav # better log file navigator
       - md5deep
+      - mise # version manager
       - nmap # useful port scanner
       - p7zip
       - pandoc # useful document converter
       - pgcli # commandline interface for postgres
-      - pidof # for pywal
+      # - pidof # for pywal
       - poppler  # for lesspipe
+      - pnpm # fast node package manager
       - pv # useful pipe viewer see https://catonmat.net/unix-utilities-pipe-viewer
       # - cube2222/octosql/octosql
       - readline
       - redis
-      - ruby-build # for asdf
+      - ruby-build # for mise
       - sqlite
       - xh # developer friendly curl alternative inspired by httpie
       - ugrep # grep replacement
       - uv # pip replacement https://github.com/astral-sh/uv
       - w3m # text based browser
 
-- name: add asdf plugins
-  command: "asdf plugin-add {{ item }}"
-  with_items:
-    - ruby
-    - nodejs
-    - python
-  ignore_errors: true
-
-- name: update asdf plugin versions
-  command: asdf plugin-update --all
-
-# https://github.com/asdf-vm/asdf-nodejs/issues/82
-- name: update the release keys
-  command: "{{ ansible_env.HOME }}/.asdf/plugins/nodejs/bin/import-release-team-keyring"
-
-- name: install asdf versions
-  command: asdf install
+- name: install mise versions
+  command: mise install
   args:
     chdir: "{{ ansible_env.HOME }}"
 
-- name: python packages
-  pip:
-    name:
-      - csvkit
-      - git+https://github.com/dylanaraps/pywal.git # use master
-    state: present
-    executable: "{{ ansible_env.HOME }}/.asdf/shims/pip"
-
-- name: asdf reshim
-  command: asdf reshim
-
-- name: install developer fonts tap
-  homebrew_tap:
-    name: homebrew/cask-fonts
-    state: present
-
-# - name: install developer font
-#   homebrew:
-#     state: present
-#     name:
-#       - font-fira-code # https://github.com/tonsky/FiraCode
-
-#- name: install spacemacs
-#  git:
-#    repo: https://github.com/syl20bnr/spacemacs
-#    dest: "{{ ansible_env.HOME }}/.emacs.d"
-#    version: master
+- name: install python packages
+  command: "mise exec -- pip install {{ item }}"
+  loop:
+    - csvkit  # csv manipulation tools
+    - posting # terminal based api client -
+    - git+https://github.com/dylanaraps/pywal.git

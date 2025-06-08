@@ -28,7 +28,7 @@ See also [main.yml](./roles/dotfiles/tasks/main.yml)
 
 What I generally need for development some highlights
 
-* ruby, python, node & others managed by [asdf](https://github.com/asdf-vm/asdf)
+* ruby, python, node & others managed by [mise](https://github.com/jdx/mise)
 * thing's I felt fell outside the minimal toolset I have in dotfiles
 
 See also [main.yml](./roles/developer/tasks/main.yml)

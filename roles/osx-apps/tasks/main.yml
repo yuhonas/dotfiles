@@ -7,8 +7,6 @@
     - 1password
     # - amethyst # tiling window manager
     # - bitbar
-    # - drop-to-gif
-    # - fantastical
     - karabiner-elements # keyboard remapping
     - google-drive
     # - handbrake
@@ -72,11 +70,3 @@
     - font-fira-code
     - font-hack
 
-# TODO: Alfred offers a first party sync
-# However I don't use dropbox (which they recommend), need to investigate further
-# - name: symlink alfred configuration
-#   file:
-#     src: "{{ role_path }}/files/alfred/prefs.plist"
-#     dest: "{{ ansible_env.HOME }}/Library/Application Support/Alfred 3/Alfred.alfredpreferences/preferences/features/websearch/prefs.plist"
-#     state: link
-#     force: true
