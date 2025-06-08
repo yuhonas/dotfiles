@@ -16,7 +16,7 @@ if [ "$(uname)" == "Darwin" ]; then
 	fi
 
 	# Download and install homebrew
-  if ! type brew >/dev/null 2>&1; then
+	if ! type brew >/dev/null 2>&1; then
 		echo "Info   | Install   | homebrew"
 		bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	fi
@@ -28,10 +28,10 @@ else
 		sudo pacman --sync --refresh --noconfirm --needed \
 			base-devel \
 			git \
-      ca-certificates \
+			ca-certificates \
 			curl \
-      procps-ng \
-      file \
+			procps-ng \
+			file \
 			libxcrypt-compat # for homebrew installation which installs ruby 2.6.8
 
 		# set locale
@@ -56,9 +56,7 @@ fi
 # Assumes system python is installed
 if ! type ansible >/dev/null 2>&1; then
 	echo "Info   | Install   | ansible"
-  brew install ansible
-  # python3 -m pip install pipx
-  # python3 -m pipx install --install-deps ansible
+	brew install ansible
 fi
 
 # Make the code directory
