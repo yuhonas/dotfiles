@@ -35,7 +35,7 @@ znap source zdharma-continuum/fast-syntax-highlighting
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-completions
 znap source yuhonas/zsh-ansimotd
-znap source tom-doerr/zsh_codex
+# znap source tose inm-doerr/zsh_codex
 
 # znap source marlonrichert/zsh-autocomplete
 # znap source wookayin/fzf-fasd
