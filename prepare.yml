@@ -2,12 +2,26 @@
 - name: prepare machine for converging
   hosts: all
   tasks:
-    - name: copy bootstrap script for execution
-      command: docker cp {{ playbook_dir }}/bootstrap.sh {{ ansible_fqdn }}:/tmp
+    - name: create dotfiles directory
+      file:
+        path: "{{ ansible_env.HOME }}/dotfiles"
+        state: directory
+
+    - name: copy ansible playbook for execution
+      command: docker cp {{ playbook_dir }}/. {{ ansible_fqdn }}:{{ ansible_env.HOME }}/dotfiles/ansible
       delegate_to: 127.0.0.1
 
+    - name: set permissions on dotfiles directory
+      file:
+        path: "{{ ansible_env.HOME }}/dotfiles"
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: "0755"
+        recurse: yes
+      become: yes
+
     - name: bootstrap the machine
-      command: bash /tmp/bootstrap.sh
+      command: "bash {{ ansible_env.HOME }}/dotfiles/ansible/bootstrap.sh"
       environment:
         NO_PROVISION: 1
   tags: minimal

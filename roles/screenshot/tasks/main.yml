@@ -4,7 +4,7 @@
     name:
       - konsole
       - imagemagick
-      - neofetch
+      - fastfetch
       - procps # for process management
       - xorg-server-xvfb
       - xorg-font-util

@@ -44,8 +44,6 @@ _tldr() {
 }
 zle -N _tldr
 
-# custom keybindings for fast directory exploration
-bindkey -s "^[r" "ranger^J"  # alt-r shortcut to file explorer
 # custom keybinding for tldr help on the current command
 bindkey "^[H" _tldr
 
@@ -71,7 +69,7 @@ cdpath=($HOME/Sites $HOME/src)
 
 # Setup a zsh suffix alias to allow fast editing using just the filename
 # https://opensource.com/article/18/9/tips-productivity-zsh
-alias -s {rb,go,py,js,txt,md,yaml,yml}=$EDITOR
+# alias -s {rb,go,py,js,txt,md,yaml,yml}=$EDITOR
 
 # use the plain style for bat
 # https://github.com/sharkdp/bat
@@ -161,10 +159,10 @@ function fzf_cd_stack() {
 	zle reset-prompt
 }
 
-# zle -N fzf_cd_stack_widget fzf_cd_stack
+zle -N fzf_cd_stack_widget fzf_cd_stack
 
 # Bind the widget to Ctrl+G
-# bindkey '^G' fzf_cd_stack_widget
+bindkey '^G' fzf_cd_stack_widget
 
 fasd-fzf-cd-editor() {
 	item="$(fasd -Rl "$1" | fzf -1 -0 --no-sort +m)"
@@ -178,8 +176,9 @@ fasd-fzf-cd-editor() {
 	zle accept-line
 }
 
-# zle -N fasd-fzf-cd-editor
+zle -N fasd-fzf-cd-editor
 
-# Bind the widget to Ctrl+E
-# bindkey '^e' fasd-fzf-cd-editor
+if (( $+commands[atuin] )); then
+  eval "$(atuin init zsh)"
+fi
 
