@@ -47,5 +47,5 @@
   command: "mise exec -- pip install {{ item }}"
   loop:
     - csvkit  # csv manipulation tools
-    - posting # terminal based api client -
-    - git+https://github.com/dylanaraps/pywal.git
+    - posting # terminal based api client
+    - pywal16 # generate and change colorschemes based on wallpapers
