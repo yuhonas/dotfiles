@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 #
 # Set the systems wallpaper and accent colors based on a file selection prompt
 #
@@ -23,24 +23,24 @@ end tell
 
 return POSIX path of imageFile')
 
+# MISE_BIN="/opt/homebrew/bin/mise exec --"
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 if [ -n "$wallpaper_file" ]; then
-  # do not set the walpaper using wal, it's broken in macos sonora
-  # see https://github.com/dylanaraps/pywal/issues/715
+	# do not set the walpaper using wal, it's broken in macos sonora
+	# see https://github.com/dylanaraps/pywal/issues/715
   if wal -n -i "$wallpaper_file" -q; then
-    accent_color=$(jq --raw-output '.colors.color13' < "$HOME/.cache/wal/colors.json")
+		accent_color=$(jq --raw-output '.colors.color9' <"$HOME/.cache/wal/colors.json")
 
-    # accent_color = "#03a061"
-
-    echo "Found color $accent_color"
-
+		echo "Found color $accent_color"
     osx-colors set "$accent_color"
-
-    # setting lights
-    $HOME/.local/bin/set-light-color "$accent_color"
-  fi
+		# setting lights
+		"$script_dir/set-light-color" "$accent_color"
+	fi
 fi
 
-# # reload kitty if it's running
+# reload kitty if it's running
 if pgrep kitty 1>/dev/null; then
-  killall -SIGUSR1 kitty
+	killall -SIGUSR1 kitty
 fi

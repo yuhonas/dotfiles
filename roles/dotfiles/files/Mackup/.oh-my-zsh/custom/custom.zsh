@@ -97,28 +97,6 @@ if (( $+commands[kitty] )); then
   alias d="kitty +kitten diff"
 fi
 
-# fbr - checkout branch specified or provide a list of all git branches
-# including remotes for selection
-#
-# based on https://github.com/junegunn/fzf/wiki/examples
-_fzf_complete_gco() {
-    ARGS="$@"
-    local branches
-    branches=$(git --no-pager branch --all | sed -E 's/remotes\/origin\///')
-
-    if [[ $ARGS == 'gco'* ]]; then
-        _fzf_complete "--reverse --multi" "$@" < <(
-            echo $branches
-        )
-    else
-        eval "zle ${fzf_default_completion:-expand-or-complete}"
-    fi
-}
-
-_fzf_complete_git_post() {
-    awk '{print $1}'
-}
-
 # read from stdin, write to a temp file, open the temp file in a browser, then delete it
 # see https://gist.github.com/rchrd2/dc0ecbaeffaf75d253c3711985602d09
 stdin2www() {
@@ -145,11 +123,11 @@ if (( $+commands[thefuck] )); then
   eval $(thefuck --alias)
 fi
 
-
 # Define the function to traverse the directory stack
 function fzf_cd_stack() {
 	local dir
-	dir=$(dirs -v | fzf --height 40% --reverse --prompt="Dir Stack> ") && zle -I
+	# dir=$(dirs -v | fzf --height 40% --reverse --prompt="Dir Stack> ") && zle -I
+	dir=$(dirs -v | gum filter --height 10 --header "Dir Stack> ") && zle -I
 	if [[ -n $dir ]]; then
 		# Extract the directory path and change to it
 		local target_dir
