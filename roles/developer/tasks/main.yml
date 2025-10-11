@@ -12,12 +12,15 @@
       - entr # run arbitrary commands when files change
       - jdupes # faster then fdupes
       - fx # for exploring json files in the terminal
+      - gemini-cli # cli for gemini ai
       - grex # A tool generating regular expressions from user-provided test cases
       - github/gh/gh # https://github.com/cli/cli
+      - git-delta # better diffing experience for git
       - gnupg
       - ghq # remote repository management https://github.com/x-motemen/ghq
       - imagemagick # for pywal amongst other useful image manipulations
       - jq # command-line json processor
+      - just # generic task runner
       - lnav # better log file navigator
       - md5deep
       - mise # version manager

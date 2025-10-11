@@ -122,7 +122,7 @@
                                     "key_code": "w",
                                     "modifiers": { "mandatory": ["left_command", "left_control", "left_option", "left_shift"] }
                                 },
-                                "to": [{ "shell_command": "PATH=/opt/homebrew/bin:/usr/bin:/bin ~/.local/bin/select-wallpaper.sh" }],
+                                "to": [{ "shell_command": "PATH=/opt/homebrew/bin:/usr/bin:/bin:~/.local/share/mise/installs/python/3.14.0/bin:$PATH ~/.local/bin/select-wallpaper.sh" }],
                                 "type": "basic"
                             },
                             {
@@ -146,7 +146,7 @@
                                     "key_code": "a",
                                     "modifiers": { "mandatory": ["left_command", "left_control", "left_option", "left_shift"] }
                                 },
-                                "to": [{ "shell_command": "PATH=/opt/homebrew/bin:/usr/bin:/bin ~/.local/bin/switch-audio-source.sh" }],
+                                "to": [{ "shell_command": "PATH=/opt/homebrew/bin:/usr/bin:/bin:$PATH ~/.local/bin/switch-audio-source.sh" }],
                                 "type": "basic"
                             },
                             {

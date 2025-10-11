@@ -21,6 +21,7 @@
       - bat  # an improved cat, see also https://altbox.dev/
       - cheat # cheat sheets, like tldr but allows for custom cheat sheets
       - diffutils  # gnu diff, macos version lacks color
+      - dua-cli  # modern alternative to ncdu
       - eza  # an ls replacement
       # - fasd  # jump navigation - has been disabled in homebrew see https://github.com/Homebrew/homebrew-core/pull/112791
       - fd  # find replacement
@@ -33,7 +34,6 @@
       - lesspipe
       - lsd # an ls replacement
       - mackup  # symlink farm
-      - ncdu  # ncurses disk usage
       - neovim
       - ripgrep  # like grep but better, a dependancy on doommacs, also just handy to have around
       - starship # fast/cross shell prompt

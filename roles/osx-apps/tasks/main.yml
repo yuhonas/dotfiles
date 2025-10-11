@@ -69,4 +69,5 @@
   with_items:
     - font-fira-code
     - font-hack
+    - font-jetbrains-mono
 

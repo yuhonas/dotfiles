@@ -25,8 +25,6 @@ return POSIX path of imageFile')
 
 # MISE_BIN="/opt/homebrew/bin/mise exec --"
 
-script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
 if [ -n "$wallpaper_file" ]; then
 	# do not set the walpaper using wal, it's broken in macos sonora
 	# see https://github.com/dylanaraps/pywal/issues/715
@@ -36,7 +34,7 @@ if [ -n "$wallpaper_file" ]; then
 		echo "Found color $accent_color"
     osx-colors set "$accent_color"
 		# setting lights
-		"$script_dir/set-light-color" "$accent_color"
+		"$HOME/.local/bin/set-light-color" "$accent_color"
 	fi
 fi
 

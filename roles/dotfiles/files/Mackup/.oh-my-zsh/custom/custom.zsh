@@ -126,8 +126,8 @@ fi
 # Define the function to traverse the directory stack
 function fzf_cd_stack() {
 	local dir
-	# dir=$(dirs -v | fzf --height 40% --reverse --prompt="Dir Stack> ") && zle -I
-	dir=$(dirs -v | gum filter --height 10 --header "Dir Stack> ") && zle -I
+	dir=$(dirs -v | fzf --height 20% --reverse --prompt="Dir Stack> ") && zle -I
+	# dir=$(dirs -v | gum filter --height 10 --header "Dir Stack> ") && zle -I
 	if [[ -n $dir ]]; then
 		# Extract the directory path and change to it
 		local target_dir
@@ -159,4 +159,6 @@ zle -N fasd-fzf-cd-editor
 if (( $+commands[atuin] )); then
   eval "$(atuin init zsh)"
 fi
+
+alias duai="dua interactive"
 
