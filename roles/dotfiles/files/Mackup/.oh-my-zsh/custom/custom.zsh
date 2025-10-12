@@ -65,7 +65,7 @@ alias weather="curl wttr.in/Melbourne"
 # Setup frequent dirs in the CDPATH so we can cd to them from anywhere
 # https://thoughtbot.com/blog/cding-to-frequently-used-directories-in-zsh
 setopt auto_cd
-cdpath=($HOME/Sites $HOME/src)
+cdpath=($HOME/Projects)
 
 # Setup a zsh suffix alias to allow fast editing using just the filename
 # https://opensource.com/article/18/9/tips-productivity-zsh
@@ -160,5 +160,20 @@ if (( $+commands[atuin] )); then
   eval "$(atuin init zsh)"
 fi
 
-alias duai="dua interactive"
 
+alias duai="dua interactive"
+# Function to interactively select and cd into a ghq repository
+function cghq() {
+  local repo_path
+  repo_path=$(
+    for repo in $(ghq list -p); do
+      echo -e "$(git -C "$repo" log -1 --format="%ad" --date=format:"%Y-%m-%d")\t$repo"
+    done | sort | fzf --height 20% --delimiter='\t' --tac --preview "git -C {2} log --oneline --graph --date=relative --all" | cut -f2
+  )
+
+  if [[ -n "$repo_path" ]]; then
+    cd "$repo_path" || return
+  fi
+}
+
+alias lg="lazygit"

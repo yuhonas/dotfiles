@@ -3,3 +3,4 @@ playbook.retry
 *.swp
 *.pyc
 .zshrc.local
+roles/dotfiles/files/Mackup/.config/karabiner/automatic_backups
