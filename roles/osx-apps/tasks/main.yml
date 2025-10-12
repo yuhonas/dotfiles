@@ -58,7 +58,7 @@
   homebrew_cask: name={{ item }} state=present
   with_items:
     - betterzip
-    - qlmarkdown
+#    - qlmarkdown
 #     - qlcolorcode # https://github.com/anthonygelibert/QLColorCode/issues/88#issuecomment-927783435
 #     - qlstephen # https://github.com/whomwah/qlstephen/issues/133
 #     - quicklook-json # TODO: Verify this works on M1/Apple Silicon
