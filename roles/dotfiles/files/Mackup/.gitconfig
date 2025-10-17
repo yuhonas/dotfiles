@@ -12,9 +12,21 @@
 	branch = auto
 	ui = true
 [core]
-	excludesfile = ~/.gitignore_global
 	autocrlf = input
 	quotepath = false
+  pager = delta
+
+[interactive]
+    diffFilter = delta
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    dark = true      # or light = true, or omit for auto-detection
+	line-numbers-zero-style = dim
+
+[merge]
+    conflictStyle = zdiff3
+
 [apply]
 	whitespace = nowarn
 [format]
@@ -59,6 +71,7 @@ trustExitCode = true
 	repo = /Users/yuhonas/zsh/zdharma-continuum/fast-syntax-highlighting
 	repo = /Users/yuhonas/zsh/zsh-users/zsh-autosuggestions
 	repo = /Users/yuhonas/zsh/zsh-users/zsh-completions
+	repo = /Users/yuhonas/zsh/tom-doerr/zsh_codex
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
