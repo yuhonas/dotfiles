@@ -177,3 +177,19 @@ function cghq() {
 }
 
 alias lg="lazygit"
+
+pbcopybin() {
+  # if no filename is provided then read from STDIN
+  if [[ -n "$1" ]]; then
+    local local_filename="$1"
+    # NOTE: Get the aboslute path of the file to avoid issues with osascript and relative paths
+    local_filename=$(realpath "$local_filename")
+  else
+    # Read from stdin to a temp file
+    local local_filename
+    local_filename=$(mktemp)
+    cat > "$local_filename"
+  fi
+
+  osascript -e "set the clipboard to (POSIX file \"$local_filename\")"
+}
