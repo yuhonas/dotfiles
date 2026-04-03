@@ -14,7 +14,7 @@
 # * https://zaiste.net/posts/shell-commands-rust/
 # * https://lib.rs/command-line-utilities
 - name: base packages
-  homebrew:
+  community.general.homebrew:
     state: present
     name:
       - atuin # an improved shell history - https://docs.atuin.sh/

@@ -1,6 +1,6 @@
 ---
 - name: developer packages
-  homebrew:
+  community.general.homebrew:
     state: present
     name:
       - aria2 # lightweight multiprotocol download util
@@ -14,7 +14,7 @@
       - fx # for exploring json files in the terminal
       - gemini-cli # cli for gemini ai
       - grex # A tool generating regular expressions from user-provided test cases
-      - github/gh/gh # https://github.com/cli/cli
+      - gh # https://github.com/cli/cli
       - git-delta # better diffing experience for git
       - gnupg
       - ghq # remote repository management https://github.com/x-motemen/ghq
