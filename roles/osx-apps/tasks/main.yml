@@ -22,6 +22,7 @@
     - uninstallpkg
     - vlc
     - zappy # better screenshot tool
+    - zen # privacy and productivity focussed web browser
 
 - name: other helpful command line tools
   homebrew: name={{ item }} state=present
