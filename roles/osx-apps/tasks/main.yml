@@ -15,7 +15,7 @@
     # - noti # for notifications
     - obsidian # awesome note taking app
     - rectangle # for window management
-    - signal
+    # - signal
     - spotify
     - switchaudio-osx # for switching audio devices from the command line
     - tor-browser
@@ -37,10 +37,12 @@
 - name: developer applications
   homebrew_cask: name={{ item }} state=present
   with_items:
+    - ghostty
     - kitty
+    - orbstack
     - postico
     - visual-studio-code
-    - warp
+    # - warp
 
 - name: ensure we have a directory for custom key bindings
   file: path={{ ansible_env.HOME }}/Library/KeyBindings state=directory mode=700
@@ -54,10 +56,10 @@
     dest: "{{ ansible_env.HOME }}/Library/KeyBindings"
     mode: 0644
 
-- name: quicklook plugins
-  homebrew_cask: name={{ item }} state=present
-  with_items:
-    - betterzip
+# - name: quicklook plugins
+#   homebrew_cask: name={{ item }} state=present
+#   with_items:
+#     - betterzip
 #    - qlmarkdown
 #     - qlcolorcode # https://github.com/anthonygelibert/QLColorCode/issues/88#issuecomment-927783435
 #     - qlstephen # https://github.com/whomwah/qlstephen/issues/133
