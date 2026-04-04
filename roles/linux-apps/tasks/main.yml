@@ -18,13 +18,13 @@
   file: path="{{ ansible_env.HOME }}/.config" state=directory mode=0644
 
 - name: create user dir for systemd inits
-  file: path="{{ ansible_env.HOME }}/.config/systemd/user" state=directory recurse=true owner={{ ansible_ssh_user }} mode=0644
+  file: path="{{ ansible_env.HOME }}/.config/systemd/user" state=directory recurse=true owner={{ ansible_user }} mode=0644
 
 - name: copying ssh-agent systemd init
   copy:
     src: ssh-agent.service
     dest: "{{ ansible_env.HOME }}/.config/systemd/user/ssh-agent.service"
-    owner: "{{ ansible_ssh_user }}"
+    owner: "{{ ansible_user }}"
     mode: 0644
 
 - name: install tlp for power management
@@ -36,7 +36,7 @@
 
 - name: ensure user has access to touch inputs
   user:
-    name: "{{ ansible_ssh_user }}"
+    name: "{{ ansible_user }}"
     groups: input
     append: true
   become: true
@@ -127,7 +127,7 @@
 #  https://github.com/docker/docker-snap/issues/1
 - name: ensure user has access to docker
   user:
-    name: "{{ ansible_ssh_user }}"
+    name: "{{ ansible_user }}"
     groups: docker
     append: true
   become: true
