@@ -154,7 +154,7 @@
                                     "key_code": "delete_forward",
                                     "modifiers": { "mandatory": [] }
                                 },
-                                "to": [{ "shell_command": "PATH=/opt/homebrew/bin:/usr/bin:/bin:~/.local/share/mise/installs/python/3.14.0/bin:$PATH ~/.local/bin/toggle-light" }],
+                                "to": [{ "shell_command": "PATH=/opt/homebrew/bin:/usr/bin:/bin:~/.local/share/mise/installs/python/3.14.0/bin:$PATH ~/.local/bin/toggle-light.sh" }],
                                 "type": "basic"
                             }
                         ]

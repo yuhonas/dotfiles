@@ -2,6 +2,7 @@
 
 # References
 # ----------------
+# https://macos-defaults.com/
 # https://github.com/donnemartin/dev-setup/blob/master/osx.sh
 # https://github.com/herrbischoff/awesome-osx-command-line/blob/master/README.md
 # https://github.com/arrelid/preferences/blob/master/defaults.sh

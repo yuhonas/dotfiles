@@ -1,6 +1,6 @@
 ---
 - name: developer packages
-  homebrew:
+  community.general.homebrew:
     state: present
     name:
       - aria2 # lightweight multiprotocol download util
@@ -14,7 +14,7 @@
       - fx # for exploring json files in the terminal
       - gemini-cli # cli for gemini ai
       - grex # A tool generating regular expressions from user-provided test cases
-      - github/gh/gh # https://github.com/cli/cli
+      - gh # https://github.com/cli/cli
       - git-delta # better diffing experience for git
       - gnupg
       - ghq # remote repository management https://github.com/x-motemen/ghq
@@ -52,4 +52,10 @@
   loop:
     - csvkit  # csv manipulation tools
     - posting # terminal based api client
+    - python-dotenv # for loading environment variables from .env files
     - pywal16 # generate and change colorschemes based on wallpapers
+
+- name: install node packages
+  command: "mise exec -- npm install -g {{ item }}"
+  loop:
+    - socket # secure dependency downloader

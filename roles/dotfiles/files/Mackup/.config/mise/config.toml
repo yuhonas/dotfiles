@@ -1,0 +1,7 @@
+[settings]
+idiomatic_version_file_enable_tools = []
+
+[tools]
+node = "24"
+python = "3"
+ruby = "3"
