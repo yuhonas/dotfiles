@@ -88,3 +88,10 @@
 
 - name: restart dock to apply changes
   ansible.builtin.shell: killall Dock
+
+- name: remove legacy ~/Sites dir if it exists and is empty
+  file: path={{ ansible_env.HOME }}/Sites state=absent
+  when: sites_dir.stat.exists and sites_dir.stat.isdir and sites_dir.stat.size == 0
+  vars:
+    sites_dir: "{{ lookup('ansible.builtin.stat', ansible_env.HOME + '/Sites') }}"
+
