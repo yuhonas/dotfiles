@@ -54,6 +54,8 @@
     dest: "{{ ansible_env.HOME }}/Library/KeyBindings"
     mode: 0644
 
+# NOTE: A lot of these seem to be broken/unmaintained
+# see https://github.com/sindresorhus/quick-look-plugins
 # - name: quicklook plugins
 #   homebrew_cask: name={{ item }} state=present
 #   with_items:
@@ -63,11 +65,26 @@
 #     - qlstephen # https://github.com/whomwah/qlstephen/issues/133
 #     - quicklook-json # TODO: Verify this works on M1/Apple Silicon
 
-# Used in terminal/other places
-- name: install thirdy party fonts
+- name: install third party fonts used in terminal and other places
   homebrew_cask: name={{ item }} state=present
   with_items:
     - font-fira-code
     - font-hack
     - font-jetbrains-mono
 
+- name: remove all dock items for a fresh start
+  ansible.builtin.shell: dockutil --remove all --no-restart
+
+- name: add desired dock items
+  ansible.builtin.shell: dockutil --add '{{ item }}' --no-restart
+  with_items:
+      - /Applications/Calendar.app
+      - /Applications/Brave Browser.app
+      - Finder
+      - /Applications/Ghostty.app
+      - /Applications/Spotify.app
+      - /Applications/Visual Studio Code.app
+      - /Applications/Zen.app
+
+- name: restart dock to apply changes
+  ansible.builtin.shell: killall Dock

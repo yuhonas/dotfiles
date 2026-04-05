@@ -151,3 +151,6 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 # Set key repeat
 # https://www.howtogeek.com/267463/how-to-enable-key-repeating-in-macos/
 defaults write -g ApplePressAndHoldEnabled -bool false
+
+# disable dictation pop-up
+defaults write com.apple.HIToolbox AppleDictationAutoEnable -int 0
