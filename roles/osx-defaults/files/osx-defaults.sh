@@ -154,3 +154,6 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 
 # disable dictation pop-up
 defaults write com.apple.HIToolbox AppleDictationAutoEnable -int 0
+
+# disable auto period on double space
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false

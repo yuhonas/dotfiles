@@ -43,6 +43,7 @@
       - tmux
       - wget
       - zellij # tmux replacement
+      - zoxide # jump navigation
       - zsh
     update_homebrew: true
 

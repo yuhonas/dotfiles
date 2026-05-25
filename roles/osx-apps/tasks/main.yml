@@ -7,11 +7,13 @@
     - 1password
     # - amethyst # tiling window manager
     # - bitbar # for showing custom scripts in the menu bar
+    - brave-browser
+    - bruno # open source ide for exploring and testing apis
     - caffeine # for preventing sleep when doing long tasks
     - karabiner-elements # keyboard remapping
     - google-drive
     # - handbrake
-    - monitorcontrol # for brightness control support on external monitors
+    # - monitorcontrol # for brightness control support on external monitors
     # - noti # for notifications
     - obsidian # awesome note taking app
     - rectangle # for window management
@@ -89,9 +91,9 @@
 - name: restart dock to apply changes
   ansible.builtin.shell: killall Dock
 
-- name: remove legacy ~/Sites dir if it exists and is empty
-  file: path={{ ansible_env.HOME }}/Sites state=absent
-  when: sites_dir.stat.exists and sites_dir.stat.isdir and sites_dir.stat.size == 0
-  vars:
-    sites_dir: "{{ lookup('ansible.builtin.stat', ansible_env.HOME + '/Sites') }}"
+# - name: remove legacy ~/Sites dir if it exists and is empty
+#   file: path={{ ansible_env.HOME }}/Sites state=absent
+#   when: sites_dir.stat.exists and sites_dir.stat.isdir and sites_dir.stat.size == 0
+#   vars:
+#     sites_dir: "{{ lookup('ansible.builtin.stat', ansible_env.HOME + '/Sites') }}"
 
