@@ -1,8 +1,8 @@
-# Yuhonas dotfiles [![ci](https://github.com/yuhonas/dotfiles/actions/workflows/ci.yml/badge.svg)](https://github.com/yuhonas/dotfiles/actions/workflows/ci.yml)
+# My Dotfiles [![ci](https://github.com/yuhonas/dotfiles/actions/workflows/ci.yml/badge.svg)](https://github.com/yuhonas/dotfiles/actions/workflows/ci.yml)
 
 ![Screenshot](./screenshot.png)
 
-My overbaked, labour of love dotfiles for both osx / archlinux, mostly everything I need to bootstrap a machine to a productive state
+My overbaked, labour of love dotfiles for both osx / archlinux, mostly everything I need to bootstrap a machine into a productive state
 
 ## What's in it?
 
@@ -20,7 +20,7 @@ My overbaked, labour of love dotfiles for both osx / archlinux, mostly everythin
 - [zellij](https://zellij.dev/) — terminal workspace / tmux alternative
 - [zsh](https://www.zsh.org/) — default interactive shell
 
-### CLI essentials & “modern Unix” tools
+### CLI essentials & "modern **nix" tools
 
 - [bash](https://www.gnu.org/software/bash/) — up-to-date bash shell
 - [bat](https://github.com/sharkdp/bat) — syntax-highlighting `cat` replacement
@@ -166,11 +166,15 @@ $ bash <(curl -s https://raw.githubusercontent.com/yuhonas/dotfiles/master/boots
 ## Running the tests
 
 This repo uses [molecule](https://docs.ansible.com/projects/molecule/) and docker
-to lint, provision and test the playbook
+to lint, provision and test the playbook(s)
 
 ```
-$ molecule test
+molecule test
 ```
+
+## Generating the software summary
+
+There is a reusable LLM prompt [summarize_playbooks.md](.cursor/commands/summarize_playbooks.md) that will generate & categorize the software being installed from the ansible playbooks and insert it into this README
 
 ## Trying it out with Docker
 
