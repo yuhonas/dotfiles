@@ -45,7 +45,7 @@
     # - warp
 
 - name: ensure we have a directory for custom key bindings
-  file: path={{ ansible_env.HOME }}/Library/KeyBindings state=directory mode=700
+  file: path={{ ansible_facts.user_dir }}/Library/KeyBindings state=directory mode=700
 
 # copy custom macos keybindings
 # symlinking causes issues in some apps
@@ -53,7 +53,7 @@
 - name: copying DefaultKeyBinding for custom key bindings in osx text inputs
   copy:
     src: KeyBindings/DefaultKeyBinding.dict
-    dest: "{{ ansible_env.HOME }}/Library/KeyBindings"
+    dest: "{{ ansible_facts.user_dir }}/Library/KeyBindings"
     mode: 0644
 
 # NOTE: A lot of these seem to be broken/unmaintained
@@ -92,7 +92,7 @@
   ansible.builtin.shell: killall Dock
 
 # - name: remove legacy ~/Sites dir if it exists and is empty
-#   file: path={{ ansible_env.HOME }}/Sites state=absent
+#   file: path={{ ansible_facts.user_dir }}/Sites state=absent
 #   when: sites_dir.stat.exists and sites_dir.stat.isdir and sites_dir.stat.size == 0
 #   vars:
 #     sites_dir: "{{ lookup('ansible.builtin.stat', ansible_env.HOME + '/Sites') }}"

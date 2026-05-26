@@ -15,15 +15,15 @@
     - yay  # AUR Helper written in go
     - yazi  # visual file manager
 - name: create a user .config dir
-  file: path="{{ ansible_env.HOME }}/.config" state=directory mode=0644
+  file: path="{{ ansible_facts.user_dir }}/.config" state=directory mode=0644
 
 - name: create user dir for systemd inits
-  file: path="{{ ansible_env.HOME }}/.config/systemd/user" state=directory recurse=true owner={{ ansible_user }} mode=0644
+  file: path="{{ ansible_facts.user_dir }}/.config/systemd/user" state=directory recurse=true owner={{ ansible_user }} mode=0644
 
 - name: copying ssh-agent systemd init
   copy:
     src: ssh-agent.service
-    dest: "{{ ansible_env.HOME }}/.config/systemd/user/ssh-agent.service"
+    dest: "{{ ansible_facts.user_dir }}/.config/systemd/user/ssh-agent.service"
     owner: "{{ ansible_user }}"
     mode: 0644
 

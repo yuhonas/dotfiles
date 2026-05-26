@@ -1,13 +1,13 @@
 ---
 - name: ensure we have an .ssh dir with the correct perms
-  file: path={{ ansible_env.HOME }}/.ssh state=directory mode=0700
+  file: path={{ ansible_facts.user_dir }}/.ssh state=directory mode=0700
 
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 - name: add local bin dir for custom scripts
-  file: path={{ ansible_env.HOME }}/.local/bin state=directory recurse=true
+  file: path={{ ansible_facts.user_dir }}/.local/bin state=directory recurse=true
 
 - name: add projects dir for various projects
-  file: path={{ ansible_env.HOME }}/Projects state=directory mode=0700
+  file: path={{ ansible_facts.user_dir }}/Projects state=directory mode=0700
 
 # i'm a fan of some "modern" replacements for various utilities
 # * https://github.com/ibraheemdev/modern-unix
@@ -48,7 +48,7 @@
 
 - name: check if oh-my-zsh is installed
   stat:
-    path: "{{ ansible_env.HOME }}/.oh-my-zsh"
+    path: "{{ ansible_facts.user_dir }}/.oh-my-zsh"
   register: zsh_stat_result
 
 - name: install oh-my-zsh
@@ -65,7 +65,7 @@
 # see https://gist.github.com/Linerre/f11ad4a6a934dcf01ee8415c9457e7b2
 - name: ensure we have the brew path & brew shell completions loaded on startup
   blockinfile:
-    path: "{{ ansible_env.HOME }}/.zprofile"
+    path: "{{ ansible_facts.user_dir }}/.zprofile"
     mode: 0644
     block: |
       eval "$({{ brew_binary_path.stdout }} shellenv)"
@@ -74,10 +74,10 @@
     create: true
 
 - name: symlinking mackup config
-  file: src="{{ ansible_env.HOME }}/dotfiles/ansible/roles/dotfiles/files/mackup.cfg" dest="{{ ansible_env.HOME }}/.mackup.cfg" state=link
+  file: src="{{ ansible_facts.user_dir }}/dotfiles/ansible/roles/dotfiles/files/mackup.cfg" dest="{{ ansible_facts.user_dir }}/.mackup.cfg" state=link
 
 - name: symlinking mackup config directory
-  file: src="{{ ansible_env.HOME }}/dotfiles/ansible/roles/dotfiles/files/.mackup" dest="{{ ansible_env.HOME }}/.mackup" state=link
+  file: src="{{ ansible_facts.user_dir }}/dotfiles/ansible/roles/dotfiles/files/.mackup" dest="{{ ansible_facts.user_dir }}/.mackup" state=link
 
 - name: check if there are dotfiles to symlink
   command: mackup restore --dry-run
@@ -92,17 +92,17 @@
 - name: install community cheat sheets
   git:
     repo: https://github.com/cheat/cheatsheets.git
-    dest: "{{ ansible_env.HOME }}/.config/cheat/cheatsheets/community"
+    dest: "{{ ansible_facts.user_dir }}/.config/cheat/cheatsheets/community"
     version: master
 
 - name: install tmux plugin manager
   git:
     repo: https://github.com/tmux-plugins/tpm
-    dest: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
+    dest: "{{ ansible_facts.user_dir }}/.tmux/plugins/tpm"
     recursive: true
     version: master
 
 - name: install tmux plugins
-  command: "{{ ansible_env.HOME }}/.tmux/plugins/tpm/bin/install_plugins all"
+  command: "{{ ansible_facts.user_dir }}/.tmux/plugins/tpm/bin/install_plugins all"
   register: tmux_plugin_result
   changed_when: "'Installing' in tmux_plugin_result.stdout"

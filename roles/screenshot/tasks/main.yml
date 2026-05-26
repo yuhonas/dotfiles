@@ -17,7 +17,7 @@
 - name: copy over a custom neofetch config for the screenshot
   copy:
     src: config.conf
-    dest: "{{ ansible_env.HOME }}/.config/neofetch/"
+    dest: "{{ ansible_facts.user_dir }}/.config/neofetch/"
     mode: 0644
 
 - name: check for existing xvfb server

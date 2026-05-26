@@ -46,7 +46,7 @@
 - name: install mise versions
   command: mise install
   args:
-    chdir: "{{ ansible_env.HOME }}"
+    chdir: "{{ ansible_facts.user_dir }}"
 
 - name: install python packages
   command: "mise exec -- pip install {{ item }}"
