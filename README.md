@@ -43,7 +43,6 @@ My overbaked, labour of love dotfiles for both osx / archlinux, _mostly_ everyth
 - [tealdeer](https://github.com/dbrgn/tealdeer) — fast `tldr` community man-page summaries
 - [The Silver Searcher](https://github.com/ggreer/the_silver_searcher) — code search (`ag`)
 - [thefuck](https://github.com/nvbn/thefuck) — suggests fixes after mistyped commands
-- [ugrep](https://github.com/Genivia/ugrep) — enhanced grep
 - [wget](https://www.gnu.org/software/wget/) — non-interactive HTTP downloads
 - [zoxide](https://github.com/ajeetdsouza/zoxide) — smart directory jumping (`z`)
 
@@ -62,13 +61,13 @@ My overbaked, labour of love dotfiles for both osx / archlinux, _mostly_ everyth
 - [Bruno](https://www.usebruno.com/) — open-source API client (collections on disk)
 - [btop](https://github.com/aristocratos/btop) — resource monitor in the terminal
 - [ctags](https://ctags.io/) — tag indexes for source navigation
-- [Docker](https://www.docker.com/) — container runtime
 - [entr](https://eradman.com/entrproject/) — run commands when files change
 - [gh](https://cli.github.com/) — GitHub CLI
 - [ghq](https://github.com/x-motemen/ghq) — clone and organize remote repos locally
 - [git-delta](https://github.com/dandavison/delta) — syntax-highlighted git diffs and pagers
 - [gnupg](https://www.gnupg.org/) — encryption and signing
 - [just](https://github.com/casey/just) — command runner / makefile alternative
+- [lazygit](https://github.com/jesseduffield/lazygit) — terminal UI for git
 - [mise](https://mise.jdx.dev/) — polyglot runtime and tool version manager
 - [nmap](https://nmap.org/) — network discovery and port scanning
 - [OrbStack](https://orbstack.dev/) — fast Docker and Linux VMs
@@ -113,7 +112,6 @@ My overbaked, labour of love dotfiles for both osx / archlinux, _mostly_ everyth
 ### Web browsers & privacy
 
 - [Brave Browser](https://brave.com/) — Chromium-based browser with ad blocking
-- [Google Chrome](https://www.google.com/chrome/) — Chromium-based browser
 - [Tor Browser](https://www.torproject.org/) — anonymous browsing over Tor
 - [Zen Browser](https://zen-browser.app/) — privacy- and productivity-focused browser
 
