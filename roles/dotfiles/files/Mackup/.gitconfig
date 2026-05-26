@@ -60,7 +60,6 @@ trustExitCode = true
 	repo = /Users/yuhonas/zsh/zsh-autosuggestions
 	repo = /Users/yuhonas/zsh/zsh-completions
 	repo = /Users/yuhonas/zsh/zsh-you-should-use
-	repo = /Users/yuhonas/zsh/fzf-fasd
 	repo = /Users/yuhonas/zsh/zsh-autocomplete
 	repo = /Users/yuhonas/zsh/DarrinTisdale/zsh-aliases-exa
 	repo = /Users/yuhonas/zsh/MichaelAquilina/zsh-you-should-use

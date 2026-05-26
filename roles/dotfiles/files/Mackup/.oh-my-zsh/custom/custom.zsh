@@ -142,20 +142,6 @@ zle -N fzf_cd_stack_widget fzf_cd_stack
 # Bind the widget to Ctrl+G
 bindkey '^G' fzf_cd_stack_widget
 
-fasd-fzf-cd-editor() {
-	item="$(fasd -Rl "$1" | fzf -1 -0 --no-sort +m)"
-	if [[ -d ${item} ]]; then
-		cd "${item}"
-	elif [[ -f ${item} ]]; then
-		($EDITOR "${item}" </dev/tty)
-	else
-		return 1
-	fi
-	zle accept-line
-}
-
-zle -N fasd-fzf-cd-editor
-
 if (( $+commands[atuin] )); then
   eval "$(atuin init zsh)"
 fi

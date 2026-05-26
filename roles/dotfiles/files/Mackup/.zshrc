@@ -37,7 +37,6 @@ znap source yuhonas/zsh-ansimotd
 # znap source tose inm-doerr/zsh_codex
 
 # znap source marlonrichert/zsh-autocomplete
-# znap source wookayin/fzf-fasd
 
 ## My customizations
 source $HOME/.oh-my-zsh/custom/custom.zsh
