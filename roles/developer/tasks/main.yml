@@ -21,6 +21,7 @@
       - imagemagick # for pywal amongst other useful image manipulations
       - jq # command-line json processor
       - just # generic task runner
+      - lazygit # git tui
       - lnav # better log file navigator
       - md5deep
       - mise # version manager
@@ -35,10 +36,10 @@
       # - cube2222/octosql/octosql
       - readline
       - redis
+      - ripgrep  # like grep but better, a dependancy on doommacs, also just handy to have around
       - ruby-build # for mise
       - sqlite
       - xh # developer friendly curl alternative inspired by httpie
-      - ugrep # grep replacement
       - uv # pip replacement https://github.com/astral-sh/uv
       - w3m # text based browser
 
