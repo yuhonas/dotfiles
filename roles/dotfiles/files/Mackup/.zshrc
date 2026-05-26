@@ -16,7 +16,6 @@ znap source ohmyzsh/ohmyzsh plugins/mise
 znap source ohmyzsh/ohmyzsh plugins/colored-man-pages
 znap source ohmyzsh/ohmyzsh plugins/cp
 znap source ohmyzsh/ohmyzsh plugins/extract
-znap source ohmyzsh/ohmyzsh plugins/fasd
 znap source ohmyzsh/ohmyzsh plugins/fzf
 znap source ohmyzsh/ohmyzsh plugins/git
 znap source ohmyzsh/ohmyzsh plugins/history

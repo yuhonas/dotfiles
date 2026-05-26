@@ -25,7 +25,7 @@ else
 	# Download and install linuxbrew
 	if [[ ! -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
 		# archlinux
-		sudo pacman --sync --refresh --noconfirm --needed \
+		sudo pacman --sync --refresh --noconfirm --needed --disable-sandbox-syscalls \
 			base-devel \
 			git \
 			ca-certificates \
