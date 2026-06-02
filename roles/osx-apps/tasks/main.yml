@@ -10,6 +10,7 @@
     - brave-browser
     - bruno # open source ide for exploring and testing apis
     - caffeine # for preventing sleep when doing long tasks
+    - cryptomator # for encrypting files
     - karabiner-elements # keyboard remapping
     - google-drive
     # - handbrake
@@ -18,11 +19,11 @@
     - obsidian # awesome note taking app
     - rectangle # for window management
     # - signal
-    - spotify
+    - spotify # music streaming
     - raycast # spotlight replacement
-    - tor-browser
-    - uninstallpkg
-    - vlc
+    - tor-browser # anonymous browsing over tor
+    - uninstallpkg # for uninstalling packages from the command line
+    - vlc # media player
     - zappy # better screenshot tool
     - zen # privacy and productivity focussed web browser
 
@@ -38,7 +39,7 @@
   homebrew_cask: name={{ item }} state=present
   with_items:
     - ghostty # terminal app optimized for mac silicon
-    - kitty
+    - kitty # terminal emulator
     - orbstack # docker replacement optimized for mac silicon
     - postico # postgres client
     - visual-studio-code
@@ -90,10 +91,3 @@
 
 - name: restart dock to apply changes
   ansible.builtin.shell: killall Dock
-
-# - name: remove legacy ~/Sites dir if it exists and is empty
-#   file: path={{ ansible_facts.user_dir }}/Sites state=absent
-#   when: sites_dir.stat.exists and sites_dir.stat.isdir and sites_dir.stat.size == 0
-#   vars:
-#     sites_dir: "{{ lookup('ansible.builtin.stat', ansible_env.HOME + '/Sites') }}"
-
