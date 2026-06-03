@@ -1,13 +1,22 @@
 ---
 - name: ensure we have an .ssh dir with the correct perms
-  file: path={{ ansible_facts.user_dir }}/.ssh state=directory mode=0700
+  ansible.builtin.file:
+    path: "{{ ansible_facts.user_dir }}/.ssh"
+    state: directory
+    mode: "0700"
 
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 - name: add local bin dir for custom scripts
-  file: path={{ ansible_facts.user_dir }}/.local/bin state=directory recurse=true
+  ansible.builtin.file:
+    path: "{{ ansible_facts.user_dir }}/.local/bin"
+    state: directory
+    recurse: true
 
 - name: add projects dir for various projects
-  file: path={{ ansible_facts.user_dir }}/Projects state=directory mode=0700
+  ansible.builtin.file:
+    path: "{{ ansible_facts.user_dir }}/Projects"
+    state: directory
+    mode: "0700"
 
 # i'm a fan of some "modern" replacements for various utilities
 # * https://github.com/ibraheemdev/modern-unix
@@ -47,62 +56,68 @@
     update_homebrew: true
 
 - name: check if oh-my-zsh is installed
-  stat:
+  ansible.builtin.stat:
     path: "{{ ansible_facts.user_dir }}/.oh-my-zsh"
-  register: zsh_stat_result
+  register: dotfiles_zsh_stat_result
 
 - name: install oh-my-zsh
-  include_tasks:
+  ansible.builtin.include_tasks:
     file: oh-my-zsh.yml
-  when: not zsh_stat_result.stat.exists
+  when: not dotfiles_zsh_stat_result.stat.exists
 
 - name: find brew binary path
-  command: which brew
+  ansible.builtin.command: which brew
   changed_when: false
-  register: brew_binary_path
+  register: dotfiles_brew_binary_path
 
 # This *should* be in zshenv however due to issues with path reordering in macos it's not
 # see https://gist.github.com/Linerre/f11ad4a6a934dcf01ee8415c9457e7b2
 - name: ensure we have the brew path & brew shell completions loaded on startup
-  blockinfile:
+  ansible.builtin.blockinfile:
     path: "{{ ansible_facts.user_dir }}/.zprofile"
-    mode: 0644
+    mode: "0644"
     block: |
-      eval "$({{ brew_binary_path.stdout }} shellenv)"
+      eval "$({{ dotfiles_brew_binary_path.stdout }} shellenv)"
       export FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
     insertbefore: BOF
     create: true
 
 - name: symlinking mackup config
-  file: src="{{ ansible_facts.user_dir }}/dotfiles/ansible/roles/dotfiles/files/mackup.cfg" dest="{{ ansible_facts.user_dir }}/.mackup.cfg" state=link
+  ansible.builtin.file:
+    src: "{{ ansible_facts.user_dir }}/dotfiles/ansible/roles/dotfiles/files/mackup.cfg"
+    dest: "{{ ansible_facts.user_dir }}/.mackup.cfg"
+    state: link
 
 - name: symlinking mackup config directory
-  file: src="{{ ansible_facts.user_dir }}/dotfiles/ansible/roles/dotfiles/files/.mackup" dest="{{ ansible_facts.user_dir }}/.mackup" state=link
+  ansible.builtin.file:
+    src: "{{ ansible_facts.user_dir }}/dotfiles/ansible/roles/dotfiles/files/.mackup"
+    dest: "{{ ansible_facts.user_dir }}/.mackup"
+    state: link
 
 - name: check if there are dotfiles to symlink
-  command: mackup restore --dry-run
+  ansible.builtin.command: mackup restore --dry-run
   changed_when: false
-  register: mackup_result
+  register: dotfiles_mackup_result
 
 - name: restore dotfile config via mackup
-  command: mackup restore --force
-  when: mackup_result.stdout | length > 0
+  ansible.builtin.command: mackup restore --force
+  when: dotfiles_mackup_result.stdout | length > 0
   changed_when: false # TODO: There is an issue with mackup restore not symlinking files, need to fix
 
 - name: install community cheat sheets
-  git:
+  ansible.builtin.git:
     repo: https://github.com/cheat/cheatsheets.git
     dest: "{{ ansible_facts.user_dir }}/.config/cheat/cheatsheets/community"
     version: master
 
 - name: install tmux plugin manager
-  git:
+  ansible.builtin.git:
     repo: https://github.com/tmux-plugins/tpm
     dest: "{{ ansible_facts.user_dir }}/.tmux/plugins/tpm"
     recursive: true
     version: master
 
 - name: install tmux plugins
-  command: "{{ ansible_facts.user_dir }}/.tmux/plugins/tpm/bin/install_plugins all"
-  register: tmux_plugin_result
-  changed_when: "'Installing' in tmux_plugin_result.stdout"
+  ansible.builtin.command: "{{ ansible_facts.user_dir }}/.tmux/plugins/tpm/bin/install_plugins all"
+  register: dotfiles_tmux_plugin_result
+  changed_when: "'Installing' in dotfiles_tmux_plugin_result.stdout"

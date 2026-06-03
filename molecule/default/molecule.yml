@@ -5,11 +5,11 @@ dependency:
   name: galaxy
   options:
     requirements-file: requirements.yml
-# lint: |
-#   set -e
-#   # yamllint .
-#   ansible-lint -x formatting playbook.yml roles/
-#   flake8
+lint: |
+  set -e
+  yamllint .
+  ansible-lint -x formatting playbook.yml prepare.yml roles/ molecule/default/
+  flake8
 platforms:
   - name: molecule_instance
     image: "archlinux/archlinux:latest"

@@ -21,20 +21,20 @@
     mode: 0644
 
 - name: check for existing xvfb server
-  command: xdpyinfo -display :{{ display_server }}
-  register: xserver_running
-  failed_when: xserver_running.rc > 1 # 1 will be returned when a display server is not found
+  ansible.builtin.command: xdpyinfo -display :{{ screenshot_display_server }}
+  register: screenshot_xserver_running
+  failed_when: screenshot_xserver_running.rc > 1 # 1 will be returned when a display server is not found
   changed_when: false
 
 - name: start xvfb server
-  shell: "Xvfb :{{ display_server }} -screen 0 640x480x24 &"
-  when: '"unable to open display" in xserver_running.stderr'
+  ansible.builtin.shell: "Xvfb :{{ screenshot_display_server }} -screen 0 640x480x24 &"
+  when: '"unable to open display" in screenshot_xserver_running.stderr'
   changed_when: false
 
 - name: start terminal
-  shell: konsole --hide-menubar --hide-tabbar --noclose --fullscreen -e neofetch &
+  ansible.builtin.shell: konsole --hide-menubar --hide-tabbar --noclose --fullscreen -e neofetch &
   environment:
-    DISPLAY: :{{ display_server }}
+    DISPLAY: :{{ screenshot_display_server }}
   changed_when: false
 
 - name: get a temporary filename for the screenshot
@@ -45,9 +45,9 @@
   changed_when: false
 
 - name: take a screenshot
-  shell: import -trim -window root {{ screenshot_file.path }}
+  ansible.builtin.shell: import -trim -window root {{ screenshot_file.path }}
   environment:
-    DISPLAY: :{{ display_server }}
+    DISPLAY: :{{ screenshot_display_server }}
 
 - name: crop the screenshot
   shell: mogrify -crop 620x250+0+0 {{ screenshot_file.path }}

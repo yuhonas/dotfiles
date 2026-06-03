@@ -3,25 +3,26 @@
   hosts: all
   tasks:
     - name: create dotfiles directory
-      file:
+      ansible.builtin.file:
         path: "{{ ansible_facts.user_dir }}/dotfiles"
         state: directory
+        mode: "0755"
 
     - name: copy ansible playbook for execution
-      command: docker cp {{ playbook_dir }}/. {{ ansible_facts['fqdn'] }}:{{ ansible_facts['user_dir'] }}/dotfiles/ansible
+      ansible.builtin.command: docker cp {{ playbook_dir }}/. {{ ansible_facts['fqdn'] }}:{{ ansible_facts['user_dir'] }}/dotfiles/ansible
       delegate_to: 127.0.0.1
 
     - name: set permissions on dotfiles directory
-      file:
+      ansible.builtin.file:
         path: "{{ ansible_facts.user_dir }}/dotfiles"
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"
         mode: "0755"
-        recurse: yes
-      become: yes
+        recurse: true
+      become: true
 
     - name: bootstrap the machine
-      command: "bash {{ ansible_facts.user_dir }}/dotfiles/ansible/bootstrap.sh"
+      ansible.builtin.command: "bash {{ ansible_facts.user_dir }}/dotfiles/ansible/bootstrap.sh"
       environment:
-        NO_PROVISION: 1
+        NO_PROVISION: "1"
   tags: minimal

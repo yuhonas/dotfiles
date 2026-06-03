@@ -1,32 +1,33 @@
 ---
 - name: create temporary install directory for oh-my-zsh
-  tempfile:
+  ansible.builtin.tempfile:
     state: directory
     prefix: oh-my-zsh
-  register: tempdir
+  register: dotfiles_tempdir
 
 - name: get oh-my-zsh install script
-  get_url:
+  ansible.builtin.get_url:
     url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
-    dest: "{{ tempdir.path }}/install.sh"
+    dest: "{{ dotfiles_tempdir.path }}/install.sh"
+    mode: "0755"
 
 - name: execute oh my zsh setup script
-  command: "sh {{ tempdir.path }}/install.sh"
+  ansible.builtin.command: "sh {{ dotfiles_tempdir.path }}/install.sh"
 
 - name: check for zsh binary path
-  shell: which zsh
-  register: zsh_path
+  ansible.builtin.shell: which zsh
+  register: dotfiles_zsh_path
   changed_when: false
 
 - name: ensure zsh is an allowable shell
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/shells
-    regexp: "{{ zsh_path.stdout | regex_escape }}"
+    regexp: "{{ dotfiles_zsh_path.stdout | regex_escape }}"
     insertafter: EOF
     state: present
-    line: "{{ zsh_path.stdout }}"
+    line: "{{ dotfiles_zsh_path.stdout }}"
   become: true
 
 - name: setting zsh as the default shell
-  shell: "chsh --shell {{ zsh_path.stdout }} {{ ansible_user  }}"
+  ansible.builtin.shell: "chsh --shell {{ dotfiles_zsh_path.stdout }} {{ ansible_user  }}"
   become: true

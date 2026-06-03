@@ -1,8 +1,10 @@
 ---
 - name: linux applications
-  package: name={{ item }} state=present
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
   become: true
-  with_items:
+  loop:
     - community/rofi-calc
     - docker
     - ksshaskpass  # https://wiki.archlinux.org/index.php/KDE_Wallet#Using_the_KDE_Wallet_to_store_ssh_key_passphrases
@@ -14,60 +16,73 @@
     - xsel  # for commandline clipboard management
     - yay  # AUR Helper written in go
     - yazi  # visual file manager
+
 - name: create a user .config dir
-  file: path="{{ ansible_facts.user_dir }}/.config" state=directory mode=0644
+  ansible.builtin.file:
+    path: "{{ ansible_facts.user_dir }}/.config"
+    state: directory
+    mode: "0644"
 
 - name: create user dir for systemd inits
-  file: path="{{ ansible_facts.user_dir }}/.config/systemd/user" state=directory recurse=true owner={{ ansible_user }} mode=0644
+  ansible.builtin.file:
+    path: "{{ ansible_facts.user_dir }}/.config/systemd/user"
+    state: directory
+    recurse: true
+    owner: "{{ ansible_user }}"
+    mode: "0644"
 
 - name: copying ssh-agent systemd init
-  copy:
+  ansible.builtin.copy:
     src: ssh-agent.service
     dest: "{{ ansible_facts.user_dir }}/.config/systemd/user/ssh-agent.service"
     owner: "{{ ansible_user }}"
-    mode: 0644
+    mode: "0644"
 
 - name: install tlp for power management
-  package: name={{ item }} state=present
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
   become: true
-  with_items:
+  loop:
     - tlp
     - tlp-rdw
 
 - name: ensure user has access to touch inputs
-  user:
+  ansible.builtin.user:
     name: "{{ ansible_user }}"
     groups: input
     append: true
   become: true
 
 - name: install libinput for touchpad gestures
-  package: name={{ item }} state=present
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
   become: true
-  with_items:
+  loop:
     - xdotool
     - libinput-gestures
 
 - name: check if libinput-gestures is installed
-  command: libinput-gestures-setup status
+  ansible.builtin.command: libinput-gestures-setup status
   register: libinput_installed
   ignore_errors: true
 
 - name: create temporary installation directory
-  tempfile:
+  ansible.builtin.tempfile:
     state: directory
   register: temp_build_directory
   when: libinput_installed is failed
 
 - name: cloning lib-input-gestures for installation
-  git:
+  ansible.builtin.git:
     repo: 'https://github.com/bulletmark/libinput-gestures.git'
     dest: "{{ temp_build_directory.path }}"
     version: master
   when: libinput_installed is failed
 
 - name: installing lib-input-gestures
-  command:
+  ansible.builtin.command:
     cmd: make install
     chdir: "{{ temp_build_directory.path }}"
     creates: /usr/bin/libinput-gestures
@@ -75,16 +90,16 @@
   when: libinput_installed is failed
 
 - name: get libinput status
-  command: libinput-gestures-setup status
+  ansible.builtin.command: libinput-gestures-setup status
   register: libinput_status
   changed_when: false
 
 - name: set libinput to autostart
-  command: libinput-gestures-setup autostart
+  ansible.builtin.command: libinput-gestures-setup autostart
   when: '"is not set to autostart" in libinput_status.stdout'
 
 - name: set libinput to start
-  command: libinput-gestures-setup start
+  ansible.builtin.command: libinput-gestures-setup start
   when: '"is not running" in libinput_status.stdout'
 
 # - name: disable quiet splash during bootup
@@ -114,11 +129,13 @@
 
 # https://www.addictivetips.com/ubuntu-linux-tips/fix-media-keys-not-working-on-linux/
 - name: install playerctl for full media key support
-  package: name=playerctl state=present
+  ansible.builtin.package:
+    name: playerctl
+    state: present
   become: true
 
 - name: add a docker group
-  group:
+  ansible.builtin.group:
     name: docker
     state: present
     system: true
@@ -126,27 +143,27 @@
 
 #  https://github.com/docker/docker-snap/issues/1
 - name: ensure user has access to docker
-  user:
+  ansible.builtin.user:
     name: "{{ ansible_user }}"
     groups: docker
     append: true
   become: true
 
 - name: check for installed apps
-  command: pamac list -i
+  ansible.builtin.command: pamac list -i
   register: installed_apps
   changed_when: false
 
 - name: install google-chrome
-  command: pamac build --keep --no-confirm google-chrome
+  ansible.builtin.command: pamac build --keep --no-confirm google-chrome
   when: '"google-chrome" not in installed_apps.stdout'
 
 - name: install spotify
-  command: pamac build --keep --no-confirm spotify
+  ansible.builtin.command: pamac build --keep --no-confirm spotify
   when: '"spotify" not in installed_apps.stdout'
 
 - name: check for an intel graphics card
-  shell: |
+  ansible.builtin.shell: |
     set -o pipefail
     lspci | grep VGA
   args:
@@ -155,21 +172,22 @@
   changed_when: false
 
 - name: copying x11 config for intel graphics card
-  copy:
+  ansible.builtin.copy:
     src: 20-intel.conf
     dest: /usr/share/X11/xorg.conf.d/
     backup: true
-    mode: 0644
+    mode: "0644"
   become: true
   when: '"Intel Corporation" in vga_card.stdout'
 
 # - name: other applications
-#   package: name={{ item }} state=present
+#   ansible.builtin.package:
+#     name: "{{ item }}"
+#     state: present
 #   become: true
-#   with_items:
+#   loop:
 #     - adobe-source-code-pro-fonts
 #     - nerd-fonts-complete
 #     - neomutt
 #     - polybar
 #     - community/sxiv
-

@@ -6,19 +6,28 @@
 
   tasks:
     - name: get default shell of ansible user
-      shell: "cat /etc/passwd | grep {{ ansible_user }}"
+      ansible.builtin.shell: |
+        set -o pipefail
+        cat /etc/passwd | grep {{ ansible_user }}
+      args:
+        executable: /bin/bash
       register: ansible_user_shell
 
     - name: get installed zsh module count
-      shell: "zsh -ci 'znap status | wc -l'"
+      ansible.builtin.shell: |
+        set -o pipefail
+        zsh -ci 'znap status | wc -l'
+      args:
+        executable: /bin/bash
       register: zsh_installed_module_count
 
     - name: run brew from zsh
-      shell: "zsh -c 'brew --version'"
-      ignore_errors: yes
+      ansible.builtin.shell: "zsh -c 'brew --version'"
+      ignore_errors: true
       register: brew_from_zsh
 
-    - assert:
+    - name: assert dotfiles basics are configured
+      ansible.builtin.assert:
         that:
           - "'zsh' in ansible_user_shell.stdout"
           - "'10' in zsh_installed_module_count.stdout_lines"

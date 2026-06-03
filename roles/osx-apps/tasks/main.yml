@@ -1,9 +1,13 @@
+---
 - name: update homebrew
-  homebrew: update_homebrew=yes
+  community.general.homebrew:
+    update_homebrew: true
 
 - name: applications
-  homebrew_cask: name={{ item }} state=present
-  with_items:
+  community.general.homebrew_cask:
+    name: "{{ item }}"
+    state: present
+  loop:
     - 1password
     # - amethyst # tiling window manager
     # - bitbar # for showing custom scripts in the menu bar
@@ -28,16 +32,20 @@
     - zen # privacy and productivity focussed web browser
 
 - name: other helpful command line tools
-  homebrew: name={{ item }} state=present
-  with_items:
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: present
+  loop:
     - bash  # the version of bash that ships with macos (3.2.x) is outdated
     - dockutil # for managing dock items from the command line
     - rsync # the version of rsync that ships with macos (2.6.9) is outdated
     - switchaudio-osx # for switching audio devices from the command line
 
 - name: developer applications
-  homebrew_cask: name={{ item }} state=present
-  with_items:
+  community.general.homebrew_cask:
+    name: "{{ item }}"
+    state: present
+  loop:
     - ghostty # terminal app optimized for mac silicon
     - kitty # terminal emulator
     - orbstack # docker replacement optimized for mac silicon
@@ -46,22 +54,27 @@
     # - warp
 
 - name: ensure we have a directory for custom key bindings
-  file: path={{ ansible_facts.user_dir }}/Library/KeyBindings state=directory mode=700
+  ansible.builtin.file:
+    path: "{{ ansible_facts.user_dir }}/Library/KeyBindings"
+    state: directory
+    mode: "0700"
 
 # copy custom macos keybindings
 # symlinking causes issues in some apps
 # see https://itectec.com/askdifferent/textedit-key-bindings-modified-in-defaultkeybinding-dict-stopped-working/
 - name: copying DefaultKeyBinding for custom key bindings in osx text inputs
-  copy:
+  ansible.builtin.copy:
     src: KeyBindings/DefaultKeyBinding.dict
     dest: "{{ ansible_facts.user_dir }}/Library/KeyBindings"
-    mode: 0644
+    mode: "0644"
 
 # NOTE: A lot of these seem to be broken/unmaintained
 # see https://github.com/sindresorhus/quick-look-plugins
 # - name: quicklook plugins
-#   homebrew_cask: name={{ item }} state=present
-#   with_items:
+#   community.general.homebrew_cask:
+#     name: "{{ item }}"
+#     state: present
+#   loop:
 #     - betterzip
 #    - qlmarkdown
 #     - qlcolorcode # https://github.com/anthonygelibert/QLColorCode/issues/88#issuecomment-927783435
@@ -69,8 +82,10 @@
 #     - quicklook-json # TODO: Verify this works on M1/Apple Silicon
 
 - name: install third party fonts used in terminal and other places
-  homebrew_cask: name={{ item }} state=present
-  with_items:
+  community.general.homebrew_cask:
+    name: "{{ item }}"
+    state: present
+  loop:
     - font-fira-code
     - font-hack
     - font-jetbrains-mono
@@ -80,7 +95,7 @@
 
 - name: add desired dock items
   ansible.builtin.shell: dockutil --add '{{ item }}' --no-restart
-  with_items:
+  loop:
       - /Applications/Calendar.app
       - /Applications/Brave Browser.app
       - Finder

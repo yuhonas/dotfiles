@@ -1,4 +1,5 @@
 ---
 rules:
   line-length: disable
-  comments: disable
+  comments:
+    min-spaces-from-content: 1

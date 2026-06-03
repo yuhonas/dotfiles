@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: classify hosts by os distribution
+  hosts: all
   tasks:
     - name: classify hosts depending on their os distribution
       group_by:
@@ -7,19 +8,22 @@
       changed_when: false
   tags: minimal
 
-- hosts: all
+- name: configure dotfiles and developer tools
+  hosts: all
   connection: local
   roles:
     - {role: dotfiles, tags: [minimal]}
     - developer
 
-- hosts: os_Darwin
+- name: configure macos applications and defaults
+  hosts: os_Darwin
   connection: local
   roles:
    - {role: osx-apps, tags: [osx]}
    - {role: osx-defaults, tags: [osx]}
 
-- hosts: os_Archlinux
+- name: configure arch linux applications
+  hosts: os_Archlinux
   connection: local
   roles:
     - {role: linux-apps, tags: []}
