@@ -13,6 +13,28 @@
         executable: /bin/bash
       register: ansible_user_shell
 
+    - name: gather essential CLI tools are on PATH in zsh
+      ansible.builtin.shell: "command -v {{ item }}"
+      loop:
+        - eza
+        - git
+        - nvim
+        - starship
+        - zoxide
+      register: verify_tools
+      changed_when: false
+
+    # NOTE: This is just a non-exhaustive sanity check
+    - name: sanity check essential CLI tools returned did not fail
+      ansible.builtin.assert:
+        that:
+          - item.failed == false
+        fail_msg: "{{ item.item }} not found in zsh PATH"
+      loop: "{{ verify_tools.results }}"
+      loop_control:
+        label: "{{ item.item }}"
+
+
     - name: get installed zsh module count
       ansible.builtin.shell: |
         set -o pipefail
