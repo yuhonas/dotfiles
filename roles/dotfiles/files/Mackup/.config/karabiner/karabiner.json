@@ -61,7 +61,7 @@
                         "description": "Caps Lock → Hyper Key (⌃⌥⇧⌘) (Escape if alone!)",
                         "manipulators": [
                             {
-                                "from": { "key_code": "caps_lock" },
+                                "from": { "key_code": "escape" },
                                 "parameters": { "basic.to_if_alone_timeout_milliseconds": 500 },
                                 "to": [
                                     {
@@ -232,6 +232,14 @@
                 }
             ],
             "fn_function_keys": [
+                {
+                    "from": { "key_code": "f1" },
+                    "to": [{ "apple_vendor_keyboard_key_code": "brightness_down" }]
+                },
+                {
+                    "from": { "key_code": "f2" },
+                    "to": [{ "apple_vendor_keyboard_key_code": "brightness_up" }]
+                },
                 {
                     "from": { "key_code": "f3" },
                     "to": [{ "key_code": "mission_control" }]
