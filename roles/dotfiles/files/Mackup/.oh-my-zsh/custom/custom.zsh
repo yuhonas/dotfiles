@@ -52,7 +52,7 @@ bindkey "^[H" _tldr
 
 # less input pre-processing through lesspipe
 # https://manpages.debian.org/jessie/less/lesspipe.1.en.html
-export LESSOPEN="|/usr/local/bin/lesspipe.sh %s"
+export LESSOPEN="|$(brew --prefix)/bin/lesspipe.sh %s"
 export LESS_ADVANCED_PREPROCESSOR=1
 
 # cd-gitroot alias
